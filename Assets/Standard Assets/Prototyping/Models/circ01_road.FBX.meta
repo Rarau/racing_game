@@ -10,6 +10,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: circuit01_poly
+    4300002: circ01_road
     9500000: //RootNode
   materials:
     importMaterials: 1
