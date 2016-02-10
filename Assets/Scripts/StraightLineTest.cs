@@ -24,7 +24,7 @@ public class StraightLineTest : MonoBehaviour {
     public float engineTorque;
     public float throttlePos;
     public float maxTorque;
-
+    public float peakTorque  = 100f;
     public AnimationCurve torqueRPMCurve;
 
     public float gearRatio = 2.66f; // First gear hardcoded
@@ -50,12 +50,13 @@ public class StraightLineTest : MonoBehaviour {
         wheels[1].driveTorque = engineTorque;
     }
 
+    public float normalizedRPM;
     float GetMaxTorque(float currentRPM)
     {
-        float normalizedRPM = (currentRPM - rpmMin) / (rpmMax - rpmMin);
+        normalizedRPM = (currentRPM - rpmMin) / (rpmMax - rpmMin);
         float val = torqueRPMCurve.Evaluate(normalizedRPM);
 
-        return val * 3070.0f;
+        return val * peakTorque;
     }
 	// Update is called once per frame
 	void FixedUpdate ()

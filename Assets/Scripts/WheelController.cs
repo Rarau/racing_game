@@ -31,6 +31,7 @@ public class WheelController : MonoBehaviour {
 
     public Vector3 localVel;
 
+    public AnimationCurve frictionCurve;
 
 	// Update is called once per frame
 	void Update () 
@@ -79,7 +80,8 @@ public class WheelController : MonoBehaviour {
         //transform.position += Vector3.right * linearVel * Time.fixedDeltaTime;
 
 
-        float tractionForce = slipRatio * tractionCoeff;
+        //float tractionForce = slipRatio * tractionCoeff;
+        float tractionForce = frictionCurve.Evaluate(Mathf.Abs(slipRatio)) * tractionCoeff * Mathf.Sign(slipRatio);
         tractionForce = Mathf.Clamp(tractionForce, -maxTractionAmt, maxTractionAmt);
         tractionTorque = tractionForce / radius;
 
