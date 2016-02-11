@@ -54,7 +54,7 @@ public class StraightLineTest : MonoBehaviour {
     float GetMaxTorque(float currentRPM)
     {
         normalizedRPM = (currentRPM - rpmMin) / (rpmMax - rpmMin);
-        float val = torqueRPMCurve.Evaluate(normalizedRPM);
+        float val = torqueRPMCurve.Evaluate(Mathf.Abs(normalizedRPM)) * Mathf.Sign(normalizedRPM);
 
         return val * peakTorque;
     }
@@ -66,7 +66,7 @@ public class StraightLineTest : MonoBehaviour {
 
         Vector3 velocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
        // Vector3 fTraction = transform.forward * (accel ? engineForce : 0.0f);
-        Vector3 fDrag = -cDrag * rigidbody.velocity;//velocity.z * transform.forward;
+        Vector3 fDrag = -cDrag * rigidbody.velocity * rigidbody.velocity.magnitude;//velocity.z * transform.forward;
         Vector3 fRoll = -cRoll * velocity.z * transform.forward;
 
         Vector3 fLong = fDrag + fRoll;// +fTraction;  // Total longitudinal force

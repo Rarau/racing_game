@@ -46,12 +46,14 @@ public class WheelController : MonoBehaviour {
 
     void SimulateTraction()
     {
+        // TO-DO: Change this to wheel space
         localVel = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
         //totalTorque = driveTorque + tractionTorque + brakeTorque;
 
         float wheelInertia = mass * radius * radius * 0.5f;    // Mass is 70.0kg
-        totalTorque = (driveTorque - brakeTorque);
-        float wheelAngularAccel = (totalTorque / Time.fixedDeltaTime) / wheelInertia;
+        totalTorque = (-1.0f * Mathf.Sign(driveTorque) * tractionTorque + driveTorque - brakeTorque);
+        //totalTorque = driveTorque - brakeTorque;
+        float wheelAngularAccel = (totalTorque) / wheelInertia;
 
         // If the wheel is driven by the engine
         if (driveTorque != 0.0f)
