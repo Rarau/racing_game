@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 [RequireComponent(typeof(Rigidbody))]
 public class StraightLineTest : MonoBehaviour {
@@ -29,6 +30,12 @@ public class StraightLineTest : MonoBehaviour {
 
     public float gearRatio = 2.66f; // First gear hardcoded
     public float differentialRatio = 3.42f;
+    public float steeringSensitivity = 0.5f;
+
+    public AnimationCurve steeringSensitityCurve;
+    public float maxSpeed;
+
+    public float brakingPower = 100f;
 
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
@@ -38,8 +45,24 @@ public class StraightLineTest : MonoBehaviour {
     {
         accel = Input.GetKey(KeyCode.W);
         float throttlePos = Input.GetAxis("Vertical");
+        if(Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("Brakes");
+            wheels[0].brakeTorque = brakingPower;
+            wheels[1].brakeTorque = brakingPower;
+            wheels[2].brakeTorque = brakingPower;
+            wheels[3].brakeTorque = brakingPower;
 
-        float wheelRotRate = wheels[0].AngularVelocity;
+        }
+        else
+        {
+            wheels[0].brakeTorque = 0.0f;
+            wheels[1].brakeTorque = 0.0f;
+            wheels[2].brakeTorque = 0.0f;
+            wheels[3].brakeTorque = 0.0f;
+        }
+        float wheelRotRate = 0.5f * (wheels[0].AngularVelocity + wheels[1].AngularVelocity);
+
         rpm = wheelRotRate * gearRatio * differentialRatio * 60.0f / (2.0f * Mathf.PI);
         rpm = Mathf.Clamp(rpm, rpmMin, rpmMax);
 
@@ -58,28 +81,66 @@ public class StraightLineTest : MonoBehaviour {
 
         return val * peakTorque;
     }
+
+    float steeringAngle = 0.0f;
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        steeringAngle = Input.GetAxis("Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 90.0f;
+        steeringAngle = Mathf.Clamp(steeringAngle, -90.0f, 90.0f);
+        //wheels[0].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
+        //wheels[1].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
+        //wheels[0].transform.localRotation = Quaternion.Euler(0.0f, steeringAngle, 0.0f);
+        //wheels[1].transform.localRotation = Quaternion.Euler(0.0f, steeringAngle, 0.0f);
 
-
+        wheels[0].steeringAngle = steeringAngle;
+        wheels[1].steeringAngle = steeringAngle;
 
         Vector3 velocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
        // Vector3 fTraction = transform.forward * (accel ? engineForce : 0.0f);
-        Vector3 fDrag = -cDrag * rigidbody.velocity * rigidbody.velocity.magnitude;//velocity.z * transform.forward;
+        Vector3 fDrag = -cDrag * velocity.z * velocity.z * transform.forward;
         Vector3 fRoll = -cRoll * velocity.z * transform.forward;
 
         Vector3 fLong = fDrag + fRoll;// +fTraction;  // Total longitudinal force
 
         Vector3 acceleration = fLong / carMass;
-
-        rigidbody.velocity += acceleration * Time.deltaTime;
+        Debug.DrawLine(transform.position, transform.position + acceleration, Color.magenta);
+        rigidbody.velocity += acceleration * Time.deltaTime;//rigidbody.transform.TransformDirection( acceleration) * Time.deltaTime;
+        //rigidbody.AddForce( rigidbody.transform.TransformDirection(fLong));
 
 	}
 
 
 
+    void OnGUI()
+    {
+        
+        GUILayout.BeginArea(new Rect(0f, 0f, 500f, 300f), EditorStyles.helpBox);
+        GUILayout.BeginHorizontal();
 
+        GUILayout.BeginVertical();
+        GUILayout.Label("Wheel");
+        GUILayout.Label("RPM");
+        GUILayout.Label("FroceFWD");
+        GUILayout.Label("ForceSide");
+        GUILayout.Label("SlipRatio");
+        GUILayout.Label("SlipAngle");
+        GUILayout.EndVertical();
+
+        foreach(WheelController w in wheels)
+        {
+            GUILayout.BeginVertical();
+            GUILayout.Label(w.name);
+            GUILayout.Label(w.rpm.ToString("0.0"));
+            GUILayout.Label(w.fwdForce.ToString("0.0"));
+            GUILayout.Label(w.sideForce.ToString("0.0"));
+            GUILayout.Label(w.slipRatio.ToString("0.0"));
+            GUILayout.Label(w.slipAngle.ToString("0.0"));
+            GUILayout.EndVertical();
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.EndArea();
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
