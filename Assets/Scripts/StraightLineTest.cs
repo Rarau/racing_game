@@ -86,8 +86,8 @@ public class StraightLineTest : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        steeringAngle = Input.GetAxis("Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 90.0f;
-        steeringAngle = Mathf.Clamp(steeringAngle, -90.0f, 90.0f);
+        steeringAngle = Input.GetAxis("Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
+        steeringAngle = Mathf.Clamp(steeringAngle, -45.0f, 45.0f);
         //wheels[0].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
         //wheels[1].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
         //wheels[0].transform.localRotation = Quaternion.Euler(0.0f, steeringAngle, 0.0f);
@@ -105,6 +105,8 @@ public class StraightLineTest : MonoBehaviour {
 
         Vector3 acceleration = fLong / carMass;
         Debug.DrawLine(transform.position, transform.position + acceleration, Color.magenta);
+        Debug.DrawLine(transform.position, transform.position + rigidbody.velocity, Color.cyan);
+
         rigidbody.velocity += acceleration * Time.deltaTime;//rigidbody.transform.TransformDirection( acceleration) * Time.deltaTime;
         //rigidbody.AddForce( rigidbody.transform.TransformDirection(fLong));
 
@@ -135,7 +137,7 @@ public class StraightLineTest : MonoBehaviour {
             GUILayout.Label(w.fwdForce.ToString("0.0"));
             GUILayout.Label(w.sideForce.ToString("0.0"));
             GUILayout.Label(w.slipRatio.ToString("0.0"));
-            GUILayout.Label(w.slipAngle.ToString("0.0"));
+            GUILayout.Label((w.slipAngle).ToString("0.0"));
             GUILayout.EndVertical();
         }
         GUILayout.EndHorizontal();
