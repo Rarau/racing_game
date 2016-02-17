@@ -186,7 +186,7 @@ public class WheelController : MonoBehaviour {
         */
         this.sideForce = sideForce.magnitude;
         //sideForce = sideForce.magnitude > maxSideForce ? sideForce.normalized * maxSideForce : sideForce;
-        sideForce *= Mathf.Clamp(rigidbody.velocity.magnitude / 10.0f , - 1.0f, 1.0f);
+        sideForce *= Mathf.Clamp(rigidbody.velocity.magnitude / 3.0f , - 1.0f, 1.0f);
         //sideForce = transform.TransformDirection(sideForce);
         rigidbody.AddForceAtPosition(sideForce, transform.position);
 

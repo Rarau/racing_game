@@ -82,6 +82,7 @@ public class StraightLineTest : MonoBehaviour {
         return val * peakTorque;
     }
 
+    Vector3 prevVel, totalAccel;
     float steeringAngle = 0.0f;
 	// Update is called once per frame
 	void FixedUpdate ()
@@ -104,12 +105,16 @@ public class StraightLineTest : MonoBehaviour {
         Vector3 fLong = fDrag + fRoll;// +fTraction;  // Total longitudinal force
 
         Vector3 acceleration = fLong / carMass;
-        Debug.DrawLine(transform.position, transform.position + acceleration, Color.magenta);
-        Debug.DrawLine(transform.position, transform.position + rigidbody.velocity, Color.cyan);
+        Debug.DrawLine(transform.position, transform.position + totalAccel, Color.magenta);
+       // Debug.DrawLine(transform.position, transform.position + rigidbody.velocity, Color.cyan);
 
         rigidbody.velocity += acceleration * Time.deltaTime;//rigidbody.transform.TransformDirection( acceleration) * Time.deltaTime;
         //rigidbody.AddForce( rigidbody.transform.TransformDirection(fLong));
 
+        totalAccel = (rigidbody.velocity - prevVel) / Time.deltaTime;
+        //rigidbody.centerOfMass -= transform.InverseTransformDirection( totalAccel * 0.0031f).z * Vector3.forward;
+
+        prevVel = rigidbody.velocity;
 	}
 
 
