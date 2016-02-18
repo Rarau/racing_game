@@ -84,9 +84,11 @@ public class StraightLineTest : MonoBehaviour {
 
     Vector3 prevVel, totalAccel;
     float steeringAngle = 0.0f;
+    public float carAngularSpeed = 0f;
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        carAngularSpeed = rigidbody.angularVelocity.y;
         steeringAngle = Input.GetAxis("Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
         steeringAngle = Mathf.Clamp(steeringAngle, -45.0f, 45.0f);
         //wheels[0].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
@@ -113,8 +115,12 @@ public class StraightLineTest : MonoBehaviour {
 
         totalAccel = (rigidbody.velocity - prevVel) / Time.deltaTime;
         //rigidbody.centerOfMass -= transform.InverseTransformDirection( totalAccel * 0.0031f).z * Vector3.forward;
-
+        //rigidbody.angularDrag = rigidbody.angularVelocity.y * 0.1f;
         prevVel = rigidbody.velocity;
+        if (Mathf.Abs(rigidbody.angularVelocity.y) > 5.0f)
+            rigidbody.angularDrag = 3.0f;
+        else
+            rigidbody.angularDrag = 0.1f;
 	}
 
 

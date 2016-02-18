@@ -82,15 +82,9 @@ public class WheelController : MonoBehaviour {
         fwd = Quaternion.Euler(0, steeringAngle, 0) * fwd;
         fwd.Normalize();
         Vector3 right = rigidbody.transform.right;
-        //right = Quaternion.Euler(0,  steeringAngle * 2.0f, 0) * right;
         right = Vector3.Cross(transform.up, fwd).normalized;
 
-        // WHAAAAAT
-        //distanceToCM = 1.5f;
-        // TO-DO: Change this to wheel space
-        //localVel = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
-        //localVel = (transform.position - prevPos) / Time.fixedDeltaTime;
-        //localVel = transform.InverseTransformDirection(localVel);
+
         localVel = transform.InverseTransformDirection(rigidbody.GetPointVelocity(transform.position));
         Debug.DrawLine(transform.position, transform.position + rigidbody.GetPointVelocity(transform.position), Color.green);
         //totalTorque = driveTorque + tractionTorque + brakeTorque;
@@ -100,13 +94,13 @@ public class WheelController : MonoBehaviour {
         //Mathf.Clamp(brakeTorque, -driveTorque, driveTorque);
         if (angularVelocity == 0.0f)
             brakeTorque = 0.0f;
-        brakeTorque = -1.0f * Mathf.Sign(angularVelocity) * brakeTorque * angularVelocity *0.01f;
+        brakeTorque = -1.0f * Mathf.Sign(angularVelocity) * brakeTorque;
        // totalTorque = driveTorque - brakeTorque;
-        totalTorque = driveTorque  + brakeTorque;
+        totalTorque = driveTorque + brakeTorque;
 
         float wheelAngularAccel = (totalTorque) / wheelInertia;
 
-        // If the wheel is driven by the engine
+        // If the wheel is driven by the engine or braking
         if (totalTorque != 0.0f)
         {
             angularVelocity += wheelAngularAccel * Time.fixedDeltaTime;
@@ -137,55 +131,28 @@ public class WheelController : MonoBehaviour {
 
 
 
-
-
-        //w = Mathf.Lerp( rigidbody.angularVelocity.y * distanceToCM, w, Time.fixedDeltaTime * 100.081f);
-        //atanValue = (localVel.x  / Mathf.Abs(localVel.z));
-        //slipAngle = Mathf.Atan((localVel.x / Mathf.Abs(localVel.z))); //- steeringAngle * Mathf.Sign(localVel.z) *0.021f;//, slipAngle, Time.fixedDeltaTime * 10.5f);
-        //slipAngle *= Mathf.Rad2Deg;
-        ////slipAngle += steeringAngle * Mathf.Sign(localVel.z);
-        //if (float.IsNaN(slipAngle))
-        //{
-        //    slipAngle = 0.0f;
-        //}
-        //if (float.IsInfinity(slipAngle))
-        //{
-        //    slipAngle = 90.0f * Mathf.Sign(slipAngle);
-        //}
         slipAngle = Vector3.Angle(fwd * Mathf.Sign(localVel.z), rigidbody.GetPointVelocity(transform.position).normalized);
-        //slipAngle = Vector3.Dot(Vector3.forward, localVel.normalized);
-        //Vector3 lv = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
-        //slipAngle = Mathf.Atan2(lv.z, lv.x);
-        
-        //slipAngle *= Mathf.Rad2Deg;
         slipAngle = Mathf.Clamp(slipAngle, -90f, 90f);
+
         Vector3 cross = Vector3.Cross(fwd * Mathf.Sign(localVel.z), rigidbody.GetPointVelocity(transform.position).normalized);
         if (cross.y < 0) slipAngle = -slipAngle;
-        //transform.position += Vector3.right * linearVel * Time.fixedDeltaTime;
 
 
-        //float tractionForce = slipRatio * tractionCoeff;
         tractionForce = frictionCurve.Evaluate(Mathf.Abs(slipRatio)) * tractionCoeff * Mathf.Sign(slipRatio);
         tractionForce = Mathf.Clamp(tractionForce, -maxTractionAmt, maxTractionAmt);
         tractionTorque = tractionForce / radius;
 
-        //if(driveTorque != 0.0f)
         Vector3 tractionForceV = fwd * tractionForce;
         //Debug.DrawLine(transform.position, 0.01f * tractionForceV + transform.position, Color.red);
-        //tractionForceV = transform.TransformDirection(tractionForceV);
+
         rigidbody.AddForceAtPosition(tractionForceV, transform.position);
         fwdForce = tractionForceV.magnitude;
 
 
         Vector3 sideForce = -right * sideCurve.Evaluate(Mathf.Abs(slipAngle / 90.0f)) * Mathf.Sign(slipAngle) * sideTraction;// *-Mathf.Sign(steeringAngle);  //* Mathf.Clamp((localVel.magnitude / 1.0f), 0.0f, 1.0f);
-        /*
-        if(steeringAngle != 0.0f)
-        {
-            sideForce *= -Mathf.Sign(steeringAngle);
-        }
-        */
+
         this.sideForce = sideForce.magnitude;
-        //sideForce = sideForce.magnitude > maxSideForce ? sideForce.normalized * maxSideForce : sideForce;
+        sideForce = sideForce.magnitude > maxSideForce ? sideForce.normalized * maxSideForce : sideForce;
         sideForce *= Mathf.Clamp(rigidbody.velocity.magnitude / 3.0f , - 1.0f, 1.0f);
         //sideForce = transform.TransformDirection(sideForce);
         rigidbody.AddForceAtPosition(sideForce, transform.position);
