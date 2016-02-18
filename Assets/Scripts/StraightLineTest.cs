@@ -27,7 +27,7 @@ public class StraightLineTest : MonoBehaviour {
     public float maxTorque;
     public float peakTorque  = 100f;
     public AnimationCurve torqueRPMCurve;
-
+    public Transform centerOfMass;
     public float gearRatio = 2.66f; // First gear hardcoded
     public float differentialRatio = 3.42f;
     public float steeringSensitivity = 0.5f;
@@ -88,6 +88,7 @@ public class StraightLineTest : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        rigidbody.centerOfMass = centerOfMass.localPosition;
         carAngularSpeed = rigidbody.angularVelocity.y;
         steeringAngle = Input.GetAxis("Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
         steeringAngle = Mathf.Clamp(steeringAngle, -45.0f, 45.0f);
@@ -114,13 +115,15 @@ public class StraightLineTest : MonoBehaviour {
         //rigidbody.AddForce( rigidbody.transform.TransformDirection(fLong));
 
         totalAccel = (rigidbody.velocity - prevVel) / Time.deltaTime;
-        //rigidbody.centerOfMass -= transform.InverseTransformDirection( totalAccel * 0.0031f).z * Vector3.forward;
+        rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAccel, Vector3.forward + Vector3.right) * 0.0461f);
         //rigidbody.angularDrag = rigidbody.angularVelocity.y * 0.1f;
         prevVel = rigidbody.velocity;
         if (Mathf.Abs(rigidbody.angularVelocity.y) > 5.0f)
             rigidbody.angularDrag = 3.0f;
         else
             rigidbody.angularDrag = 0.1f;
+
+
 	}
 
 

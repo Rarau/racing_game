@@ -49,6 +49,7 @@ public class WheelController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        rigidbody = GetComponent<Rigidbody>();
         //wheelGeometry.transform.localRotation *= Quaternion.Euler(0.0f, steeringAngle - prevSteringAngle, 0.0f);
         wheelGeometry.transform.Rotate(rigidbody.transform.up, steeringAngle - prevSteringAngle, Space.World);
 
@@ -60,9 +61,10 @@ public class WheelController : MonoBehaviour {
     {
         GetComponent<Rigidbody>().centerOfMass = (Vector3.zero);
     }
+    RaycastHit groundInfo;
     void FixedUpdate()
     {
-        if (Physics.Raycast(transform.position, -rigidbody.transform.up, radius, raycastIgnore))
+        if (Physics.Raycast(transform.position, -rigidbody.transform.up, out groundInfo, radius, raycastIgnore))
         {
             SimulateTraction();
         }
@@ -76,14 +78,25 @@ public class WheelController : MonoBehaviour {
     public float fwdForce;
     public float sideForce;
     public float atanValue;
+
+
+    Vector3 ProjectVectorOnPlane(Vector3 planeNormal, Vector3 v )
+    {
+        planeNormal.Normalize();
+        var distance = -Vector3.Dot(planeNormal.normalized, v);
+        return v + planeNormal * distance;
+    }    
+
+
     void SimulateTraction()
     {
         fwd = rigidbody.transform.forward;
         fwd = Quaternion.Euler(0, steeringAngle, 0) * fwd;
         fwd.Normalize();
+        
         Vector3 right = rigidbody.transform.right;
         right = Vector3.Cross(transform.up, fwd).normalized;
-
+        right = ProjectVectorOnPlane(groundInfo.normal, right);
 
         localVel = transform.InverseTransformDirection(rigidbody.GetPointVelocity(transform.position));
         Debug.DrawLine(transform.position, transform.position + rigidbody.GetPointVelocity(transform.position), Color.green);
@@ -94,7 +107,7 @@ public class WheelController : MonoBehaviour {
         //Mathf.Clamp(brakeTorque, -driveTorque, driveTorque);
         if (angularVelocity == 0.0f)
             brakeTorque = 0.0f;
-        brakeTorque = -1.0f * Mathf.Sign(angularVelocity) * brakeTorque;
+        brakeTorque = -brakeTorque;
        // totalTorque = driveTorque - brakeTorque;
         totalTorque = driveTorque + brakeTorque;
 
@@ -131,10 +144,10 @@ public class WheelController : MonoBehaviour {
 
 
 
-        slipAngle = Vector3.Angle(fwd * Mathf.Sign(localVel.z), rigidbody.GetPointVelocity(transform.position).normalized);
+        slipAngle = Vector3.Angle(fwd , rigidbody.GetPointVelocity(transform.position).normalized);
         slipAngle = Mathf.Clamp(slipAngle, -90f, 90f);
 
-        Vector3 cross = Vector3.Cross(fwd * Mathf.Sign(localVel.z), rigidbody.GetPointVelocity(transform.position).normalized);
+        Vector3 cross = Vector3.Cross(fwd , rigidbody.GetPointVelocity(transform.position).normalized);
         if (cross.y < 0) slipAngle = -slipAngle;
 
 
@@ -153,9 +166,10 @@ public class WheelController : MonoBehaviour {
 
         this.sideForce = sideForce.magnitude;
         sideForce = sideForce.magnitude > maxSideForce ? sideForce.normalized * maxSideForce : sideForce;
-        sideForce *= Mathf.Clamp(rigidbody.velocity.magnitude / 3.0f , - 1.0f, 1.0f);
+        sideForce *= Mathf.Clamp(rigidbody.velocity.magnitude / 0.50f , - 1.0f, 1.0f);
         //sideForce = transform.TransformDirection(sideForce);
-        rigidbody.AddForceAtPosition(sideForce, transform.position);
+        //if (rigidbody.velocity.magnitude * 3.6f > 20.0f) 
+            rigidbody.AddForceAtPosition(sideForce, transform.position);
 
         Debug.DrawLine(transform.position, 0.01f * sideForce + transform.position, Color.yellow);
 
