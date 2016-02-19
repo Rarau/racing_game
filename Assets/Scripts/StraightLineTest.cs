@@ -115,7 +115,8 @@ public class StraightLineTest : MonoBehaviour {
         //rigidbody.AddForce( rigidbody.transform.TransformDirection(fLong));
 
         totalAccel = (rigidbody.velocity - prevVel) / Time.deltaTime;
-        rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAccel, Vector3.forward + Vector3.right) * 0.0461f);
+        totalAccel = totalAccel.magnitude > 15.0f ? totalAccel.normalized : totalAccel;
+        rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAccel, Vector3.forward + Vector3.right) * 0.0238f);
         //rigidbody.angularDrag = rigidbody.angularVelocity.y * 0.1f;
         prevVel = rigidbody.velocity;
         if (Mathf.Abs(rigidbody.angularVelocity.y) > 5.0f)
@@ -127,11 +128,11 @@ public class StraightLineTest : MonoBehaviour {
 	}
 
 
-
+    Rect areagui = new Rect(0f, 0f, 500f, 300f);
     void OnGUI()
     {
         
-        GUILayout.BeginArea(new Rect(0f, 0f, 500f, 300f), EditorStyles.helpBox);
+        GUILayout.BeginArea(areagui, EditorStyles.helpBox);
         GUILayout.BeginHorizontal();
 
         GUILayout.BeginVertical();

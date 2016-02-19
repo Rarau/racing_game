@@ -68,8 +68,8 @@ public class WheelController : MonoBehaviour {
         {
             SimulateTraction();
         }
-        else
-            Debug.Log("Not touching ground");
+        //else
+           // Debug.Log("Not touching ground");
     }
 
     public Vector3 prevPos;
