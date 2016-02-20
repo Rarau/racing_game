@@ -116,7 +116,7 @@ public class StraightLineTest : MonoBehaviour {
 
         totalAccel = (rigidbody.velocity - prevVel) / Time.deltaTime;
         totalAccel = totalAccel.magnitude > 15.0f ? totalAccel.normalized : totalAccel;
-        rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAccel, Vector3.forward + Vector3.right) * 0.0238f);
+        rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAccel, Vector3.forward + Vector3.right) * 0.01f);
         //rigidbody.angularDrag = rigidbody.angularVelocity.y * 0.1f;
         prevVel = rigidbody.velocity;
         if (Mathf.Abs(rigidbody.angularVelocity.y) > 5.0f)
