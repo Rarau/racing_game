@@ -128,7 +128,7 @@ public class WheelController : MonoBehaviour {
 
         //linearVel = angularVelocity * 0.017453292519968f * radius;
 
-        slipRatio = (linearVel - localVel.z) / Mathf.Abs(localVel.z);
+        slipRatio = 1.05f * (linearVel - localVel.z) / Mathf.Abs(localVel.z);
 
         // If it's NaN, then the car and the wheel are stopped (0 / 0 division)
         if (float.IsNaN(slipRatio))
