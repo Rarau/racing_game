@@ -98,6 +98,7 @@ public class WheelController : MonoBehaviour {
         right = Vector3.Cross(transform.up, fwd).normalized;
         right = ProjectVectorOnPlane(groundInfo.normal, right);
 
+        //localVel = Vector3.Lerp(localVel, transform.InverseTransformDirection(rigidbody.GetPointVelocity(transform.position)), Time.fixedDeltaTime * 1.5f);
         localVel = transform.InverseTransformDirection(rigidbody.GetPointVelocity(transform.position));
         Debug.DrawLine(transform.position, transform.position + rigidbody.GetPointVelocity(transform.position), Color.green);
         //totalTorque = driveTorque + tractionTorque + brakeTorque;
@@ -123,13 +124,14 @@ public class WheelController : MonoBehaviour {
         else
         {
             angularVelocity = (localVel.z) * (1.0f / 0.017453292519968f) * (1.0f / radius);
-            linearVel = (localVel.z);
+            //linearVel = Mathf.Lerp (linearVel, localVel.z, Time.fixedDeltaTime * 300.0f);
+            linearVel = localVel.z;
         }
 
         //linearVel = angularVelocity * 0.017453292519968f * radius;
 
-        slipRatio = 1.05f * (linearVel - localVel.z) / Mathf.Abs(localVel.z);
-
+        slipRatio = (linearVel - localVel.z) / Mathf.Abs(localVel.z);
+        slipRatio = Mathf.Clamp(slipRatio, -6f, 6f);
         // If it's NaN, then the car and the wheel are stopped (0 / 0 division)
         if (float.IsNaN(slipRatio))
         {
@@ -140,16 +142,24 @@ public class WheelController : MonoBehaviour {
         {
             slipRatio = 1.0f * Mathf.Sign(slipRatio);
         }
-        
 
 
+        // Calculate the slip angle: Angle between forward direction vector of the wheel and velocity vector of the wheel
+        //Vector3 v = localVel;
+        //v.y = 0.0f;
+        //slipAngle = Vector3.Angle(Vector3.forward, v);
+        //Vector3 cross = Vector3.Cross(Vector3.forward, v);
+        slipAngle = Vector3.Angle(Mathf.Sign(linearVel) * fwd, rigidbody.velocity.normalized);
+        Vector3 cross = Vector3.Cross(Mathf.Sign(linearVel) * fwd, rigidbody.velocity.normalized);
 
-        slipAngle = Vector3.Angle(fwd , rigidbody.GetPointVelocity(transform.position).normalized);
-        slipAngle = Mathf.Clamp(slipAngle, -90f, 90f);
+        //  if(linearVel >= 0.0f)
+            if (cross.y < 0) slipAngle = -slipAngle;
 
-        Vector3 cross = Vector3.Cross(fwd , rigidbody.GetPointVelocity(transform.position).normalized);
-        if (cross.y < 0) slipAngle = -slipAngle;
+        slipAngle *= Mathf.Sign(linearVel);
+        //else
+        //    if (cross.y > 0) slipAngle = -slipAngle;
 
+       // slipAngle %= 90.0f;
 
         tractionForce = frictionCurve.Evaluate(Mathf.Abs(slipRatio)) * tractionCoeff * Mathf.Sign(slipRatio);
         tractionForce = Mathf.Clamp(tractionForce, -maxTractionAmt, maxTractionAmt);
@@ -158,18 +168,20 @@ public class WheelController : MonoBehaviour {
         Vector3 tractionForceV = fwd * tractionForce;
         //Debug.DrawLine(transform.position, 0.01f * tractionForceV + transform.position, Color.red);
 
-        rigidbody.AddForceAtPosition(tractionForceV, transform.position);
+        //if(Mathf.Abs(slipRatio) > 0.01f)
+        if(totalTorque != 0.0f)
+            rigidbody.AddForceAtPosition(tractionForceV, transform.position);
         fwdForce = tractionForceV.magnitude;
 
 
-        Vector3 sideForce = -right * sideCurve.Evaluate(Mathf.Abs(slipAngle / 90.0f)) * Mathf.Sign(slipAngle) * sideTraction;// *-Mathf.Sign(steeringAngle);  //* Mathf.Clamp((localVel.magnitude / 1.0f), 0.0f, 1.0f);
+        Vector3 sideForce = -right * sideCurve.Evaluate(Mathf.Abs(slipAngle / 90.0f)) * Mathf.Sign(slipAngle) * sideTraction * Mathf.Clamp((Mathf.Abs(localVel.x) / 0.010f), 0.0f, 1.0f);
+
 
         this.sideForce = sideForce.magnitude;
         sideForce = sideForce.magnitude > maxSideForce ? sideForce.normalized * maxSideForce : sideForce;
-        sideForce *= Mathf.Clamp(rigidbody.velocity.magnitude / 0.50f , - 1.0f, 1.0f);
+        //sideForce *= Mathf.Clamp(rigidbody.velocity.magnitude / 0.50f , - 1.0f, 1.0f);
         //sideForce = transform.TransformDirection(sideForce);
-        //if (rigidbody.velocity.magnitude * 3.6f > 20.0f) 
-            rigidbody.AddForceAtPosition(sideForce, transform.position);
+
 
         Debug.DrawLine(transform.position, 0.01f * sideForce + transform.position, Color.yellow);
 
@@ -177,6 +189,14 @@ public class WheelController : MonoBehaviour {
 
         Debug.DrawLine(transform.position, transform.position + fwd * 5.0f, Color.blue);
         //Debug.DrawLine(transform.position, transform.position + right * 5.0f, Color.red);
+        if (Mathf.Abs(linearVel) < 1.2f && totalTorque == 0.0f)
+            rigidbody.drag = 100.0f;
+        else
+        {
+            rigidbody.drag = 0.0f;
+            rigidbody.AddForceAtPosition(sideForce, transform.position);
+
+        }
 
     }
 

@@ -69,8 +69,10 @@ public class StraightLineTest : MonoBehaviour {
         maxTorque = GetMaxTorque(rpm);
         engineTorque = maxTorque * throttlePos;
 
-        wheels[0].driveTorque = engineTorque;
-        wheels[1].driveTorque = engineTorque;
+        //wheels[1].driveTorque = engineTorque;
+        //wheels[0].driveTorque = engineTorque;
+        wheels[2].driveTorque = engineTorque;
+        wheels[3].driveTorque = engineTorque;
     }
 
     public float normalizedRPM;
@@ -142,6 +144,8 @@ public class StraightLineTest : MonoBehaviour {
         GUILayout.Label("ForceSide");
         GUILayout.Label("SlipRatio");
         GUILayout.Label("SlipAngle");
+        GUILayout.Label("LinearVel");
+
         GUILayout.EndVertical();
 
         foreach(WheelController w in wheels)
@@ -151,8 +155,10 @@ public class StraightLineTest : MonoBehaviour {
             GUILayout.Label(w.rpm.ToString("0.0"));
             GUILayout.Label(w.fwdForce.ToString("0.0"));
             GUILayout.Label(w.sideForce.ToString("0.0"));
-            GUILayout.Label(w.slipRatio.ToString("0.0"));
+            GUILayout.Label(w.slipRatio.ToString("0.000"));
             GUILayout.Label((w.slipAngle).ToString("0.0"));
+            GUILayout.Label((w.linearVel).ToString("0.00"));
+
             GUILayout.EndVertical();
         }
         GUILayout.EndHorizontal();
