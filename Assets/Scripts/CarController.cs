@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 
 [RequireComponent(typeof(Rigidbody))]
-public class StraightLineTest : MonoBehaviour {
+public class CarController : MonoBehaviour {
 
     //public float engineForce = 10.0f;   // Constant force from the engine
     public float cDrag;                 // Drag (air friction constant)
@@ -37,13 +37,29 @@ public class StraightLineTest : MonoBehaviour {
 
     public float brakingPower = 100f;
 
+
+    #region goncalo variables
+    public float delayAcellaration;
+    public float kilometerPerHour;
+
+    public AnimationCurve[] torqueArrayRPMCurve;
+
+    public int currentGear;
+    public float[] gearsRatio = { -2.769f, 2.083f, 3.769f, 3.267f, 3.538f, 4.083f }; //Toyota Supra
+
+    public float timeAccelaration;
+    #endregion
+
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
+        currentGear = 1; //starting gear, in future we can put a starter
 	}
 	
     void Update()
     {
         accel = Input.GetKey(KeyCode.W);
+        timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
+
         float throttlePos = Input.GetAxis("Vertical");
         if(Input.GetKey(KeyCode.Space))
         {
@@ -61,10 +77,11 @@ public class StraightLineTest : MonoBehaviour {
             wheels[2].brakeTorque = 0.0f;
             wheels[3].brakeTorque = 0.0f;
         }
-        float wheelRotRate = 0.5f * (wheels[0].AngularVelocity + wheels[1].AngularVelocity);
+        float wheelRotRate = 0.5f * (wheels[0].rpm + wheels[1].rpm);
 
-        rpm = wheelRotRate * gearRatio * differentialRatio * 60.0f / (2.0f * Mathf.PI);
+        rpm = wheelRotRate * gearRatio * differentialRatio;// *60.0f / (2.0f * Mathf.PI);
         rpm = Mathf.Clamp(rpm, rpmMin, rpmMax);
+        ShiftGears();
 
         maxTorque = GetMaxTorque(rpm);
         engineTorque = maxTorque * throttlePos;
@@ -135,11 +152,39 @@ public class StraightLineTest : MonoBehaviour {
 
 	}
 
+    void ShiftGears()
+    {
+        kilometerPerHour = (rigidbody.velocity.magnitude * 3.6f);
+        if (kilometerPerHour < 1)
+            kilometerPerHour = 1;
 
-    Rect areagui = new Rect(0f, 0f, 500f, 300f);
+        if (engineTorque != 0.0f)
+            timeAccelaration = (timeAccelaration + 1) * kilometerPerHour;
+        else
+            timeAccelaration = (timeAccelaration - 2) * kilometerPerHour;
+        timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, 140f);
+
+        if (timeAccelaration >= 140 && accel && currentGear < gearsRatio.Length - 1)
+        {
+            timeAccelaration = 0;
+            currentGear++;
+        }
+        if (timeAccelaration < 70 && !accel && currentGear > 1)
+        {
+            timeAccelaration = 120;
+            currentGear--;
+        }
+    }
+
+
+    Rect areagui = new Rect(0f, 20f, 500f, 300f);
+    bool showDebug;
     void OnGUI()
     {
-        
+        if (GUILayout.Button("Toggle Debug"))
+            showDebug = !showDebug;
+        if (!showDebug)
+            return;
         GUILayout.BeginArea(areagui, EditorStyles.helpBox);
         GUILayout.BeginHorizontal();
 

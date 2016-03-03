@@ -3,22 +3,27 @@ using System.Collections;
 
 public class WheelController : MonoBehaviour { 
     public Rigidbody rigidbody;
+    // In Kilograms
     public float mass = 30.0f;
+    // In meters
     public float radius = 0.5f;
     public float tractionCoeff = 8.0f;
     public float maxTractionAmt = 100.0f;
     public float sideTraction;
-    public float angularVelocity;
 
+    // In degrees per second
+    public float angularVelocityDegSec;
+
+    // In radians per second
     public float AngularVelocity
     {
-        get { return angularVelocity * 0.017453292519968f; }
-        set { angularVelocity = value; }
+        get { return angularVelocityDegSec * 0.017453292519968f; }
+        set { angularVelocityDegSec = value; }
     }
 
     public float rpm
     {
-        get { return angularVelocity; }
+        get { return AngularVelocity / ((2.0f * Mathf.PI)/60.0f); }
     }
 
     public float driveTorque;
@@ -55,7 +60,7 @@ public class WheelController : MonoBehaviour {
         //wheelGeometry.transform.localRotation *= Quaternion.Euler(0.0f, steeringAngle - prevSteringAngle, 0.0f);
         wheelGeometry.transform.Rotate(rigidbody.transform.up, steeringAngle - prevSteringAngle, Space.World);
 
-        wheelGeometry.transform.Rotate(Vector3.right, angularVelocity * Time.deltaTime, Space.Self);
+        wheelGeometry.transform.Rotate(Vector3.right, angularVelocityDegSec * Time.deltaTime, Space.Self);
         wheelGeometry.transform.localPosition = transform.localPosition;
         prevSteringAngle = steeringAngle;
 	}
@@ -108,7 +113,7 @@ public class WheelController : MonoBehaviour {
         float wheelInertia = mass * radius * radius * 0.5f;    // Mass is 70.0kg
         //totalTorque = (-1.0f * Mathf.Sign(driveTorque) * tractionTorque + driveTorque - brakeTorque);
         //Mathf.Clamp(brakeTorque, -driveTorque, driveTorque);
-        if (angularVelocity == 0.0f)
+        if (angularVelocityDegSec == 0.0f)
             brakeTorque = 0.0f;
         brakeTorque = -brakeTorque;
        // totalTorque = driveTorque - brakeTorque;
@@ -119,13 +124,13 @@ public class WheelController : MonoBehaviour {
         // If the wheel is driven by the engine or braking
         if (totalTorque != 0.0f)
         {
-            angularVelocity += wheelAngularAccel * Time.fixedDeltaTime;
-            linearVel = angularVelocity * 0.017453292519968f * radius;
+            angularVelocityDegSec += wheelAngularAccel * Time.fixedDeltaTime;
+            linearVel = angularVelocityDegSec * 0.017453292519968f * radius;
         }
         // If the wheel is spinning free
         else
         {
-            angularVelocity = (localVel.z) * (1.0f / 0.017453292519968f) * (1.0f / radius);
+            angularVelocityDegSec = (localVel.z) * (1.0f / 0.017453292519968f) * (1.0f / radius);
             //linearVel = Mathf.Lerp (linearVel, localVel.z, Time.fixedDeltaTime * 300.0f);
             linearVel = localVel.z;
         }
