@@ -45,6 +45,8 @@ public class WheelController : MonoBehaviour {
     public float steeringAngle;
     public Vector3 fwd;
 
+    public bool overrideSlipRatio;
+    public float overridenSlipRatio;
     float prevSteringAngle;
 	// Update is called once per frame
 	void Update () 
@@ -143,6 +145,8 @@ public class WheelController : MonoBehaviour {
             slipRatio = 1.0f * Mathf.Sign(slipRatio);
         }
 
+        if (overrideSlipRatio)
+            slipRatio = overridenSlipRatio;
 
         // Calculate the slip angle: Angle between forward direction vector of the wheel and velocity vector of the wheel
         //Vector3 v = localVel;

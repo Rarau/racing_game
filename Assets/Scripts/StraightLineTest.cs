@@ -102,6 +102,12 @@ public class StraightLineTest : MonoBehaviour {
         wheels[0].steeringAngle = steeringAngle;
         wheels[1].steeringAngle = steeringAngle;
 
+        //wheels[0].overrideSlipRatio = true;
+        //wheels[0].overridenSlipRatio = wheels[1].slipRatio;
+
+        wheels[2].overrideSlipRatio = true;
+        wheels[2].overridenSlipRatio = wheels[3].slipRatio;
+
         Vector3 velocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
        // Vector3 fTraction = transform.forward * (accel ? engineForce : 0.0f);
         Vector3 fDrag = -cDrag * velocity.z * velocity.z * transform.forward;
