@@ -66,6 +66,7 @@ public class WheelController : MonoBehaviour {
 	}
     void Awake()
     {
+       // Debug.Log(Mathf.Deg2Rad);
         GetComponent<Rigidbody>().centerOfMass = (Vector3.zero);
     }
     RaycastHit groundInfo;
@@ -86,17 +87,20 @@ public class WheelController : MonoBehaviour {
     public float sideForce;
     public float atanValue;
 
+    public float downForce = 10.0f;
 
     Vector3 ProjectVectorOnPlane(Vector3 planeNormal, Vector3 v )
     {
         planeNormal.Normalize();
         var distance = -Vector3.Dot(planeNormal.normalized, v);
         return v + planeNormal * distance;
-    }    
+    }
 
-
+    public float weightTransfer;
     void SimulateTraction()
     {
+        weightTransfer = 1.9f * 1.0f / Vector3.Distance(transform.position, transform.root.GetComponent<Rigidbody>().worldCenterOfMass);
+
         fwd = rigidbody.transform.forward;
         fwd = Quaternion.Euler(0, steeringAngle, 0) * fwd;
         fwd.Normalize();
@@ -170,7 +174,7 @@ public class WheelController : MonoBehaviour {
 
        // slipAngle %= 90.0f;
 
-        tractionForce = frictionCurve.Evaluate(Mathf.Abs(slipRatio)) * tractionCoeff * Mathf.Sign(slipRatio);
+        tractionForce = frictionCurve.Evaluate(Mathf.Abs(slipRatio)) * tractionCoeff * Mathf.Sign(slipRatio); //* sideCurve.Evaluate(Mathf.Abs(slipAngle / 90.0f));
         tractionForce = Mathf.Clamp(tractionForce, -maxTractionAmt, maxTractionAmt);
         tractionTorque = tractionForce / radius;
 
@@ -179,7 +183,7 @@ public class WheelController : MonoBehaviour {
 
         //if(Mathf.Abs(slipRatio) > 0.01f)
         if(totalTorque != 0.0f)
-            rigidbody.AddForceAtPosition(tractionForceV, transform.position);
+            rigidbody.AddForceAtPosition(tractionForceV * weightTransfer, transform.position);
         fwdForce = tractionForceV.magnitude;
 
 
@@ -203,16 +207,17 @@ public class WheelController : MonoBehaviour {
         else
         {
             rigidbody.drag = 0.0f;
-            rigidbody.AddForceAtPosition(sideForce, transform.position);
+            rigidbody.AddForceAtPosition(sideForce * weightTransfer, transform.position);
 
         }
 
+        rigidbody.AddForce(-downForce * rigidbody.transform.up);
     }
 
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = new Color(weightTransfer, weightTransfer, 1.0f);
 
         Gizmos.DrawSphere(GetComponent<Rigidbody>().worldCenterOfMass, 0.1f);
     }

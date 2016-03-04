@@ -54,14 +54,15 @@ public class CarController : MonoBehaviour {
         rigidbody = GetComponent<Rigidbody>();
         currentGear = 1; //starting gear, in future we can put a starter
 	}
-	
+    public float engineShaftInertia = 2.0f;
+
     void Update()
     {
+
         accel = Input.GetKey(KeyCode.W);
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
 
-        float throttlePos = Input.GetAxis("Vertical");
-        if(Input.GetKey(KeyCode.Space))
+        if( Input.GetAxis("Vertical") < 0.0f)
         {
             Debug.Log("Brakes");
             wheels[0].brakeTorque = brakingPower;
@@ -72,6 +73,8 @@ public class CarController : MonoBehaviour {
         }
         else
         {
+            throttlePos = Input.GetAxis("Vertical");
+
             wheels[0].brakeTorque = 0.0f;
             wheels[1].brakeTorque = 0.0f;
             wheels[2].brakeTorque = 0.0f;
@@ -79,17 +82,45 @@ public class CarController : MonoBehaviour {
         }
         float wheelRotRate = 0.5f * (wheels[0].rpm + wheels[1].rpm);
 
-        rpm = wheelRotRate * gearRatio * differentialRatio;// *60.0f / (2.0f * Mathf.PI);
+        // If we are not accelerating (no throttle) we slow down the engine
+        if (throttlePos == 0.0f)
+            rpm -= Time.deltaTime * engineShaftInertia;
+        else
+        {
+            rpm = Mathf.Lerp(rpm, wheelRotRate * gearsRatio[currentGear] * differentialRatio, Time.deltaTime * 3500f);// *60.0f / (2.0f * Mathf.PI);
+        }
         rpm = Mathf.Clamp(rpm, rpmMin, rpmMax);
-        ShiftGears();
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            currentGear = Mathf.Clamp(currentGear + 1, 1, gearsRatio.Length);
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            currentGear = Mathf.Clamp(currentGear - 1, 1, gearsRatio.Length);
+
+
+        //ShiftGears();
 
         maxTorque = GetMaxTorque(rpm);
         engineTorque = maxTorque * throttlePos;
-
+        if (throttlePos == 0.0f)
+            engineTorque = 0.0f;
         //wheels[1].driveTorque = engineTorque;
         //wheels[0].driveTorque = engineTorque;
         wheels[2].driveTorque = engineTorque;
         wheels[3].driveTorque = engineTorque;
+    }
+
+
+    float lastThrottleTime;
+    //float throttlePos;
+    public void PushThrottle()
+    {
+        lastThrottleTime = Time.time;
+
+    }
+
+    public void ReleaseThrottle()
+    {
+        throttlePos = 0.0f;
     }
 
     public float normalizedRPM;
