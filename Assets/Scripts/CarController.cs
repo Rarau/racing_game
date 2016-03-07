@@ -59,7 +59,7 @@ public class CarController : MonoBehaviour {
     void Update()
     {
 
-        accel = Input.GetKey(KeyCode.W);
+       // accel = Input.GetKey(KeyCode.W);
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
 
         if( Input.GetAxis("Vertical") < 0.0f)

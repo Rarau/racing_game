@@ -211,7 +211,7 @@ public class WheelController : MonoBehaviour {
 
         }
 
-        rigidbody.AddForce(-downForce * rigidbody.transform.up);
+       // rigidbody.AddForce(-downForce * rigidbody.transform.up);
     }
 
 
