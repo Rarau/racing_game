@@ -5,6 +5,7 @@ using UnityEditor;
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour {
 
+    public string playerPrefix = "P1_";
     //public float engineForce = 10.0f;   // Constant force from the engine
     public float cDrag;                 // Drag (air friction constant)
     public float cRoll;                 // Rolling resistance (wheel friction constant)
@@ -58,22 +59,29 @@ public class CarController : MonoBehaviour {
 
     void Update()
     {
-
+        Vector3 velocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
+        
        // accel = Input.GetKey(KeyCode.W);
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
 
-        if( Input.GetAxis("Vertical") < 0.0f)
+        if( Input.GetAxis(playerPrefix + "Vertical") < 0.0f)
         {
-            Debug.Log("Brakes");
-            wheels[0].brakeTorque = brakingPower;
-            wheels[1].brakeTorque = brakingPower;
-            wheels[2].brakeTorque = brakingPower;
-            wheels[3].brakeTorque = brakingPower;
-
+            if (velocity.z > 0.0f)
+            {
+                Debug.Log("Brakes");
+                wheels[0].brakeTorque = brakingPower;
+                wheels[1].brakeTorque = brakingPower;
+                wheels[2].brakeTorque = brakingPower;
+                wheels[3].brakeTorque = brakingPower;
+            }
+            else
+            {
+                throttlePos = Input.GetAxis(playerPrefix + "Vertical");
+            }
         }
         else
         {
-            throttlePos = Input.GetAxis("Vertical");
+            throttlePos = Input.GetAxis(playerPrefix + "Vertical");
 
             wheels[0].brakeTorque = 0.0f;
             wheels[1].brakeTorque = 0.0f;
@@ -140,13 +148,13 @@ public class CarController : MonoBehaviour {
     {
         rigidbody.centerOfMass = centerOfMass.localPosition;
         carAngularSpeed = rigidbody.angularVelocity.y;
-        steeringAngle = Input.GetAxis("Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
+        steeringAngle = Input.GetAxis(playerPrefix + "Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
         steeringAngle = Mathf.Clamp(steeringAngle, -45.0f, 45.0f);
         //wheels[0].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
         //wheels[1].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
         //wheels[0].transform.localRotation = Quaternion.Euler(0.0f, steeringAngle, 0.0f);
         //wheels[1].transform.localRotation = Quaternion.Euler(0.0f, steeringAngle, 0.0f);
-
+        
         wheels[0].steeringAngle = steeringAngle;
         wheels[1].steeringAngle = steeringAngle;
 
