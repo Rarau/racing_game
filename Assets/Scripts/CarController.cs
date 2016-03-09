@@ -218,7 +218,7 @@ public class CarController : MonoBehaviour {
         {
             currentGear--;
             // fireBall goes here
-            timeShift = Time.timeSinceLevelLoad + .4f;
+            timeShift = Time.timeSinceLevelLoad + 1.0f;
             isGearShiftedDown = true;
             exhaust.SetActive(true);
         }
