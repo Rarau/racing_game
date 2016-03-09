@@ -347,7 +347,7 @@ GameObject:
   - 54: {fileID: 5456744}
   - 114: {fileID: 11466682}
   m_Layer: 8
-  m_Name: New Prefab
+  m_Name: CarBugatti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1935,6 +1935,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   maxSpeed: 125
   brakingPower: 100
+  playerPrefix: P1_
   delayAcellaration: 0
   kilometerPerHour: 0
   torqueArrayRPMCurve:

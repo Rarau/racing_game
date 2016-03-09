@@ -92,7 +92,7 @@ GameObject:
   - 65: {fileID: 6527530}
   - 114: {fileID: 11462056}
   m_Layer: 8
-  m_Name: Car
+  m_Name: CarToyota
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1266,6 +1266,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   maxSpeed: 100
   brakingPower: 10000
+  playerPrefix: P1_
   delayAcellaration: 0
   kilometerPerHour: 0
   torqueArrayRPMCurve: []

@@ -37,6 +37,8 @@ public class CarController : MonoBehaviour {
 
     public float brakingPower = 100f;
 
+    public string playerPrefix = "P1_";
+
 
     #region goncalo variables
     public float delayAcellaration;
@@ -56,7 +58,6 @@ public class CarController : MonoBehaviour {
 
     public bool isGearShiftedDown = false;
     public float timeShift;
-
     public GameObject exhaust;
     #endregion
 
@@ -79,7 +80,7 @@ public class CarController : MonoBehaviour {
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
         currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
-        if ( Input.GetAxis("Vertical") < 0.0f)
+        if ( Input.GetAxis(playerPrefix + "Vertical") < 0.0f)
         {
             Debug.Log("Brakes");
             wheels[0].brakeTorque = brakingPower;
@@ -90,7 +91,7 @@ public class CarController : MonoBehaviour {
         }
         else
         {
-            throttlePos = Input.GetAxis("Vertical");
+            throttlePos = Input.GetAxis(playerPrefix + "Vertical");
 
             wheels[0].brakeTorque = 0.0f;
             wheels[1].brakeTorque = 0.0f;
@@ -159,7 +160,7 @@ public class CarController : MonoBehaviour {
     {
         rigidbody.centerOfMass = centerOfMass.localPosition;
         carAngularSpeed = rigidbody.angularVelocity.y;
-        steeringAngle = Input.GetAxis("Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
+        steeringAngle = Input.GetAxis(playerPrefix + "Horizontal") * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
         steeringAngle = Mathf.Clamp(steeringAngle, -45.0f, 45.0f);
         //wheels[0].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
         //wheels[1].transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * 30.0f - transform.rotation.y, Space.Self);
@@ -236,72 +237,6 @@ public class CarController : MonoBehaviour {
 
     }
 
-
-    void ShiftGears()
-    {
-        float acumRPM = 0;
-
-        //float kilometerPerHour = rigidbody.velocity.magnitude * 3.6f;
-
-        //if (kilometerPerHour > -1 && kilometerPerHour < 50) currentGear = 1;
-        //if (kilometerPerHour >= 50 && kilometerPerHour < 80) currentGear = 2;
-        //if (kilometerPerHour >= 80 && kilometerPerHour < 100) currentGear = 3;
-        //if (kilometerPerHour >= 100 && kilometerPerHour < 130) currentGear = 4;
-        //if (kilometerPerHour >= 130 && kilometerPerHour < 250) currentGear = 5;
-
-        kilometerPerHour = (rigidbody.velocity.magnitude * 3.6f) / 140;
-        if (kilometerPerHour < 1)
-            kilometerPerHour = 1;
-
-        if (Input.GetKey(KeyCode.W))
-            timeAccelaration = (timeAccelaration + 1) * kilometerPerHour;
-        else
-            timeAccelaration = (timeAccelaration - 2) * kilometerPerHour;
-        timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, 140f);
-
-        if (timeAccelaration >= 140 && accel && currentGear < gearsRatio.Length - 1)
-        {
-            timeAccelaration = 0;
-            currentGear++;
-        }
-        if (timeAccelaration < 70 && !accel && currentGear > 1)
-        {
-            timeAccelaration = 120;
-            currentGear--;
-        }
-        //change gear up
-        //if (currentRPM >= rpmMax && currentGear < gearsRatio.Length - 1 && accel)
-        //{
-        //    for (var j = 1; j <= currentGear; j++)
-        //    {
-        //        acumRPM += currentRPM * gearsRatio[j];
-        //        if (acumRPM >= gearsRatio[j]*j*rpmMax)
-        //        {
-        //            currentGear++;
-        //            break;
-        //        }
-        //    }
-        //    currentRPM = rpmMin;
-        //}
-
-        ////change gear down
-        //if (currentRPM <= (rpmMax - rpmMin) && !accel && currentGear > 1)
-        //{
-        //    for (var j = currentGear; j >= 1; j--)
-        //    {
-        //        acumRPM -= currentRPM * gearsRatio[j];
-        //        //Debug.Log(acumRPM);
-        //        if (acumRPM <= gearsRatio[j] * (j-1) * rpmMax)
-        //        {
-        //            currentGear--;
-        //            break;
-        //        }
-        //    }
-        //    currentRPM = rpmMax;
-        //}
-
-        //currentRPM = Mathf.Clamp(currentRPM, rpmMin, rpmMax);
-    }
 
 
     Rect areagui = new Rect(0f, 20f, 500f, 300f);
