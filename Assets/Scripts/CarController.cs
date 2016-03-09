@@ -48,12 +48,26 @@ public class CarController : MonoBehaviour {
     public float[] gearsRatio = { -2.769f, 2.083f, 3.769f, 3.267f, 3.538f, 4.083f }; //Toyota Supra
 
     public float timeAccelaration;
+
+    public float currentSpeed;
+    public float myCurrentRPM;
+    public int maxGears = 5;
+    public int maximumSpeed = 200; //KM/h
+
+    public bool isGearShiftedDown = false;
+    public float timeShift;
+
+    public GameObject exhaust = GameObject.Find("FireBall");
     #endregion
 
-	void Start () {
+    void Start () {
         rigidbody = GetComponent<Rigidbody>();
         currentGear = 1; //starting gear, in future we can put a starter
-	}
+        if (exhaust == null)
+            Debug.Log("You do not have an exhaust system!");
+        exhaust.SetActive(false);
+    }
+
     public float engineShaftInertia = 2.0f;
 
     void Update()
@@ -61,8 +75,9 @@ public class CarController : MonoBehaviour {
 
        // accel = Input.GetKey(KeyCode.W);
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
+        currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
-        if( Input.GetAxis("Vertical") < 0.0f)
+        if ( Input.GetAxis("Vertical") < 0.0f)
         {
             Debug.Log("Brakes");
             wheels[0].brakeTorque = brakingPower;
@@ -91,11 +106,10 @@ public class CarController : MonoBehaviour {
         }
         rpm = Mathf.Clamp(rpm, rpmMin, rpmMax);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            currentGear = Mathf.Clamp(currentGear + 1, 1, gearsRatio.Length);
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-            currentGear = Mathf.Clamp(currentGear - 1, 1, gearsRatio.Length);
-
+        //if (Input.GetKeyDown(KeyCode.UpArrow))
+        //    currentGear = Mathf.Clamp(currentGear + 1, 1, gearsRatio.Length);
+        //if (Input.GetKeyDown(KeyCode.DownArrow))
+        //    currentGear = Mathf.Clamp(currentGear - 1, 1, gearsRatio.Length);
 
         //ShiftGears();
 
@@ -107,6 +121,9 @@ public class CarController : MonoBehaviour {
         //wheels[0].driveTorque = engineTorque;
         wheels[2].driveTorque = engineTorque;
         wheels[3].driveTorque = engineTorque;
+
+        GearsShift();
+
     }
 
 
@@ -183,13 +200,58 @@ public class CarController : MonoBehaviour {
 
 	}
 
+    void GearsShift()
+    {
+        if (currentSpeed > maximumSpeed / maxGears * (currentGear - 1) && currentSpeed < maximumSpeed / maxGears * (currentGear))
+        {
+            //myCurrentRPM = (currentSpeed) / (maximumSpeed / maxGears * currentSpeed) * rpmMax;
+            myCurrentRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 10;
+        }
+        if (currentGear < maxGears && currentSpeed > maximumSpeed / maxGears * (currentGear))
+        {
+            currentGear++;
+            // myCurrentRPM = rpmMin;
+        }
+        else if (currentGear > 1 && currentSpeed < maximumSpeed / maxGears * (currentGear - 1) && !isGearShiftedDown)
+        {
+            currentGear--;
+            // fireBall goes here
+            timeShift = Time.timeSinceLevelLoad + .4f;
+            isGearShiftedDown = true;
+            exhaust.SetActive(true);
+        }
+        //Debug.Log("currentSpeed"+ currentSpeed+" ** Max Speed Current Gear" + ((maximumSpeed / maxGears * currentGear)));
+        myCurrentRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 10;
+
+        //Debug.Log("\n scurrent time: " + Time.timeSinceLevelLoad);
+        //Debug.Log("\n stimeShift: " + timeShift);
+        
+        if (Time.timeSinceLevelLoad >= timeShift && isGearShiftedDown)
+        {
+            isGearShiftedDown = false;
+            exhaust.SetActive(false);
+        }
+
+    }
+
+
     void ShiftGears()
     {
-        kilometerPerHour = (rigidbody.velocity.magnitude * 3.6f);
+        float acumRPM = 0;
+
+        //float kilometerPerHour = rigidbody.velocity.magnitude * 3.6f;
+
+        //if (kilometerPerHour > -1 && kilometerPerHour < 50) currentGear = 1;
+        //if (kilometerPerHour >= 50 && kilometerPerHour < 80) currentGear = 2;
+        //if (kilometerPerHour >= 80 && kilometerPerHour < 100) currentGear = 3;
+        //if (kilometerPerHour >= 100 && kilometerPerHour < 130) currentGear = 4;
+        //if (kilometerPerHour >= 130 && kilometerPerHour < 250) currentGear = 5;
+
+        kilometerPerHour = (rigidbody.velocity.magnitude * 3.6f) / 140;
         if (kilometerPerHour < 1)
             kilometerPerHour = 1;
 
-        if (engineTorque != 0.0f)
+        if (Input.GetKey(KeyCode.W))
             timeAccelaration = (timeAccelaration + 1) * kilometerPerHour;
         else
             timeAccelaration = (timeAccelaration - 2) * kilometerPerHour;
@@ -205,6 +267,38 @@ public class CarController : MonoBehaviour {
             timeAccelaration = 120;
             currentGear--;
         }
+        //change gear up
+        //if (currentRPM >= rpmMax && currentGear < gearsRatio.Length - 1 && accel)
+        //{
+        //    for (var j = 1; j <= currentGear; j++)
+        //    {
+        //        acumRPM += currentRPM * gearsRatio[j];
+        //        if (acumRPM >= gearsRatio[j]*j*rpmMax)
+        //        {
+        //            currentGear++;
+        //            break;
+        //        }
+        //    }
+        //    currentRPM = rpmMin;
+        //}
+
+        ////change gear down
+        //if (currentRPM <= (rpmMax - rpmMin) && !accel && currentGear > 1)
+        //{
+        //    for (var j = currentGear; j >= 1; j--)
+        //    {
+        //        acumRPM -= currentRPM * gearsRatio[j];
+        //        //Debug.Log(acumRPM);
+        //        if (acumRPM <= gearsRatio[j] * (j-1) * rpmMax)
+        //        {
+        //            currentGear--;
+        //            break;
+        //        }
+        //    }
+        //    currentRPM = rpmMax;
+        //}
+
+        //currentRPM = Mathf.Clamp(currentRPM, rpmMin, rpmMax);
     }
 
 
