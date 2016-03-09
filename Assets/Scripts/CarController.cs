@@ -161,8 +161,8 @@ public class CarController : MonoBehaviour {
         //wheels[0].overrideSlipRatio = true;
         //wheels[0].overridenSlipRatio = wheels[1].slipRatio;
 
-        wheels[2].overrideSlipRatio = true;
-        wheels[2].overridenSlipRatio = wheels[3].slipRatio;
+        //wheels[3].overrideSlipRatio = true;
+        //wheels[3].overridenSlipRatio = wheels[2].slipRatio;
 
         Vector3 velocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
        // Vector3 fTraction = transform.forward * (accel ? engineForce : 0.0f);
@@ -220,6 +220,7 @@ public class CarController : MonoBehaviour {
     bool showDebug;
     void OnGUI()
     {
+        GUI.contentColor = Color.black;
         if (GUILayout.Button("Toggle Debug"))
             showDebug = !showDebug;
         if (!showDebug)
