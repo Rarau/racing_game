@@ -20,6 +20,8 @@ public class SpeedCounter : MonoBehaviour
     void Update()
     {
         t.text = (rb.velocity.magnitude * 3.6f).ToString("0.0 KMH") + "\n";
-        t.text += "Engine rpm: " + car.rpm;
+        t.text += ((rb.velocity.magnitude * 3.6f)*.62f).ToString("0.0 MPH") + "\n";
+        t.text += "Engine rpm: " + car.myCurrentRPM + "\n";
+        t.text += "Gear: " + car.currentGear + "\n";
     }
 }
