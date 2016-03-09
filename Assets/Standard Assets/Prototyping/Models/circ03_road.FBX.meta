@@ -1,39 +1,15 @@
 fileFormatVersion: 2
-guid: 5b44af3dc397b7a48bd9a67601da11ea
-timeCreated: 1456942637
+guid: b042cb10eb19648489da4ffe8bb82bb0
+timeCreated: 1456942639
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: backLeftWheel
-    100002: backLeftWheel1
-    100004: car
-    100006: //RootNode
-    100008: frontLeftWheel
-    100010: frontRightWheel
-    100012: test_car_forUV_02:headusOBJexport
-    400000: backLeftWheel
-    400002: backLeftWheel1
-    400004: car
-    400006: //RootNode
-    400008: frontLeftWheel
-    400010: frontRightWheel
-    400012: test_car_forUV_02:headusOBJexport
-    2300000: backLeftWheel
-    2300002: backLeftWheel1
-    2300004: frontLeftWheel
-    2300006: frontRightWheel
-    2300008: test_car_forUV_02:headusOBJexport
-    3300000: backLeftWheel
-    3300002: backLeftWheel1
-    3300004: frontLeftWheel
-    3300006: frontRightWheel
-    3300008: test_car_forUV_02:headusOBJexport
-    4300000: backLeftWheel
-    4300002: backLeftWheel1
-    4300004: frontRightWheel
-    4300006: frontLeftWheel
-    4300008: test_car_forUV_02:headusOBJexport
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: new_road
     9500000: //RootNode
   materials:
     importMaterials: 1

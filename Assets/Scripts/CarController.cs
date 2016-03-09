@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 
 [RequireComponent(typeof(Rigidbody))]
-public class StraightLineTest : MonoBehaviour {
+public class CarController : MonoBehaviour {
 
     //public float engineForce = 10.0f;   // Constant force from the engine
     public float cDrag;                 // Drag (air friction constant)
@@ -37,15 +37,32 @@ public class StraightLineTest : MonoBehaviour {
 
     public float brakingPower = 100f;
 
+
+    #region goncalo variables
+    public float delayAcellaration;
+    public float kilometerPerHour;
+
+    public AnimationCurve[] torqueArrayRPMCurve;
+
+    public int currentGear;
+    public float[] gearsRatio = { -2.769f, 2.083f, 3.769f, 3.267f, 3.538f, 4.083f }; //Toyota Supra
+
+    public float timeAccelaration;
+    #endregion
+
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
+        currentGear = 1; //starting gear, in future we can put a starter
 	}
-	
+    public float engineShaftInertia = 2.0f;
+
     void Update()
     {
-        accel = Input.GetKey(KeyCode.W);
-        float throttlePos = Input.GetAxis("Vertical");
-        if(Input.GetKey(KeyCode.Space))
+
+       // accel = Input.GetKey(KeyCode.W);
+        timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
+
+        if( Input.GetAxis("Vertical") < 0.0f)
         {
             Debug.Log("Brakes");
             wheels[0].brakeTorque = brakingPower;
@@ -56,21 +73,54 @@ public class StraightLineTest : MonoBehaviour {
         }
         else
         {
+            throttlePos = Input.GetAxis("Vertical");
+
             wheels[0].brakeTorque = 0.0f;
             wheels[1].brakeTorque = 0.0f;
             wheels[2].brakeTorque = 0.0f;
             wheels[3].brakeTorque = 0.0f;
         }
-        float wheelRotRate = 0.5f * (wheels[0].AngularVelocity + wheels[1].AngularVelocity);
+        float wheelRotRate = 0.5f * (wheels[0].rpm + wheels[1].rpm);
 
-        rpm = wheelRotRate * gearRatio * differentialRatio * 60.0f / (2.0f * Mathf.PI);
+        // If we are not accelerating (no throttle) we slow down the engine
+        if (throttlePos == 0.0f)
+            rpm -= Time.deltaTime * engineShaftInertia;
+        else
+        {
+            rpm = Mathf.Lerp(rpm, wheelRotRate * gearsRatio[currentGear] * differentialRatio, Time.deltaTime * 3500f);// *60.0f / (2.0f * Mathf.PI);
+        }
         rpm = Mathf.Clamp(rpm, rpmMin, rpmMax);
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            currentGear = Mathf.Clamp(currentGear + 1, 1, gearsRatio.Length);
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            currentGear = Mathf.Clamp(currentGear - 1, 1, gearsRatio.Length);
+
+
+        //ShiftGears();
 
         maxTorque = GetMaxTorque(rpm);
         engineTorque = maxTorque * throttlePos;
+        if (throttlePos == 0.0f)
+            engineTorque = 0.0f;
+        //wheels[1].driveTorque = engineTorque;
+        //wheels[0].driveTorque = engineTorque;
+        wheels[2].driveTorque = engineTorque;
+        wheels[3].driveTorque = engineTorque;
+    }
 
-        wheels[0].driveTorque = engineTorque;
-        wheels[1].driveTorque = engineTorque;
+
+    float lastThrottleTime;
+    //float throttlePos;
+    public void PushThrottle()
+    {
+        lastThrottleTime = Time.time;
+
+    }
+
+    public void ReleaseThrottle()
+    {
+        throttlePos = 0.0f;
     }
 
     public float normalizedRPM;
@@ -100,6 +150,12 @@ public class StraightLineTest : MonoBehaviour {
         wheels[0].steeringAngle = steeringAngle;
         wheels[1].steeringAngle = steeringAngle;
 
+        //wheels[0].overrideSlipRatio = true;
+        //wheels[0].overridenSlipRatio = wheels[1].slipRatio;
+
+        wheels[2].overrideSlipRatio = true;
+        wheels[2].overridenSlipRatio = wheels[3].slipRatio;
+
         Vector3 velocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
        // Vector3 fTraction = transform.forward * (accel ? engineForce : 0.0f);
         Vector3 fDrag = -cDrag * velocity.z * velocity.z * transform.forward;
@@ -127,11 +183,39 @@ public class StraightLineTest : MonoBehaviour {
 
 	}
 
+    void ShiftGears()
+    {
+        kilometerPerHour = (rigidbody.velocity.magnitude * 3.6f);
+        if (kilometerPerHour < 1)
+            kilometerPerHour = 1;
 
-    Rect areagui = new Rect(0f, 0f, 500f, 300f);
+        if (engineTorque != 0.0f)
+            timeAccelaration = (timeAccelaration + 1) * kilometerPerHour;
+        else
+            timeAccelaration = (timeAccelaration - 2) * kilometerPerHour;
+        timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, 140f);
+
+        if (timeAccelaration >= 140 && accel && currentGear < gearsRatio.Length - 1)
+        {
+            timeAccelaration = 0;
+            currentGear++;
+        }
+        if (timeAccelaration < 70 && !accel && currentGear > 1)
+        {
+            timeAccelaration = 120;
+            currentGear--;
+        }
+    }
+
+
+    Rect areagui = new Rect(0f, 20f, 500f, 300f);
+    bool showDebug;
     void OnGUI()
     {
-        
+        if (GUILayout.Button("Toggle Debug"))
+            showDebug = !showDebug;
+        if (!showDebug)
+            return;
         GUILayout.BeginArea(areagui, EditorStyles.helpBox);
         GUILayout.BeginHorizontal();
 
@@ -142,6 +226,8 @@ public class StraightLineTest : MonoBehaviour {
         GUILayout.Label("ForceSide");
         GUILayout.Label("SlipRatio");
         GUILayout.Label("SlipAngle");
+        GUILayout.Label("LinearVel");
+
         GUILayout.EndVertical();
 
         foreach(WheelController w in wheels)
@@ -151,8 +237,10 @@ public class StraightLineTest : MonoBehaviour {
             GUILayout.Label(w.rpm.ToString("0.0"));
             GUILayout.Label(w.fwdForce.ToString("0.0"));
             GUILayout.Label(w.sideForce.ToString("0.0"));
-            GUILayout.Label(w.slipRatio.ToString("0.0"));
+            GUILayout.Label(w.slipRatio.ToString("0.000"));
             GUILayout.Label((w.slipAngle).ToString("0.0"));
+            GUILayout.Label((w.linearVel).ToString("0.00"));
+
             GUILayout.EndVertical();
         }
         GUILayout.EndHorizontal();
