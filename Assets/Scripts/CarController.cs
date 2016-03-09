@@ -57,12 +57,14 @@ public class CarController : MonoBehaviour {
     public bool isGearShiftedDown = false;
     public float timeShift;
 
-    public GameObject exhaust = GameObject.Find("FireBall");
+    public GameObject exhaust;
     #endregion
 
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
         currentGear = 1; //starting gear, in future we can put a starter
+
+        exhaust = GameObject.Find("FireBall");
         if (exhaust == null)
             Debug.Log("You do not have an exhaust system!");
         exhaust.SetActive(false);
