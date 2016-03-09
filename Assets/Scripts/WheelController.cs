@@ -53,19 +53,24 @@ public class WheelController : MonoBehaviour {
     public bool overrideSlipRatio;
     public float overridenSlipRatio;
     float prevSteringAngle;
+
+    float wheelX;
 	// Update is called once per frame
 	void Update () 
     {
         rigidbody = GetComponent<Rigidbody>();
+
         //wheelGeometry.transform.localRotation *= Quaternion.Euler(0.0f, steeringAngle - prevSteringAngle, 0.0f);
         wheelGeometry.transform.Rotate(rigidbody.transform.up, steeringAngle - prevSteringAngle, Space.World);
 
         wheelGeometry.transform.Rotate(Vector3.right, angularVelocityDegSec * Time.deltaTime, Space.Self);
-        wheelGeometry.transform.localPosition = transform.localPosition;
+        //wheelGeometry.transform.localPosition = transform.localPosition;
         prevSteringAngle = steeringAngle;
+        wheelGeometry.transform.localPosition = new Vector3(wheelX, transform.localPosition.y, transform.localPosition.z);
 	}
     void Awake()
     {
+        wheelX = wheelGeometry.transform.localPosition.x;
        // Debug.Log(Mathf.Deg2Rad);
         GetComponent<Rigidbody>().centerOfMass = (Vector3.zero);
     }
@@ -120,6 +125,8 @@ public class WheelController : MonoBehaviour {
         if (angularVelocityDegSec == 0.0f)
             brakeTorque = 0.0f;
         brakeTorque = -brakeTorque;
+        if (linearVel < 0.0f)
+            brakeTorque = 0.0f;
        // totalTorque = driveTorque - brakeTorque;
         totalTorque = driveTorque + brakeTorque;
 
@@ -202,11 +209,13 @@ public class WheelController : MonoBehaviour {
 
         Debug.DrawLine(transform.position, transform.position + fwd * 5.0f, Color.blue);
         //Debug.DrawLine(transform.position, transform.position + right * 5.0f, Color.red);
-        if (Mathf.Abs(linearVel) < 1.2f && totalTorque == 0.0f)
-            rigidbody.drag = 100.0f;
+        if (Mathf.Abs(linearVel + localVel.x) < 0.82f && totalTorque == 0.0f)
+        {
+            rigidbody.drag = Mathf.Lerp(rigidbody.drag, 100.0f, Time.deltaTime * 0.50f);
+        }
         else
         {
-            rigidbody.drag = 0.0f;
+            rigidbody.drag = Mathf.Lerp(rigidbody.drag, 0.0f, Time.deltaTime * 0.50f);
             rigidbody.AddForceAtPosition(sideForce * weightTransfer, transform.position);
 
         }

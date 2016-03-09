@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: b156877f0990f5c439123eedd5f27abf
-timeCreated: 1457533558
-licenseType: Free
+guid: 632b3dfafd4a88445ab6389fd52350e1
+timeCreated: 1457469592
+licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -116,7 +116,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -131,7 +131,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
