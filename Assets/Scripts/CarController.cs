@@ -51,7 +51,7 @@ public class CarController : MonoBehaviour {
 
     public float timeAccelaration;
 
-    public float currentSpeed;
+    public float currentSpeed = 1;
     public float myCurrentRPM;
     public int maxGears = 5;
     public int maximumSpeed = 200; //KM/h
@@ -76,7 +76,7 @@ public class CarController : MonoBehaviour {
     void Update()
     {
 
-       // accel = Input.GetKey(KeyCode.W);
+        //accel = Input.GetKey(KeyCode.W);
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
         currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
@@ -203,6 +203,10 @@ public class CarController : MonoBehaviour {
 
 	}
 
+
+    /// <summary>
+    /// Shifts gear up or down according to speed.
+    /// </summary>
     void GearsShift()
     {
         if (currentSpeed > maximumSpeed / maxGears * (currentGear - 1) && currentSpeed < maximumSpeed / maxGears * (currentGear))
@@ -221,7 +225,8 @@ public class CarController : MonoBehaviour {
             // fireBall goes here
             timeShift = Time.timeSinceLevelLoad + 1.0f;
             isGearShiftedDown = true;
-            exhaust.SetActive(true);
+            if (currentSpeed > 40)
+                exhaust.SetActive(true);
         }
         //Debug.Log("currentSpeed"+ currentSpeed+" ** Max Speed Current Gear" + ((maximumSpeed / maxGears * currentGear)));
         myCurrentRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 10;
@@ -237,7 +242,42 @@ public class CarController : MonoBehaviour {
 
     }
 
+    ////Speedometer
 
+    //function OnGUI()
+    //{
+    //    GUI.DrawTexture(Rect(Screen.width - 300, Screen.height - 300, 300, 300), speedOMeterDial);
+    //    var speedFactor : float = currentSpeed / topSpeed;
+    //    var rotationAngle : float;
+    //    if (currentSpeed >= 0)
+    //    {
+    //        rotationAngle = Mathf.Lerp(minAnglePointer, maxAnglePointer, speedFactor);
+    //    }
+    //    else {
+    //        rotationAngle = Mathf.Lerp(minAnglePointer, maxAnglePointer, -speedFactor);
+    //    }
+    //    GUIUtility.RotateAroundPivot(rotationAngle, Vector2(Screen.width - 150, Screen.height - 150));
+    //    GUI.DrawTexture(Rect(Screen.width - 300, Screen.height - 300, 300, 300), speedOMeterPointer);
+
+
+
+    //}
+
+    ////CollisioN FX
+
+    //function OnCollisionEnter(other : Collision)
+    //{
+
+    //    if (other.transform != transform && other.contacts.length != 0)
+    //    {
+    //        for (var i = 0; i < other.contacts.length; i++)
+    //        {
+    //            //Instantiate(spark,other.contacts[i].point,Quaternion.identity);
+    //            var clone : GameObject = Instantiate(collisionSound, other.contacts[i].point, Quaternion.identity);
+    //            clone.transform.parent = transform;
+    //        }
+    //    }
+    //}
 
     Rect areagui = new Rect(0f, 20f, 500f, 300f);
     bool showDebug;
