@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CarPaintDeformable
-  m_Shader: {fileID: 4800000, guid: 3b25ecdadfb30d14d84a8b2901fa64d2, type: 3}
+  m_Name: CrashPieces
+  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: d5a348f49756a564d98f71e75e7c506e, type: 3}
+          m_Texture: {fileID: 2800000, guid: 60dd9204ba2d7da488814eaf1f4e4d97, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -27,13 +27,6 @@ Material:
           name: _BumpMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _NormalMap
-        second:
-          m_Texture: {fileID: 2800000, guid: 9714d573f975d2243bb7a5518fa8143e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -83,13 +76,6 @@ Material:
           name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DispTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 40b16a3084a5b4245aa23477d1f14359, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -143,24 +129,8 @@ Material:
         second: 0
       data:
         first:
-          name: _EdgeLength
-        second: 2
-      data:
-        first:
-          name: _Displacement
-        second: 0
-      data:
-        first:
-          name: _DispOffset
-        second: 0.5
-      data:
-        first:
-          name: _SpecPow
-        second: 0.5
-      data:
-        first:
-          name: _GlossPow
-        second: 0.5
+          name: _InvFade
+        second: 1
     m_Colors:
       data:
         first:
@@ -169,8 +139,8 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.9338235, g: 0.15105967, b: 0.15105967, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _SpecColor
-        second: {r: 0.53661263, g: 0.5441177, b: 0, a: 0.5}
+          name: _TintColor
+        second: {r: 0.16911763, g: 0.16911763, b: 0.16911763, a: 0.5}
