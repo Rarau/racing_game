@@ -26,7 +26,9 @@ public class EngineSound : MonoBehaviour
 
             //float ratioRPM = ((car.kilometerPerHour - 1) / (car.maxGears - 1)) + 1;
             //float pitch = Mathf.Clamp(1.0f + ((car.kilometerPerHour - 10) / (car.maxSpeed)), 1.0f, 8.0f);
-            float pitch = Mathf.Clamp(ratioRPM, 1.0f, 6.0f);
+
+            float pitch = Mathf.Clamp(0.35f * ratioRPM, 0.0f, 8.0f);
+
             engineAudio.pitch = pitch;
             //engineAudio.volume += 0.1f;
         }

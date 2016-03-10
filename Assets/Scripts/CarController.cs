@@ -75,19 +75,26 @@ public class CarController : MonoBehaviour {
 
     void Update()
     {
+        Vector3 velocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
 
         //accel = Input.GetKey(KeyCode.W);
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
         currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
-        if ( Input.GetAxis(playerPrefix + "Vertical") < 0.0f)
+        if (Input.GetAxis(playerPrefix + "Vertical") < 0.0f)
         {
-            Debug.Log("Brakes");
-            wheels[0].brakeTorque = brakingPower;
-            wheels[1].brakeTorque = brakingPower;
-            wheels[2].brakeTorque = brakingPower;
-            wheels[3].brakeTorque = brakingPower;
-
+            if (velocity.z > 0.0f)
+            {
+                Debug.Log("Brakes");
+                wheels[0].brakeTorque = brakingPower;
+                wheels[1].brakeTorque = brakingPower;
+                wheels[2].brakeTorque = brakingPower;
+                wheels[3].brakeTorque = brakingPower;
+            }
+            else
+            {
+                throttlePos = Input.GetAxis(playerPrefix + "Vertical");
+            }
         }
         else
         {
@@ -98,6 +105,18 @@ public class CarController : MonoBehaviour {
             wheels[2].brakeTorque = 0.0f;
             wheels[3].brakeTorque = 0.0f;
         }
+
+        if(Input.GetButton("HandBrake"))
+        {
+            wheels[2].eBrakeEnabled = true;
+            wheels[3].eBrakeEnabled = true;
+        }
+        else
+        {
+            wheels[2].eBrakeEnabled = false;
+            wheels[3].eBrakeEnabled = false;
+        }
+
         float wheelRotRate = 0.5f * (wheels[0].rpm + wheels[1].rpm);
 
         // If we are not accelerating (no throttle) we slow down the engine

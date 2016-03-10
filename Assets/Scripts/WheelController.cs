@@ -54,7 +54,7 @@ public class WheelController : MonoBehaviour {
     public bool overrideSlipRatio;
     public float overridenSlipRatio;
     float prevSteringAngle;
-
+    public bool eBrakeEnabled = false;
     public WheelController connectedWheel;
 
     float wheelX;
@@ -149,6 +149,12 @@ public class WheelController : MonoBehaviour {
             angularVelocityDegSec = (localVel.z) * (1.0f / 0.017453292519968f) * (1.0f / radius);
             //linearVel = Mathf.Lerp (linearVel, localVel.z, Time.fixedDeltaTime * 300.0f);
             linearVel = localVel.z;
+        }
+
+        if(eBrakeEnabled)
+        {
+            angularVelocityDegSec = 0.0f;
+            linearVel = 0.0f;
         }
 
         if (!overrideSlipRatio) {
