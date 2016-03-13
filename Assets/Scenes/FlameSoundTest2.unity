@@ -565,6 +565,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
   m_IsPrefabParent: 0
@@ -1215,7 +1219,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22412834, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22412834, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -2508,7 +2512,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!114 &746760607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2996,7 +3000,7 @@ Transform:
   - {fileID: 256632267}
   - {fileID: 109964458}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &854175190 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 4a0417c28167f4e48aa83ee413152317, type: 3}
@@ -3104,7 +3108,7 @@ Transform:
   - {fileID: 1433459533}
   - {fileID: 621599659}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
 --- !u!4 &876858782 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 2}
@@ -4259,9 +4263,11 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1046486537}
+  - 224: {fileID: 1046486540}
   - 108: {fileID: 1046486536}
   - 146: {fileID: 1046486538}
+  - 222: {fileID: 1046486539}
+  - 114: {fileID: 1046486537}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -4302,18 +4308,33 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!4 &1046486537
-Transform:
+--- !u!114 &1046486537
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1046486535}
-  m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!146 &1046486538
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -4343,6 +4364,29 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 0
+--- !u!222 &1046486539
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1046486535}
+--- !u!224 &1046486540
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1046486535}
+  m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 3}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1052881598
 GameObject:
   m_ObjectHideFlags: 0
@@ -6049,6 +6093,10 @@ MonoBehaviour:
   timeCrash: 0
   crash: {fileID: 0}
   isAccident: 0
+  speedOMeterDial: {fileID: 0}
+  speedOMeterPointer: {fileID: 0}
+  minAnglePointer: 30
+  maxAnglePointer: 180
   engineShaftInertia: 3500
   normalizedRPM: 0
   carAngularSpeed: 1.1208339
@@ -6398,6 +6446,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
   m_IsPrefabParent: 0
@@ -6456,6 +6508,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
   m_IsPrefabParent: 0
@@ -7259,7 +7315,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443850, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -12.03
+      value: -15.41
       objectReference: {fileID: 0}
     - target: {fileID: 443850, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7341,6 +7397,14 @@ Prefab:
       propertyPath: cDrag
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11462056, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
+      propertyPath: speedOMeterDial
+      value: 
+      objectReference: {fileID: 2800000, guid: 6323e086f248f1849a4cabdcd058b664, type: 3}
+    - target: {fileID: 11462056, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
+      propertyPath: speedOMeterPointer
+      value: 
+      objectReference: {fileID: 2800000, guid: 5052e8c3b2623a8478ce1aacde8e7d8f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
   m_IsPrefabParent: 0

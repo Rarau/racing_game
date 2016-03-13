@@ -65,6 +65,14 @@ public class CarController : MonoBehaviour {
     public bool isAccident = false;
     #endregion
 
+    #region speedMeter
+    public Texture speedOMeterDial;
+    public Texture speedOMeterPointer;
+
+    public float minAnglePointer = 80.0f;
+    public float maxAnglePointer = 360.0f;
+    #endregion
+
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
         currentGear = 1; //starting gear, in future we can put a starter
@@ -265,10 +273,8 @@ public class CarController : MonoBehaviour {
     //    }
     //    GUIUtility.RotateAroundPivot(rotationAngle, Vector2(Screen.width - 150, Screen.height - 150));
     //    GUI.DrawTexture(Rect(Screen.width - 300, Screen.height - 300, 300, 300), speedOMeterPointer);
-
-
-
     //}
+
 
     /// <summary>
     /// Collission handler
@@ -300,39 +306,56 @@ public class CarController : MonoBehaviour {
     void OnGUI()
     {
         GUI.contentColor = Color.black;
-        if (GUILayout.Button("Toggle Debug"))
-            showDebug = !showDebug;
-        if (!showDebug)
-            return;
-        GUILayout.BeginArea(areagui, EditorStyles.helpBox);
-        GUILayout.BeginHorizontal();
-
-        GUILayout.BeginVertical();
-        GUILayout.Label("Wheel");
-        GUILayout.Label("RPM");
-        GUILayout.Label("FroceFWD");
-        GUILayout.Label("ForceSide");
-        GUILayout.Label("SlipRatio");
-        GUILayout.Label("SlipAngle");
-        GUILayout.Label("LinearVel");
-
-        GUILayout.EndVertical();
-
-        foreach(WheelController w in wheels)
+        Rect rect = new Rect(Screen.width - 100, Screen.height - 100, 100, 100);
+        GUI.DrawTexture(rect, speedOMeterDial);
+        float speedFactor = currentSpeed / maxSpeed;
+        float rpmFactor = myCurrentRPM / rpmMax;
+        float rotationAngle;
+        if (currentSpeed >= 0)
         {
-            GUILayout.BeginVertical();
-            GUILayout.Label(w.name);
-            GUILayout.Label(w.rpm.ToString("0.0"));
-            GUILayout.Label(w.fwdForce.ToString("0.0"));
-            GUILayout.Label(w.sideForce.ToString("0.0"));
-            GUILayout.Label(w.slipRatio.ToString("0.000"));
-            GUILayout.Label((w.slipAngle).ToString("0.0"));
-            GUILayout.Label((w.linearVel).ToString("0.00"));
-
-            GUILayout.EndVertical();
+            rotationAngle = Mathf.Lerp(minAnglePointer, maxAnglePointer, rpmFactor);
         }
-        GUILayout.EndHorizontal();
-        GUILayout.EndArea();
+        else {
+            rotationAngle = Mathf.Lerp(minAnglePointer, maxAnglePointer, -rpmFactor);
+        }
+        //Vector2 pivotPoint = new Vector2(Screen.width / 2, Screen.height / 2);
+        Vector2 pivotPoint = new Vector2(Screen.width-50, Screen.height-50);
+        GUIUtility.RotateAroundPivot(rotationAngle, pivotPoint);
+        GUI.DrawTexture(rect, speedOMeterPointer);
+
+        //if (GUILayout.Button("Toggle Debug"))
+        //    showDebug = !showDebug;
+        //if (!showDebug)
+        //    return;
+        //GUILayout.BeginArea(areagui, EditorStyles.helpBox);
+        //GUILayout.BeginHorizontal();
+
+        //GUILayout.BeginVertical();
+        //GUILayout.Label("Wheel");
+        //GUILayout.Label("RPM");
+        //GUILayout.Label("FroceFWD");
+        //GUILayout.Label("ForceSide");
+        //GUILayout.Label("SlipRatio");
+        //GUILayout.Label("SlipAngle");
+        //GUILayout.Label("LinearVel");
+
+        //GUILayout.EndVertical();
+
+        //foreach(WheelController w in wheels)
+        //{
+        //    GUILayout.BeginVertical();
+        //    GUILayout.Label(w.name);
+        //    GUILayout.Label(w.rpm.ToString("0.0"));
+        //    GUILayout.Label(w.fwdForce.ToString("0.0"));
+        //    GUILayout.Label(w.sideForce.ToString("0.0"));
+        //    GUILayout.Label(w.slipRatio.ToString("0.000"));
+        //    GUILayout.Label((w.slipAngle).ToString("0.0"));
+        //    GUILayout.Label((w.linearVel).ToString("0.00"));
+
+        //    GUILayout.EndVertical();
+        //}
+        //GUILayout.EndHorizontal();
+        //GUILayout.EndArea();
     }
     void OnDrawGizmos()
     {
