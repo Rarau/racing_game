@@ -53,8 +53,8 @@ public class CarController : MonoBehaviour {
 
     public float currentSpeed = 1;
     public float myCurrentRPM;
-    public int maxGears = 5;
-    public int maximumSpeed = 200; //KM/h
+    public int maxGears = 6;
+    public int maximumSpeed = 240; //KM/h
 
     public bool isGearShiftedDown = false;
     public float timeShift;
@@ -89,24 +89,29 @@ public class CarController : MonoBehaviour {
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
         currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
-        if ( Input.GetAxis(playerPrefix + "Vertical") < 0.0f)
-        {
-            Debug.Log("Brakes");
-            wheels[0].brakeTorque = brakingPower;
-            wheels[1].brakeTorque = brakingPower;
-            wheels[2].brakeTorque = brakingPower;
-            wheels[3].brakeTorque = brakingPower;
+        // just commented to ee behaviour with reserve gear
+        //if ( Input.GetAxis(playerPrefix + "Vertical") < 0.0f)
+        //{
+        //    Debug.Log("Brakes");
+        //    wheels[0].brakeTorque = brakingPower;
+        //    wheels[1].brakeTorque = brakingPower;
+        //    wheels[2].brakeTorque = brakingPower;
+        //    wheels[3].brakeTorque = brakingPower;     
+        //}
+        //else
+        //{
+        //    throttlePos = Input.GetAxis(playerPrefix + "Vertical");
 
-        }
-        else
-        {
+        //    wheels[0].brakeTorque = 0.0f;
+        //    wheels[1].brakeTorque = 0.0f;
+        //    wheels[2].brakeTorque = 0.0f;
+        //    wheels[3].brakeTorque = 0.0f;
+        //}
+
+        if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f) {
             throttlePos = Input.GetAxis(playerPrefix + "Vertical");
-
-            wheels[0].brakeTorque = 0.0f;
-            wheels[1].brakeTorque = 0.0f;
-            wheels[2].brakeTorque = 0.0f;
-            wheels[3].brakeTorque = 0.0f;
         }
+        
         float wheelRotRate = 0.5f * (wheels[0].rpm + wheels[1].rpm);
 
         // If we are not accelerating (no throttle) we slow down the engine
@@ -118,12 +123,11 @@ public class CarController : MonoBehaviour {
         }
         rpm = Mathf.Clamp(rpm, rpmMin, rpmMax);
 
+        // Manual gears
         //if (Input.GetKeyDown(KeyCode.UpArrow))
         //    currentGear = Mathf.Clamp(currentGear + 1, 1, gearsRatio.Length);
         //if (Input.GetKeyDown(KeyCode.DownArrow))
         //    currentGear = Mathf.Clamp(currentGear - 1, 1, gearsRatio.Length);
-
-        //ShiftGears();
 
         maxTorque = GetMaxTorque(rpm);
         engineTorque = maxTorque * throttlePos;
@@ -144,7 +148,6 @@ public class CarController : MonoBehaviour {
     public void PushThrottle()
     {
         lastThrottleTime = Time.time;
-
     }
 
     public void ReleaseThrottle()
@@ -220,13 +223,11 @@ public class CarController : MonoBehaviour {
     {
         if (currentSpeed > maximumSpeed / maxGears * (currentGear - 1) && currentSpeed < maximumSpeed / maxGears * (currentGear))
         {
-            //myCurrentRPM = (currentSpeed) / (maximumSpeed / maxGears * currentSpeed) * rpmMax;
             myCurrentRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 10;
         }
         if (currentGear < maxGears && currentSpeed > maximumSpeed / maxGears * (currentGear))
         {
             currentGear++;
-            // myCurrentRPM = rpmMin;
         }
         else if (currentGear > 1 && currentSpeed < maximumSpeed / maxGears * (currentGear - 1) && !isGearShiftedDown)
         {
@@ -237,11 +238,7 @@ public class CarController : MonoBehaviour {
             if (currentSpeed > 40)
                 exhaust.SetActive(true);
         }
-        //Debug.Log("currentSpeed"+ currentSpeed+" ** Max Speed Current Gear" + ((maximumSpeed / maxGears * currentGear)));
-        myCurrentRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 10;
-
-        //Debug.Log("\n scurrent time: " + Time.timeSinceLevelLoad);
-        //Debug.Log("\n stimeShift: " + timeShift);
+        myCurrentRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 1;
         
         if (Time.timeSinceLevelLoad >= timeShift && isGearShiftedDown)
         {
@@ -250,6 +247,7 @@ public class CarController : MonoBehaviour {
         }
 
     }
+
 
     ////Speedometer
 
