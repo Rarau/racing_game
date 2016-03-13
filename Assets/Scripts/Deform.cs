@@ -17,7 +17,7 @@ public class Deform : MonoBehaviour
         crashAudio = (AudioSource)GetComponent(typeof(AudioSource));
         if (crashAudio == null)
         {
-            Debug.Log("No audio source, please add one engine noise to the car");
+            Debug.Log("No audio source, please add one crash sound to the car");
         }
     }
 
