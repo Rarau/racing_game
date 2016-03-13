@@ -24,7 +24,7 @@ public class EngineSound : MonoBehaviour
         {
             float ratioRPM = car.myCurrentRPM / car.rpmMax / (car.currentGear);
 
-            float pitch = Mathf.Clamp(100 * ratioRPM, 0.0f, 8.0f);
+            float pitch = Mathf.Clamp(50 * ratioRPM, 0.5f, 7.0f);
 
             engineAudio.pitch = pitch;
             //engineAudio.volume += 0.1f;
