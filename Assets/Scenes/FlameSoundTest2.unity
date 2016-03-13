@@ -437,6 +437,18 @@ Prefab:
       propertyPath: m_Name
       value: SkidmarkLeftWheel
       objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_Time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
   m_IsPrefabParent: 0
@@ -540,6 +552,18 @@ Prefab:
     - target: {fileID: 114752, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
       propertyPath: m_Name
       value: SkidmarkRightWheelFront
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_Time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
@@ -1816,7 +1840,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56cdb3e1d855a5f4ea350da3963d85f3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4762,7 +4786,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56cdb3e1d855a5f4ea350da3963d85f3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -6362,6 +6386,18 @@ Prefab:
       propertyPath: m_Name
       value: SkidmarkLeftWheelFront
       objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_Time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
   m_IsPrefabParent: 0
@@ -6407,6 +6443,18 @@ Prefab:
     - target: {fileID: 114752, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
       propertyPath: m_Name
       value: SkidmarkRightWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_Time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9664070, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf5b4078c03b0de4982f7d5b18635d83, type: 2}
@@ -6863,7 +6911,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56cdb3e1d855a5f4ea350da3963d85f3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -7211,7 +7259,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443850, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -12.03
       objectReference: {fileID: 0}
     - target: {fileID: 443850, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7289,6 +7337,10 @@ Prefab:
       propertyPath: skidAudio
       value: 
       objectReference: {fileID: 8243004, guid: 7a9d970b47d90b1419d7dccf38ff0629, type: 2}
+    - target: {fileID: 11462056, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
+      propertyPath: cDrag
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
   m_IsPrefabParent: 0
@@ -7306,7 +7358,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56cdb3e1d855a5f4ea350da3963d85f3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
