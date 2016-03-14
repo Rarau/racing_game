@@ -5932,46 +5932,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d4e501581b3c2408e4a9308f5f81a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throttlePos: 0
+  steeringAngle: 0
+  playerPrefix: P1_
   cDrag: 4.75
   cRoll: 12.8
   carMass: 1200
-  wheels:
-  - {fileID: 323116167}
-  - {fileID: 539319951}
-  - {fileID: 337032771}
-  - {fileID: 437810673}
-  rpmMin: 1000
-  rpmMax: 35000
-  rpm: 1000
-  engineTorque: 0
-  throttlePos: 0
-  maxTorque: 2400
-  peakTorque: 800
-  torqueRPMCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0.3
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 0.44130653
-      value: 0.30075377
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1.0018315
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
   centerOfMass: {fileID: 1052881599}
-  gearRatio: 2.66
-  differentialRatio: 10
-  steeringSensitivity: 0.2
+  brakingPower: 10000
   steeringSensitityCurve:
     serializedVersion: 2
     m_Curve:
@@ -5998,9 +5966,42 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  steeringSensitivity: 0.2
+  rpmMin: 1000
+  rpmMax: 35000
+  rpm: 1000
+  engineTorque: 0
+  maxTorque: 2400
+  peakTorque: 800
+  torqueRPMCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.44130653
+      value: 0.30075377
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1.0018315
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  gearRatio: 2.66
+  differentialRatio: 10
   maxSpeed: 125
-  brakingPower: 10000
-  playerPrefix: P1_
+  wheels:
+  - {fileID: 323116167}
+  - {fileID: 539319951}
+  - {fileID: 337032771}
+  - {fileID: 437810673}
   delayAcellaration: 0
   kilometerPerHour: 0
   torqueArrayRPMCurve:
@@ -6098,8 +6099,6 @@ MonoBehaviour:
   minAnglePointer: 30
   maxAnglePointer: 180
   engineShaftInertia: 3500
-  normalizedRPM: 0
-  carAngularSpeed: 1.1208339
 --- !u!54 &1529738587
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7408,6 +7407,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2000340182 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 125696, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
+  m_PrefabInternal: {fileID: 2000340181}
+--- !u!114 &2000340183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2000340182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e63e836aa11b14fb651c59728e2b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefix: P1_
 --- !u!1 &2000533524 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 194500, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
