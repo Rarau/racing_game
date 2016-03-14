@@ -2285,7 +2285,6 @@ GameObject:
   - 92: {fileID: 746760611}
   - 124: {fileID: 746760610}
   - 81: {fileID: 746760609}
-  - 114: {fileID: 746760608}
   - 114: {fileID: 746760607}
   - 114: {fileID: 746760613}
   m_Layer: 8
@@ -2306,7 +2305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &746760607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2325,20 +2324,6 @@ MonoBehaviour:
   loop: 1
   playOnAwake: 1
   selfDisable: 0
---- !u!114 &746760608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11433148, guid: 5dabc79fcef469440b1bc0f76eba271c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 746760605}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 246cc59c7a84ea44f87f6b70acfe30c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: -2.22, y: 0.58, z: 0}
 --- !u!81 &746760609
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2409,7 +2394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e574e901a03884594f947ad6b0beae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1987217669}
+  target: {fileID: 1092673437}
   distance: 4.43
   height: 1.3
   heightDamping: 30
@@ -2691,15 +2676,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 15354630, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.37000084
+      value: 0.36999893
       objectReference: {fileID: 0}
     - target: {fileID: 15310976, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.37000084
+      value: 0.36999893
       objectReference: {fileID: 0}
     - target: {fileID: 15340908, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.37000084
+      value: 0.36999893
       objectReference: {fileID: 0}
     - target: {fileID: 15340908, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -2707,7 +2692,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 15312018, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.37000084
+      value: 0.36999893
       objectReference: {fileID: 0}
     - target: {fileID: 15312018, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -2883,7 +2868,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 136642, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
@@ -4458,6 +4443,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engineAudio: {fileID: 1092673435}
   car: {fileID: 1092673434}
+--- !u!4 &1092673437 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 448120, guid: 1ee16814a2ee39541a59c5d3a3710512, type: 2}
+  m_PrefabInternal: {fileID: 828361784}
+--- !u!114 &1092673438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1092673432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e63e836aa11b14fb651c59728e2b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefix: P1_
 --- !u!1001 &1111637096
 Prefab:
   m_ObjectHideFlags: 0
@@ -5680,46 +5681,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d4e501581b3c2408e4a9308f5f81a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throttlePos: 0
+  steeringAngle: 0
+  playerPrefix: P1_
   cDrag: 4.75
   cRoll: 12.8
   carMass: 1200
-  wheels:
-  - {fileID: 323116167}
-  - {fileID: 539319951}
-  - {fileID: 337032771}
-  - {fileID: 437810673}
-  rpmMin: 1000
-  rpmMax: 35000
-  rpm: 1000
-  engineTorque: 0
-  throttlePos: 0
-  maxTorque: 2400
-  peakTorque: 800
-  torqueRPMCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0.3
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 0.44130653
-      value: 0.30075377
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1.0018315
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
   centerOfMass: {fileID: 1052881599}
-  gearRatio: 2.66
-  differentialRatio: 10
-  steeringSensitivity: 0.2
+  brakingPower: 10000
   steeringSensitityCurve:
     serializedVersion: 2
     m_Curve:
@@ -5746,9 +5715,42 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  steeringSensitivity: 0.2
+  rpmMin: 1000
+  rpmMax: 35000
+  rpm: 1000
+  engineTorque: 0
+  maxTorque: 2400
+  peakTorque: 800
+  torqueRPMCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.44130653
+      value: 0.30075377
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1.0018315
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  gearRatio: 2.66
+  differentialRatio: 10
   maxSpeed: 125
-  brakingPower: 10000
-  playerPrefix: P1_
+  wheels:
+  - {fileID: 323116167}
+  - {fileID: 539319951}
+  - {fileID: 337032771}
+  - {fileID: 437810673}
   delayAcellaration: 0
   kilometerPerHour: 0
   torqueArrayRPMCurve:
@@ -5838,9 +5840,14 @@ MonoBehaviour:
   isGearShiftedDown: 0
   timeShift: 0
   exhaust: {fileID: 0}
+  timeCrash: 0
+  crash: {fileID: 0}
+  isAccident: 0
+  speedOMeterDial: {fileID: 0}
+  speedOMeterPointer: {fileID: 0}
+  minAnglePointer: 80
+  maxAnglePointer: 360
   engineShaftInertia: 3500
-  normalizedRPM: 0
-  carAngularSpeed: 1.1208339
 --- !u!54 &1529738587
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6820,85 +6827,7 @@ Rigidbody:
   m_PrefabParentObject: {fileID: 5424954, guid: 1ceccb58972a6d245b20b13d645a43fc,
     type: 2}
   m_PrefabInternal: {fileID: 2000340181}
---- !u!4 &1987217669 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 443850, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
-  m_PrefabInternal: {fileID: 2000340181}
---- !u!82 &1987217670
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1987217665}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 16810ecb0fb48ff40a3b81ba90d6651e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
---- !u!114 &1987217671
+--- !u!114 &1987217670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -6906,11 +6835,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1987217665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7ed9b7e6d6a2446a4c1bd7af4c5df4, type: 3}
+  m_Script: {fileID: 11500000, guid: e9e63e836aa11b14fb651c59728e2b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  engineAudio: {fileID: 0}
-  car: {fileID: 0}
+  playerPrefix: P1_
 --- !u!4 &1988632887 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 2}
