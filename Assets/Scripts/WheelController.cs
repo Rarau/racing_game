@@ -40,6 +40,7 @@ public class WheelController : MonoBehaviour {
 
     public AnimationCurve frictionCurve;
     public AnimationCurve sideCurve;
+    public AnimationCurve forceCurve;
 
     public GameObject wheelGeometry;
     public float tractionForce;
@@ -53,25 +54,34 @@ public class WheelController : MonoBehaviour {
     public bool overrideSlipRatio;
     public float overridenSlipRatio;
     float prevSteringAngle;
+    public bool eBrakeEnabled = false;
+    public WheelController connectedWheel;
+
+    float wheelX;
 	// Update is called once per frame
 	void Update () 
     {
         rigidbody = GetComponent<Rigidbody>();
+
         //wheelGeometry.transform.localRotation *= Quaternion.Euler(0.0f, steeringAngle - prevSteringAngle, 0.0f);
         wheelGeometry.transform.Rotate(rigidbody.transform.up, steeringAngle - prevSteringAngle, Space.World);
 
         wheelGeometry.transform.Rotate(Vector3.right, angularVelocityDegSec * Time.deltaTime, Space.Self);
-        wheelGeometry.transform.localPosition = transform.localPosition;
+        //wheelGeometry.transform.localPosition = transform.localPosition;
         prevSteringAngle = steeringAngle;
+        wheelGeometry.transform.localPosition = new Vector3(wheelX, transform.localPosition.y, transform.localPosition.z);
 	}
     void Awake()
     {
+        wheelX = wheelGeometry.transform.localPosition.x;
        // Debug.Log(Mathf.Deg2Rad);
         GetComponent<Rigidbody>().centerOfMass = (Vector3.zero);
     }
     RaycastHit groundInfo;
     void FixedUpdate()
     {
+        if (overrideSlipRatio)
+            slipRatio = overridenSlipRatio;
         if (Physics.Raycast(transform.position, -rigidbody.transform.up, out groundInfo, radius, raycastIgnore))
         {
             SimulateTraction();
@@ -120,6 +130,8 @@ public class WheelController : MonoBehaviour {
         if (angularVelocityDegSec == 0.0f)
             brakeTorque = 0.0f;
         brakeTorque = -brakeTorque;
+        if (linearVel < 0.0f)
+            brakeTorque = 0.0f;
        // totalTorque = driveTorque - brakeTorque;
         totalTorque = driveTorque + brakeTorque;
 
@@ -139,40 +151,29 @@ public class WheelController : MonoBehaviour {
             linearVel = localVel.z;
         }
 
-        //linearVel = angularVelocity * 0.017453292519968f * radius;
-
-        slipRatio = (linearVel - localVel.z) / Mathf.Abs(localVel.z);
-        slipRatio = Mathf.Clamp(slipRatio, -6f, 6f);
-        // If it's NaN, then the car and the wheel are stopped (0 / 0 division)
-        if (float.IsNaN(slipRatio))
+        if(eBrakeEnabled)
         {
-            slipRatio = 0.0f;
-        }
-        // If it's infinity, then the wheel is spinning but the car is stopped (x / 0) division
-        else if (float.IsInfinity(slipRatio))
-        {
-            slipRatio = 1.0f * Mathf.Sign(slipRatio);
+            angularVelocityDegSec = 0.0f;
+            linearVel = 0.0f;
         }
 
-        if (overrideSlipRatio)
-            slipRatio = overridenSlipRatio;
+        if (!overrideSlipRatio) {
+            slipRatio = (linearVel - localVel.z) / Mathf.Abs(localVel.z) * 0.1f;
+            slipRatio = Mathf.Clamp(slipRatio, -6f, 6f);
+            // If it's NaN, then the car and the wheel are stopped (0 / 0 division)
+            if (float.IsNaN(slipRatio)) {
+                slipRatio = 0.0f;
+            }
+            // If it's infinity, then the wheel is spinning but the car is stopped (x / 0) division
+            else if (float.IsInfinity(slipRatio)) {
+                slipRatio = 1.0f * Mathf.Sign(slipRatio);
+            }
+        } else {
+            slipRatio = connectedWheel.slipRatio;
+        }
 
-        // Calculate the slip angle: Angle between forward direction vector of the wheel and velocity vector of the wheel
-        //Vector3 v = localVel;
-        //v.y = 0.0f;
-        //slipAngle = Vector3.Angle(Vector3.forward, v);
-        //Vector3 cross = Vector3.Cross(Vector3.forward, v);
-        slipAngle = Vector3.Angle(Mathf.Sign(linearVel) * fwd, rigidbody.velocity.normalized);
-        Vector3 cross = Vector3.Cross(Mathf.Sign(linearVel) * fwd, rigidbody.velocity.normalized);
 
-        //  if(linearVel >= 0.0f)
-            if (cross.y < 0) slipAngle = -slipAngle;
 
-        slipAngle *= Mathf.Sign(linearVel);
-        //else
-        //    if (cross.y > 0) slipAngle = -slipAngle;
-
-       // slipAngle %= 90.0f;
 
         tractionForce = frictionCurve.Evaluate(Mathf.Abs(slipRatio)) * tractionCoeff * Mathf.Sign(slipRatio); //* sideCurve.Evaluate(Mathf.Abs(slipAngle / 90.0f));
         tractionForce = Mathf.Clamp(tractionForce, -maxTractionAmt, maxTractionAmt);
@@ -182,34 +183,50 @@ public class WheelController : MonoBehaviour {
         //Debug.DrawLine(transform.position, 0.01f * tractionForceV + transform.position, Color.red);
 
         //if(Mathf.Abs(slipRatio) > 0.01f)
-        if(totalTorque != 0.0f)
-            rigidbody.AddForceAtPosition(tractionForceV * weightTransfer, transform.position);
+        if(totalTorque != 0.0f) {
+            rigidbody.AddForceAtPosition(tractionForceV * weightTransfer * transform.root.GetComponent<Rigidbody>().mass, transform.position);
+            //rigidbody.AddForceAtPosition(fwd * 100.0f, transform.position);
+            //Debug.Log(gameObject.name + " " + tractionForce + " " + slipRatio + " " + linearVel + " " + localVel.z);
+        }
+
         fwdForce = tractionForceV.magnitude;
 
 
-        Vector3 sideForce = -right * sideCurve.Evaluate(Mathf.Abs(slipAngle / 90.0f)) * Mathf.Sign(slipAngle) * sideTraction * Mathf.Clamp((Mathf.Abs(localVel.x) / 0.010f), 0.0f, 1.0f);
+        // Calculate the slip angle: Angle between forward direction vector of the wheel and velocity vector of the wheel
 
+        slipAngle = Vector3.Angle(Mathf.Sign(linearVel) * fwd, rigidbody.velocity.normalized);
+        Vector3 cross = Vector3.Cross(Mathf.Sign(linearVel) * fwd, rigidbody.velocity.normalized);
 
-        this.sideForce = sideForce.magnitude;
+        if (cross.y < 0) slipAngle = -slipAngle;
+
+        slipAngle *= Mathf.Sign(linearVel);
+
+        Vector3 sideForce = -right * sideCurve.Evaluate(Mathf.Abs(slipAngle / 90.0f)) * Mathf.Sign(slipAngle) * sideTraction;// * Mathf.Clamp((Mathf.Abs(localVel.x) / 0.010f), 0.0f, 1.0f);
+
+        float sideForceMultiplier = forceCurve.Evaluate(localVel.magnitude / 2.0f);
+        sideForce *= sideForceMultiplier;
+        //this.sideForce = sideForce.magnitude;
         sideForce = sideForce.magnitude > maxSideForce ? sideForce.normalized * maxSideForce : sideForce;
         //sideForce *= Mathf.Clamp(rigidbody.velocity.magnitude / 0.50f , - 1.0f, 1.0f);
         //sideForce = transform.TransformDirection(sideForce);
 
 
-        Debug.DrawLine(transform.position, 0.01f * sideForce + transform.position, Color.yellow);
+        Debug.DrawLine(transform.position, sideForce + transform.position, Color.yellow);
 
         prevPos = transform.position;
 
         Debug.DrawLine(transform.position, transform.position + fwd * 5.0f, Color.blue);
         //Debug.DrawLine(transform.position, transform.position + right * 5.0f, Color.red);
-        if (Mathf.Abs(linearVel) < 1.2f && totalTorque == 0.0f)
-            rigidbody.drag = 100.0f;
-        else
-        {
-            rigidbody.drag = 0.0f;
-            rigidbody.AddForceAtPosition(sideForce * weightTransfer, transform.position);
+        //if (Mathf.Abs(linearVel) < 0.82f && totalTorque == 0.0f)
+        //{
+        //    rigidbody.drag = Mathf.Lerp(rigidbody.drag, 100.0f, Time.deltaTime * 10.0f);
+        //}
+        //else
+        //{
+        //    rigidbody.drag = Mathf.Lerp(rigidbody.drag, 0.0f, Time.deltaTime * 10.0f);
+           rigidbody.AddForceAtPosition(sideForce * weightTransfer * transform.root.GetComponent<Rigidbody>().mass, transform.position);
 
-        }
+        //}
 
        // rigidbody.AddForce(-downForce * rigidbody.transform.up);
     }
