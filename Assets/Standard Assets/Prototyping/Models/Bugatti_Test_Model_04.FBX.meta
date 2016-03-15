@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 97148be856cdc0a49b4f4f7ae1da6ea0
+timeCreated: 1457481372
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: car_body
+    100004: car_bumper
+    100006: car_bumper2
+    100008: car_door_left
+    100010: car_hoods
+    100012: car_hundle
+    100014: car_hundleaboce
+    100016: car_inside_door
+    100018: car_wheel_back_left
+    100020: car_wheel_back_right
+    100022: car_wheel_Front_Left
+    100024: car_wheel_front_right
+    100026: car_windows
+    400000: //RootNode
+    400002: car_body
+    400004: car_bumper
+    400006: car_bumper2
+    400008: car_door_left
+    400010: car_hoods
+    400012: car_hundle
+    400014: car_hundleaboce
+    400016: car_inside_door
+    400018: car_wheel_back_left
+    400020: car_wheel_back_right
+    400022: car_wheel_Front_Left
+    400024: car_wheel_front_right
+    400026: car_windows
+    2300000: car_body
+    2300002: car_bumper
+    2300004: car_bumper2
+    2300006: car_door_left
+    2300008: car_hoods
+    2300010: car_hundle
+    2300012: car_hundleaboce
+    2300014: car_inside_door
+    2300016: car_wheel_back_left
+    2300018: car_wheel_back_right
+    2300020: car_wheel_Front_Left
+    2300022: car_wheel_front_right
+    2300024: car_windows
+    3300000: car_body
+    3300002: car_bumper
+    3300004: car_bumper2
+    3300006: car_door_left
+    3300008: car_hoods
+    3300010: car_hundle
+    3300012: car_hundleaboce
+    3300014: car_inside_door
+    3300016: car_wheel_back_left
+    3300018: car_wheel_back_right
+    3300020: car_wheel_Front_Left
+    3300022: car_wheel_front_right
+    3300024: car_windows
+    4300000: car_bumper2
+    4300002: car_inside_door
+    4300004: car_hundleaboce
+    4300006: car_hundle
+    4300008: car_door_left
+    4300010: car_hoods
+    4300012: car_wheel_front_right
+    4300014: car_wheel_back_left
+    4300016: car_wheel_back_right
+    4300018: car_wheel_Front_Left
+    4300020: car_windows
+    4300022: car_bumper
+    4300024: car_body
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
