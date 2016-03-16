@@ -57,7 +57,6 @@ public class WheelController : MonoBehaviour {
     public bool eBrakeEnabled = false;
     public WheelController connectedWheel;
 
-    float wheelX;
 	// Update is called once per frame
 	void Update () 
     {
@@ -67,16 +66,15 @@ public class WheelController : MonoBehaviour {
         wheelGeometry.transform.Rotate(rigidbody.transform.up, steeringAngle - prevSteringAngle, Space.World);
 
         wheelGeometry.transform.Rotate(Vector3.right, angularVelocityDegSec * Time.deltaTime, Space.Self);
-        //wheelGeometry.transform.localPosition = transform.localPosition;
+        wheelGeometry.transform.localPosition = transform.localPosition;
         prevSteringAngle = steeringAngle;
-        wheelGeometry.transform.localPosition = new Vector3(wheelX, transform.localPosition.y, transform.localPosition.z);
 	}
     void Awake()
     {
-        wheelX = wheelGeometry.transform.localPosition.x;
-       // Debug.Log(Mathf.Deg2Rad);
         GetComponent<Rigidbody>().centerOfMass = (Vector3.zero);
     }
+
+    private Vector3 prevNormal;
     RaycastHit groundInfo;
     void FixedUpdate()
     {
@@ -84,10 +82,11 @@ public class WheelController : MonoBehaviour {
             slipRatio = overridenSlipRatio;
         if (Physics.Raycast(transform.position, -rigidbody.transform.up, out groundInfo, radius, raycastIgnore))
         {
+            prevNormal = groundInfo.normal;
+            //Debug.Log(name + ": " + Vector3.Dot(groundInfo.normal, prevNormal));
             SimulateTraction();
         }
-        //else
-           // Debug.Log("Not touching ground");
+
     }
 
     public Vector3 prevPos;

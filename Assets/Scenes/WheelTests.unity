@@ -1152,7 +1152,7 @@ Prefab:
     - target: {fileID: 11493494, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
       propertyPath: car
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1987217669}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
   m_IsPrefabParent: 0
@@ -2305,7 +2305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &746760607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6827,6 +6827,12 @@ Rigidbody:
   m_PrefabParentObject: {fileID: 5424954, guid: 1ceccb58972a6d245b20b13d645a43fc,
     type: 2}
   m_PrefabInternal: {fileID: 2000340181}
+--- !u!114 &1987217669 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11462056, guid: 1ceccb58972a6d245b20b13d645a43fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2000340181}
+  m_Script: {fileID: 11500000, guid: 39d4e501581b3c2408e4a9308f5f81a7, type: 3}
 --- !u!114 &1987217670
 MonoBehaviour:
   m_ObjectHideFlags: 0

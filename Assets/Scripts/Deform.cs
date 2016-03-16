@@ -23,12 +23,12 @@ public class Deform : MonoBehaviour
 
     void Update()
     {
-        if (car.isAccident && destructionLevel<1.0f)
-        {
-            destructionLevel = 1.0f;
-            material.SetFloat("_Displacement", destructionLevel);
-            crashAudio.Play();
-        }
+        //if (car.isAccident && destructionLevel<1.0f)
+        //{
+        //    destructionLevel = 1.0f;
+        //    material.SetFloat("_Displacement", destructionLevel);
+        //    crashAudio.Play();
+        //}
 
 
     }

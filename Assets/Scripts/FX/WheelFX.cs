@@ -14,13 +14,19 @@ public class WheelFX : MonoBehaviour {
     // Use this for initialization
     void Start () {
         wheel = GetComponent<WheelController>();
-        skidmarkPrefab.SetActive(false);
 
         skidAudio = (AudioSource)GetComponent(typeof(AudioSource));
         if (skidAudio == null)
         {
-            Debug.Log("No audio source, please add one skid audio to the tyres");
+            Debug.LogError("No audio source, please add one skid audio to the tyres");
+            enabled = false;
         }
+        if (skidmarkPrefab == null)
+        {
+            Debug.LogError("No skidmark prefab, please attach it");
+            enabled = false;
+        }
+        skidmarkPrefab.SetActive(false);
     }
 	
 	// Update is called once per frame
