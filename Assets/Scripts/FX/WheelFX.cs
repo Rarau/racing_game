@@ -31,7 +31,7 @@ public class WheelFX : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if ((Mathf.Abs(wheel.slipAngle) > 30.0f || Mathf.Abs(wheel.slipRatio) > 1.0f) && Mathf.Abs(wheel.rpm) > 2.0f)
+        if ((Mathf.Abs(wheel.slipAngle) > 30.0f || Mathf.Abs(wheel.slipRatio) > 1.0f) && Mathf.Abs(wheel.rpm) > 10.0f)
         {
             particles.enableEmission = true;
             skidmarkPrefab.SetActive(true);
