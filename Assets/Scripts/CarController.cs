@@ -73,7 +73,8 @@ public class CarController : MonoBehaviour
         currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
         Vector3 localVelocity = transform.InverseTransformDirection(rigidbody.velocity);
-        if ( throttlePos < 0.0f)
+        
+        /*if ( throttlePos < 0.0f)
         {
             if (localVelocity.z > 0.0f)
             {
@@ -91,7 +92,7 @@ public class CarController : MonoBehaviour
                 wheels[2].brakeTorque = 0.0f;
                 wheels[3].brakeTorque = 0.0f;
             }
-        }
+        }*/
             /*
         else
         {
