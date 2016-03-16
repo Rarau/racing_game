@@ -22,7 +22,7 @@ public class EngineSound : MonoBehaviour
     {
         if (engineAudio != null)
         {
-            float ratioRPM = (car.myCurrentRPM / car.rpmMax * 2) +
+            float ratioRPM = (car.virtualRPM / car.rpmMax * 2) +
                             (car.currentSpeed / car.maxSpeed) +
                             (car.currentGear / car.maxGears);
 

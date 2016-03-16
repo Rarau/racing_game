@@ -21,7 +21,7 @@ public class SpeedCounter : MonoBehaviour
     {
         t.text = (car.currentSpeed).ToString("0.0 KMH") + "\n";
         t.text += ((car.currentSpeed)*.62f).ToString("0.0 MPH") + "\n";
-        t.text += "Engine rpm: " + car.myCurrentRPM + "\n";
+        t.text += "Engine rpm: " + car.virtualRPM + "\n";
         t.text += "Gear: " + car.currentGear + "\n";
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 
 [ExecuteInEditMode]
+[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class BezierCurve : MonoBehaviour {
 
     static Material mat;
@@ -11,9 +12,33 @@ public class BezierCurve : MonoBehaviour {
     public int numDivs = 10;
 
 
-    public Vector2[] points;
-    public Vector2[] normals;
-    public float[] uCoords;
+    public Vector2[] points = new Vector2[] {
+        new Vector2(1.0f, 0.0f),
+        new Vector2(2.0f, 0.0f),
+        new Vector2(3.0f, 0.0f),
+        new Vector2(4.0f, 0.0f),
+        new Vector2(5.0f, 0.0f),
+        new Vector2(6.0f, 0.0f)
+    };
+
+    public Vector2[] normals = new Vector2[] {
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f)
+    };
+
+    public float[] uCoords = new float[] {
+        0.1f,
+        0.2f,
+        0.3f,
+        0.4f,
+        0.5f,
+        0.6f
+    };
+
     public int[] lines = new int[] {
         0, 1,
         1, 2,
@@ -23,7 +48,32 @@ public class BezierCurve : MonoBehaviour {
     };
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
+        if (a == null)
+        {
+            a = new GameObject("A").transform;
+            a.transform.parent = transform;
+            a.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        }
+        if (b == null)
+        {
+            b = new GameObject("B").transform;
+            b.transform.parent = transform;
+            b.transform.localPosition = new Vector3(0.0f, 0.0f, 3.0f);
+        } 
+        if (c == null)
+        {
+            c = new GameObject("C").transform;
+            c.transform.parent = transform;
+            c.transform.localPosition = new Vector3(10.0f, 0.0f, 3.0f);
+        }
+        if (d == null)
+        {
+            d = new GameObject("D").transform;
+            d.transform.parent = transform;
+            d.transform.localPosition = new Vector3(10.0f, 0.0f, 0.0f);
+        }
         RegenerateMesh();
 	}
 
@@ -43,12 +93,14 @@ public class BezierCurve : MonoBehaviour {
 
         Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
         if (mesh == null)
+        {
             mesh = new Mesh();
+            Debug.Log("Mesh was null");
+        }
 
+        Vector3[] pts = { a.localPosition, (b.localPosition), c.localPosition, d.localPosition };
 
-        Vector3[] pts = { a.localPosition, a.InverseTransformPoint(b.position), c.localPosition, d.localPosition };
-
-        Debug.Log(name + " " + a.InverseTransformPoint(b.position));
+        //Debug.Log(name + " " + a.InverseTransformPoint(b.position));
 
         OrientedPoint[] path = new OrientedPoint[numDivs + 1];
 
@@ -57,16 +109,17 @@ public class BezierCurve : MonoBehaviour {
 
             OrientedPoint p;
             p.position = GetPoint(pts, ((float)i / (float)numDivs));
-            p.rotation = GetOrientation3D(pts, (float)i / (float)numDivs, -transform.up);
+            p.rotation = GetOrientation3D(pts, (float)i / (float)numDivs, -a.transform.up);
 
-            path[i] = p;
+            //path[i] = p;
         }
 
 
 
         Shape.Extrude(mesh, s, path);
 
-        //Debug.Log("Mesh regenerated");
+        Debug.Log("Mesh regenerated " + mesh.vertexCount);
+        GetComponent<MeshFilter>().sharedMesh = mesh;   
     }
 
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using UnityEditor;
 
@@ -8,7 +9,6 @@ public class CarController : MonoBehaviour
     // Input variables for steering the car
     public float throttlePos = 0.0f;
     public float steeringAngle = 0.0f;
-    public string playerPrefix = "P1_";             // Prefix concatenated to the Input axis name for multiplayer support
 
     // Car physical constants
     public float cDrag;                             // Drag (air friction constant)
@@ -41,82 +41,69 @@ public class CarController : MonoBehaviour
     private Vector3 previousVelocity;
     private Vector3 totalAcceleration;
 
+    // Car events
+    public event Action<int> gearShiftEvent;
+    public event Action<Collision> crashEvent;
 
-
-    #region goncalo variables
-    public float delayAcellaration;
-    public float kilometerPerHour;
-
-    public AnimationCurve[] torqueArrayRPMCurve;
 
     public int currentGear;
     public float[] gearsRatio = { -2.769f, 2.083f, 3.769f, 3.267f, 3.538f, 4.083f }; //Toyota Supra
+    public int maxGears = 6;
+    public float virtualRPM;
 
-    public float timeAccelaration;
+
+    private float timeAccelaration;
 
     public float currentSpeed = 1;
-    public float myCurrentRPM;
-    public int maxGears = 6;
     public int maximumSpeed = 240; //KM/h
 
-    public bool isGearShiftedDown = false;
-    public float timeShift;
-    public GameObject exhaust;
-    public float timeCrash;
-    public GameObject crash;
+    private bool isGearShiftedDown = false;
+    private float timeShift;
 
-    public bool isAccident = false;
-    #endregion
 
-    #region speedMeter
-    public Texture speedOMeterDial;
-    public Texture speedOMeterPointer;
-
-    public float minAnglePointer = 80.0f;
-    public float maxAnglePointer = 360.0f;
-    #endregion
-
-    void Start () {
+    void Start () 
+    {
         rigidbody = GetComponent<Rigidbody>();
         currentGear = 1; //starting gear, in future we can put a starter
-
-        crash = GameObject.Find("CrashParticles");
-        if (crash == null)
-            Debug.Log("You do not have Crash Particles system!");
-        crash.SetActive(false);
-
-        exhaust = GameObject.Find("FireBall");
-        if (exhaust == null)
-            Debug.Log("You do not have an exhaust system!");
-        exhaust.SetActive(false);
     }
-
-    public float engineShaftInertia = 2.0f;
 
     void Update()
     {
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
         currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
-        // just commented to ee behaviour with reserve gear
-        //if ( Input.GetAxis(playerPrefix + "Vertical") < 0.0f)
-        //{
-        //    Debug.Log("Brakes");
-        //    wheels[0].brakeTorque = brakingPower;
-        //    wheels[1].brakeTorque = brakingPower;
-        //    wheels[2].brakeTorque = brakingPower;
-        //    wheels[3].brakeTorque = brakingPower;     
-        //}
-        //else
-        //{
-        //    throttlePos = Input.GetAxis(playerPrefix + "Vertical");
+        Vector3 localVelocity = transform.InverseTransformDirection(rigidbody.velocity);
+        if ( throttlePos < 0.0f)
+        {
+            if (localVelocity.z > 0.0f)
+            {
+                Debug.Log("Brakes");
+                wheels[0].brakeTorque = brakingPower;
+                wheels[1].brakeTorque = brakingPower;
+                wheels[2].brakeTorque = brakingPower;
+                wheels[3].brakeTorque = brakingPower;
+                throttlePos = 0.0f;
+            }
+            else
+            {
+                wheels[0].brakeTorque = 0.0f;
+                wheels[1].brakeTorque = 0.0f;
+                wheels[2].brakeTorque = 0.0f;
+                wheels[3].brakeTorque = 0.0f;
+            }
+        }
+            /*
+        else
+        {
+            throttlePos = Input.GetAxis(playerPrefix + "Vertical");
 
-        //    wheels[0].brakeTorque = 0.0f;
-        //    wheels[1].brakeTorque = 0.0f;
-        //    wheels[2].brakeTorque = 0.0f;
-        //    wheels[3].brakeTorque = 0.0f;
-        //}
-        /*
+            wheels[0].brakeTorque = 0.0f;
+            wheels[1].brakeTorque = 0.0f;
+            wheels[2].brakeTorque = 0.0f;
+            wheels[3].brakeTorque = 0.0f;
+        }
+             * */
+                /*
         if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
         {
             throttlePos = Input.GetAxis(playerPrefix + "Vertical");
@@ -137,6 +124,8 @@ public class CarController : MonoBehaviour
         {
             engineTorque = 0.0f;
         }
+
+
 
         // Apply the torque to the wheels
         //wheels[1].driveTorque = engineTorque;
@@ -213,29 +202,35 @@ public class CarController : MonoBehaviour
     {
         if (currentSpeed > maximumSpeed / maxGears * (currentGear - 1) && currentSpeed < maximumSpeed / maxGears * (currentGear))
         {
-            myCurrentRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 10;
+            virtualRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 10;
         }
         if (currentGear < maxGears && currentSpeed > maximumSpeed / maxGears * (currentGear))
         {
             currentGear++;
+            // Fire the gear shift event
+            if(gearShiftEvent != null)
+            {
+                gearShiftEvent(currentGear);
+            }
         }
         else if (currentGear > 1 && currentSpeed < maximumSpeed / maxGears * (currentGear - 1) && !isGearShiftedDown)
         {
             currentGear--;
-            // fireBall goes here
+            // Fire the gear shift event
+            if (gearShiftEvent != null)
+            {
+                gearShiftEvent(currentGear);
+            }
+
             timeShift = Time.timeSinceLevelLoad + 1.0f;
             isGearShiftedDown = true;
-            if (currentSpeed > 40)
-                exhaust.SetActive(true);
         }
-        myCurrentRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 1;
+        virtualRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 1;
         
         if (Time.timeSinceLevelLoad >= timeShift && isGearShiftedDown)
         {
             isGearShiftedDown = false;
-            exhaust.SetActive(false);
         }
-
     }
 
 
@@ -245,23 +240,10 @@ public class CarController : MonoBehaviour
     /// <param name="other"></param>
     void OnCollisionEnter(Collision other)
     {
-        crash.SetActive(true);
-
-        timeCrash = Time.timeSinceLevelLoad + 1.0f;
-
-        isAccident = true;
-    }
-
-    /// <summary>
-    /// Collission handler
-    /// </summary>
-    /// <param name="other"></param>
-    void OnCollisionExit(Collision other)
-    {
-        //if (Time.timeSinceLevelLoad >= timeCrash)
-            crash.SetActive(false);
-
-        isAccident = false;
+        if (crashEvent != null)
+        {
+            crashEvent(other);
+        }
     }
 
     Rect areagui = new Rect(0f, 20f, 500f, 300f);
@@ -269,22 +251,6 @@ public class CarController : MonoBehaviour
     void OnGUI()
     {
         GUI.contentColor = Color.black;
-        Rect rect = new Rect(Screen.width - 100, Screen.height - 100, 100, 100);
-        GUI.DrawTexture(rect, speedOMeterDial);
-        float speedFactor = currentSpeed / maxSpeed;
-        float rpmFactor = myCurrentRPM / rpmMax;
-        float rotationAngle;
-        if (currentSpeed >= 0)
-        {
-            rotationAngle = Mathf.Lerp(minAnglePointer, maxAnglePointer, rpmFactor);
-        }
-        else {
-            rotationAngle = Mathf.Lerp(minAnglePointer, maxAnglePointer, -rpmFactor);
-        }
-        //Vector2 pivotPoint = new Vector2(Screen.width / 2, Screen.height / 2);
-        Vector2 pivotPoint = new Vector2(Screen.width-50, Screen.height-50);
-        GUIUtility.RotateAroundPivot(rotationAngle, pivotPoint);
-        GUI.DrawTexture(rect, speedOMeterPointer);
 
         if (GUILayout.Button("Toggle Debug"))
             showDebug = !showDebug;
