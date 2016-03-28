@@ -26,6 +26,12 @@ public class WheelController : MonoBehaviour {
         get { return AngularVelocity / ((2.0f * Mathf.PI)/60.0f); }
     }
 
+    private bool isGrounded = false;
+    public bool IsGrounded
+    {
+        get { return isGrounded; }
+    }
+
     public float driveTorque;
     public float brakeTorque;
 
@@ -80,13 +86,18 @@ public class WheelController : MonoBehaviour {
     {
         if (overrideSlipRatio)
             slipRatio = overridenSlipRatio;
+        
         if (Physics.Raycast(transform.position, -rigidbody.transform.up, out groundInfo, radius, raycastIgnore))
         {
             prevNormal = groundInfo.normal;
             //Debug.Log(name + ": " + Vector3.Dot(groundInfo.normal, prevNormal));
             SimulateTraction();
+            isGrounded = true;
         }
-
+        else
+        {
+            isGrounded = false;
+        }
     }
 
     public Vector3 prevPos;
@@ -128,11 +139,11 @@ public class WheelController : MonoBehaviour {
         //Mathf.Clamp(brakeTorque, -driveTorque, driveTorque);
         if (angularVelocityDegSec == 0.0f)
             brakeTorque = 0.0f;
-        brakeTorque = -brakeTorque;
+        //brakeTorque = -brakeTorque;
         if (linearVel < 0.0f)
             brakeTorque = 0.0f;
-       // totalTorque = driveTorque - brakeTorque;
-        totalTorque = driveTorque + brakeTorque;
+        // totalTorque = driveTorque - brakeTorque;
+        totalTorque = driveTorque + brakeTorque * -1.0f * (angularVelocityDegSec);
 
         float wheelAngularAccel = (totalTorque) / wheelInertia;
 

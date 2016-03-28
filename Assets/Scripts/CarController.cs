@@ -8,6 +8,7 @@ public class CarController : MonoBehaviour
 {
     // Input variables for steering the car
     public float throttlePos = 0.0f;
+    public float brakePos = 0.0f;
     public float steeringAngle = 0.0f;
 
     // Car physical constants
@@ -40,6 +41,13 @@ public class CarController : MonoBehaviour
     private Rigidbody rigidbody;
     private Vector3 previousVelocity;
     private Vector3 totalAcceleration;
+    private Vector3 localVelocity;
+
+
+    public float ForwardVelocity
+    {
+        get{ return localVelocity.z; }
+    }
 
     // Car events
     public event Action<int> gearShiftEvent;
@@ -72,9 +80,14 @@ public class CarController : MonoBehaviour
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
         currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
-        Vector3 localVelocity = transform.InverseTransformDirection(rigidbody.velocity);
-        
-        /*if ( throttlePos < 0.0f)
+        localVelocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
+
+        wheels[0].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[1].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[2].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[3].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        /*
+        if ( throttlePos < 0.0f)
         {
             if (localVelocity.z > 0.0f)
             {
@@ -92,24 +105,25 @@ public class CarController : MonoBehaviour
                 wheels[2].brakeTorque = 0.0f;
                 wheels[3].brakeTorque = 0.0f;
             }
-        }*/
-            /*
-        else
-        {
-            throttlePos = Input.GetAxis(playerPrefix + "Vertical");
+        }
+          */
+        /* 
+      else
+      {
+          throttlePos = Input.GetAxis(playerPrefix + "Vertical");
 
-            wheels[0].brakeTorque = 0.0f;
-            wheels[1].brakeTorque = 0.0f;
-            wheels[2].brakeTorque = 0.0f;
-            wheels[3].brakeTorque = 0.0f;
-        }
-             * */
-                /*
-        if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
-        {
-            throttlePos = Input.GetAxis(playerPrefix + "Vertical");
-        }
-        */
+          wheels[0].brakeTorque = 0.0f;
+          wheels[1].brakeTorque = 0.0f;
+          wheels[2].brakeTorque = 0.0f;
+          wheels[3].brakeTorque = 0.0f;
+      }*/
+
+        /*
+if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
+{
+    throttlePos = Input.GetAxis(playerPrefix + "Vertical");
+}
+*/
         // Get the wheel average rotation rate from the front wheels
         float wheelRotRate = 0.5f * (wheels[0].rpm + wheels[1].rpm);
 
@@ -121,10 +135,25 @@ public class CarController : MonoBehaviour
         maxTorque = GetMaxTorque(rpm);
         // Get the final delivered torque from the throttle position
         engineTorque = maxTorque * throttlePos;
-        if (throttlePos == 0.0f)
-        {
-            engineTorque = 0.0f;
-        }
+        //if (throttlePos == 0.0f)
+        //{
+        //    engineTorque = 0.0f;
+        //    if (Mathf.Abs(localVelocity.z) < 0.1f)
+        //    {
+        //        for (int i = 0; i < wheels.Length; i++)
+        //        {
+        //            if(wheels[i].IsGrounded)
+        //                wheels[i].rigidbody.drag = 1000.0f;
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    for (int i = 0; i < wheels.Length; i++)
+        //    {
+        //        wheels[i].rigidbody.drag = 0.0f;
+        //    }
+        //}
 
 
 
