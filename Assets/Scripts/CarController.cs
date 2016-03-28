@@ -64,6 +64,8 @@ public class CarController : MonoBehaviour
     void Start () 
     {
         rigidbody = GetComponent<Rigidbody>();
+        rigidbody.centerOfMass = centerOfMass.localPosition;
+
         currentGear = 1; //starting gear, in future we can put a starter
     }
 
@@ -152,9 +154,10 @@ public class CarController : MonoBehaviour
 
 
 	void FixedUpdate ()
-    { 
-        float currentSteeringAngle = steeringAngle * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
-        currentSteeringAngle = Mathf.Clamp(currentSteeringAngle, -45.0f, 45.0f);
+    {
+        float maxSteeringAngle = steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
+        float currentSteeringAngle = steeringAngle * steeringSensitivity;// * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
+        currentSteeringAngle = Mathf.Clamp(currentSteeringAngle, -maxSteeringAngle, maxSteeringAngle);
 
         // Turn the front wheels according to the input
         wheels[0].steeringAngle = currentSteeringAngle;
@@ -177,7 +180,7 @@ public class CarController : MonoBehaviour
 
         // Calculate the total acceleration of the car and use it to displace the center of mass.
         // This way we get different weight transfer to each wheel
-        rigidbody.centerOfMass = centerOfMass.localPosition;
+        rigidbody.centerOfMass = Vector3.Lerp(rigidbody.centerOfMass, centerOfMass.localPosition, 10000.0f * Time.deltaTime);
         totalAcceleration = (rigidbody.velocity - previousVelocity) / Time.deltaTime;
         totalAcceleration = totalAcceleration.magnitude > 15.0f ? totalAcceleration.normalized : totalAcceleration;
         rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAcceleration, Vector3.forward + Vector3.right) * 0.01f);

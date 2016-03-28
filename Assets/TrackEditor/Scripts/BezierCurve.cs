@@ -12,6 +12,8 @@ public class BezierCurve : MonoBehaviour {
     public int numDivs = 10;
 
 
+    public Vector3[] controlPoints;
+
     public Vector2[] points = new Vector2[] {
         new Vector2(1.0f, 0.0f),
         new Vector2(2.0f, 0.0f),
@@ -59,20 +61,22 @@ public class BezierCurve : MonoBehaviour {
         if (b == null)
         {
             b = new GameObject("B").transform;
-            b.transform.parent = transform;
+            b.transform.parent = a;
             b.transform.localPosition = new Vector3(0.0f, 0.0f, 3.0f);
         } 
-        if (c == null)
-        {
-            c = new GameObject("C").transform;
-            c.transform.parent = transform;
-            c.transform.localPosition = new Vector3(10.0f, 0.0f, 3.0f);
-        }
+
         if (d == null)
         {
             d = new GameObject("D").transform;
             d.transform.parent = transform;
             d.transform.localPosition = new Vector3(10.0f, 0.0f, 0.0f);
+        }
+
+        if (c == null)
+        {
+            c = new GameObject("C").transform;
+            c.transform.parent = d;
+            c.transform.localPosition = new Vector3(10.0f, 0.0f, 3.0f);
         }
         RegenerateMesh();
 	}
@@ -91,14 +95,14 @@ public class BezierCurve : MonoBehaviour {
         s.lines = lines;
 
 
-        Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
-        if (mesh == null)
-        {
-            mesh = new Mesh();
-            Debug.Log("Mesh was null");
-        }
+        Mesh mesh = new Mesh();
 
-        Vector3[] pts = { a.localPosition, (b.localPosition), c.localPosition, d.localPosition };
+        Vector3[] pts = { 
+                            transform.InverseTransformPoint(a.position),
+                            transform.InverseTransformPoint(b.position),
+                            transform.InverseTransformPoint(c.position),
+                            transform.InverseTransformPoint(d.position)
+                        };
 
         //Debug.Log(name + " " + a.InverseTransformPoint(b.position));
 
@@ -106,15 +110,13 @@ public class BezierCurve : MonoBehaviour {
 
         for (int i = 0; i < numDivs+ 1; i++)
         {
-
             OrientedPoint p;
-            p.position = GetPoint(pts, ((float)i / (float)numDivs));
-            p.rotation = GetOrientation3D(pts, (float)i / (float)numDivs, -a.transform.up);
+            float t = ((float)i / (float)numDivs);
+            p.position = GetPoint(pts, t);
+            p.rotation = GetOrientation3D(pts, (float)i / (float)numDivs, -Vector3.Lerp(a.transform.up, c.transform.up, t));
 
-            //path[i] = p;
+            path[i] = p;
         }
-
-
 
         Shape.Extrude(mesh, s, path);
 
@@ -135,6 +137,7 @@ public class BezierCurve : MonoBehaviour {
 	// Update is called once per frame 
     public void OnDrawGizmos()
     {
+        
         CreateLineMaterial();
 
         Vector3[] pts = { a.position, b.position, c.position, d.position };
@@ -161,6 +164,7 @@ public class BezierCurve : MonoBehaviour {
         GL.End();
 
         //GL.PopMatrix();
+         
 	}
 
     Vector3 GetPoint(Vector3[] pts, float t)
