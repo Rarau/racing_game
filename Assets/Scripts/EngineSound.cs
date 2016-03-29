@@ -6,6 +6,7 @@ public class EngineSound : MonoBehaviour
 
     public AudioSource engineAudio;
     public CarController car;
+    public AudioClip[] clips;
 
     void Start()
     {
@@ -14,6 +15,20 @@ public class EngineSound : MonoBehaviour
         if (engineAudio == null)
         {
             Debug.Log("No audio source, please add one engine noise to the car");
+        }
+        car.gearShiftEvent += OnGearShift;
+    }
+
+    void OnGearShift(int numGear)
+    {
+        if (numGear > 0 && numGear < clips.Length)
+        {
+            engineAudio.clip = clips[numGear];
+            engineAudio.Play();
+        }
+        else
+        {
+            Debug.LogError("No audio clip for gear " + numGear);
         }
     }
 

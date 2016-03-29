@@ -30,7 +30,7 @@ public class CarController : MonoBehaviour
     public float engineTorque;                      // Current torque delivered by the engine
     public float maxTorque;                         // Maximum value to clamp the torque
     public float peakTorque = 100f;                 // Value of the torque at the peak of the curve
-    public AnimationCurve torqueRPMCurve;           // How the torque delivered changes with the RPM
+    public AnimationCurve[] torqueRPMCurve;           // How the torque delivered changes with the RPM
     public float gearRatio = 2.66f;                 // First gear hardcoded
     public float differentialRatio = 3.42f;
 
@@ -146,7 +146,7 @@ public class CarController : MonoBehaviour
     float GetMaxTorque(float currentRPM)
     {
         float normalizedRPM = (currentRPM - rpmMin) / (rpmMax - rpmMin);
-        float val = torqueRPMCurve.Evaluate(Mathf.Abs(normalizedRPM)) * Mathf.Sign(normalizedRPM);
+        float val = torqueRPMCurve[currentGear].Evaluate(Mathf.Abs(normalizedRPM)) * Mathf.Sign(normalizedRPM);
         return val * peakTorque;
     }
 
@@ -159,7 +159,7 @@ public class CarController : MonoBehaviour
         //currentSteeringAngle = Mathf.Clamp(currentSteeringAngle, -maxSteeringAngle, maxSteeringAngle);
 
         float currentSteeringAngle = steeringAngle * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
-        if(Math.Abs(localVelocity.z) < Math.Abs(localVelocity.x))
+        if (Math.Abs(localVelocity.z) < Math.Abs(localVelocity.x) && localVelocity.magnitude > 1.0f)
         {
             Debug.Log("Drift");
             currentSteeringAngle = Mathf.Lerp(currentSteeringAngle, currentSteeringAngle*Mathf.Abs(wheels[0].slipAngle) * driftAssist, Time.deltaTime * 10.0f);

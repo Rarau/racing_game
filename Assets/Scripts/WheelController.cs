@@ -84,8 +84,10 @@ public class WheelController : MonoBehaviour {
     RaycastHit groundInfo;
     void FixedUpdate()
     {
+        /*
         if (overrideSlipRatio)
             slipRatio = overridenSlipRatio;
+            */
         
         if (Physics.Raycast(transform.position, -rigidbody.transform.up, out groundInfo, radius, raycastIgnore))
         {
@@ -143,7 +145,7 @@ public class WheelController : MonoBehaviour {
         if (linearVel < 0.0f)
             brakeTorque = 0.0f;
         // totalTorque = driveTorque - brakeTorque;
-        totalTorque = driveTorque + brakeTorque * -1.0f * (angularVelocityDegSec);
+        totalTorque = driveTorque + brakeTorque * -1.0f * (angularVelocityDegSec *0.1f);
 
         float wheelAngularAccel = (totalTorque) / wheelInertia;
 
@@ -167,7 +169,7 @@ public class WheelController : MonoBehaviour {
             linearVel = 0.0f;
         }
 
-        if (!overrideSlipRatio) {
+        if (connectedWheel == null) {
             slipRatio = (linearVel - localVel.z) / Mathf.Abs(localVel.z);// *0.1f;
             slipRatio = Mathf.Clamp(slipRatio, -6f, 6f);
             // If it's NaN, then the car and the wheel are stopped (0 / 0 division)
