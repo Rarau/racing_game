@@ -38,7 +38,7 @@ public class WheelFX : MonoBehaviour {
 	void Update () {
         if ((Mathf.Abs(wheel.slipAngle) > 20.0f || Mathf.Abs(wheel.slipRatio) > 0.10f) && Mathf.Abs(wheel.rpm) > 2.10f)
         {
-            Debug.Log("ON " + name);
+            //Debug.Log("ON " + name);
             ParticleSystem.EmissionModule em = particles.emission;
             particles.Play();
             em.enabled = true;
@@ -49,7 +49,7 @@ public class WheelFX : MonoBehaviour {
         }
         else
         {
-            Debug.Log("OFF " + name);
+            //Debug.Log("OFF " + name);
             ParticleSystem.EmissionModule em = particles.emission;
             particles.Stop();
             em.enabled = false;
