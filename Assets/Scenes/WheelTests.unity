@@ -1578,7 +1578,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487680, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 487680, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3052,6 +3052,10 @@ Prefab:
       propertyPath: clips.Array.data[5]
       value: 
       objectReference: {fileID: 8300000, guid: 6a227c8d181d7bc4ea741d01ce7d8648, type: 3}
+    - target: {fileID: 2317360, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b1284f5377f4f24d8b9913930256eb9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
   m_IsPrefabParent: 0
