@@ -161,7 +161,7 @@ public class WheelController : MonoBehaviour {
             linearVel = localVel.z;
         }
 
-        if(eBrakeEnabled)
+        if(eBrakeEnabled && driveTorque == 0.0f)
         {
             angularVelocityDegSec = 0.0f;
             linearVel = 0.0f;
@@ -194,7 +194,8 @@ public class WheelController : MonoBehaviour {
 
         //if(Mathf.Abs(slipRatio) > 0.01f)
         if(totalTorque != 0.0f) {
-            rigidbody.AddForceAtPosition(tractionForceV * weightTransfer * transform.root.GetComponent<Rigidbody>().mass, transform.position);
+            if(!(eBrakeEnabled && driveTorque != 0.0f))
+                rigidbody.AddForceAtPosition(tractionForceV * weightTransfer * transform.root.GetComponent<Rigidbody>().mass, transform.position);
             //rigidbody.AddForceAtPosition(fwd * 100.0f, transform.position);
             //Debug.Log(gameObject.name + " " + tractionForce + " " + slipRatio + " " + linearVel + " " + localVel.z);
         }
