@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class BezierCurve : MonoBehaviour 
 {
+    Shape profileShape = new Shape();
 
     static Material mat;
 
@@ -14,13 +15,14 @@ public class BezierCurve : MonoBehaviour
     public int numDivs = 10;
     public int numDivsProfile = 12;
     public float width = 10.0f;
+    public float verticalScale = 10.0f;
 
     public AnimationCurve profile;
 
     public BezierCurve nextCurve;
 
     //public Vector3[] controlPoints;
-
+    /*
     Vector2[] points = new Vector2[] {
         new Vector2(1.0f, 0.0f),
         new Vector2(2.0f, 0.0f),
@@ -55,9 +57,9 @@ public class BezierCurve : MonoBehaviour
         3, 4,
         4, 5
     };
-
+    */
 	// Use this for initialization
-	public void Start () 
+	public void Start() 
     {
         if (a == null)
         {
@@ -85,15 +87,18 @@ public class BezierCurve : MonoBehaviour
             c.transform.parent = d;
             c.transform.localPosition = new Vector3(10.0f, 0.0f, 3.0f);
         }
+
+        profileShape = new Shape();
+
+        RegenerateProfileShape();
         RegenerateMesh();
 	}
 
     void Update()
     {
-
-
-        RegenerateMesh();
         RegenerateProfileShape();
+        RegenerateMesh();
+
         if (nextCurve != null)
         {
             d.transform.position = nextCurve.a.transform.position;
@@ -107,20 +112,22 @@ public class BezierCurve : MonoBehaviour
     /// </summary>
     public void RegenerateProfileShape()
     {
-        points = new Vector2[numDivsProfile + 1];
-        uCoords = new float[numDivsProfile + 1];
-        normals =  new Vector2[numDivsProfile + 1];
+        Vector2[] points = new Vector2[numDivsProfile + 1];
+        float[] uCoords = new float[numDivsProfile + 1];
+        Vector2[] normals = new Vector2[numDivsProfile + 1];
 
         for(int i = 0; i < numDivsProfile + 1; ++i)
         {
             points[i].x = (float)i * (width / numDivsProfile);
-            points[i].y = profile.Evaluate(Mathf.InverseLerp(0.0f, width, points[i].x));
+            points[i].y = -profile.Evaluate(1.0f - Mathf.InverseLerp(0.0f, width, points[i].x)) * verticalScale;
 
             normals[i].x = 0.0f;
             normals[i].y = 1.0f;
+
+            uCoords[i] = Mathf.InverseLerp(0.0f, width, points[i].x);
         }
 
-        lines = new int[points.Length * 2 - 2];
+        int[] lines = new int[points.Length * 2 - 2];
         int k = 0;
         for (int i = 0; i < points.Length - 1; i++)
         {
@@ -128,15 +135,16 @@ public class BezierCurve : MonoBehaviour
             lines[k + 1] = i + 1;
             k += 2;
         }
+
+        profileShape.points = points;
+        profileShape.normals = normals;
+        profileShape.uCoords = uCoords;
+        profileShape.lines = lines;
     }
 
     public void RegenerateMesh()
     {
-        Shape s = new Shape();
-        s.points = points;
-        s.normals = normals;
-        s.uCoords = uCoords;
-        s.lines = lines;
+
 
 
         Mesh mesh = new Mesh();
@@ -162,7 +170,7 @@ public class BezierCurve : MonoBehaviour
             path[i] = p;
         }
 
-        Shape.Extrude(mesh, s, path);
+        Shape.Extrude(mesh, profileShape, path);
         
         mesh.RecalculateNormals();
 

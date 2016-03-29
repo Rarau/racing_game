@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-
+[CanEditMultipleObjects]
 [CustomEditor(typeof(BezierCurve))]
 public class HandlesTest : Editor
 {
@@ -41,12 +41,14 @@ public class HandlesTest : Editor
         if(rotationMode) 
         {
             curve.a.rotation = Handles.RotationHandle(curve.a.rotation, curve.a.position);
+            if (curve.nextCurve == null || Selection.gameObjects.Length == 1)
             curve.d.rotation = Handles.RotationHandle(curve.d.rotation, curve.d.position);
         }
         else
         {
             curve.a.position = Handles.PositionHandle(curve.a.position, curve.a.rotation);
-            curve.d.position = Handles.PositionHandle(curve.d.position, curve.d.rotation);
+            if (curve.nextCurve == null || Selection.gameObjects.Length == 1)
+                curve.d.position = Handles.PositionHandle(curve.d.position, curve.d.rotation);
         }
 
 
@@ -82,6 +84,12 @@ public class HandlesTest : Editor
     static BezierCurve AddCurve(BezierCurve previous)
     {
         BezierCurve newCurve = new GameObject().AddComponent<BezierCurve>();
+
+        newCurve.profile = previous.profile;
+        newCurve.numDivs = previous.numDivs;
+        newCurve.numDivsProfile = previous.numDivsProfile;
+        newCurve.width = previous.width;
+
         newCurve.Start();
         newCurve.a.position = previous.d.position;
         newCurve.a.rotation = previous.d.rotation;
