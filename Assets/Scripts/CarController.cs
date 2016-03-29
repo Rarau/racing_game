@@ -8,8 +8,9 @@ public class CarController : MonoBehaviour
 {
     // Input variables for steering the car
     public float throttlePos = 0.0f;
+    public float brakePos = 0.0f;
     public float steeringAngle = 0.0f;
-
+    public bool handBrake = false;
     // Car physical constants
     public float cDrag;                             // Drag (air friction constant)
     public float cRoll;                             // Rolling resistance (wheel friction constant)
@@ -20,6 +21,7 @@ public class CarController : MonoBehaviour
     public float brakingPower = 100f;               // Braking power of the car
     public AnimationCurve steeringSensitityCurve;   // How the steering sensitivity changes with the current car speed
     public float steeringSensitivity = 0.5f;        // Multiplier for the steering sensitivity curve
+    public float driftAssist = 0.3f;
 
     // Engine parameters
     public float rpmMin = 1000.0f;                  // Minimum RPM of the engine
@@ -40,6 +42,13 @@ public class CarController : MonoBehaviour
     private Rigidbody rigidbody;
     private Vector3 previousVelocity;
     private Vector3 totalAcceleration;
+    private Vector3 localVelocity;
+
+
+    public float ForwardVelocity
+    {
+        get{ return localVelocity.z; }
+    }
 
     // Car events
     public event Action<int> gearShiftEvent;
@@ -74,9 +83,14 @@ public class CarController : MonoBehaviour
         timeAccelaration = Mathf.Clamp(timeAccelaration, 0f, timeAccelaration);
         currentSpeed = rigidbody.velocity.magnitude * 3.6f;
 
-        Vector3 localVelocity = transform.InverseTransformDirection(rigidbody.velocity);
-        
-        /*if ( throttlePos < 0.0f)
+        localVelocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
+
+        wheels[0].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[1].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[2].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[3].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        /*
+        if ( throttlePos < 0.0f)
         {
             if (localVelocity.z > 0.0f)
             {
@@ -94,24 +108,25 @@ public class CarController : MonoBehaviour
                 wheels[2].brakeTorque = 0.0f;
                 wheels[3].brakeTorque = 0.0f;
             }
-        }*/
-            /*
-        else
-        {
-            throttlePos = Input.GetAxis(playerPrefix + "Vertical");
+        }
+          */
+        /* 
+      else
+      {
+          throttlePos = Input.GetAxis(playerPrefix + "Vertical");
 
-            wheels[0].brakeTorque = 0.0f;
-            wheels[1].brakeTorque = 0.0f;
-            wheels[2].brakeTorque = 0.0f;
-            wheels[3].brakeTorque = 0.0f;
-        }
-             * */
-                /*
-        if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
-        {
-            throttlePos = Input.GetAxis(playerPrefix + "Vertical");
-        }
-        */
+          wheels[0].brakeTorque = 0.0f;
+          wheels[1].brakeTorque = 0.0f;
+          wheels[2].brakeTorque = 0.0f;
+          wheels[3].brakeTorque = 0.0f;
+      }*/
+
+        /*
+if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
+{
+    throttlePos = Input.GetAxis(playerPrefix + "Vertical");
+}
+*/
         // Get the wheel average rotation rate from the front wheels
         float wheelRotRate = 0.5f * (wheels[0].rpm + wheels[1].rpm);
 
@@ -123,16 +138,36 @@ public class CarController : MonoBehaviour
         maxTorque = GetMaxTorque(rpm);
         // Get the final delivered torque from the throttle position
         engineTorque = maxTorque * throttlePos;
-        if (throttlePos == 0.0f)
-        {
-            engineTorque = 0.0f;
-        }
+        //if (throttlePos == 0.0f)
+        //{
+        //    engineTorque = 0.0f;
+        //    if (Mathf.Abs(localVelocity.z) < 0.1f)
+        //    {
+        //        for (int i = 0; i < wheels.Length; i++)
+        //        {
+        //            if(wheels[i].IsGrounded)
+        //                wheels[i].rigidbody.drag = 1000.0f;
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    for (int i = 0; i < wheels.Length; i++)
+        //    {
+        //        wheels[i].rigidbody.drag = 0.0f;
+        //    }
+        //}
 
 
 
         // Apply the torque to the wheels
         //wheels[1].driveTorque = engineTorque;
         //wheels[0].driveTorque = engineTorque;
+        wheels[0].eBrakeEnabled = handBrake;
+        wheels[1].eBrakeEnabled = handBrake;
+        wheels[2].eBrakeEnabled = handBrake;
+        wheels[3].eBrakeEnabled = handBrake;
+
         wheels[2].driveTorque = engineTorque;
         wheels[3].driveTorque = engineTorque;
 
@@ -155,9 +190,19 @@ public class CarController : MonoBehaviour
 
 	void FixedUpdate ()
     {
-        float maxSteeringAngle = steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
-        float currentSteeringAngle = steeringAngle * steeringSensitivity;// * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
-        currentSteeringAngle = Mathf.Clamp(currentSteeringAngle, -maxSteeringAngle, maxSteeringAngle);
+        //float maxSteeringAngle = steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
+        //float currentSteeringAngle = steeringAngle * steeringSensitivity;// * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
+
+        //currentSteeringAngle = Mathf.Clamp(currentSteeringAngle, -maxSteeringAngle, maxSteeringAngle);
+
+        float currentSteeringAngle = steeringAngle * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
+        if(Math.Abs(localVelocity.z) < Math.Abs(localVelocity.x))
+        {
+            Debug.Log("Drift");
+            currentSteeringAngle = Mathf.Lerp(currentSteeringAngle, currentSteeringAngle*Mathf.Abs(wheels[0].slipAngle) * driftAssist, Time.deltaTime * 10.0f);
+        }
+        currentSteeringAngle = Mathf.Clamp(currentSteeringAngle, -45.0f, 45.0f);
+
 
         // Turn the front wheels according to the input
         wheels[0].steeringAngle = currentSteeringAngle;
@@ -199,16 +244,24 @@ public class CarController : MonoBehaviour
 	}
 
 
+    public float wrappedSpeed;
     /// <summary>
     /// Shifts gear up or down according to speed.
     /// </summary>
     void GearsShift()
     {
+        float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(localVelocity.z * 3.6f / maximumSpeed));
+        wrappedSpeed = normalizedSpeed;
+        float gearMaxRpm = 1.0f / maxGears;
+
+
+        float rmpPerGear = 100 * maximumSpeed / maxGears;
         if (currentSpeed > maximumSpeed / maxGears * (currentGear - 1) && currentSpeed < maximumSpeed / maxGears * (currentGear))
         {
-            virtualRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 10;
+            //virtualRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear));
+            virtualRPM = wrappedSpeed / (gearMaxRpm * currentGear);
         }
-        if (currentGear < maxGears && currentSpeed > maximumSpeed / maxGears * (currentGear))
+        if (currentGear < maxGears && wrappedSpeed > gearMaxRpm  * currentGear) // && currentSpeed > maximumSpeed / maxGears * (currentGear))
         {
             currentGear++;
             // Fire the gear shift event
@@ -217,7 +270,7 @@ public class CarController : MonoBehaviour
                 gearShiftEvent(currentGear);
             }
         }
-        else if (currentGear > 1 && currentSpeed < maximumSpeed / maxGears * (currentGear - 1) && !isGearShiftedDown)
+        else if (currentGear > 1 && wrappedSpeed < gearMaxRpm * (currentGear - 1) && !isGearShiftedDown)//currentSpeed < maximumSpeed / maxGears * (currentGear - 1) && !isGearShiftedDown)
         {
             currentGear--;
             // Fire the gear shift event
@@ -229,8 +282,9 @@ public class CarController : MonoBehaviour
             timeShift = Time.timeSinceLevelLoad + 1.0f;
             isGearShiftedDown = true;
         }
-        virtualRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 1;
-        
+        //virtualRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 1;
+        virtualRPM = wrappedSpeed / (gearMaxRpm * currentGear);
+
         if (Time.timeSinceLevelLoad >= timeShift && isGearShiftedDown)
         {
             isGearShiftedDown = false;
@@ -244,6 +298,9 @@ public class CarController : MonoBehaviour
     /// <param name="other"></param>
     void OnCollisionEnter(Collision other)
     {
+        wheels[2].driveTorque = 0.0f;
+        wheels[3].driveTorque = 0.0f;
+
         if (crashEvent != null)
         {
             crashEvent(other);
