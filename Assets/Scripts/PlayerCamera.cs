@@ -36,7 +36,7 @@ public class PlayerCamera : MonoBehaviour
     {
         shakeFX.magnitude = 0.06f * carController.GetComponent<Rigidbody>().velocity.magnitude * 3.60f / carController.maxSpeed;
         cam.fieldOfView = Mathf.Lerp(60.0f, 80.0f, carController.GetComponent<Rigidbody>().velocity.magnitude * 3.60f / carController.maxSpeed);
-        shakeFX.enabled = (shakeFX.magnitude < 0.01f);
+        shakeFX.enabled = (shakeFX.magnitude < 0.031f);
     }
 
     // Update is called once per frame

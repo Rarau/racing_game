@@ -85,50 +85,10 @@ public class CarController : MonoBehaviour
 
         localVelocity = rigidbody.transform.InverseTransformDirection(rigidbody.velocity);
 
-        wheels[0].brakeTorque = brakingPower * Mathf.Abs(brakePos);
-        wheels[1].brakeTorque = brakingPower * Mathf.Abs(brakePos);
-        wheels[2].brakeTorque = brakingPower * Mathf.Abs(brakePos);
-        wheels[3].brakeTorque = brakingPower * Mathf.Abs(brakePos);
-        /*
-        if ( throttlePos < 0.0f)
-        {
-            if (localVelocity.z > 0.0f)
-            {
-                Debug.Log("Brakes");
-                wheels[0].brakeTorque = brakingPower;
-                wheels[1].brakeTorque = brakingPower;
-                wheels[2].brakeTorque = brakingPower;
-                wheels[3].brakeTorque = brakingPower;
-                throttlePos = 0.0f;
-            }
-            else
-            {
-                wheels[0].brakeTorque = 0.0f;
-                wheels[1].brakeTorque = 0.0f;
-                wheels[2].brakeTorque = 0.0f;
-                wheels[3].brakeTorque = 0.0f;
-            }
-        }
-          */
-        /* 
-      else
-      {
-          throttlePos = Input.GetAxis(playerPrefix + "Vertical");
 
-          wheels[0].brakeTorque = 0.0f;
-          wheels[1].brakeTorque = 0.0f;
-          wheels[2].brakeTorque = 0.0f;
-          wheels[3].brakeTorque = 0.0f;
-      }*/
 
-        /*
-if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
-{
-    throttlePos = Input.GetAxis(playerPrefix + "Vertical");
-}
-*/
         // Get the wheel average rotation rate from the front wheels
-        float wheelRotRate = 0.5f * (wheels[0].rpm + wheels[1].rpm);
+        float wheelRotRate = 0.5f * (wheels[2].rpm + wheels[3].rpm);
 
         // Update the engine RPM from the wheel rotation rate
         rpm = wheelRotRate * gearsRatio[currentGear] * differentialRatio;
@@ -161,12 +121,15 @@ if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
 
 
         // Apply the torque to the wheels
-        //wheels[1].driveTorque = engineTorque;
-        //wheels[0].driveTorque = engineTorque;
         wheels[0].eBrakeEnabled = handBrake;
         wheels[1].eBrakeEnabled = handBrake;
         wheels[2].eBrakeEnabled = handBrake;
         wheels[3].eBrakeEnabled = handBrake;
+
+        wheels[0].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[1].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[2].brakeTorque = brakingPower * Mathf.Abs(brakePos);
+        wheels[3].brakeTorque = brakingPower * Mathf.Abs(brakePos);
 
         wheels[2].driveTorque = engineTorque;
         wheels[3].driveTorque = engineTorque;
@@ -244,14 +207,12 @@ if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
 	}
 
 
-    public float wrappedSpeed;
     /// <summary>
     /// Shifts gear up or down according to speed.
     /// </summary>
     void GearsShift()
     {
         float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(localVelocity.z * 3.6f / maximumSpeed));
-        wrappedSpeed = normalizedSpeed;
         float gearMaxRpm = 1.0f / maxGears;
 
 
@@ -259,9 +220,9 @@ if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
         if (currentSpeed > maximumSpeed / maxGears * (currentGear - 1) && currentSpeed < maximumSpeed / maxGears * (currentGear))
         {
             //virtualRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear));
-            virtualRPM = wrappedSpeed / (gearMaxRpm * currentGear);
+            virtualRPM = normalizedSpeed / (gearMaxRpm * currentGear);
         }
-        if (currentGear < maxGears && wrappedSpeed > gearMaxRpm  * currentGear) // && currentSpeed > maximumSpeed / maxGears * (currentGear))
+        if (currentGear < maxGears && normalizedSpeed > gearMaxRpm  * currentGear) // && currentSpeed > maximumSpeed / maxGears * (currentGear))
         {
             currentGear++;
             // Fire the gear shift event
@@ -270,7 +231,7 @@ if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
                 gearShiftEvent(currentGear);
             }
         }
-        else if (currentGear > 1 && wrappedSpeed < gearMaxRpm * (currentGear - 1) && !isGearShiftedDown)//currentSpeed < maximumSpeed / maxGears * (currentGear - 1) && !isGearShiftedDown)
+        else if (currentGear > 1 && normalizedSpeed < gearMaxRpm * (currentGear - 1) && !isGearShiftedDown)//currentSpeed < maximumSpeed / maxGears * (currentGear - 1) && !isGearShiftedDown)
         {
             currentGear--;
             // Fire the gear shift event
@@ -283,7 +244,7 @@ if (Input.GetAxis(playerPrefix + "Vertical") > -1.0f)
             isGearShiftedDown = true;
         }
         //virtualRPM = (currentSpeed / (maximumSpeed / maxGears * currentGear)) * rpmMax / 1;
-        virtualRPM = wrappedSpeed / (gearMaxRpm * currentGear);
+        virtualRPM = normalizedSpeed / (gearMaxRpm * currentGear);
 
         if (Time.timeSinceLevelLoad >= timeShift && isGearShiftedDown)
         {

@@ -36,15 +36,26 @@ public class WheelFX : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if ((Mathf.Abs(wheel.slipAngle) > 10.0f || Mathf.Abs(wheel.slipRatio) > 0.10f) && Mathf.Abs(wheel.localVel.magnitude) > 0.10f)
+        if ((Mathf.Abs(wheel.slipAngle) > 20.0f || Mathf.Abs(wheel.slipRatio) > 0.10f) && Mathf.Abs(wheel.rpm) > 2.10f)
         {
-            particles.enableEmission = true;
+            Debug.Log("ON " + name);
+            ParticleSystem.EmissionModule em = particles.emission;
+            particles.Play();
+            em.enabled = true;
+
+            //particles.enableEmission = true;
             skidmarkPrefab.SetActive(true);
             //skidAudio.Play();
         }
         else
         {
-            particles.enableEmission = false;
+            Debug.Log("OFF " + name);
+            ParticleSystem.EmissionModule em = particles.emission;
+            particles.Stop();
+            em.enabled = false;
+            
+
+           // particles.enableEmission = false;
             skidmarkPrefab.SetActive(false);
         } 
     }
