@@ -30,7 +30,7 @@ public class HandlesTest : Editor
 
 
         pos = Handles.PositionHandle(curve.c.position, curve.c.rotation);
-        curve.d.transform.LookAt(pos);
+        curve.d.transform.LookAt(2 * curve.d.transform.position - pos);
         curve.c.position = pos;  
 
 
@@ -63,12 +63,36 @@ public class HandlesTest : Editor
 
     }
 
-    void AddCurve(BezierCurve previous)
+    [MenuItem("Track Editor/Add segment #C")]
+    static void AddCurveFromMenu()
+    {
+        Debug.Log("Selected Transform is on " + Selection.activeTransform.gameObject.name + ".");
+        BezierCurve previous = Selection.activeTransform.GetComponent<BezierCurve>();
+        if (previous != null)
+        {
+            Selection.activeTransform = AddCurve(previous).transform;
+        }
+        else
+        {
+            Debug.LogError("Trying to add a new segment from an non-track object");
+        }
+    }
+
+
+    static BezierCurve AddCurve(BezierCurve previous)
     {
         BezierCurve newCurve = new GameObject().AddComponent<BezierCurve>();
+        newCurve.Start();
+        newCurve.a.position = previous.d.position;
+        newCurve.a.rotation = previous.d.rotation;
 
-        newCurve.a = previous.d;
+        newCurve.d.position = previous.d.position + previous.d.forward * 10.0f;
+        //newCurve.a.rotation = previous.d.rotation;
 
+
+        previous.nextCurve = newCurve;
+
+        return newCurve;
     }
 
 

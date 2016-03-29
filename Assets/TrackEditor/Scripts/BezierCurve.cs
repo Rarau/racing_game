@@ -3,18 +3,25 @@ using System.Collections;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
-public class BezierCurve : MonoBehaviour {
+public class BezierCurve : MonoBehaviour 
+{
 
     static Material mat;
 
+    [HideInInspector]
     public Transform a, b, c, d;
 
     public int numDivs = 10;
+    public int numDivsProfile = 12;
+    public float width = 10.0f;
 
+    public AnimationCurve profile;
 
-    public Vector3[] controlPoints;
+    public BezierCurve nextCurve;
 
-    public Vector2[] points = new Vector2[] {
+    //public Vector3[] controlPoints;
+
+    Vector2[] points = new Vector2[] {
         new Vector2(1.0f, 0.0f),
         new Vector2(2.0f, 0.0f),
         new Vector2(3.0f, 0.0f),
@@ -23,7 +30,7 @@ public class BezierCurve : MonoBehaviour {
         new Vector2(6.0f, 0.0f)
     };
 
-    public Vector2[] normals = new Vector2[] {
+    Vector2[] normals = new Vector2[] {
         new Vector2(1.0f, 0.0f),
         new Vector2(1.0f, 0.0f),
         new Vector2(1.0f, 0.0f),
@@ -32,7 +39,7 @@ public class BezierCurve : MonoBehaviour {
         new Vector2(1.0f, 0.0f)
     };
 
-    public float[] uCoords = new float[] {
+    float[] uCoords = new float[] {
         0.1f,
         0.2f,
         0.3f,
@@ -41,7 +48,7 @@ public class BezierCurve : MonoBehaviour {
         0.6f
     };
 
-    public int[] lines = new int[] {
+    int[] lines = new int[] {
         0, 1,
         1, 2,
         2, 3,
@@ -50,7 +57,7 @@ public class BezierCurve : MonoBehaviour {
     };
 
 	// Use this for initialization
-	void Start () 
+	public void Start () 
     {
         if (a == null)
         {
@@ -83,7 +90,44 @@ public class BezierCurve : MonoBehaviour {
 
     void Update()
     {
+
+
         RegenerateMesh();
+        RegenerateProfileShape();
+        if (nextCurve != null)
+        {
+            d.transform.position = nextCurve.a.transform.position;
+            d.transform.rotation = nextCurve.a.transform.rotation;
+
+        }
+    }
+
+    /// <summary>
+    /// Regenerates the profile shape to be extruded.
+    /// </summary>
+    public void RegenerateProfileShape()
+    {
+        points = new Vector2[numDivsProfile + 1];
+        uCoords = new float[numDivsProfile + 1];
+        normals =  new Vector2[numDivsProfile + 1];
+
+        for(int i = 0; i < numDivsProfile + 1; ++i)
+        {
+            points[i].x = (float)i * (width / numDivsProfile);
+            points[i].y = profile.Evaluate(Mathf.InverseLerp(0.0f, width, points[i].x));
+
+            normals[i].x = 0.0f;
+            normals[i].y = 1.0f;
+        }
+
+        lines = new int[points.Length * 2 - 2];
+        int k = 0;
+        for (int i = 0; i < points.Length - 1; i++)
+        {
+            lines[k] = i;
+            lines[k + 1] = i + 1;
+            k += 2;
+        }
     }
 
     public void RegenerateMesh()
@@ -119,12 +163,19 @@ public class BezierCurve : MonoBehaviour {
         }
 
         Shape.Extrude(mesh, s, path);
+        
+        mesh.RecalculateNormals();
 
         Debug.Log("Mesh regenerated " + mesh.vertexCount);
-        GetComponent<MeshFilter>().sharedMesh = mesh;   
+        GetComponent<MeshFilter>().sharedMesh = mesh;
+
+        MeshCollider mc = GetComponent<MeshCollider>();
+        if(mc == null)
+        {
+            mc = gameObject.AddComponent<MeshCollider>();
+        }
+        mc.sharedMesh = mesh;
     }
-
-
     
     static void CreateLineMaterial()
     {
@@ -137,6 +188,13 @@ public class BezierCurve : MonoBehaviour {
 	// Update is called once per frame 
     public void OnDrawGizmos()
     {
+        if (nextCurve != null)
+        {
+            //nextCurve.Update();
+            d.transform.position = nextCurve.a.transform.position;
+            d.transform.rotation = nextCurve.a.transform.rotation;
+
+        }
         
         CreateLineMaterial();
 
