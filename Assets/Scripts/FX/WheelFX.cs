@@ -21,7 +21,7 @@ public class WheelFX : MonoBehaviour {
         if (skidAudio == null)
         {
             Debug.LogError("No audio source, please add one skid audio to the tyres");
-            enabled = false;
+           // enabled = false;
         }
         if (skidmarkPrefab == null)
         {
@@ -36,11 +36,11 @@ public class WheelFX : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if ((Mathf.Abs(wheel.slipAngle) > 30.0f || Mathf.Abs(wheel.slipRatio) > 1.0f) && Mathf.Abs(wheel.rpm) > 10.0f)
+        if ((Mathf.Abs(wheel.slipAngle) > 10.0f || Mathf.Abs(wheel.slipRatio) > 0.10f) && Mathf.Abs(wheel.localVel.magnitude) > 0.10f)
         {
             particles.enableEmission = true;
             skidmarkPrefab.SetActive(true);
-            skidAudio.Play();
+            //skidAudio.Play();
         }
         else
         {

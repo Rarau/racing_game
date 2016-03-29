@@ -309,14 +309,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 487680, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -348,146 +340,6 @@ Prefab:
     - target: {fileID: 487680, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitivity
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11429280, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: tractionCoeff
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 11473910, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: tractionCoeff
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407410, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: tractionCoeff
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 11498950, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: tractionCoeff
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 11498950, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: connectedWheel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: cDrag
-      value: 4.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: cRoll
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: rpmMax
-      value: 25000
-      objectReference: {fileID: 0}
-    - target: {fileID: 11429280, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: sideTraction
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11473910, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: sideTraction
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407410, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: sideTraction
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11498950, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: sideTraction
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: peakTorque
-      value: 4500
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.data[1].time
-      value: 0.26619342
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.data[1].value
-      value: 0.30268773
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.data[1].inSlope
-      value: -0.06273389
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.data[1].outSlope
-      value: -0.06273389
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.data[2].time
-      value: 0.43571022
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.data[2].value
-      value: 0.28086093
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.data[3].time
-      value: 0.50926435
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: torqueRPMCurve.m_Curve.Array.data[3].value
-      value: -0.003759423
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].time
-      value: 0.03177072
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].value
-      value: 0.2976638
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].inSlope
-      value: -0.79751015
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].outSlope
-      value: -0.79751015
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[2].time
-      value: 1.0009158
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[2].value
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[2].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[2].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[3].time
-      value: 0.9959716
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419830, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
-      propertyPath: steeringSensitityCurve.m_Curve.Array.data[3].value
-      value: 2.0583167
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
@@ -5878,6 +5730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throttlePos: 0
+  brakePos: 0
   steeringAngle: 0
   cDrag: 4.75
   cRoll: 12.8
