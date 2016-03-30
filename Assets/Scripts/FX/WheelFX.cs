@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(WheelController))]
+//[RequireComponent(typeof(WheelController))]
 public class WheelFX : MonoBehaviour {
 
-    WheelController wheel;
+    public WheelController wheel;
 
     public ParticleSystem particles;
 
@@ -13,7 +13,7 @@ public class WheelFX : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        wheel = GetComponent<WheelController>();
+        wheel = wheel == null ? GetComponent<WheelController>() : wheel;
         particles.playOnAwake = false;
         particles.enableEmission = false;
 
