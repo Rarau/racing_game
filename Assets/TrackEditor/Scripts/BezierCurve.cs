@@ -96,13 +96,13 @@ public class BezierCurve : MonoBehaviour
 
     void Update()
     {
-        RegenerateProfileShape();
-        RegenerateMesh();
+       // RegenerateProfileShape();
+       // RegenerateMesh();
 
         if (nextCurve != null)
         {
-            d.transform.position = nextCurve.a.transform.position;
-            d.transform.rotation = nextCurve.a.transform.rotation;
+           nextCurve.a.transform.position = d.transform.position;
+           nextCurve.a.transform.rotation = d.transform.rotation;
 
         }
     }
