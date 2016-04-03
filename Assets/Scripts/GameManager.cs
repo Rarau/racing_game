@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
     public int trackSelected;
     public bool[] carSelected;
 
+    const int numPlayers = 4;
+
     // to hold player data when pauses
     struct PlayerData
     {
@@ -42,7 +44,9 @@ public class GameManager : MonoBehaviour {
     {
         //SceneManager.LoadScene(LevelState.SPLASH_SCREEN.ToString());
         numberOfHumanPlayers = 0;
-        for (int i=0; i<4; i++)
+        nameOfPlayers = new string[numPlayers];
+        carSelected = new bool[numPlayers];
+        for (int i = 0; i < numPlayers; i++)
         {
             nameOfPlayers[i] = string.Concat("Player 0", i.ToString());
             carSelected[i] = false;
