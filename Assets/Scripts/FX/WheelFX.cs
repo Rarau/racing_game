@@ -35,7 +35,7 @@ public class WheelFX : MonoBehaviour {
         {
             particles.enableEmission = true;
             skidmarkPrefab.SetActive(true);
-            skidAudio.Play();
+            if (!skidAudio.isPlaying) skidAudio.Play();
         }
         else
         {
