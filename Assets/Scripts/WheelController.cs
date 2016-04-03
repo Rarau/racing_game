@@ -76,6 +76,8 @@ public class WheelController : MonoBehaviour {
 
     private Vector3 prevNormal;
     RaycastHit groundInfo;
+    // variable to tell f car is not flying
+    public bool isGrounded;
     void FixedUpdate()
     {
         if (overrideSlipRatio)
@@ -86,7 +88,10 @@ public class WheelController : MonoBehaviour {
             //Debug.Log(name + ": " + Vector3.Dot(groundInfo.normal, prevNormal));
             SimulateTraction();
         }
-
+        if (Vector3.Dot(groundInfo.normal, prevNormal) == 1)
+            isGrounded = true;
+        else
+            isGrounded = false;
     }
 
     public Vector3 prevPos;

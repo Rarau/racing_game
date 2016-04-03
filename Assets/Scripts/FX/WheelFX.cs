@@ -34,7 +34,7 @@ public class WheelFX : MonoBehaviour {
         if ((Mathf.Abs(wheel.slipAngle) > 30.0f || Mathf.Abs(wheel.slipRatio) > 1.0f) && Mathf.Abs(wheel.rpm) > 10.0f)
         {
             particles.enableEmission = true;
-            // (Car is touching Ground) 
+            if (wheel.isGrounded) 
             {
                 skidmarkPrefab.SetActive(true);
             }
