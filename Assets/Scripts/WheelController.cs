@@ -87,9 +87,8 @@ public class WheelController : MonoBehaviour {
             prevNormal = groundInfo.normal;
             //Debug.Log(name + ": " + Vector3.Dot(groundInfo.normal, prevNormal));
             SimulateTraction();
-        }
-        if (Vector3.Dot(groundInfo.normal, prevNormal) == 1)
             isGrounded = true;
+        }         
         else
             isGrounded = false;
     }
