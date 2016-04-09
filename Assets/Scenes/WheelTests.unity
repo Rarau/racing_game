@@ -1578,11 +1578,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487680, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -14
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 487680, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 528
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 487680, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3059,6 +3059,94 @@ Prefab:
     - target: {fileID: 11444076, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 15338570, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.7919922
+      objectReference: {fileID: 0}
+    - target: {fileID: 15338570, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LinearLimitSpring.spring
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 15318648, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.7919922
+      objectReference: {fileID: 0}
+    - target: {fileID: 15318648, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.z
+      value: 1.2849998
+      objectReference: {fileID: 0}
+    - target: {fileID: 15318648, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LinearLimitSpring.spring
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 15353794, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.7919922
+      objectReference: {fileID: 0}
+    - target: {fileID: 15353794, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.z
+      value: 1.2849998
+      objectReference: {fileID: 0}
+    - target: {fileID: 15353794, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LinearLimitSpring.spring
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 15392580, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.7919922
+      objectReference: {fileID: 0}
+    - target: {fileID: 15392580, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LinearLimitSpring.spring
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 403958, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.488
+      objectReference: {fileID: 0}
+    - target: {fileID: 443244, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.488
+      objectReference: {fileID: 0}
+    - target: {fileID: 496586, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.488
+      objectReference: {fileID: 0}
+    - target: {fileID: 419366, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.488
+      objectReference: {fileID: 0}
+    - target: {fileID: 15338570, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.329
+      objectReference: {fileID: 0}
+    - target: {fileID: 15338570, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LinearLimitSpring.damper
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 15318648, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.329
+      objectReference: {fileID: 0}
+    - target: {fileID: 15318648, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LinearLimitSpring.damper
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 15353794, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.329
+      objectReference: {fileID: 0}
+    - target: {fileID: 15353794, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LinearLimitSpring.damper
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 15392580, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.329
+      objectReference: {fileID: 0}
+    - target: {fileID: 15392580, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: m_LinearLimitSpring.damper
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
