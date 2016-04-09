@@ -21,44 +21,6 @@ public class BezierCurve : MonoBehaviour
 
     public BezierCurve nextCurve;
 
-    //public Vector3[] controlPoints;
-    /*
-    Vector2[] points = new Vector2[] {
-        new Vector2(1.0f, 0.0f),
-        new Vector2(2.0f, 0.0f),
-        new Vector2(3.0f, 0.0f),
-        new Vector2(4.0f, 0.0f),
-        new Vector2(5.0f, 0.0f),
-        new Vector2(6.0f, 0.0f)
-    };
-
-    Vector2[] normals = new Vector2[] {
-        new Vector2(1.0f, 0.0f),
-        new Vector2(1.0f, 0.0f),
-        new Vector2(1.0f, 0.0f),
-        new Vector2(1.0f, 0.0f),
-        new Vector2(1.0f, 0.0f),
-        new Vector2(1.0f, 0.0f)
-    };
-
-    float[] uCoords = new float[] {
-        0.1f,
-        0.2f,
-        0.3f,
-        0.4f,
-        0.5f,
-        0.6f
-    };
-
-    int[] lines = new int[] {
-        0, 1,
-        1, 2,
-        2, 3,
-        3, 4,
-        4, 5
-    };
-    */
-	// Use this for initialization
 	public void Start() 
     {
         if (a == null)
@@ -103,7 +65,6 @@ public class BezierCurve : MonoBehaviour
         {
            nextCurve.a.transform.position = d.transform.position;
            nextCurve.a.transform.rotation = d.transform.rotation;
-
         }
     }
 
@@ -144,9 +105,6 @@ public class BezierCurve : MonoBehaviour
 
     public void RegenerateMesh()
     {
-
-
-
         Mesh mesh = new Mesh();
 
         Vector3[] pts = { 
@@ -198,19 +156,15 @@ public class BezierCurve : MonoBehaviour
     {
         if (nextCurve != null)
         {
-            //nextCurve.Update();
             d.transform.position = nextCurve.a.transform.position;
             d.transform.rotation = nextCurve.a.transform.rotation;
-
         }
         
         CreateLineMaterial();
 
         Vector3[] pts = { a.position, b.position, c.position, d.position };
 
-        //GL.PushMatrix();
-        //GL.LoadIdentity();
-        //GL.MultMatrix(transform.localToWorldMatrix);
+
         GL.Begin(GL.LINES);    
 
         GL.Color(Color.yellow);   
@@ -218,22 +172,16 @@ public class BezierCurve : MonoBehaviour
       
         for (int i = 0; i < numDivs; i++)
         {
-
             GL.Vertex(GetPoint(pts, ((float)i / (float)numDivs)));
             GL.Vertex(GetPoint(pts, ((float)(i + 1) / (float)numDivs)));
-
-
         }
 
         Debug.DrawLine(a.position, b.position, Color.white);
         Debug.DrawLine(c.position, d.position, Color.white);
         GL.End();
-
-        //GL.PopMatrix();
-         
 	}
 
-    Vector3 GetPoint(Vector3[] pts, float t)
+    public static Vector3 GetPoint(Vector3[] pts, float t)
     {
         float omt = 1.0f - t;
         float omt2 = omt * omt;
@@ -245,7 +193,7 @@ public class BezierCurve : MonoBehaviour
             pts[3] * (t2 * t);
     }
 
-    Vector3 GetTangent(Vector3[] pts, float t)
+    public static Vector3 GetTangent(Vector3[] pts, float t)
     {
         float omt = 1.0f - t;
         float omt2 = omt * omt;
@@ -260,14 +208,14 @@ public class BezierCurve : MonoBehaviour
         return tangent.normalized;
     }
 
-    Vector3 GetNormal3D(Vector3[] pts, float t, Vector3 up)
+    public static Vector3 GetNormal3D(Vector3[] pts, float t, Vector3 up)
     {
         Vector3 tng = GetTangent(pts, t);
         Vector3 binormal = Vector3.Cross(up, tng).normalized;
         return Vector3.Cross(tng, binormal);
     }
 
-    Quaternion GetOrientation3D(Vector3[] pts, float t, Vector3 up)
+    public static Quaternion GetOrientation3D(Vector3[] pts, float t, Vector3 up)
     {
         Vector3 tng = GetTangent(pts, t);
         Vector3 nrm = GetNormal3D(pts, t, up);
