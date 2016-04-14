@@ -7,7 +7,6 @@ public class CarCrashFX : MonoBehaviour
     ParticleSystem particles;
 
     public int numParticles = 25;
-    
 
     void Awake()
     {
@@ -22,13 +21,17 @@ public class CarCrashFX : MonoBehaviour
 
     void OnCarCrash(Collision other)
     {
-        particles.Emit(numParticles);
-        gameObject.SetActive(true);
-        transform.position = other.contacts[0].point;
+        if (carController.currentGear>2)
+        {
+            particles.Emit(numParticles);
+            gameObject.SetActive(true);
+            transform.position = other.contacts[0].point;
+        }
+
     }
 
     void OnDisable()
     {
-       // carController.crashEvent -= OnCarCrash;
+        // carController.crashEvent -= OnCarCrash;
     }
 }

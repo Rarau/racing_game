@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using UnityEditor;
+
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour 
@@ -286,7 +286,7 @@ public class CarController : MonoBehaviour
             showDebug = !showDebug;
         if (!showDebug)
             return;
-        GUILayout.BeginArea(areagui, EditorStyles.helpBox);
+        //GUILayout.BeginArea(areagui, EditorStyles.helpBox);
         GUILayout.BeginHorizontal();
 
         GUILayout.BeginVertical();
