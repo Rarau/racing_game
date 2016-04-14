@@ -145,7 +145,7 @@ public class WheelController : MonoBehaviour {
         if (linearVel < 0.0f)
             brakeTorque = 0.0f;
         // totalTorque = driveTorque - brakeTorque;
-        totalTorque = driveTorque + brakeTorque * -1.0f * (angularVelocityDegSec *0.1f);
+        totalTorque = driveTorque + brakeTorque * -1.0f;//* (angularVelocityDegSec *0.1f);
 
         float wheelAngularAccel = (totalTorque) / wheelInertia;
 
