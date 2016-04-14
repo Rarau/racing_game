@@ -204,6 +204,14 @@ public class CarController : MonoBehaviour
             rigidbody.angularDrag = 0.1f;
         }
 
+        foreach (WheelController wc in wheels)
+        {
+            if (!wc.IsGrounded)
+            {
+                rigidbody.AddForce(Physics.gravity * 65.0f);
+                break;
+            }
+        }
 	}
 
 

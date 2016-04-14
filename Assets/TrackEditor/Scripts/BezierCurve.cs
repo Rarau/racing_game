@@ -85,7 +85,9 @@ public class BezierCurve : MonoBehaviour
             normals[i].x = 0.0f;
             normals[i].y = 1.0f;
 
-            uCoords[i] = Mathf.InverseLerp(0.0f, width, points[i].x);
+            uCoords[i] = Mathf.InverseLerp(0.0f, width, points[i].x);   
+            points[i].x -= width * 0.5f;
+
         }
 
         int[] lines = new int[points.Length * 2 - 2];
