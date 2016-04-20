@@ -1406,6 +1406,10 @@ Prefab:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 11401942, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
   m_IsPrefabParent: 0
@@ -7611,6 +7615,22 @@ Prefab:
       propertyPath: particles
       value: 
       objectReference: {fileID: 1152841084}
+    - target: {fileID: 11492556, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
+      propertyPath: rubberOnRoad
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+    - target: {fileID: 11409560, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
+      propertyPath: rubberOnRoad
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+    - target: {fileID: 11470664, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
+      propertyPath: rubberOnRoad
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+    - target: {fileID: 11467016, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
+      propertyPath: rubberOnRoad
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ceccb58972a6d245b20b13d645a43fc, type: 2}
   m_IsPrefabParent: 0

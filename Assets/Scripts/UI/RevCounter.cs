@@ -34,6 +34,8 @@ public class RevCounter : MonoBehaviour
             rotationAngle = Mathf.Lerp(minAnglePointer, maxAnglePointer, -rpmFactor);
         }
         pointer.rectTransform.localRotation = Quaternion.Euler(0.0f, 0.0f, -rotationAngle);
+
+        Debug.Log(rpmFactor);
         //GUIUtility.RotateAroundPivot(rotationAngle, pivotPoint);
 	}
 }
