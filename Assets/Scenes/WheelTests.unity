@@ -1416,6 +1416,22 @@ Prefab:
       propertyPath: skidAudio
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11489034, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: rubberOnRoad
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+    - target: {fileID: 11466818, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: rubberOnRoad
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+    - target: {fileID: 11445720, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: rubberOnRoad
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+    - target: {fileID: 11444076, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
+      propertyPath: rubberOnRoad
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e89dc332d70e30e4da817ef36758382e, type: 2}
   m_IsPrefabParent: 0
