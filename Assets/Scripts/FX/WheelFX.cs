@@ -12,7 +12,7 @@ public class WheelFX : MonoBehaviour
     public GameObject skidmarkPrefab;
     private GameObject skidmarkObject;
 
-    public AudioSource skidAudio;
+    private AudioSource skidAudio;
 
     // Use this for initialization
     void Start()
@@ -21,7 +21,7 @@ public class WheelFX : MonoBehaviour
         particles.playOnAwake = false;
         particles.enableEmission = false;
 
-        skidAudio = (AudioSource)GetComponent(typeof(AudioSource));
+        skidAudio = GetComponent<AudioSource>();
         if (skidAudio == null)
         {
             Debug.LogError("No audio source, please add one skid audio to the tyres");

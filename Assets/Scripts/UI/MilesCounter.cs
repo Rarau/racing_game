@@ -22,7 +22,7 @@ public class MilesCounter : MonoBehaviour
 	void Update ()
     {
         float speedFactor = car.currentSpeed / car.maxSpeed * .4f;
-        float rpmFactor = car.virtualRPM / car.rpmMax;
+        //float rpmFactor = car.virtualRPM / car.rpmMax;
         float rotationAngle;
         miles.text = ((int)(car.currentSpeed * 0.621371)).ToString();
         if (car.currentSpeed >= 0)
