@@ -9,7 +9,6 @@ public class ShakeEffect : MonoBehaviour {
     public bool loop;
     public bool playOnAwake;
     public bool selfDisable = true;
-
 	// Use this for initialization
 	void OnEnable () {
         if (playOnAwake)
@@ -17,14 +16,13 @@ public class ShakeEffect : MonoBehaviour {
 	}
 	
 
-
     IEnumerator Shake()
     {
         float elapsed = 0.0f;
 
         Vector3 originalCamPos = transform.localPosition;
 
-        while (elapsed < duration || loop)
+        while (elapsed < duration)
         {
 
             elapsed += Time.deltaTime;
@@ -41,16 +39,13 @@ public class ShakeEffect : MonoBehaviour {
 
             transform.localPosition = new Vector3(x + originalCamPos.x, y + originalCamPos.y, originalCamPos.z);
 
-            if(magnitude < 0.001f)
-                transform.localPosition = originalCamPos;
-
             yield return null;
         }
 
         transform.localPosition = originalCamPos;
        enabled = !selfDisable;
-      // if (loop)
-       //    yield return StartCoroutine(Shake());
+       if (loop)
+           yield return StartCoroutine(Shake());
     }
 
 }

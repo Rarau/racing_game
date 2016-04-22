@@ -84,10 +84,8 @@ public class WheelController : MonoBehaviour {
     RaycastHit groundInfo;
     void FixedUpdate()
     {
-        /*
         if (overrideSlipRatio)
             slipRatio = overridenSlipRatio;
-            */
         
         if (Physics.Raycast(transform.position, -rigidbody.transform.up, out groundInfo, radius, raycastIgnore))
         {
@@ -145,7 +143,7 @@ public class WheelController : MonoBehaviour {
         if (linearVel < 0.0f)
             brakeTorque = 0.0f;
         // totalTorque = driveTorque - brakeTorque;
-        totalTorque = driveTorque + brakeTorque * -1.0f;//* (angularVelocityDegSec *0.1f);
+        totalTorque = driveTorque + brakeTorque * -1.0f * (angularVelocityDegSec);
 
         float wheelAngularAccel = (totalTorque) / wheelInertia;
 
@@ -163,14 +161,14 @@ public class WheelController : MonoBehaviour {
             linearVel = localVel.z;
         }
 
-        if(eBrakeEnabled && driveTorque == 0.0f)
+        if(eBrakeEnabled)
         {
             angularVelocityDegSec = 0.0f;
             linearVel = 0.0f;
         }
 
-        if (connectedWheel == null) {
-            slipRatio = (linearVel - localVel.z) / Mathf.Abs(localVel.z);// *0.1f;
+        if (!overrideSlipRatio) {
+            slipRatio = (linearVel - localVel.z) / Mathf.Abs(localVel.z) * 0.1f;
             slipRatio = Mathf.Clamp(slipRatio, -6f, 6f);
             // If it's NaN, then the car and the wheel are stopped (0 / 0 division)
             if (float.IsNaN(slipRatio)) {
@@ -196,8 +194,7 @@ public class WheelController : MonoBehaviour {
 
         //if(Mathf.Abs(slipRatio) > 0.01f)
         if(totalTorque != 0.0f) {
-            if(!(eBrakeEnabled && driveTorque != 0.0f))
-                rigidbody.AddForceAtPosition(tractionForceV * weightTransfer * transform.root.GetComponent<Rigidbody>().mass, transform.position);
+            rigidbody.AddForceAtPosition(tractionForceV * weightTransfer * transform.root.GetComponent<Rigidbody>().mass, transform.position);
             //rigidbody.AddForceAtPosition(fwd * 100.0f, transform.position);
             //Debug.Log(gameObject.name + " " + tractionForce + " " + slipRatio + " " + linearVel + " " + localVel.z);
         }
@@ -237,7 +234,7 @@ public class WheelController : MonoBehaviour {
         //else
         //{
         //    rigidbody.drag = Mathf.Lerp(rigidbody.drag, 0.0f, Time.deltaTime * 10.0f);
-        rigidbody.AddForceAtPosition(sideForce * weightTransfer * transform.root.GetComponent<Rigidbody>().mass /** frictionCurve.Evaluate(Mathf.Abs(slipRatio) + 0.4f)*/, transform.position);
+           rigidbody.AddForceAtPosition(sideForce * weightTransfer * transform.root.GetComponent<Rigidbody>().mass, transform.position);
 
         //}
 

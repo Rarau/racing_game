@@ -7,8 +7,6 @@ public class CarPlayerInput : MonoBehaviour
     private CarController carController;
     public string playerPrefix = "P1_";
 
-    public AnimationCurve joystickSensitivity;
-
 	void Start () 
     {
         carController = GetComponent<CarController>();
@@ -16,11 +14,7 @@ public class CarPlayerInput : MonoBehaviour
 	
 	void Update ()
     {
-        carController.steeringAngle = joystickSensitivity.Evaluate(Mathf.Abs(Input.GetAxis(playerPrefix + "Horizontal"))) * Mathf.Sign((Input.GetAxis(playerPrefix + "Horizontal")));
-        //if(Input.GetButton("HandBrake"))
-        {
-            carController.handBrake = Input.GetButton("HandBrake");
-        }
+        carController.steeringAngle = Input.GetAxis(playerPrefix + "Horizontal");
         if (Input.GetAxis(playerPrefix + "Vertical") == 0.0f)
         {
             carController.throttlePos = 0.0f;

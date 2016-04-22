@@ -17,9 +17,4 @@ public class SelfDisable : MonoBehaviour
         if ((startTime + lifetime) < Time.timeSinceLevelLoad)
             gameObject.SetActive(false);
 	}
-
-    void Start()
-    {
-        gameObject.SetActive(false);
-    }
 }

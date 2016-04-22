@@ -3,25 +3,52 @@ using System.Collections;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
-public class BezierCurve : MonoBehaviour 
-{
-    Shape profileShape = new Shape();
+public class BezierCurve : MonoBehaviour {
 
     static Material mat;
 
-    [HideInInspector]
     public Transform a, b, c, d;
 
     public int numDivs = 10;
-    public int numDivsProfile = 12;
-    public float width = 10.0f;
-    public float verticalScale = 10.0f;
 
-    public AnimationCurve profile;
 
-    public BezierCurve nextCurve;
+    public Vector2[] points = new Vector2[] {
+        new Vector2(1.0f, 0.0f),
+        new Vector2(2.0f, 0.0f),
+        new Vector2(3.0f, 0.0f),
+        new Vector2(4.0f, 0.0f),
+        new Vector2(5.0f, 0.0f),
+        new Vector2(6.0f, 0.0f)
+    };
 
-	public void Start() 
+    public Vector2[] normals = new Vector2[] {
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f)
+    };
+
+    public float[] uCoords = new float[] {
+        0.1f,
+        0.2f,
+        0.3f,
+        0.4f,
+        0.5f,
+        0.6f
+    };
+
+    public int[] lines = new int[] {
+        0, 1,
+        1, 2,
+        2, 3,
+        3, 4,
+        4, 5
+    };
+
+	// Use this for initialization
+	void Start () 
     {
         if (a == null)
         {
@@ -32,89 +59,46 @@ public class BezierCurve : MonoBehaviour
         if (b == null)
         {
             b = new GameObject("B").transform;
-            b.transform.parent = a;
+            b.transform.parent = transform;
             b.transform.localPosition = new Vector3(0.0f, 0.0f, 3.0f);
         } 
-
+        if (c == null)
+        {
+            c = new GameObject("C").transform;
+            c.transform.parent = transform;
+            c.transform.localPosition = new Vector3(10.0f, 0.0f, 3.0f);
+        }
         if (d == null)
         {
             d = new GameObject("D").transform;
             d.transform.parent = transform;
             d.transform.localPosition = new Vector3(10.0f, 0.0f, 0.0f);
         }
-
-        if (c == null)
-        {
-            c = new GameObject("C").transform;
-            c.transform.parent = d;
-            c.transform.localPosition = new Vector3(10.0f, 0.0f, 3.0f);
-        }
-
-        profileShape = new Shape();
-
-        RegenerateProfileShape();
         RegenerateMesh();
 	}
 
     void Update()
     {
-       // RegenerateProfileShape();
-       // RegenerateMesh();
-
-        if (nextCurve != null)
-        {
-           nextCurve.a.transform.position = d.transform.position;
-           nextCurve.a.transform.rotation = d.transform.rotation;
-        }
-    }
-
-    /// <summary>
-    /// Regenerates the profile shape to be extruded.
-    /// </summary>
-    public void RegenerateProfileShape()
-    {
-        Vector2[] points = new Vector2[numDivsProfile + 1];
-        float[] uCoords = new float[numDivsProfile + 1];
-        Vector2[] normals = new Vector2[numDivsProfile + 1];
-
-        for(int i = 0; i < numDivsProfile + 1; ++i)
-        {
-            points[i].x = (float)i * (width / numDivsProfile);
-            points[i].y = -profile.Evaluate(1.0f - Mathf.InverseLerp(0.0f, width, points[i].x)) * verticalScale;
-
-            normals[i].x = 0.0f;
-            normals[i].y = 1.0f;
-
-            uCoords[i] = Mathf.InverseLerp(0.0f, width, points[i].x);   
-            points[i].x -= width * 0.5f;
-
-        }
-
-        int[] lines = new int[points.Length * 2 - 2];
-        int k = 0;
-        for (int i = 0; i < points.Length - 1; i++)
-        {
-            lines[k] = i;
-            lines[k + 1] = i + 1;
-            k += 2;
-        }
-
-        profileShape.points = points;
-        profileShape.normals = normals;
-        profileShape.uCoords = uCoords;
-        profileShape.lines = lines;
+        RegenerateMesh();
     }
 
     public void RegenerateMesh()
     {
-        Mesh mesh = new Mesh();
+        Shape s = new Shape();
+        s.points = points;
+        s.normals = normals;
+        s.uCoords = uCoords;
+        s.lines = lines;
 
-        Vector3[] pts = { 
-                            transform.InverseTransformPoint(a.position),
-                            transform.InverseTransformPoint(b.position),
-                            transform.InverseTransformPoint(c.position),
-                            transform.InverseTransformPoint(d.position)
-                        };
+
+        Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
+        if (mesh == null)
+        {
+            mesh = new Mesh();
+            Debug.Log("Mesh was null");
+        }
+
+        Vector3[] pts = { a.localPosition, (b.localPosition), c.localPosition, d.localPosition };
 
         //Debug.Log(name + " " + a.InverseTransformPoint(b.position));
 
@@ -122,28 +106,23 @@ public class BezierCurve : MonoBehaviour
 
         for (int i = 0; i < numDivs+ 1; i++)
         {
-            OrientedPoint p;
-            float t = ((float)i / (float)numDivs);
-            p.position = GetPoint(pts, t);
-            p.rotation = GetOrientation3D(pts, (float)i / (float)numDivs, -Vector3.Lerp(a.transform.up, c.transform.up, t));
 
-            path[i] = p;
+            OrientedPoint p;
+            p.position = GetPoint(pts, ((float)i / (float)numDivs));
+            p.rotation = GetOrientation3D(pts, (float)i / (float)numDivs, -a.transform.up);
+
+            //path[i] = p;
         }
 
-        Shape.Extrude(mesh, profileShape, path);
-        
-        mesh.RecalculateNormals();
+
+
+        Shape.Extrude(mesh, s, path);
 
         Debug.Log("Mesh regenerated " + mesh.vertexCount);
-        GetComponent<MeshFilter>().sharedMesh = mesh;
-
-        MeshCollider mc = GetComponent<MeshCollider>();
-        if(mc == null)
-        {
-            mc = gameObject.AddComponent<MeshCollider>();
-        }
-        mc.sharedMesh = mesh;
+        GetComponent<MeshFilter>().sharedMesh = mesh;   
     }
+
+
     
     static void CreateLineMaterial()
     {
@@ -156,17 +135,13 @@ public class BezierCurve : MonoBehaviour
 	// Update is called once per frame 
     public void OnDrawGizmos()
     {
-        if (nextCurve != null)
-        {
-            d.transform.position = nextCurve.a.transform.position;
-            d.transform.rotation = nextCurve.a.transform.rotation;
-        }
-        
         CreateLineMaterial();
 
         Vector3[] pts = { a.position, b.position, c.position, d.position };
 
-
+        //GL.PushMatrix();
+        //GL.LoadIdentity();
+        //GL.MultMatrix(transform.localToWorldMatrix);
         GL.Begin(GL.LINES);    
 
         GL.Color(Color.yellow);   
@@ -174,16 +149,21 @@ public class BezierCurve : MonoBehaviour
       
         for (int i = 0; i < numDivs; i++)
         {
+
             GL.Vertex(GetPoint(pts, ((float)i / (float)numDivs)));
             GL.Vertex(GetPoint(pts, ((float)(i + 1) / (float)numDivs)));
+
+
         }
 
         Debug.DrawLine(a.position, b.position, Color.white);
         Debug.DrawLine(c.position, d.position, Color.white);
         GL.End();
+
+        //GL.PopMatrix();
 	}
 
-    public static Vector3 GetPoint(Vector3[] pts, float t)
+    Vector3 GetPoint(Vector3[] pts, float t)
     {
         float omt = 1.0f - t;
         float omt2 = omt * omt;
@@ -195,7 +175,7 @@ public class BezierCurve : MonoBehaviour
             pts[3] * (t2 * t);
     }
 
-    public static Vector3 GetTangent(Vector3[] pts, float t)
+    Vector3 GetTangent(Vector3[] pts, float t)
     {
         float omt = 1.0f - t;
         float omt2 = omt * omt;
@@ -210,14 +190,14 @@ public class BezierCurve : MonoBehaviour
         return tangent.normalized;
     }
 
-    public static Vector3 GetNormal3D(Vector3[] pts, float t, Vector3 up)
+    Vector3 GetNormal3D(Vector3[] pts, float t, Vector3 up)
     {
         Vector3 tng = GetTangent(pts, t);
         Vector3 binormal = Vector3.Cross(up, tng).normalized;
         return Vector3.Cross(tng, binormal);
     }
 
-    public static Quaternion GetOrientation3D(Vector3[] pts, float t, Vector3 up)
+    Quaternion GetOrientation3D(Vector3[] pts, float t, Vector3 up)
     {
         Vector3 tng = GetTangent(pts, t);
         Vector3 nrm = GetNormal3D(pts, t, up);

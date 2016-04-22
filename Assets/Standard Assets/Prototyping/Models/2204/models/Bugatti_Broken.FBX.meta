@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 545466a2118288b468af869768fbf71a
+timeCreated: 1461339491
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BB_FAST_1
+    100002: BB_FAST_2
+    100004: BB_FAST_3
+    100006: BB_Fast_4
+    100008: BB_Middle_1
+    100010: BB_Middle_2
+    100012: BB_Middle_3
+    100014: BB_Middle_4
+    100016: BB_Slow_1
+    100018: BB_Slow_2
+    100020: BB_Slow_3
+    100022: BB_Slow_4
+    100024: //RootNode
+    100026: Bugatti_broken_body
+    100028: Bugatti_Broken_bumper
+    100030: Bugatti_Broken_bumper_back
+    100032: Bugatti_Broken_door_left
+    100034: Bugatti_Broken_door_right
+    100036: Bugatti_Broken_hoods
+    100038: Bugatti_Broken_windowL
+    100040: Bugatti_Broken_windowR
+    100042: Bugatti_Broken_windows
+    400000: BB_FAST_1
+    400002: BB_FAST_2
+    400004: BB_FAST_3
+    400006: BB_Fast_4
+    400008: BB_Middle_1
+    400010: BB_Middle_2
+    400012: BB_Middle_3
+    400014: BB_Middle_4
+    400016: BB_Slow_1
+    400018: BB_Slow_2
+    400020: BB_Slow_3
+    400022: BB_Slow_4
+    400024: //RootNode
+    400026: Bugatti_broken_body
+    400028: Bugatti_Broken_bumper
+    400030: Bugatti_Broken_bumper_back
+    400032: Bugatti_Broken_door_left
+    400034: Bugatti_Broken_door_right
+    400036: Bugatti_Broken_hoods
+    400038: Bugatti_Broken_windowL
+    400040: Bugatti_Broken_windowR
+    400042: Bugatti_Broken_windows
+    2300000: BB_FAST_1
+    2300002: BB_FAST_2
+    2300004: BB_FAST_3
+    2300006: BB_Fast_4
+    2300008: BB_Middle_1
+    2300010: BB_Middle_2
+    2300012: BB_Middle_3
+    2300014: BB_Middle_4
+    2300016: BB_Slow_1
+    2300018: BB_Slow_2
+    2300020: BB_Slow_3
+    2300022: BB_Slow_4
+    2300024: Bugatti_broken_body
+    2300026: Bugatti_Broken_bumper
+    2300028: Bugatti_Broken_bumper_back
+    2300030: Bugatti_Broken_door_left
+    2300032: Bugatti_Broken_door_right
+    2300034: Bugatti_Broken_hoods
+    2300036: Bugatti_Broken_windowL
+    2300038: Bugatti_Broken_windowR
+    2300040: Bugatti_Broken_windows
+    3300000: BB_FAST_1
+    3300002: BB_FAST_2
+    3300004: BB_FAST_3
+    3300006: BB_Fast_4
+    3300008: BB_Middle_1
+    3300010: BB_Middle_2
+    3300012: BB_Middle_3
+    3300014: BB_Middle_4
+    3300016: BB_Slow_1
+    3300018: BB_Slow_2
+    3300020: BB_Slow_3
+    3300022: BB_Slow_4
+    3300024: Bugatti_broken_body
+    3300026: Bugatti_Broken_bumper
+    3300028: Bugatti_Broken_bumper_back
+    3300030: Bugatti_Broken_door_left
+    3300032: Bugatti_Broken_door_right
+    3300034: Bugatti_Broken_hoods
+    3300036: Bugatti_Broken_windowL
+    3300038: Bugatti_Broken_windowR
+    3300040: Bugatti_Broken_windows
+    4300000: BB_Fast_4
+    4300002: BB_Slow_3
+    4300004: BB_Slow_4
+    4300006: BB_Middle_3
+    4300008: BB_FAST_3
+    4300010: BB_Middle_4
+    4300012: Bugatti_Broken_windowL
+    4300014: Bugatti_Broken_hoods
+    4300016: Bugatti_Broken_windows
+    4300018: Bugatti_Broken_windowR
+    4300020: BB_Middle_1
+    4300022: BB_Slow_2
+    4300024: BB_FAST_1
+    4300026: BB_FAST_2
+    4300028: Bugatti_Broken_bumper
+    4300030: Bugatti_broken_body
+    4300032: Bugatti_Broken_door_right
+    4300034: BB_Slow_1
+    4300036: Bugatti_Broken_door_left
+    4300038: Bugatti_Broken_bumper_back
+    4300040: BB_Middle_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
