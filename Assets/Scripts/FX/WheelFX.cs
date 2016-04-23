@@ -68,7 +68,7 @@ public class WheelFX : MonoBehaviour
             isSkidding = 0;
 
         }
-        Debug.Log("isgrounded: " + wheel.IsGrounded);
+        //Debug.Log("isgrounded: " + wheel.IsGrounded);
     }
 
     void SkidMarkEffect() {
