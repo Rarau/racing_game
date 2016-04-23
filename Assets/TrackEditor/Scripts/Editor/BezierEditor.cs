@@ -4,12 +4,14 @@ using System.Collections;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(BezierCurve))]
+
 public class BezierEditor : Editor
 {
     bool rotationMode = false;
 
     void OnSceneGUI()
     {
+
         Event e = Event.current;
         switch (e.type)
         {
@@ -34,6 +36,8 @@ public class BezierEditor : Editor
             curve.b.position = pos;
         }
 
+        curve.a.hideFlags = HideFlags.HideInHierarchy;
+        curve.d.hideFlags = HideFlags.HideInHierarchy;
 
         pos = Handles.PositionHandle(curve.c.position, curve.c.rotation);
         oldRot = curve.d.localRotation.eulerAngles;
@@ -117,7 +121,7 @@ public class BezierEditor : Editor
     [MenuItem("Track Editor/Add segment #C")]
     static void AddCurveFromMenu()
     {
-        Debug.Log("Selected Transform is on " + Selection.activeTransform.gameObject.name + ".");
+        //Debug.Log("Selected Transform is on " + Selection.activeTransform.gameObject.name + ".");
         BezierCurve previous = Selection.activeTransform.GetComponent<BezierCurve>();
         if (previous != null)
         {
@@ -125,7 +129,9 @@ public class BezierEditor : Editor
         }
         else
         {
-            Debug.LogError("Trying to add a new segment from an non-track object");
+            //Debug.LogError("Trying to add a new segment from an non-track object");
+            GameObject go = new GameObject("Bezier segment");
+            go.AddComponent<BezierCurve>();
         }
     }
 

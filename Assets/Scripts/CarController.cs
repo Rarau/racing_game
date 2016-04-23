@@ -188,10 +188,25 @@ public class CarController : MonoBehaviour
 
         // Calculate the total acceleration of the car and use it to displace the center of mass.
         // This way we get different weight transfer to each wheel
-        rigidbody.centerOfMass = Vector3.Lerp(rigidbody.centerOfMass, centerOfMass.localPosition, 10000.0f * Time.deltaTime);
+        rigidbody.centerOfMass = Vector3.Lerp(rigidbody.centerOfMass, centerOfMass.localPosition, 0.5f * Time.deltaTime);
         totalAcceleration = (rigidbody.velocity - previousVelocity) / Time.deltaTime;
-        totalAcceleration = totalAcceleration.magnitude > 15.0f ? totalAcceleration.normalized : totalAcceleration;
-        rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAcceleration, Vector3.forward + Vector3.right) * 0.01f);
+        totalAcceleration = totalAcceleration.magnitude > 15.0f ? totalAcceleration.normalized * 15.0f : totalAcceleration;
+        if (!IsFlying())
+        {
+            Vector3 v = rigidbody.centerOfMass;
+            v -= transform.InverseTransformDirection(Vector3.Scale(totalAcceleration, Vector3.forward + Vector3.right) * 0.0001f);
+            v.x = Mathf.Clamp(v.x, -0.45f, 0.45f);
+            v.z = Mathf.Clamp(v.z, -0.65f, 0.65f);
+            v.y = centerOfMass.localPosition.y;
+            //Vector3.ClampMagnitude(v, 0.015f);
+            //rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAcceleration, Vector3.forward + Vector3.right) * 0.01f);
+            rigidbody.centerOfMass = v;
+        }
+        else
+        {
+            transform.forward = Vector3.Lerp(transform.forward, rigidbody.velocity, Time.deltaTime * 0.80f);
+
+        }
         previousVelocity = rigidbody.velocity;
 
         
@@ -214,6 +229,17 @@ public class CarController : MonoBehaviour
         }
 	}
 
+    public bool IsFlying()
+    {
+        foreach(WheelController wc in wheels)
+        {
+            if (wc.IsGrounded)
+                return false;
+        }
+        return true;
+    }
+    
+    
 
     /// <summary>
     /// Shifts gear up or down according to speed.
