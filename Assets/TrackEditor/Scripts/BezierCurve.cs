@@ -23,6 +23,7 @@ public class BezierCurve : MonoBehaviour
 
 	public void Start() 
     {
+        // Initialize the handles for the Bezier curve
         if (a == null)
         {
             a = new GameObject("A").transform;
@@ -50,17 +51,17 @@ public class BezierCurve : MonoBehaviour
             c.transform.localPosition = new Vector3(10.0f, 0.0f, 3.0f);
         }
 
+        // Initialize the profile shape
         profileShape = new Shape();
 
+        // Generate the meshes
         RegenerateProfileShape();
         RegenerateMesh();
 	}
 
     void Update()
     {
-       // RegenerateProfileShape();
-       // RegenerateMesh();
-
+        // Keep the next curve segment linked to this one
         if (nextCurve != null)
         {
            nextCurve.a.transform.position = d.transform.position;
@@ -68,10 +69,20 @@ public class BezierCurve : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Regenerates the profile shape to be extruded.
-    /// </summary>
     public void RegenerateProfileShape()
+    {
+        GenerateProfileShape(profile, numDivsProfile, width, verticalScale, profileShape);
+    }
+
+    /// <summary>
+    /// Helper function to generate the profile shape to be extruded according to the given curve and parameters.
+    /// </summary>
+    /// <param name="profile"></param>
+    /// <param name="numDivsProfile"></param>
+    /// <param name="width"></param>
+    /// <param name="verticalScale"></param>
+    /// <param name="profileShape"></param>
+    public static void GenerateProfileShape(AnimationCurve profile, int numDivsProfile, float width, float verticalScale, Shape profileShape)
     {
         Vector2[] points = new Vector2[numDivsProfile + 1];
         float[] uCoords = new float[numDivsProfile + 1];
@@ -105,6 +116,9 @@ public class BezierCurve : MonoBehaviour
         profileShape.lines = lines;
     }
 
+    /// <summary>
+    /// Re extrudes the profile shape along the stored spline generating a new mesh and updating the colliders
+    /// </summary>
     public void RegenerateMesh()
     {
         Mesh mesh = new Mesh();
@@ -183,6 +197,12 @@ public class BezierCurve : MonoBehaviour
         GL.End();
 	}
 
+    /// <summary>
+    /// Returns the position of a point on the curve at percentage "t"
+    /// </summary>
+    /// <param name="pts"></param>
+    /// <param name="t"></param>
+    /// <returns></returns>
     public static Vector3 GetPoint(Vector3[] pts, float t)
     {
         float omt = 1.0f - t;
@@ -195,6 +215,12 @@ public class BezierCurve : MonoBehaviour
             pts[3] * (t2 * t);
     }
 
+    /// <summary>
+    /// Returns the tangent vector to the curve at percentage "t"
+    /// </summary>
+    /// <param name="pts"></param>
+    /// <param name="t"></param>
+    /// <returns></returns>
     public static Vector3 GetTangent(Vector3[] pts, float t)
     {
         float omt = 1.0f - t;
@@ -210,6 +236,13 @@ public class BezierCurve : MonoBehaviour
         return tangent.normalized;
     }
 
+    /// <summary>
+    /// Returns the normal vector of the curve at percentage "t"
+    /// </summary>
+    /// <param name="pts"></param>
+    /// <param name="t"></param>
+    /// <param name="up"></param>
+    /// <returns></returns>
     public static Vector3 GetNormal3D(Vector3[] pts, float t, Vector3 up)
     {
         Vector3 tng = GetTangent(pts, t);
@@ -217,6 +250,13 @@ public class BezierCurve : MonoBehaviour
         return Vector3.Cross(tng, binormal);
     }
 
+    /// <summary>
+    /// Returns the orientation of the curve as a quaternion at percentage "t"
+    /// </summary>
+    /// <param name="pts"></param>
+    /// <param name="t"></param>
+    /// <param name="up"></param>
+    /// <returns></returns>
     public static Quaternion GetOrientation3D(Vector3[] pts, float t, Vector3 up)
     {
         Vector3 tng = GetTangent(pts, t);
