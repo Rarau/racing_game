@@ -161,7 +161,7 @@ public class CarController : MonoBehaviour
         float currentSteeringAngle = steeringAngle * steeringSensitivity * steeringSensitityCurve.Evaluate(transform.InverseTransformDirection(rigidbody.velocity).z / maxSpeed) * 45.0f;
         if (Math.Abs(localVelocity.z) < Math.Abs(localVelocity.x) && localVelocity.magnitude > 1.0f)
         {
-            Debug.Log("Drift");
+            //Debug.Log("Drift");
             currentSteeringAngle = Mathf.Lerp(currentSteeringAngle, currentSteeringAngle*Mathf.Abs(wheels[0].slipAngle) * driftAssist, Time.deltaTime * 10.0f);
         }
         currentSteeringAngle = Mathf.Clamp(currentSteeringAngle, -45.0f, 45.0f);

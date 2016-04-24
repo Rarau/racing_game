@@ -35,8 +35,8 @@ public class RevCounter : MonoBehaviour
         }
         pointer.rectTransform.localRotation = Quaternion.Euler(0.0f, 0.0f, -rotationAngle);
         //GUIUtility.RotateAroundPivot(rotationAngle, pivotPoint);
-        Debug.Log("rpmFactor: " + car.rpmMax);
-        Debug.Log("virtualRpm: " + car.virtualRPM);
-        Debug.Log("rotationAngle: " + rotationAngle);
+        //Debug.Log("rpmFactor: " + car.rpmMax);
+        //Debug.Log("virtualRpm: " + car.virtualRPM);
+        //Debug.Log("rotationAngle: " + rotationAngle);
 	}
 }
