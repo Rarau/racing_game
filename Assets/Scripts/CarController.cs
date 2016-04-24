@@ -276,50 +276,50 @@ public class CarController : MonoBehaviour
         }
     }
 
-    Rect areagui = new Rect(0f, 20f, 500f, 300f);
-    bool showDebug;
-    void OnGUI()
-    {
-        GUI.contentColor = Color.black;
+    //Rect areagui = new Rect(0f, 20f, 500f, 300f);
+    //bool showDebug;
+    //void OnGUI()
+    //{
+    //    GUI.contentColor = Color.black;
 
-        if (GUILayout.Button("Toggle Debug"))
-            showDebug = !showDebug;
-        if (!showDebug)
-            return;
-        //GUILayout.BeginArea(areagui, EditorStyles.helpBox);
-        GUILayout.BeginHorizontal();
+    //    if (GUILayout.Button("Toggle Debug"))
+    //        showDebug = !showDebug;
+    //    if (!showDebug)
+    //        return;
+    //    //GUILayout.BeginArea(areagui, EditorStyles.helpBox);
+    //    GUILayout.BeginHorizontal();
 
-        GUILayout.BeginVertical();
-        GUILayout.Label("Wheel");
-        GUILayout.Label("RPM");
-        GUILayout.Label("FroceFWD");
-        GUILayout.Label("ForceSide");
-        GUILayout.Label("SlipRatio");
-        GUILayout.Label("SlipAngle");
-        GUILayout.Label("LinearVel");
+    //    GUILayout.BeginVertical();
+    //    GUILayout.Label("Wheel");
+    //    GUILayout.Label("RPM");
+    //    GUILayout.Label("FroceFWD");
+    //    GUILayout.Label("ForceSide");
+    //    GUILayout.Label("SlipRatio");
+    //    GUILayout.Label("SlipAngle");
+    //    GUILayout.Label("LinearVel");
 
-        GUILayout.EndVertical();
+    //    GUILayout.EndVertical();
 
-        foreach (WheelController w in wheels)
-        {
-            GUILayout.BeginVertical();
-            GUILayout.Label(w.name);
-            GUILayout.Label(w.rpm.ToString("0.0"));
-            GUILayout.Label(w.fwdForce.ToString("0.0"));
-            GUILayout.Label(w.sideForce.ToString("0.0"));
-            GUILayout.Label(w.slipRatio.ToString("0.000"));
-            GUILayout.Label((w.slipAngle).ToString("0.0"));
-            GUILayout.Label((w.linearVel).ToString("0.00"));
+    //    foreach (WheelController w in wheels)
+    //    {
+    //        GUILayout.BeginVertical();
+    //        GUILayout.Label(w.name);
+    //        GUILayout.Label(w.rpm.ToString("0.0"));
+    //        GUILayout.Label(w.fwdForce.ToString("0.0"));
+    //        GUILayout.Label(w.sideForce.ToString("0.0"));
+    //        GUILayout.Label(w.slipRatio.ToString("0.000"));
+    //        GUILayout.Label((w.slipAngle).ToString("0.0"));
+    //        GUILayout.Label((w.linearVel).ToString("0.00"));
 
-            GUILayout.EndVertical();
-        }
-        GUILayout.EndHorizontal();
-        GUILayout.EndArea();
-    }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
+    //        GUILayout.EndVertical();
+    //    }
+    //    GUILayout.EndHorizontal();
+    //    GUILayout.EndArea();
+    //}
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
 
-        Gizmos.DrawSphere(GetComponent<Rigidbody>().worldCenterOfMass, 0.1f);
-    }
+    //    Gizmos.DrawSphere(GetComponent<Rigidbody>().worldCenterOfMass, 0.1f);
+    //}
 }
