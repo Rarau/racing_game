@@ -4,7 +4,6 @@ using System.Collections;
 //[RequireComponent(typeof(WheelController))]
 public class WheelFX : MonoBehaviour
 {
-
     public WheelController wheel;
 
     public ParticleSystem particles;
