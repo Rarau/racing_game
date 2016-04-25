@@ -1,22 +1,25 @@
-<center>
 #Bugatti Wreck’em Squad
 **Goncalo Lourenco (dgonc001)**
 
 **Goldsmiths University of London**
 **MSc in Computer Games and Entertainment**
 **PHYSICS AND ANIMATION FOR GAMES AND ENTERTAINMENT SYSTEMS**
-</center>
 
 ##Introduction
 As a part of Physics coursework it was established that all students would make a racing car game. For this purpose it was assembled a multidisciplinary team that was composed by programmers and artists.  
 ##Role and responsibilities
 I was part of programming team. Game was totally developed in Unity3D using C# programming.
 As a part of the team my tasks were:
--Car deformation. I personally chose  via shader. This was achieved by texture displacement.-
--Special effects like impacts, exhaust bursts and skidmarks. Also assigning all related sounds.-
--Gear system and related motor sound that rise as speed increased or changed as gears change.-
--Car dashboard dials visualization like gear number display, speedometer and rotations.-
--Game Manager between scenes.<br/>
+-Car deformation. I personally chose  via shader. This was achieved by texture displacement.
+
+-Special effects like impacts, exhaust bursts and skidmarks. Also assigning all related sounds.
+
+-Gear system and related motor sound that rise as speed increased or changed as gears change.
+
+-Car dashboard dials visualization like gear number display, speedometer and rotations.
+
+-Game Manager between scenes.
+
 ##Challenges
 #####Deformation
 Car deformation via shader posed as a great challenge has the problem would consist mainly to get the exact point of collision and deform in that particular area. For that would be needed to modify height map image on runtime when some collision occurred. But during tests on that approach it was notest that big surfaces were less “damaged” that surrounded small meshes, usually on corners. And that provoked a weird ripple effect. One way was increasing polygons number which could lead to a slower performance, other was to focus only in larger areas as these are more suitable for deformation. But this last approach would take a lot more research and other tasks would be further delayed. At the end team concluded that would be better to choose another approach. Because,  in the beginning, we predict that car damage would be essential for our game it was assigned same task  to 3 different team members which were working on 3 different car deformation approaches. So in the end we could have a choice based on better performance and easier way to implement.
