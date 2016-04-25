@@ -10,15 +10,15 @@ As a part of Physics coursework it was established that all students would make 
 ##Role and responsibilities
 I was part of programming team. Game was totally developed in Unity3D using C# programming.
 As a part of the team my tasks were:
--Car deformation. I personally chose  via shader. This was achieved by texture displacement.
+- Car deformation. I personally chose  via shader. This was achieved by texture displacement.
 
--Special effects like impacts, exhaust bursts and skidmarks. Also assigning all related sounds.
+- Special effects like impacts, exhaust bursts and skidmarks. Also assigning all related sounds.
 
--Gear system and related motor sound that rise as speed increased or changed as gears change.
+- Gear system and related motor sound that rise as speed increased or changed as gears change.
 
--Car dashboard dials visualization like gear number display, speedometer and rotations.
+- Car dashboard dials visualization like gear number display, speedometer and rotations.
 
--Game Manager between scenes.
+- Game Manager between scenes.
 
 ##Challenges
 #####Deformation
