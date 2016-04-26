@@ -202,11 +202,11 @@ public class CarController : MonoBehaviour
             //rigidbody.centerOfMass -= transform.InverseTransformDirection(Vector3.Scale(totalAcceleration, Vector3.forward + Vector3.right) * 0.01f);
             rigidbody.centerOfMass = v;
         }
-        else
-        {
-            transform.forward = Vector3.Lerp(transform.forward, rigidbody.velocity, Time.deltaTime * 0.80f);
+        //else
+        //{
+        //    transform.forward = Vector3.Lerp(transform.forward, rigidbody.velocity, Time.deltaTime * 0.80f);
 
-        }
+        //}
         previousVelocity = rigidbody.velocity;
 
         
