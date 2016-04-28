@@ -68,7 +68,7 @@ public class WheelFX : MonoBehaviour {
         Mesh skidMarkMesh = new Mesh();
         Vector3[] skidMarkMeshVertices = new Vector3[4];
         int[] skidMarkMeshTriangles;
-        float wheelHeight = -0.03f;
+        float wheelHeight = -0.05f;
 
         skidMark.AddComponent<MeshFilter>();
         skidMark.AddComponent<MeshRenderer>();
