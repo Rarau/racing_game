@@ -22,7 +22,7 @@ public class RevCounter : MonoBehaviour
 	void Update ()
     {
         float speedFactor = car.currentSpeed / car.maxSpeed;
-        float rpmFactor = car.virtualRPM / car.rpmMax;
+        float rpmFactor = car.virtualRPM;
         float rotationAngle;
         gear.text = car.currentGear.ToString();
         if (car.currentSpeed >= 0)
@@ -35,5 +35,8 @@ public class RevCounter : MonoBehaviour
         }
         pointer.rectTransform.localRotation = Quaternion.Euler(0.0f, 0.0f, -rotationAngle);
         //GUIUtility.RotateAroundPivot(rotationAngle, pivotPoint);
+        //Debug.Log("rpmFactor: " + car.rpmMax);
+        //Debug.Log("virtualRpm: " + car.virtualRPM);
+        //Debug.Log("rotationAngle: " + rotationAngle);
 	}
 }

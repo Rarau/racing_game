@@ -21,8 +21,8 @@ public class MilesCounter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        float speedFactor = car.currentSpeed / car.maxSpeed * .4f;
-        float rpmFactor = car.virtualRPM / car.rpmMax;
+        float speedFactor = (car.currentSpeed / car.maxSpeed) * 1.3f;
+        //float rpmFactor = car.virtualRPM / car.rpmMax;
         float rotationAngle;
         miles.text = ((int)(car.currentSpeed * 0.621371)).ToString();
         if (car.currentSpeed >= 0)
