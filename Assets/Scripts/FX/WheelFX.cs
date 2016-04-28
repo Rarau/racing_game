@@ -2,68 +2,105 @@
 using System.Collections;
 
 //[RequireComponent(typeof(WheelController))]
-public class WheelFX : MonoBehaviour
-{
-
+public class WheelFX : MonoBehaviour {
     public WheelController wheel;
 
     public ParticleSystem particles;
 
-    public GameObject skidmarkPrefab;
-    private GameObject skidmarkObject;
+    //public GameObject skidmarkPrefab;
+    //private GameObject skidmarkObject;
 
-    public AudioSource skidAudio;
+    private AudioSource skidAudio;
+
+    private int isSkidding;
+    private float skidMarkWidth = 0.2f;
+    private Vector3[] lastPos = new Vector3[2];
+
+    public Material rubberOnRoad;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         wheel = wheel == null ? GetComponent<WheelController>() : wheel;
         particles.playOnAwake = false;
         particles.enableEmission = false;
 
-        skidAudio = (AudioSource)GetComponent(typeof(AudioSource));
-        if (skidAudio == null)
-        {
+        skidAudio = GetComponent<AudioSource>();
+        if (skidAudio == null) {
             Debug.LogError("No audio source, please add one skid audio to the tyres");
             // enabled = false;
         }
-        if (skidmarkPrefab == null)
-        {
-            Debug.LogError("No skidmark prefab, please attach it");
-            enabled = false;
-        }
-        else
-        {
-            skidmarkPrefab.SetActive(false);
-            skidmarkObject = GameObject.Instantiate(skidmarkPrefab);
-            skidmarkObject.transform.parent = transform;
-            skidmarkObject.transform.localPosition = -Vector3.up * 0.27f;
-        }
+        //if (skidmarkPrefab == null)
+        //{
+        //    Debug.LogError("No skidmark prefab, please attach it");
+        //    enabled = false;
+        //}
+        //else
+        //{
+        //    skidmarkPrefab.SetActive(false);
+        //    skidmarkObject = GameObject.Instantiate(skidmarkPrefab);
+        //    skidmarkObject.transform.parent = transform;
+        //    skidmarkObject.transform.localPosition = -Vector3.up * 0.27f;
+        //}
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if ((Mathf.Abs(wheel.slipAngle) > 20.0f || Mathf.Abs(wheel.slipRatio) > 0.10f) && Mathf.Abs(wheel.rpm) > 2.10f)
-        {
+    void Update() {
+        if ((Mathf.Abs(wheel.slipAngle) > 20.0f || Mathf.Abs(wheel.slipRatio) > 0.10f) && Mathf.Abs(wheel.rpm) > 2.10f) {
             //Debug.Log("ON " + name);
             ParticleSystem.EmissionModule em = particles.emission;
             particles.Play();
             em.enabled = true;
-            if (wheel.IsGrounded)
-            {
-                skidmarkObject.SetActive(true);
-            }
             if (!skidAudio.isPlaying) skidAudio.Play();
-        }
-        else
-        {
+            SkidMarkEffect();
+        } else {
             //Debug.Log("OFF " + name);
             ParticleSystem.EmissionModule em = particles.emission;
             particles.Stop();
             em.enabled = false;
-            skidmarkObject.SetActive(false);
+            isSkidding = 0;
 
         }
+        //Debug.Log("isgrounded: " + wheel.IsGrounded);
+    }
+
+    void SkidMarkEffect() {
+        GameObject skidMark = new GameObject("Skid Mark");
+        Mesh skidMarkMesh = new Mesh();
+        Vector3[] skidMarkMeshVertices = new Vector3[4];
+        int[] skidMarkMeshTriangles;
+        float wheelHeight = -0.03f;
+
+        skidMark.AddComponent<MeshFilter>();
+        skidMark.AddComponent<MeshRenderer>();
+        skidMark.name = "Skid Mark Mesh";
+
+        if (isSkidding == 0) {
+            skidMarkMeshVertices[0] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[1] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[2] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[3] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
+
+            lastPos[0] = skidMarkMeshVertices[2];
+            lastPos[1] = skidMarkMeshVertices[3];
+
+            isSkidding = 1;
+        } else {
+            skidMarkMeshVertices[0] = lastPos[1];
+            skidMarkMeshVertices[1] = lastPos[0];
+
+            skidMarkMeshVertices[2] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[3] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
+
+            lastPos[0] = skidMarkMeshVertices[2];
+            lastPos[1] = skidMarkMeshVertices[3];
+        }
+
+        skidMarkMeshTriangles = new int[6] { 0, 1, 2, 2, 3, 0 };
+        skidMarkMesh.vertices = skidMarkMeshVertices;
+        skidMarkMesh.triangles = skidMarkMeshTriangles;
+
+        skidMark.GetComponent<MeshFilter>().mesh = skidMarkMesh;
+        skidMark.GetComponent<Renderer>().material = rubberOnRoad;
+        skidMark.AddComponent<SelfDestroy>();
     }
 }
