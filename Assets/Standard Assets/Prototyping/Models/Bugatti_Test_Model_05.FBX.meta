@@ -23,6 +23,27 @@ ModelImporter:
     100030: car_wheel_front_right
     100032: car_wheel_front_right001
     100034: car_windows
+    100036: BN_body
+    100038: BN_Bugatti_bumper
+    100040: BN_Bugatti_bumper_back
+    100042: BN_Bugatti_door_left
+    100044: BN_Bugatti_door_right
+    100046: BN_Bugatti_hoods
+    100048: BN_Bugatti_window_left
+    100050: BN_Bugatti_window_right
+    100052: BN_Bugatti_windows_front
+    100054: BN_Fast1
+    100056: BN_Fast2
+    100058: BN_Fast3
+    100060: BN_Fast4
+    100062: BN_Middle_1
+    100064: BN_Middle_2
+    100066: BN_Middle_3
+    100068: BN_Middle_4
+    100070: BN_Slow_1
+    100072: BN_Slow_2
+    100074: BN_Slow_3
+    100076: BN_Slow_4
     400000: //RootNode
     400002: car_body
     400004: car_bumper
@@ -41,6 +62,27 @@ ModelImporter:
     400030: car_wheel_front_right
     400032: car_wheel_front_right001
     400034: car_windows
+    400036: BN_body
+    400038: BN_Bugatti_bumper
+    400040: BN_Bugatti_bumper_back
+    400042: BN_Bugatti_door_left
+    400044: BN_Bugatti_door_right
+    400046: BN_Bugatti_hoods
+    400048: BN_Bugatti_window_left
+    400050: BN_Bugatti_window_right
+    400052: BN_Bugatti_windows_front
+    400054: BN_Fast1
+    400056: BN_Fast2
+    400058: BN_Fast3
+    400060: BN_Fast4
+    400062: BN_Middle_1
+    400064: BN_Middle_2
+    400066: BN_Middle_3
+    400068: BN_Middle_4
+    400070: BN_Slow_1
+    400072: BN_Slow_2
+    400074: BN_Slow_3
+    400076: BN_Slow_4
     2300000: car_body
     2300002: car_bumper
     2300004: car_bumper2
@@ -58,6 +100,27 @@ ModelImporter:
     2300028: car_wheel_front_right
     2300030: car_wheel_front_right001
     2300032: car_windows
+    2300034: BN_body
+    2300036: BN_Bugatti_bumper
+    2300038: BN_Bugatti_bumper_back
+    2300040: BN_Bugatti_door_left
+    2300042: BN_Bugatti_door_right
+    2300044: BN_Bugatti_hoods
+    2300046: BN_Bugatti_window_left
+    2300048: BN_Bugatti_window_right
+    2300050: BN_Bugatti_windows_front
+    2300052: BN_Fast1
+    2300054: BN_Fast2
+    2300056: BN_Fast3
+    2300058: BN_Fast4
+    2300060: BN_Middle_1
+    2300062: BN_Middle_2
+    2300064: BN_Middle_3
+    2300066: BN_Middle_4
+    2300068: BN_Slow_1
+    2300070: BN_Slow_2
+    2300072: BN_Slow_3
+    2300074: BN_Slow_4
     3300000: car_body
     3300002: car_bumper
     3300004: car_bumper2
@@ -75,6 +138,27 @@ ModelImporter:
     3300028: car_wheel_front_right
     3300030: car_wheel_front_right001
     3300032: car_windows
+    3300034: BN_body
+    3300036: BN_Bugatti_bumper
+    3300038: BN_Bugatti_bumper_back
+    3300040: BN_Bugatti_door_left
+    3300042: BN_Bugatti_door_right
+    3300044: BN_Bugatti_hoods
+    3300046: BN_Bugatti_window_left
+    3300048: BN_Bugatti_window_right
+    3300050: BN_Bugatti_windows_front
+    3300052: BN_Fast1
+    3300054: BN_Fast2
+    3300056: BN_Fast3
+    3300058: BN_Fast4
+    3300060: BN_Middle_1
+    3300062: BN_Middle_2
+    3300064: BN_Middle_3
+    3300066: BN_Middle_4
+    3300068: BN_Slow_1
+    3300070: BN_Slow_2
+    3300072: BN_Slow_3
+    3300074: BN_Slow_4
     4300000: car_bumper2
     4300002: car_hoods
     4300004: car_hundle
@@ -92,6 +176,27 @@ ModelImporter:
     4300028: car_wheel_front_right001
     4300030: car_wheel_back_left
     4300032: car_wheel_back_right
+    4300034: BN_Middle_2
+    4300036: BN_Bugatti_bumper
+    4300038: BN_Bugatti_window_right
+    4300040: BN_Bugatti_door_left
+    4300042: BN_Bugatti_windows_front
+    4300044: BN_Bugatti_door_right
+    4300046: BN_Middle_4
+    4300048: BN_Fast3
+    4300050: BN_Bugatti_window_left
+    4300052: BN_Fast1
+    4300054: BN_Bugatti_bumper_back
+    4300056: BN_Fast4
+    4300058: BN_Slow_2
+    4300060: BN_Slow_4
+    4300062: BN_Slow_3
+    4300064: BN_Middle_1
+    4300066: BN_Bugatti_hoods
+    4300068: BN_Middle_3
+    4300070: BN_Fast2
+    4300072: BN_Slow_1
+    4300074: BN_body
     9500000: //RootNode
   materials:
     importMaterials: 1

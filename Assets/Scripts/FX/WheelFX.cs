@@ -64,43 +64,43 @@ public class WheelFX : MonoBehaviour {
     }
 
     void SkidMarkEffect() {
-        GameObject skidMark = new GameObject("Skid Mark");
+        //GameObject skidMark = new GameObject("Skid Mark");
         Mesh skidMarkMesh = new Mesh();
         Vector3[] skidMarkMeshVertices = new Vector3[4];
         int[] skidMarkMeshTriangles;
         float wheelHeight = -0.05f;
 
-        skidMark.AddComponent<MeshFilter>();
-        skidMark.AddComponent<MeshRenderer>();
-        skidMark.name = "Skid Mark Mesh";
+        int vertexOffset = skidMarkMesh.vertexCount;
 
         if (isSkidding == 0) {
-            skidMarkMeshVertices[0] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
-            skidMarkMeshVertices[1] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
-            skidMarkMeshVertices[2] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
-            skidMarkMeshVertices[3] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[0 + vertexOffset] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[1 + vertexOffset] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[2 + vertexOffset] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[3 + vertexOffset] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
 
-            lastPos[0] = skidMarkMeshVertices[2];
-            lastPos[1] = skidMarkMeshVertices[3];
+            lastPos[0] = skidMarkMeshVertices[2 + vertexOffset];
+            lastPos[1] = skidMarkMeshVertices[3 + vertexOffset];
 
             isSkidding = 1;
         } else {
-            skidMarkMeshVertices[0] = lastPos[1];
-            skidMarkMeshVertices[1] = lastPos[0];
+            skidMarkMeshVertices[0 + vertexOffset] = lastPos[1];
+            skidMarkMeshVertices[1 + vertexOffset] = lastPos[0];
 
-            skidMarkMeshVertices[2] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
-            skidMarkMeshVertices[3] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[2 + vertexOffset] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(-skidMarkWidth, wheelHeight, 0);
+            skidMarkMeshVertices[3 + vertexOffset] = wheel.prevPos + Quaternion.Euler(transform.eulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(skidMarkWidth, wheelHeight, 0);
 
-            lastPos[0] = skidMarkMeshVertices[2];
-            lastPos[1] = skidMarkMeshVertices[3];
+            lastPos[0] = skidMarkMeshVertices[2 + vertexOffset];
+            lastPos[1] = skidMarkMeshVertices[3 + vertexOffset];
         }
+
+        
 
         skidMarkMeshTriangles = new int[6] { 0, 1, 2, 2, 3, 0 };
         skidMarkMesh.vertices = skidMarkMeshVertices;
         skidMarkMesh.triangles = skidMarkMeshTriangles;
 
-        skidMark.GetComponent<MeshFilter>().mesh = skidMarkMesh;
-        skidMark.GetComponent<Renderer>().material = rubberOnRoad;
-        skidMark.AddComponent<SelfDestroy>();
+        //skidMark.GetComponent<MeshFilter>().mesh = skidMarkMesh;
+        //skidMark.GetComponent<Renderer>().material = rubberOnRoad;
+        //skidMark.AddComponent<SelfDestroy>();
     }
 }
