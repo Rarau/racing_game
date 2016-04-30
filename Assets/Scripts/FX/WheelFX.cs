@@ -81,7 +81,7 @@ public class WheelFX : MonoBehaviour {
             if (isSkidding == 0)
             {
                 skidMark.transform.position = wheel.groundInfo.point + wheel.groundInfo.normal * 0.12f;
-                skidMark.transform.up = wheel.groundInfo.normal;
+                skidMark.transform.rotation = Quaternion.LookRotation(transform.forward, wheel.groundInfo.normal);
 
                 skidMarkMeshVertices[0] = new Vector3(skidMarkWidth, 0, wheelHeight);
                 skidMarkMeshVertices[1] = new Vector3(-skidMarkWidth, 0, wheelHeight);
@@ -99,7 +99,7 @@ public class WheelFX : MonoBehaviour {
             else
             {
                 skidMark.transform.position = wheel.groundInfo.point + wheel.groundInfo.normal * 0.12f; ;
-                skidMark.transform.up = wheel.groundInfo.normal;
+                skidMark.transform.rotation = Quaternion.LookRotation(transform.forward, wheel.groundInfo.normal);
 
                 skidMarkMeshVertices[0] = new Vector3(skidMarkWidth, 0, wheelHeight);
                 skidMarkMeshVertices[1] = new Vector3(-skidMarkWidth, 0, wheelHeight);
