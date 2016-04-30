@@ -81,7 +81,7 @@ public class WheelController : MonoBehaviour {
     }
 
     private Vector3 prevNormal;
-    RaycastHit groundInfo;
+    public RaycastHit groundInfo;
     public float suspensionDistance;
     void FixedUpdate()
     {
