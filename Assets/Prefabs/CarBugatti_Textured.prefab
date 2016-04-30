@@ -2680,16 +2680,11 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
-    - time: 0.03177072
-      value: 0.2976638
-      inSlope: -0.79751015
-      outSlope: -0.79751015
-      tangentMode: 0
-    - time: 1.0009158
-      value: 0.027638191
+    - time: 0.159
+      value: 0.02
       inSlope: 0
       outSlope: 0
       tangentMode: 0
