@@ -20,7 +20,7 @@ public class WheelChange : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        Debug.Log(wheelController.rpm);
+        //Debug.Log(wheelController.rpm);
         if (wheelController.rpm < 200)
         { // slow
             gameObject.transform.GetChild(2).GetComponent<Renderer>().enabled = true;

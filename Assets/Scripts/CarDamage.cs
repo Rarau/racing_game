@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CarDamage : MonoBehaviour {
+public class CarDamage : MonoBehaviour
+{
 
     //private CarController carController;
 
@@ -12,16 +13,18 @@ public class CarDamage : MonoBehaviour {
     private MeshFilter meshFilter;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         //carController = transform.root.GetComponent<CarController>();
 
         carHealth = 100;
 
         meshFilter = this.GetComponent<MeshFilter>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         Debug.Log("Car Health" + carHealth);
 
         if (carHealth < 100)
@@ -44,10 +47,5 @@ public class CarDamage : MonoBehaviour {
         }
         Debug.Log("collision");
         carHealth -= 10;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-            Destroy(other);
     }
 }
