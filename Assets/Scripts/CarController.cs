@@ -76,6 +76,8 @@ public class CarController : MonoBehaviour
         rigidbody.centerOfMass = centerOfMass.localPosition;
 
         currentGear = 1; //starting gear, in future we can put a starter
+
+        centerOfMass = transform.FindChild("CenterOfMass");
     }
 
     void Update()

@@ -66,8 +66,6 @@ public class WheelController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        rigidbody = GetComponent<Rigidbody>();
-
         //wheelGeometry.transform.localRotation *= Quaternion.Euler(0.0f, steeringAngle - prevSteringAngle, 0.0f);
         wheelGeometry.transform.Rotate(rigidbody.transform.up, steeringAngle - prevSteringAngle, Space.World);
 
@@ -77,18 +75,25 @@ public class WheelController : MonoBehaviour {
 	}
     void Awake()
     {
-        GetComponent<Rigidbody>().centerOfMass = (Vector3.zero);
+        rigidbody = GetComponent<Rigidbody>();
+
+        rigidbody.centerOfMass = (Vector3.zero);
     }
 
     private Vector3 prevNormal;
-    RaycastHit groundInfo;
+    public RaycastHit groundInfo;
+    public float suspensionDistance;
     void FixedUpdate()
     {
         /*
         if (overrideSlipRatio)
             slipRatio = overridenSlipRatio;
             */
-        
+        ConfigurableJoint j = GetComponent<ConfigurableJoint>();
+        suspensionDistance = (transform.position.y - j.connectedBody.position.y);
+
+       // j.connectedBody.AddForceAtPosition(j.connectedBody.transform.up * -suspensionDistance * 10.0f, transform.position);
+
         if (Physics.Raycast(transform.position, -rigidbody.transform.up, out groundInfo, radius, raycastIgnore))
         {
             prevNormal = groundInfo.normal;
@@ -99,6 +104,7 @@ public class WheelController : MonoBehaviour {
         else
         {
             isGrounded = false;
+            Debug.Log(name + " flying");
         }
     }
 

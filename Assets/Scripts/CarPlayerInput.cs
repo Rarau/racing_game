@@ -8,6 +8,7 @@ public class CarPlayerInput : MonoBehaviour
     public string playerPrefix = "P1_";
 
     public AnimationCurve joystickSensitivity;
+    public LookAtVelocity cameraRig;
 
 	void Start () 
     {
@@ -16,6 +17,8 @@ public class CarPlayerInput : MonoBehaviour
 	
 	void Update ()
     {
+        cameraRig.rotOffset = Vector3.right * Input.GetAxis(playerPrefix + "Horizontal_2") + Vector3.up * Input.GetAxis(playerPrefix + "Vertical_2");
+
         carController.steeringAngle = joystickSensitivity.Evaluate(Mathf.Abs(Input.GetAxis(playerPrefix + "Horizontal"))) * Mathf.Sign((Input.GetAxis(playerPrefix + "Horizontal")));
         //if(Input.GetButton("HandBrake"))
         {
