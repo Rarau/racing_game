@@ -9,9 +9,9 @@ public class MeshChange : MonoBehaviour {
 
     Rigidbody rb;
 
-    public bool looseParts;
+    public bool looseParts = true;
 
-    public bool alreadyDetached;
+    public bool alreadyDetached = false;
 
     public bool forward = true;
 
@@ -25,8 +25,6 @@ public class MeshChange : MonoBehaviour {
         gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         gameObject.transform.GetChild(1).GetComponent<Renderer>().enabled = false;
         meshHealth = 100;
-        looseParts = true;
-        alreadyDetached = false;
     }
 
     // Update is called once per frame
