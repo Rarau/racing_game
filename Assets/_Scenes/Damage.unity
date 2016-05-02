@@ -2536,7 +2536,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56cdb3e1d855a5f4ea350da3963d85f3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8bfe994edfdb6704e8cdc9df04fd5a09, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.296
   m_Pitch: 1
@@ -2589,7 +2589,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -8445,7 +8445,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56cdb3e1d855a5f4ea350da3963d85f3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8bfe994edfdb6704e8cdc9df04fd5a09, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.296
   m_Pitch: 1
@@ -8498,7 +8498,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -10989,7 +10989,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56cdb3e1d855a5f4ea350da3963d85f3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8bfe994edfdb6704e8cdc9df04fd5a09, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.296
   m_Pitch: 1
@@ -11042,7 +11042,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -14784,7 +14784,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56cdb3e1d855a5f4ea350da3963d85f3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8bfe994edfdb6704e8cdc9df04fd5a09, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.296
   m_Pitch: 1
@@ -14837,7 +14837,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
