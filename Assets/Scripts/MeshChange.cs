@@ -13,6 +13,8 @@ public class MeshChange : MonoBehaviour {
 
     public bool alreadyDetached;
 
+    public bool forward = true;
+
     void Awake()
     {
         carController = transform.root.GetComponent<CarController>();
@@ -62,11 +64,15 @@ public class MeshChange : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        Vector3 direction;
+        if (forward)
+            direction = transform.TransformDirection(Vector3.forward);
+        else
+            direction = transform.TransformDirection(Vector3.back);
 
-        Debug.DrawLine(transform.position, fwd, Color.red);
+        Debug.DrawLine(transform.position, direction, Color.red);
 
-        if (Physics.Raycast(transform.position, fwd, 2.4f))
+        if (Physics.Raycast(transform.position, direction, 2.4f))
         {
             // Do something if hit
             meshHealth -= carController.currentSpeed * .1f;
