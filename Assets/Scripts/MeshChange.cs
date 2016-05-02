@@ -63,12 +63,13 @@ public class MeshChange : MonoBehaviour {
     void FixedUpdate()
     {
         Vector3 direction;
-        if (forward)
-            direction = transform.TransformDirection(Vector3.forward);
-        else
-            direction = transform.TransformDirection(Vector3.back);
 
-        Debug.DrawLine(transform.position, direction, Color.red);
+        if (forward)
+            direction = this.transform.forward;
+        else
+            direction = -this.transform.forward;
+
+        Debug.DrawRay(transform.position, direction * 5, Color.red);
 
         if (Physics.Raycast(transform.position, direction, 2.4f))
         {

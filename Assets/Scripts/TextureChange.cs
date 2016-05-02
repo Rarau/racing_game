@@ -37,9 +37,9 @@ public class TextureChange : MonoBehaviour {
     void FixedUpdate()
     {
         Vector3 direction;
-        direction = transform.TransformDirection(Vector3.forward);
+        direction = this.transform.forward;
 
-        Debug.DrawLine(transform.position, direction, Color.red);
+        //Debug.DrawLine(transform.position, direction, Color.white);
 
         if (Physics.Raycast(transform.position, direction, 2.4f))
         {
