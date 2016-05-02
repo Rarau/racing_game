@@ -3,7 +3,8 @@ using System.Collections;
 
 public class MenuViewOptionSpinner : MenuViewOption {
 
-    public MeshFilter mesh;
+    public Mesh mesh;
+    public Material material;
 	// Use this for initialization
 	void Start () {
 	
