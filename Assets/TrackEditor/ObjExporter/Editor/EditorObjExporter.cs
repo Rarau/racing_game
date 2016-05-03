@@ -154,18 +154,22 @@ public class EditorObjExporter : ScriptableObject
 
                     string relativeFile = destinationFile;
 
-                    destinationFile = Path.Combine(folder, destinationFile);
+                    destinationFile = Path.Combine(folder, relativeFile);
+                    string sourceFile = Path.Combine(Application.dataPath, "..");
+                    sourceFile = Path.Combine(sourceFile, kvp.Value.textureName);
 
-                    Debug.Log("Copying texture from " + kvp.Value.textureName + " to " + destinationFile);
+                    Debug.Log("Copying texture from " + sourceFile + " to " + destinationFile);
 
                     try
                     {
-                        //Copy the source file
-                        File.Copy(kvp.Value.textureName, destinationFile);
-                    }
-                    catch
-                    {
 
+                        destinationFile = Path.Combine(targetFolder, Path.GetFileName(destinationFile));
+                        //Copy the source file
+                        File.Copy(sourceFile, destinationFile);
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.LogWarning("Failed copying texture " + destinationFile + "\n " + e.Message);
                     }
 
 
@@ -261,7 +265,7 @@ public class EditorObjExporter : ScriptableObject
             EditorUtility.DisplayDialog("Objects not exported", "Make sure at least some of your selected objects have mesh filters!", "OK");
     }
 
-    [MenuItem("Custom/Export to OBJ/Export whole selection to single OBJ")]
+    [MenuItem("Export to OBJ/Export whole selection to single OBJ")]
     [MenuItem("GameObject/Export to OBJ/Export whole selection to single OBJ", false, 0)]
     static void ExportWholeSelectionToSingle()
     {
