@@ -126,7 +126,9 @@ public class EditorObjExporter : ScriptableObject
 
     private static void MaterialsToFile(Dictionary<string, ObjMaterial> materialList, string folder, string filename)
     {
-        using (StreamWriter sw = new StreamWriter(folder + Path.PathSeparator + filename + ".mtl"))
+        string path = Path.Combine(folder, filename);
+
+        using (StreamWriter sw = new StreamWriter(path + ".mtl"))
         {
             foreach (KeyValuePair<string, ObjMaterial> kvp in materialList)
             {
@@ -152,7 +154,7 @@ public class EditorObjExporter : ScriptableObject
 
                     string relativeFile = destinationFile;
 
-                    destinationFile = folder + Path.PathSeparator + destinationFile;
+                    destinationFile = Path.Combine(folder, destinationFile);
 
                     Debug.Log("Copying texture from " + kvp.Value.textureName + " to " + destinationFile);
 
@@ -179,7 +181,8 @@ public class EditorObjExporter : ScriptableObject
     {
         Dictionary<string, ObjMaterial> materialList = PrepareFileWrite();
 
-        using (StreamWriter sw = new StreamWriter(folder + Path.PathSeparator + filename + ".obj"))
+        string path = Path.Combine(folder, filename);
+        using (StreamWriter sw = new StreamWriter(path + ".obj"))
         {
             sw.Write("mtllib ./" + filename + ".mtl\n");
 
@@ -192,8 +195,8 @@ public class EditorObjExporter : ScriptableObject
     private static void MeshesToFile(MeshFilter[] mf, string folder, string filename)
     {
         Dictionary<string, ObjMaterial> materialList = PrepareFileWrite();
-
-        using (StreamWriter sw = new StreamWriter(folder + Path.PathSeparator + filename + ".obj"))
+        string path = Path.Combine(folder, filename);
+        using (StreamWriter sw = new StreamWriter(path + ".obj"))
         {
             sw.Write("mtllib ./" + filename + ".mtl\n");
 
@@ -221,11 +224,15 @@ public class EditorObjExporter : ScriptableObject
         return true;
     }
 
-    [MenuItem("Custom/Export/Export all MeshFilters in selection to separate OBJs")]
+    [MenuItem("Export to OBJ/Export all MeshFilters in selection to separate OBJs")]
+    [MenuItem("GameObject/Export to OBJ/Export all MeshFilters in selection to separate OBJs", false, 0)]
     static void ExportSelectionToSeparate()
     {
-        if (!CreateTargetFolder())
+        targetFolder = EditorUtility.OpenFolderPanel("Export .OBJ", null, null);
+        if(string.IsNullOrEmpty(targetFolder))
+        {
             return;
+        }
 
         Transform[] selection = Selection.GetTransforms(SelectionMode.Editable | SelectionMode.ExcludePrefab);
 
@@ -249,17 +256,20 @@ public class EditorObjExporter : ScriptableObject
         }
 
         if (exportedObjects > 0)
-            EditorUtility.DisplayDialog("Objects exported", "Exported " + exportedObjects + " objects", "");
+            EditorUtility.DisplayDialog("Objects exported sucessfully", "Exported " + exportedObjects + " total objects", "OK");
         else
-            EditorUtility.DisplayDialog("Objects not exported", "Make sure at least some of your selected objects have mesh filters!", "");
+            EditorUtility.DisplayDialog("Objects not exported", "Make sure at least some of your selected objects have mesh filters!", "OK");
     }
 
-    [MenuItem("Custom/Export/Export whole selection to single OBJ")]
+    [MenuItem("Custom/Export to OBJ/Export whole selection to single OBJ")]
+    [MenuItem("GameObject/Export to OBJ/Export whole selection to single OBJ", false, 0)]
     static void ExportWholeSelectionToSingle()
     {
-        if (!CreateTargetFolder())
+        targetFolder = EditorUtility.OpenFolderPanel("Export .OBJ", null, null);
+        if (string.IsNullOrEmpty(targetFolder))
+        {
             return;
-
+        }
 
         Transform[] selection = Selection.GetTransforms(SelectionMode.Editable | SelectionMode.ExcludePrefab);
 
@@ -303,19 +313,23 @@ public class EditorObjExporter : ScriptableObject
             MeshesToFile(mf, targetFolder, filename);
 
 
-            EditorUtility.DisplayDialog("Objects exported", "Exported " + exportedObjects + " objects to " + filename, "");
+            EditorUtility.DisplayDialog("Objects exported successfully", "Exported " + exportedObjects + " total objects to " + filename, "OK");
         }
         else
-            EditorUtility.DisplayDialog("Objects not exported", "Make sure at least some of your selected objects have mesh filters!", "");
+            EditorUtility.DisplayDialog("Objects not exported", "Make sure at least some of your selected objects have mesh filters!", "OK");
     }
 
 
 
-    [MenuItem("Custom/Export/Export each selected to single OBJ")]
+    [MenuItem("Export to OBJ/Export each selected to individual OBJ")]
+    [MenuItem("GameObject/Export to OBJ/Export each selected to individual OBJ", false, 0)]
     static void ExportEachSelectionToSingle()
     {
-        if (!CreateTargetFolder())
+        targetFolder = EditorUtility.OpenFolderPanel("Export .OBJ", null, null);
+        if (string.IsNullOrEmpty(targetFolder))
+        {
             return;
+        }
 
         Transform[] selection = Selection.GetTransforms(SelectionMode.Editable | SelectionMode.ExcludePrefab);
 
@@ -345,10 +359,10 @@ public class EditorObjExporter : ScriptableObject
 
         if (exportedObjects > 0)
         {
-            EditorUtility.DisplayDialog("Objects exported", "Exported " + exportedObjects + " objects", "");
+            EditorUtility.DisplayDialog("Objects exported succesfully", "Exported " + exportedObjects + " total objects", "OK");
         }
         else
-            EditorUtility.DisplayDialog("Objects not exported", "Make sure at least some of your selected objects have mesh filters!", "");
+            EditorUtility.DisplayDialog("Objects not exported", "Make sure at least some of your selected objects have mesh filters!", "OK");
     }
 
 }
