@@ -118,9 +118,11 @@ public class BezierEditor : Editor
         }
     }
 
-    [MenuItem("Track Editor/Add segment #C")]
+    [MenuItem("Track Editor/Add segment %#C")]
     static void AddCurveFromMenu()
     {
+        if (EditorWindow.focusedWindow.GetType() != typeof(SceneView))
+            return;
         //Debug.Log("Selected Transform is on " + Selection.activeTransform.gameObject.name + ".");
         BezierCurve previous = Selection.activeTransform.GetComponent<BezierCurve>();
         if (previous != null)

@@ -104,7 +104,7 @@ public class WheelController : MonoBehaviour {
         else
         {
             isGrounded = false;
-            Debug.Log(name + " flying");
+            //Debug.Log(name + " flying");
         }
     }
 
