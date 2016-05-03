@@ -3085,7 +3085,7 @@ MonoBehaviour:
   particles: {fileID: 19823958}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
-  heightOffset: 0.05
+  heightOffset: 0.001
 --- !u!114 &11443750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3138,7 +3138,7 @@ MonoBehaviour:
   particles: {fileID: 19887596}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
-  heightOffset: 0.05
+  heightOffset: 0.001
 --- !u!114 &11465274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3154,7 +3154,7 @@ MonoBehaviour:
   particles: {fileID: 19863844}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
-  heightOffset: 0.05
+  heightOffset: 0.001
 --- !u!114 &11470534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3222,7 +3222,7 @@ MonoBehaviour:
   particles: {fileID: 19848998}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
-  heightOffset: 0.05
+  heightOffset: 0.001
 --- !u!114 &11476938
 MonoBehaviour:
   m_ObjectHideFlags: 1
