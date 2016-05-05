@@ -10,8 +10,7 @@ public class MenuViewSpinner : MenuView {
     public Vector3 center = new Vector3(0,0,0);
     public float radius = 10.0f;
     public float optionSpinSpeed = 90.0f;//in degrees per second
-    public float rotateSpeed = 10.0f;//in degrees per second
-    public float curAngle = 0.0f;
+    public float timeToTurn = 1.0f;//in seconds
     public List<MenuViewOptionSpinner> options;
 
     //PLACEHOLDER
@@ -20,6 +19,9 @@ public class MenuViewSpinner : MenuView {
     //PLACEHOLDER ENDS
 
     private GameObject spinner;
+    private float curAngle = 0.0f;
+    private float targetAngle = 0.0f;
+    private bool canMove = true;
 
     // Use this for initialization
     void Start () {
@@ -72,16 +74,85 @@ public class MenuViewSpinner : MenuView {
 
     public override void GoToOption(int option)
     {
-        spinner.transform.LookAt(viewCamera.transform);
-        spinner.transform.up = Vector3.up;
-        spinner.transform.RotateAround(spinner.transform.position, spinner.transform.up, ((360.0f / options.Count) * option) + 180);
-        /*Transform[] spinChildren = spinner.transform.GetComponentsInChildren<Transform>();
-        for(int i = 0; i < spinner.transform.childCount; i++)
+        //spinner.transform.LookAt(viewCamera.transform);
+        //spinner.transform.up = Vector3.up;
+        if (canMove)
         {
-            spinChildren[i].up = Vector3.up;
-            //spinChildren[i].localPosition = Vector3.zero;
-            //spinChildren[i].Translate(radius * (float)Math.Sin(((Math.PI * 2) / options.Count) * i), 0, radius * (float)Math.Cos(((Math.PI * 2) / options.Count) * i), spinner.transform);
-        }*/
+            targetAngle = (((360.0f / options.Count) * option) + 180) % 360;
+            StartCoroutine("RotateToTargetAngle");
+            canMove = false;
+        }
+            //spinner.transform.RotateAround(spinner.transform.position, spinner.transform.up, ((360.0f / options.Count) * option) + 180);//final position
+    }
+
+    IEnumerator RotateToTargetAngle()
+    {
+        float upDistance;
+        float downDistance;
+        float curTurn = 0.0f;
+        float nextAngle = 0.0f;
+        float curTime = 0.0f;
+        bool goUp;
+        //cases: must go over 360 (curAngle = 270; targetAngle = 45) ; use modulus
+        //must go under 0 (curAngle = 45; targetAngle = 270) ; use 360 - x
+        //inside normal bounds ; just calculate distance
+        //distance moved should always be 180 or less
+
+        //calculate distance from target
+        if(curAngle <= targetAngle)
+        {
+            upDistance = targetAngle - curAngle;
+            downDistance = 360.0f - upDistance;
+        }
+        else
+        {
+            downDistance = curAngle - targetAngle;
+            upDistance = 360.0f - downDistance;
+        }
+        if (downDistance > upDistance) goUp = true;
+        else goUp = false;
+        //print("curAngle: " + curAngle + "\ntargetAngle: " + targetAngle + "\nupDistance: " + upDistance + "\ndownDistance: " + downDistance);
+
+        while (curAngle != targetAngle)
+        {
+            if (goUp)
+            {
+                curTurn = upDistance * (Time.deltaTime / timeToTurn);
+                nextAngle = (curAngle + curTurn);
+                //if (nextAngle > 360.0f && targetAngle != 0.0f) nextAngle -= 360.0f;
+                if (nextAngle > targetAngle)
+                {
+                   if(curAngle + upDistance >= 360.0f)//going through modulus
+                   {
+                        if((curAngle + curTurn) >= 360.0f && (curAngle + curTurn) % 360 >= targetAngle)
+                        { 
+                            curTurn = (360.0f - curAngle) + targetAngle;
+                        }
+                   }
+                   else
+                   {
+                       curTurn = targetAngle - curAngle;
+                   }
+                }
+            }
+            else
+            {
+                curTurn = -downDistance * (Time.deltaTime / timeToTurn);
+                nextAngle = curAngle + curTurn;
+                if (nextAngle < 0.0f && targetAngle != 0.0f) nextAngle += 360.0f;
+                if(nextAngle < targetAngle)
+                {
+                    curTurn = targetAngle - curAngle;
+                }
+            }
+            curAngle += curTurn;
+            if (curAngle >= 360.0f) curAngle -= 360.0f;
+            else if (curAngle < 0.0f) curAngle += 360.0f;
+            curTime += Time.deltaTime;
+            spinner.transform.RotateAround(spinner.transform.position, spinner.transform.up, curTurn);//final position
+            yield return null;
+        }
+        canMove = true;
     }
 
     public override void AddOption(GameObject newOption)

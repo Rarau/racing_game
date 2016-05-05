@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1863db269bbf04da29f7b8016d9f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 4300000, guid: b910605af8cc5d142b2471987173b3fb, type: 3}
+  mesh: {fileID: 4300000, guid: 5afb46680c7f8d148ba6f549261ac748, type: 3}
   material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &319377790
 GameObject:
@@ -595,8 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1863db269bbf04da29f7b8016d9f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 4300000, guid: b910605af8cc5d142b2471987173b3fb, type: 3}
-  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  mesh: {fileID: 4300000, guid: 5afb46680c7f8d148ba6f549261ac748, type: 3}
+  material: {fileID: 2100000, guid: 6e1d36c4bbd37d54f9ea183e4f5fd656, type: 2}
 --- !u!1 &1575693499
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 4300000, guid: 5afb46680c7f8d148ba6f549261ac748, type: 3}
-  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  material: {fileID: 2100000, guid: ec184be5f9ccd9c46a0b2d9e12a02956, type: 2}
 --- !u!1 &1970359054
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,8 +896,7 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   radius: 5
   optionSpinSpeed: 10
-  rotateSpeed: 90
-  curAngle: 0
+  timeToTurn: 1
   options:
   - {fileID: 1575693501}
   - {fileID: 1538142369}
