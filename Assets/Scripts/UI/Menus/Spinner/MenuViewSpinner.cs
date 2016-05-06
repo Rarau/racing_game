@@ -11,12 +11,8 @@ public class MenuViewSpinner : MenuView {
     public float radius = 10.0f;
     public float optionSpinSpeed = 90.0f;//in degrees per second
     public float timeToTurn = 1.0f;//in seconds
+    // ^ MAKE SURE THIS IS <= CONTROLLER INPUT PAUSE ; OTHERWISE CAUSES UNDEFINED BEHAVIOUR
     public List<MenuViewOptionSpinner> options;
-
-    //PLACEHOLDER
-    public Mesh testMesh;
-    public Material testMaterial;
-    //PLACEHOLDER ENDS
 
     private GameObject spinner;
     private float curAngle = 0.0f;
@@ -29,16 +25,9 @@ public class MenuViewSpinner : MenuView {
         //set up meshes / spinner
         spinner = new GameObject("MenuViewSpinner");
         spinner.transform.position = center;
-
-        //PLACEHOLDER CODE (gives spinner cube graphic for testing)
-        MeshFilter filter = spinner.AddComponent<MeshFilter>();
-        filter.mesh = testMesh;
-        MeshRenderer renderer = spinner.AddComponent<MeshRenderer>();
-        renderer.material = testMaterial;
-        //END PLACEHOLDER
         //make spinner face camera
         spinner.transform.LookAt(viewCamera.transform);
-        spinner.transform.up = Vector3.up;
+        //spinner.transform.up = Vector3.up;
         if(options.Count > 0)
         {
             GameObject curObject;
@@ -64,25 +53,20 @@ public class MenuViewSpinner : MenuView {
                 curRenderer.material = options[i].material;
             }
         }
-        //spinner.transform.RotateAround(spinner.transform.position, spinner.transform.up, );
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        //spinner.transform.RotateAround(spinner.transform.position, spinner.transform.up, 1);
 	}
 
     public override void GoToOption(int option)
     {
-        //spinner.transform.LookAt(viewCamera.transform);
-        //spinner.transform.up = Vector3.up;
         if (canMove)
         {
-            targetAngle = (((360.0f / options.Count) * option) + 180) % 360;
-            StartCoroutine("RotateToTargetAngle");
             canMove = false;
+            targetAngle = (((360.0f / options.Count) * option)) % 360;
+            StartCoroutine("RotateToTargetAngle");
         }
-            //spinner.transform.RotateAround(spinner.transform.position, spinner.transform.up, ((360.0f / options.Count) * option) + 180);//final position
     }
 
     IEnumerator RotateToTargetAngle()

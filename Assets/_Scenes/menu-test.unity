@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82518ff4db351a429c51359ec968c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOut: 0.3
+  timeOut: 0.5
 --- !u!1 &898693159
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +896,7 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   radius: 5
   optionSpinSpeed: 10
-  timeToTurn: 1
+  timeToTurn: 0.5
   options:
   - {fileID: 1575693501}
   - {fileID: 1538142369}
