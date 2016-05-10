@@ -3,7 +3,6 @@ using System.Collections;
 
 public class StartState : State<GameManager> 
 {
-
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         Debug.Log("Executing Start State");

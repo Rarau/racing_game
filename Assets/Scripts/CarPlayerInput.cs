@@ -10,11 +10,17 @@ public class CarPlayerInput : MonoBehaviour
     public AnimationCurve joystickSensitivity;
     public LookAtVelocity cameraRig;
 
+    public int playerNum;
+    public int totalPlayers;
+
 	void Start () 
     {
         carController = GetComponent<CarController>();
 	}
 	
+    
+    
+
 	void Update ()
     {
         cameraRig.rotOffset = Vector3.right * Input.GetAxis(playerPrefix + "Horizontal_2") + Vector3.up * Input.GetAxis(playerPrefix + "Vertical_2");
