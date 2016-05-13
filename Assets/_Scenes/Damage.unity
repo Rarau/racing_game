@@ -2526,6 +2526,8 @@ MonoBehaviour:
   wheel: {fileID: 0}
   particles: {fileID: 564311162}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+  skidMarkWidth: 0.2
+  heightOffset: 0.05
 --- !u!82 &564311161
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4384,7 +4386,10 @@ MonoBehaviour:
   meshHealth: 0
   looseParts: 1
   alreadyDetached: 0
-  forward: 1
+  forward: 0
+  left: 0
+  right: 1
+  up: 0
 --- !u!4 &583125110 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 2}
@@ -4501,6 +4506,7 @@ GameObject:
   - 33: {fileID: 639635472}
   - 23: {fileID: 639635471}
   - 114: {fileID: 639635473}
+  - 114: {fileID: 639635474}
   m_Layer: 0
   m_Name: BN_Bugatti_door_right
   m_TagString: Untagged
@@ -4568,6 +4574,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+--- !u!114 &639635474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 639635469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd59eec852e0c74089ce4a30a25bd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &646593108
 Prefab:
   m_ObjectHideFlags: 0
@@ -5423,6 +5440,7 @@ GameObject:
   - 33: {fileID: 930847486}
   - 23: {fileID: 930847485}
   - 114: {fileID: 930847483}
+  - 114: {fileID: 930847484}
   m_Layer: 0
   m_Name: BN_Bugatti_bumper
   m_TagString: Untagged
@@ -5455,6 +5473,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+--- !u!114 &930847484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930847481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd59eec852e0c74089ce4a30a25bd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &930847485
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5719,7 +5748,10 @@ MonoBehaviour:
   meshHealth: 0
   looseParts: 1
   alreadyDetached: 0
-  forward: 1
+  forward: 0
+  left: 1
+  right: 0
+  up: 0
 --- !u!4 &1023733190 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 2}
@@ -5866,6 +5898,9 @@ MonoBehaviour:
   looseParts: 1
   alreadyDetached: 0
   forward: 1
+  left: 0
+  right: 0
+  up: 0
 --- !u!65 &1031301646
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6375,6 +6410,7 @@ GameObject:
   - 33: {fileID: 1086284385}
   - 23: {fileID: 1086284384}
   - 114: {fileID: 1086284386}
+  - 114: {fileID: 1086284387}
   m_Layer: 0
   m_Name: BN_Bugatti_bumper_back
   m_TagString: Untagged
@@ -6441,6 +6477,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+--- !u!114 &1086284387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1086284382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd59eec852e0c74089ce4a30a25bd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1089664442 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4e11ef4f39bc65e44a4b0755ecac6ea1, type: 2}
@@ -7296,6 +7343,9 @@ MonoBehaviour:
   looseParts: 1
   alreadyDetached: 0
   forward: 0
+  left: 0
+  right: 0
+  up: 0
 --- !u!1 &1300261942
 GameObject:
   m_ObjectHideFlags: 0
@@ -7841,6 +7891,7 @@ GameObject:
   - 4: {fileID: 1364061333}
   - 33: {fileID: 1364061335}
   - 23: {fileID: 1364061334}
+  - 114: {fileID: 1364061336}
   m_Layer: 0
   m_Name: BN_Bugatti_hoods
   m_TagString: Untagged
@@ -7896,6 +7947,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1364061332}
   m_Mesh: {fileID: 4300032, guid: bc5a7603cdd78c24a8ef3de8ae4bb282, type: 3}
+--- !u!114 &1364061336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364061332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd59eec852e0c74089ce4a30a25bd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1370277983
 GameObject:
   m_ObjectHideFlags: 0
@@ -8117,6 +8179,7 @@ GameObject:
   - 33: {fileID: 1487853620}
   - 23: {fileID: 1487853619}
   - 114: {fileID: 1487853621}
+  - 114: {fileID: 1487853622}
   m_Layer: 0
   m_Name: BN_body
   m_TagString: Untagged
@@ -8183,6 +8246,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+--- !u!114 &1487853622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1487853617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd59eec852e0c74089ce4a30a25bd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1520855287
 Prefab:
   m_ObjectHideFlags: 0
@@ -8384,7 +8458,10 @@ MonoBehaviour:
   meshHealth: 0
   looseParts: 0
   alreadyDetached: 0
-  forward: 1
+  forward: 0
+  left: 0
+  right: 0
+  up: 1
 --- !u!1 &1566599253
 GameObject:
   m_ObjectHideFlags: 0
@@ -8435,6 +8512,8 @@ MonoBehaviour:
   wheel: {fileID: 0}
   particles: {fileID: 1566599258}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+  skidMarkWidth: 0.2
+  heightOffset: 0.05
 --- !u!82 &1566599256
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10979,6 +11058,8 @@ MonoBehaviour:
   wheel: {fileID: 0}
   particles: {fileID: 1718731674}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+  skidMarkWidth: 0.2
+  heightOffset: 0.05
 --- !u!82 &1718731673
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13049,6 +13130,7 @@ GameObject:
   - 4: {fileID: 1754216740}
   - 33: {fileID: 1754216742}
   - 23: {fileID: 1754216741}
+  - 114: {fileID: 1754216743}
   m_Layer: 0
   m_Name: BN_Bugatti_door_left
   m_TagString: Untagged
@@ -13104,6 +13186,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1754216739}
   m_Mesh: {fileID: 4300006, guid: bc5a7603cdd78c24a8ef3de8ae4bb282, type: 3}
+--- !u!114 &1754216743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1754216739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd59eec852e0c74089ce4a30a25bd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1758293702
 GameObject:
   m_ObjectHideFlags: 0
@@ -14352,6 +14445,9 @@ MonoBehaviour:
   looseParts: 1
   alreadyDetached: 0
   forward: 1
+  left: 0
+  right: 0
+  up: 0
 --- !u!1001 &2027652248
 Prefab:
   m_ObjectHideFlags: 0
@@ -14774,6 +14870,8 @@ MonoBehaviour:
   wheel: {fileID: 0}
   particles: {fileID: 2120064124}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+  skidMarkWidth: 0.2
+  heightOffset: 0.05
 --- !u!82 &2120064123
 AudioSource:
   m_ObjectHideFlags: 0

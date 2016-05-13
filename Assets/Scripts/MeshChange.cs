@@ -7,17 +7,24 @@ public class MeshChange : MonoBehaviour {
 
     CarController carController;
 
+    ChildInfo childInfo;
+
     Rigidbody rb;
 
     public bool looseParts = true;
 
     public bool alreadyDetached = false;
 
-    public bool forward = true;
+    // backward is not defined because is by default
+    public bool forward = false;
+    public bool left = false;
+    public bool right = false;
+    public bool up = false;
 
     void Awake()
     {
         carController = transform.root.GetComponent<CarController>();
+        childInfo = transform.GetChild(0).GetComponent<ChildInfo>();
     }
 
     void Start()
@@ -66,14 +73,22 @@ public class MeshChange : MonoBehaviour {
 
         if (forward)
             direction = this.transform.forward;
-        else
+        else if(left)
+            direction = -this.transform.right;
+        else if (right)
+            direction = this.transform.right;
+        else if (up)
+            direction = this.transform.up;
+        else // backward is by default
             direction = -this.transform.forward;
 
-        Debug.DrawRay(transform.position, direction * 5, Color.red);
+        Debug.DrawRay(childInfo.GetPosition(), direction * 1, Color.magenta);
 
-        if (Physics.Raycast(transform.position, direction, 2.4f))
+        if (Physics.Raycast(childInfo.GetPosition(), direction, 2.4f))
         {
             // Do something if hit
+
+            //Debug.Log("position : " + childInfo.GetPosition() + " "+ childInfo.name);
             meshHealth -= carController.currentSpeed * .1f;
         }
     }
