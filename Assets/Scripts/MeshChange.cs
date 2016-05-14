@@ -37,6 +37,8 @@ public class MeshChange : MonoBehaviour {
     {
         gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         gameObject.transform.GetChild(1).GetComponent<Renderer>().enabled = false;
+        if (usesPhysics)
+            gameObject.transform.GetChild(1).GetComponent<Collider>().enabled = false;
         meshHealth = 100;
     }
 
@@ -59,6 +61,7 @@ public class MeshChange : MonoBehaviour {
                 Destroy(gameObject.transform.GetChild(1).GetComponent<Rigidbody>());
                 gameObject.transform.GetChild(1).rotation = gameObject.transform.GetChild(0).rotation;
                 gameObject.transform.GetChild(1).position = gameObject.transform.GetChild(0).position;
+                gameObject.transform.GetChild(1).GetComponent<Collider>().enabled = false;
                 alreadyDetached = false;
             }
         }
@@ -69,6 +72,7 @@ public class MeshChange : MonoBehaviour {
         }
         else if (meshHealth <= 0 && looseParts && !alreadyDetached && usesPhysics)
         {
+            gameObject.transform.GetChild(1).GetComponent<Collider>().enabled = true;
             addRigidBody(this.transform.GetChild(1).gameObject);
             alreadyDetached = true;
         }

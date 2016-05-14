@@ -9,9 +9,14 @@ public class TextureChange : MonoBehaviour {
 
     MeshChange meshChange;
 
+    public bool isParent = false;
+
     void Awake()
     {
-        meshChange = transform.parent.GetComponent<MeshChange>();
+        if (isParent)
+            meshChange = transform.parent.GetComponent<MeshChange>();
+        else
+            meshChange = transform.parent.parent.GetComponent<MeshChange>();
     }
 
     // Use this for initialization

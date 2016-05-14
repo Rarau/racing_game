@@ -81,6 +81,7 @@ GameObject:
   - 33: {fileID: 3324650}
   - 23: {fileID: 2339714}
   - 114: {fileID: 11485244}
+  - 114: {fileID: 11497048}
   m_Layer: 0
   m_Name: BN_Bugatti_door_left
   m_TagString: Untagged
@@ -97,7 +98,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 439808}
   - 114: {fileID: 11414606}
-  - 65: {fileID: 6501750}
   m_Layer: 0
   m_Name: BumperBack
   m_TagString: Untagged
@@ -247,6 +247,7 @@ GameObject:
   - 33: {fileID: 3392610}
   - 23: {fileID: 2338854}
   - 114: {fileID: 11447020}
+  - 65: {fileID: 6513516}
   m_Layer: 0
   m_Name: BN_Bugatti_bumper_back_damaged
   m_TagString: Untagged
@@ -298,6 +299,7 @@ GameObject:
   - 33: {fileID: 3306842}
   - 23: {fileID: 2344766}
   - 114: {fileID: 11441634}
+  - 65: {fileID: 6540476}
   m_Layer: 0
   m_Name: BN_Bugatti_door_left_damaged
   m_TagString: Untagged
@@ -331,7 +333,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 453384}
   - 114: {fileID: 11470520}
-  - 65: {fileID: 6521440}
   m_Layer: 0
   m_Name: Hood
   m_TagString: Untagged
@@ -643,6 +644,7 @@ GameObject:
   - 33: {fileID: 3333006}
   - 23: {fileID: 2389204}
   - 114: {fileID: 11464232}
+  - 65: {fileID: 6558968}
   m_Layer: 0
   m_Name: BN_Bugatti_hoods_damaged
   m_TagString: Untagged
@@ -661,6 +663,7 @@ GameObject:
   - 33: {fileID: 3335854}
   - 23: {fileID: 2396790}
   - 114: {fileID: 11486244}
+  - 65: {fileID: 6578144}
   m_Layer: 0
   m_Name: BN_Bugatti_door_right_damaged
   m_TagString: Untagged
@@ -679,6 +682,7 @@ GameObject:
   - 33: {fileID: 3337962}
   - 23: {fileID: 2307712}
   - 114: {fileID: 11435638}
+  - 65: {fileID: 6567836}
   m_Layer: 0
   m_Name: BN_Bugatti_bumper_damaged
   m_TagString: Untagged
@@ -793,7 +797,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 433302}
   - 114: {fileID: 11439458}
-  - 65: {fileID: 6502394}
   m_Layer: 0
   m_Name: DoorRight
   m_TagString: Untagged
@@ -810,7 +813,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 401830}
   - 114: {fileID: 11470378}
-  - 65: {fileID: 6543186}
   m_Layer: 0
   m_Name: DoorLeft
   m_TagString: Untagged
@@ -953,7 +955,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 478278}
   - 114: {fileID: 11426818}
-  - 65: {fileID: 6504144}
   m_Layer: 0
   m_Name: FrontBumper
   m_TagString: Untagged
@@ -1020,6 +1021,7 @@ GameObject:
   - 33: {fileID: 3331060}
   - 23: {fileID: 2379498}
   - 114: {fileID: 11410236}
+  - 114: {fileID: 11434886}
   m_Layer: 0
   m_Name: BN_Bugatti_hoods
   m_TagString: Untagged
@@ -1086,7 +1088,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0040397644, y: 0.16192628, z: -0.028511032}
+  m_LocalPosition: {x: -0.0040416718, y: 0.16192628, z: -0.028511032}
   m_LocalScale: {x: 7.190456, y: 7.190456, z: 7.190456}
   m_Children: []
   m_Father: {fileID: 490386}
@@ -1528,7 +1530,7 @@ Transform:
   m_GameObject: {fileID: 122938}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.36589813, z: -1.9908447}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.2, y: 7.2, z: 7.2}
   m_Children: []
   m_Father: {fileID: 439808}
   m_RootOrder: 1
@@ -2795,66 +2797,66 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6501750
+--- !u!65 &6513516
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106874}
+  m_GameObject: {fileID: 122938}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7246282, y: 0.34064198, z: 0.3231969}
-  m_Center: {x: 0, y: 0.37899208, z: -1.7840805}
---- !u!65 &6502394
+  m_Size: {x: 0.26498526, y: 0.05826908, z: 0.0421069}
+  m_Center: {x: 0.0017436346, y: -0.021174222, z: 0.003126725}
+--- !u!65 &6540476
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178086}
+  m_GameObject: {fileID: 126680}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.39918864, y: 0.5414696, z: 1.1848209}
-  m_Center: {x: 0.6674938, y: 0.5876312, z: 0.15724564}
---- !u!65 &6504144
+  m_Size: {x: 0.043159705, y: 0.1551141, z: 0.08619812}
+  m_Center: {x: 0.005839459, y: 0.07882871, z: 0.000000009397113}
+--- !u!65 &6558968
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188306}
+  m_GameObject: {fileID: 164518}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7246282, y: 0.15206772, z: 0.29612207}
-  m_Center: {x: 0, y: 0.19589615, z: 1.8124847}
---- !u!65 &6521440
+  m_Size: {x: 0.16662021, y: 0.13687779, z: 0.049373064}
+  m_Center: {x: 0.0014241537, y: -0.03820896, z: -0.022483973}
+--- !u!65 &6567836
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129484}
+  m_GameObject: {fileID: 165762}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2185539, y: 0.21925914, z: 0.9686389}
-  m_Center: {x: 0, y: 0.690855, z: 1.5685272}
---- !u!65 &6543186
+  m_Size: {x: 0.24426433, y: 0.07507354, z: 0.025825987}
+  m_Center: {x: 0.0000005917538, y: 0.03684226, z: 0.0078164935}
+--- !u!65 &6578144
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178142}
+  m_GameObject: {fileID: 164982}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29061472, y: 0.5414696, z: 1.1848209}
-  m_Center: {x: -0.771801, y: 0.5876312, z: 0.15724564}
+  m_Size: {x: 0.026736885, y: 0.16222434, z: 0.078818195}
+  m_Center: {x: -0.02233867, y: 0.07146612, z: -0.0019989994}
 --- !u!81 &8127126
 AudioListener:
   m_ObjectHideFlags: 1
@@ -3432,7 +3434,8 @@ MonoBehaviour:
   forward: 0
   left: 0
   right: 0
-  up: 0
+  hitDistance: 2.4
+  usesPhysics: 1
 --- !u!114 &11419106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3586,7 +3589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
 --- !u!114 &11426818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3604,7 +3607,8 @@ MonoBehaviour:
   forward: 1
   left: 0
   right: 0
-  up: 0
+  hitDistance: 2.4
+  usesPhysics: 1
 --- !u!114 &11429488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3633,7 +3637,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
+--- !u!114 &11434886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isParent: 1
 --- !u!114 &11435230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3645,7 +3661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 0
 --- !u!114 &11435638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3657,7 +3673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 0
 --- !u!114 &11439458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3675,7 +3691,8 @@ MonoBehaviour:
   forward: 0
   left: 0
   right: 1
-  up: 0
+  hitDistance: 2.4
+  usesPhysics: 1
 --- !u!114 &11441634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3687,7 +3704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
 --- !u!114 &11445548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3917,7 +3934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
 --- !u!114 &11455874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3975,7 +3992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
 --- !u!114 &11466350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4128,7 +4145,8 @@ MonoBehaviour:
   forward: 0
   left: 1
   right: 0
-  up: 0
+  hitDistance: 2.4
+  usesPhysics: 1
 --- !u!114 &11470520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4146,7 +4164,8 @@ MonoBehaviour:
   forward: 1
   left: 0
   right: 0
-  up: 0
+  hitDistance: 2.4
+  usesPhysics: 1
 --- !u!114 &11472824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4158,7 +4177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
 --- !u!114 &11473090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4184,10 +4203,11 @@ MonoBehaviour:
   meshHealth: 0
   looseParts: 0
   alreadyDetached: 0
-  forward: 0
+  forward: 1
   left: 0
   right: 0
-  up: 1
+  hitDistance: 2.4
+  usesPhysics: 0
 --- !u!114 &11475208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4199,7 +4219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
 --- !u!114 &11475220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4229,7 +4249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 0
 --- !u!114 &11480498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4254,7 +4274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
 --- !u!114 &11483606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4293,7 +4313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 1
 --- !u!114 &11493074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4432,7 +4452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  isParent: 0
 --- !u!114 &11494474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4449,6 +4469,18 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+--- !u!114 &11497048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isParent: 1
 --- !u!124 &12439800
 Behaviour:
   m_ObjectHideFlags: 1
