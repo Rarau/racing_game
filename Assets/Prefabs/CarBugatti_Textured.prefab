@@ -406,7 +406,7 @@ GameObject:
   - 33: {fileID: 3321764}
   - 23: {fileID: 2381572}
   - 114: {fileID: 11456006}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BN_Bugatti_windows_front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,6 +763,7 @@ GameObject:
   - 33: {fileID: 3335976}
   - 23: {fileID: 2326920}
   - 114: {fileID: 11495396}
+  - 114: {fileID: 11461488}
   m_Layer: 0
   m_Name: BN_Bugatti_door_left
   m_TagString: Untagged
@@ -852,7 +853,7 @@ GameObject:
   - 33: {fileID: 3347832}
   - 23: {fileID: 2304978}
   - 114: {fileID: 11456410}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BN_Bugatti_hoods_damaged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +886,7 @@ GameObject:
   - 4: {fileID: 437688}
   - 114: {fileID: 11430746}
   - 65: {fileID: 6593664}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +971,8 @@ GameObject:
   - 33: {fileID: 3316948}
   - 23: {fileID: 2368454}
   - 114: {fileID: 11406228}
-  m_Layer: 0
+  - 114: {fileID: 11421206}
+  m_Layer: 2
   m_Name: BN_Bugatti_hoods
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2853,8 +2855,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2185539, y: 0.21925914, z: 0.9686389}
-  m_Center: {x: 0, y: 0.690855, z: 1.5685272}
+  m_Size: {x: 1.2185539, y: 0.21925914, z: 0.80407524}
+  m_Center: {x: 0, y: 0.690855, z: 1.4862404}
 --- !u!81 &8150644
 AudioListener:
   m_ObjectHideFlags: 1
@@ -3763,7 +3765,23 @@ MonoBehaviour:
   forward: 1
   left: 0
   right: 0
-  up: 0
+  hitDistance: 0.2
+--- !u!114 &11421206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshHealth: 0
+  forward: 1
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11421996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3776,6 +3794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 0
+  left: 0
+  right: 1
+  hitDistance: 2.4
 --- !u!114 &11422410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3788,6 +3810,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 0
+  left: 0
+  right: 1
+  hitDistance: 2.4
 --- !u!114 &11427296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3812,6 +3838,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 0
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11430746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3829,7 +3859,7 @@ MonoBehaviour:
   forward: 1
   left: 0
   right: 0
-  up: 0
+  hitDistance: 1.5
 --- !u!114 &11435200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3874,7 +3904,7 @@ MonoBehaviour:
   forward: 0
   left: 1
   right: 0
-  up: 0
+  hitDistance: 0.2
 --- !u!114 &11443750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3899,6 +3929,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 1
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11450572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3911,6 +3945,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 1
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11451230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3936,6 +3974,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 1
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11456006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3948,6 +3990,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 0
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11456410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3960,6 +4006,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 1
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11460964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3972,6 +4022,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 0
+  left: 0
+  right: 0
+  hitDistance: 2.4
+--- !u!114 &11461488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshHealth: 0
+  forward: 0
+  left: 1
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11462470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4000,7 +4070,7 @@ MonoBehaviour:
   forward: 0
   left: 0
   right: 1
-  up: 0
+  hitDistance: 0.2
 --- !u!114 &11463286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4062,7 +4132,7 @@ MonoBehaviour:
   forward: 0
   left: 0
   right: 0
-  up: 0
+  hitDistance: 0.2
 --- !u!114 &11470534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4127,6 +4197,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 0
+  left: 1
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11473540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4139,6 +4213,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 1
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11475654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4282,6 +4360,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 0
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!114 &11482356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4296,10 +4378,10 @@ MonoBehaviour:
   meshHealth: 0
   looseParts: 0
   alreadyDetached: 0
-  forward: 0
+  forward: 1
   left: 0
   right: 0
-  up: 1
+  hitDistance: 4
 --- !u!114 &11482362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4449,6 +4531,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
+  forward: 0
+  left: 0
+  right: 0
+  hitDistance: 2.4
 --- !u!124 &12432634
 Behaviour:
   m_ObjectHideFlags: 1

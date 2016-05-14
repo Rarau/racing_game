@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class MeshChange : MonoBehaviour {
 
@@ -15,11 +16,14 @@ public class MeshChange : MonoBehaviour {
 
     public bool alreadyDetached = false;
 
-    // backward is not defined because is by default
+    // backward is not defined because is by defaults
     public bool forward = false;
     public bool left = false;
     public bool right = false;
-    public bool up = false;
+
+    public float hitDistance = 2.4f;
+
+    float healthDiscount = 0.1f;
 
     void Awake()
     {
@@ -77,19 +81,16 @@ public class MeshChange : MonoBehaviour {
             direction = -this.transform.right;
         else if (right)
             direction = this.transform.right;
-        else if (up)
-            direction = this.transform.up;
         else // backward is by default
             direction = -this.transform.forward;
 
-        Debug.DrawRay(childInfo.GetPosition(), direction * 1, Color.magenta);
+        Debug.DrawRay(childInfo.GetPosition(), direction * hitDistance/2, Color.magenta);
 
-        if (Physics.Raycast(childInfo.GetPosition(), direction, 2.4f))
+        // Do something if hit
+        if (Physics.Raycast(childInfo.GetPosition(), direction, hitDistance))
         {
-            // Do something if hit
-
             //Debug.Log("position : " + childInfo.GetPosition() + " "+ childInfo.name);
-            meshHealth -= carController.currentSpeed * .1f;
+            meshHealth -= carController.currentSpeed * healthDiscount;
         }
     }
 
