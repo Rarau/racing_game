@@ -1,0 +1,751 @@
+fileFormatVersion: 2
+guid: 1310ea6135172564fa7ba61aeef094b4
+timeCreated: 1463180179
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cylinder005
+    100002: Cylinder008
+    100004: //RootNode
+    100006: b1_entrane001
+    100008: B1_ground001
+    100010: b1_windows001
+    100012: B2_staors
+    100014: BN_body
+    100016: BN_body 1
+    100018: BN_body001
+    100020: BN_Bugatti_bumper
+    100022: BN_Bugatti_bumper 1
+    100024: BN_Bugatti_bumper001
+    100026: BN_Bugatti_bumper_back
+    100028: BN_Bugatti_bumper_back 1
+    100030: BN_Bugatti_bumper_back001
+    100032: BN_Bugatti_door_left
+    100034: BN_Bugatti_door_left 1
+    100036: BN_Bugatti_door_left001
+    100038: BN_Bugatti_door_right
+    100040: BN_Bugatti_door_right 1
+    100042: BN_Bugatti_door_right001
+    100044: BN_Bugatti_hoods
+    100046: BN_Bugatti_hoods 1
+    100048: BN_Bugatti_hoods001
+    100050: BN_Bugatti_window_left
+    100052: BN_Bugatti_window_left 1
+    100054: BN_Bugatti_window_left001
+    100056: BN_Bugatti_window_right
+    100058: BN_Bugatti_window_right 1
+    100060: BN_Bugatti_window_right001
+    100062: BN_Bugatti_windows_front
+    100064: BN_Bugatti_windows_front 1
+    100066: BN_Bugatti_windows_front001
+    100068: BN_Fast005
+    100070: BN_Fast006
+    100072: BN_Fast007
+    100074: BN_Fast008
+    100076: BN_Fast1
+    100078: BN_Fast1 1
+    100080: BN_Fast2
+    100082: BN_Fast2 1
+    100084: BN_Fast3
+    100086: BN_Fast3 1
+    100088: BN_Fast4
+    100090: BN_Fast4 1
+    100092: BN_Middle
+    100094: BN_Middle_005
+    100096: BN_Middle_006
+    100098: BN_Middle_007
+    100100: BN_Middle_008
+    100102: BN_Middle_1
+    100104: BN_Middle_1 1
+    100106: BN_Middle_2
+    100108: BN_Middle_2 1
+    100110: BN_Middle_3
+    100112: BN_Middle_3 1
+    100114: BN_Middle_4
+    100116: BN_Slow_005
+    100118: BN_Slow_006
+    100120: BN_Slow_007
+    100122: BN_Slow_008
+    100124: BN_Slow_1
+    100126: BN_Slow_1 1
+    100128: BN_Slow_2
+    100130: BN_Slow_2 1
+    100132: BN_Slow_3
+    100134: BN_Slow_3 1
+    100136: BN_Slow_4
+    100138: BN_Slow_4 1
+    100140: Box001
+    100142: Box002
+    100144: Box019
+    100146: Box020
+    100148: Box021
+    100150: Box022
+    100152: build1-ground-windowCorner
+    100154: buildA-1st-corner
+    100156: buildA-1st-general
+    100158: buildA-1st-roofCorner
+    100160: buildA-1st-roofGeneral
+    100162: buildA-1st-windowGeneral
+    100164: buildA-2nd-corner
+    100166: buildA-2nd-general
+    100168: buildA-2nd-Roof
+    100170: buildA-2nd-roofGeneral
+    100172: buildA-2nd-window-general
+    100174: buildA-2nd-windowCorner
+    100176: buildA-2nd-windowCorner001
+    100178: buildA-ground-general
+    100180: buildA-ground-windowGeneral
+    100182: building-proto
+    100184: building_cilinder
+    100186: building_square
+    100188: building_square001
+    100190: building_triangle
+    100192: buildingA
+    100194: BuildingA-gound-corner
+    100196: Chair001
+    100198: Chair002
+    100200: Chair003
+    100202: Chair005
+    100204: Chair006
+    100206: ChamferCyl001
+    100208: cup
+    100210: cup001
+    100212: cup002
+    100214: cup003
+    100216: Cylinder003
+    100218: Cylinder004
+    100220: Group001
+    100222: Group002
+    100224: leaves
+    100226: Line001
+    100228: Object001
+    100230: Object002
+    100232: Object003
+    100234: Object006
+    100236: Object007
+    100238: Object008
+    100240: Object032
+    100242: Object033
+    100244: pillar
+    100246: plate_b
+    100248: plate_b001
+    100250: plate_s
+    100252: plate_s001
+    100254: plate_s002
+    100256: plate_s003
+    100258: plate_s004
+    100260: plate_s005
+    100262: sign
+    100264: sign_base
+    100266: sign_lights
+    100268: size-car
+    100270: stairs
+    100272: table
+    100274: table001
+    100276: tableSetB
+    100278: tableSetB 1
+    100280: tree
+    400000: Cylinder005
+    400002: Cylinder008
+    400004: //RootNode
+    400006: b1_entrane001
+    400008: B1_ground001
+    400010: b1_windows001
+    400012: B2_staors
+    400014: BN_body
+    400016: BN_body 1
+    400018: BN_body001
+    400020: BN_Bugatti_bumper
+    400022: BN_Bugatti_bumper 1
+    400024: BN_Bugatti_bumper001
+    400026: BN_Bugatti_bumper_back
+    400028: BN_Bugatti_bumper_back 1
+    400030: BN_Bugatti_bumper_back001
+    400032: BN_Bugatti_door_left
+    400034: BN_Bugatti_door_left 1
+    400036: BN_Bugatti_door_left001
+    400038: BN_Bugatti_door_right
+    400040: BN_Bugatti_door_right 1
+    400042: BN_Bugatti_door_right001
+    400044: BN_Bugatti_hoods
+    400046: BN_Bugatti_hoods 1
+    400048: BN_Bugatti_hoods001
+    400050: BN_Bugatti_window_left
+    400052: BN_Bugatti_window_left 1
+    400054: BN_Bugatti_window_left001
+    400056: BN_Bugatti_window_right
+    400058: BN_Bugatti_window_right 1
+    400060: BN_Bugatti_window_right001
+    400062: BN_Bugatti_windows_front
+    400064: BN_Bugatti_windows_front 1
+    400066: BN_Bugatti_windows_front001
+    400068: BN_Fast005
+    400070: BN_Fast006
+    400072: BN_Fast007
+    400074: BN_Fast008
+    400076: BN_Fast1
+    400078: BN_Fast1 1
+    400080: BN_Fast2
+    400082: BN_Fast2 1
+    400084: BN_Fast3
+    400086: BN_Fast3 1
+    400088: BN_Fast4
+    400090: BN_Fast4 1
+    400092: BN_Middle
+    400094: BN_Middle_005
+    400096: BN_Middle_006
+    400098: BN_Middle_007
+    400100: BN_Middle_008
+    400102: BN_Middle_1
+    400104: BN_Middle_1 1
+    400106: BN_Middle_2
+    400108: BN_Middle_2 1
+    400110: BN_Middle_3
+    400112: BN_Middle_3 1
+    400114: BN_Middle_4
+    400116: BN_Slow_005
+    400118: BN_Slow_006
+    400120: BN_Slow_007
+    400122: BN_Slow_008
+    400124: BN_Slow_1
+    400126: BN_Slow_1 1
+    400128: BN_Slow_2
+    400130: BN_Slow_2 1
+    400132: BN_Slow_3
+    400134: BN_Slow_3 1
+    400136: BN_Slow_4
+    400138: BN_Slow_4 1
+    400140: Box001
+    400142: Box002
+    400144: Box019
+    400146: Box020
+    400148: Box021
+    400150: Box022
+    400152: build1-ground-windowCorner
+    400154: buildA-1st-corner
+    400156: buildA-1st-general
+    400158: buildA-1st-roofCorner
+    400160: buildA-1st-roofGeneral
+    400162: buildA-1st-windowGeneral
+    400164: buildA-2nd-corner
+    400166: buildA-2nd-general
+    400168: buildA-2nd-Roof
+    400170: buildA-2nd-roofGeneral
+    400172: buildA-2nd-window-general
+    400174: buildA-2nd-windowCorner
+    400176: buildA-2nd-windowCorner001
+    400178: buildA-ground-general
+    400180: buildA-ground-windowGeneral
+    400182: building-proto
+    400184: building_cilinder
+    400186: building_square
+    400188: building_square001
+    400190: building_triangle
+    400192: buildingA
+    400194: BuildingA-gound-corner
+    400196: Chair001
+    400198: Chair002
+    400200: Chair003
+    400202: Chair005
+    400204: Chair006
+    400206: ChamferCyl001
+    400208: cup
+    400210: cup001
+    400212: cup002
+    400214: cup003
+    400216: Cylinder003
+    400218: Cylinder004
+    400220: Group001
+    400222: Group002
+    400224: leaves
+    400226: Line001
+    400228: Object001
+    400230: Object002
+    400232: Object003
+    400234: Object006
+    400236: Object007
+    400238: Object008
+    400240: Object032
+    400242: Object033
+    400244: pillar
+    400246: plate_b
+    400248: plate_b001
+    400250: plate_s
+    400252: plate_s001
+    400254: plate_s002
+    400256: plate_s003
+    400258: plate_s004
+    400260: plate_s005
+    400262: sign
+    400264: sign_base
+    400266: sign_lights
+    400268: size-car
+    400270: stairs
+    400272: table
+    400274: table001
+    400276: tableSetB
+    400278: tableSetB 1
+    400280: tree
+    2300000: Cylinder005
+    2300002: Cylinder008
+    2300004: //RootNode
+    2300006: b1_entrane001
+    2300008: B1_ground001
+    2300010: b1_windows001
+    2300012: B2_staors
+    2300014: BN_body
+    2300016: BN_body 1
+    2300018: BN_body001
+    2300020: BN_Bugatti_bumper
+    2300022: BN_Bugatti_bumper 1
+    2300024: BN_Bugatti_bumper001
+    2300026: BN_Bugatti_bumper_back
+    2300028: BN_Bugatti_bumper_back 1
+    2300030: BN_Bugatti_bumper_back001
+    2300032: BN_Bugatti_door_left
+    2300034: BN_Bugatti_door_left 1
+    2300036: BN_Bugatti_door_left001
+    2300038: BN_Bugatti_door_right
+    2300040: BN_Bugatti_door_right 1
+    2300042: BN_Bugatti_door_right001
+    2300044: BN_Bugatti_hoods
+    2300046: BN_Bugatti_hoods 1
+    2300048: BN_Bugatti_hoods001
+    2300050: BN_Bugatti_window_left
+    2300052: BN_Bugatti_window_left 1
+    2300054: BN_Bugatti_window_left001
+    2300056: BN_Bugatti_window_right
+    2300058: BN_Bugatti_window_right 1
+    2300060: BN_Bugatti_window_right001
+    2300062: BN_Bugatti_windows_front
+    2300064: BN_Bugatti_windows_front 1
+    2300066: BN_Bugatti_windows_front001
+    2300068: BN_Fast005
+    2300070: BN_Fast006
+    2300072: BN_Fast007
+    2300074: BN_Fast008
+    2300076: BN_Fast1
+    2300078: BN_Fast1 1
+    2300080: BN_Fast2
+    2300082: BN_Fast2 1
+    2300084: BN_Fast3
+    2300086: BN_Fast3 1
+    2300088: BN_Fast4
+    2300090: BN_Fast4 1
+    2300092: BN_Middle
+    2300094: BN_Middle_005
+    2300096: BN_Middle_006
+    2300098: BN_Middle_007
+    2300100: BN_Middle_008
+    2300102: BN_Middle_1
+    2300104: BN_Middle_1 1
+    2300106: BN_Middle_2
+    2300108: BN_Middle_2 1
+    2300110: BN_Middle_3
+    2300112: BN_Middle_3 1
+    2300114: BN_Middle_4
+    2300116: BN_Slow_005
+    2300118: BN_Slow_006
+    2300120: BN_Slow_007
+    2300122: BN_Slow_008
+    2300124: BN_Slow_1
+    2300126: BN_Slow_1 1
+    2300128: BN_Slow_2
+    2300130: BN_Slow_2 1
+    2300132: BN_Slow_3
+    2300134: BN_Slow_3 1
+    2300136: BN_Slow_4
+    2300138: BN_Slow_4 1
+    2300140: Box001
+    2300142: Box002
+    2300144: Box019
+    2300146: Box020
+    2300148: Box021
+    2300150: Box022
+    2300152: build1-ground-windowCorner
+    2300154: buildA-1st-corner
+    2300156: buildA-1st-general
+    2300158: buildA-1st-roofCorner
+    2300160: buildA-1st-roofGeneral
+    2300162: buildA-1st-windowGeneral
+    2300164: buildA-2nd-corner
+    2300166: buildA-2nd-general
+    2300168: buildA-2nd-Roof
+    2300170: buildA-2nd-roofGeneral
+    2300172: buildA-2nd-window-general
+    2300174: buildA-2nd-windowCorner
+    2300176: buildA-2nd-windowCorner001
+    2300178: buildA-ground-general
+    2300180: buildA-ground-windowGeneral
+    2300182: building_cilinder
+    2300184: building_square
+    2300186: building_square001
+    2300188: building_triangle
+    2300190: BuildingA-gound-corner
+    2300192: Chair001
+    2300194: Chair002
+    2300196: Chair003
+    2300198: Chair005
+    2300200: Chair006
+    2300202: ChamferCyl001
+    2300204: cup
+    2300206: cup001
+    2300208: cup002
+    2300210: cup003
+    2300212: Cylinder003
+    2300214: Cylinder004
+    2300216: leaves
+    2300218: Line001
+    2300220: Object001
+    2300222: Object002
+    2300224: Object003
+    2300226: Object006
+    2300228: Object007
+    2300230: Object008
+    2300232: Object032
+    2300234: Object033
+    2300236: pillar
+    2300238: plate_b
+    2300240: plate_b001
+    2300242: plate_s
+    2300244: plate_s001
+    2300246: plate_s002
+    2300248: plate_s003
+    2300250: plate_s004
+    2300252: plate_s005
+    2300254: sign_base
+    2300256: sign_lights
+    2300258: stairs
+    2300260: table
+    2300262: table001
+    2300264: tree
+    3300000: Cylinder005
+    3300002: Cylinder008
+    3300004: //RootNode
+    3300006: b1_entrane001
+    3300008: B1_ground001
+    3300010: b1_windows001
+    3300012: B2_staors
+    3300014: BN_body
+    3300016: BN_body 1
+    3300018: BN_body001
+    3300020: BN_Bugatti_bumper
+    3300022: BN_Bugatti_bumper 1
+    3300024: BN_Bugatti_bumper001
+    3300026: BN_Bugatti_bumper_back
+    3300028: BN_Bugatti_bumper_back 1
+    3300030: BN_Bugatti_bumper_back001
+    3300032: BN_Bugatti_door_left
+    3300034: BN_Bugatti_door_left 1
+    3300036: BN_Bugatti_door_left001
+    3300038: BN_Bugatti_door_right
+    3300040: BN_Bugatti_door_right 1
+    3300042: BN_Bugatti_door_right001
+    3300044: BN_Bugatti_hoods
+    3300046: BN_Bugatti_hoods 1
+    3300048: BN_Bugatti_hoods001
+    3300050: BN_Bugatti_window_left
+    3300052: BN_Bugatti_window_left 1
+    3300054: BN_Bugatti_window_left001
+    3300056: BN_Bugatti_window_right
+    3300058: BN_Bugatti_window_right 1
+    3300060: BN_Bugatti_window_right001
+    3300062: BN_Bugatti_windows_front
+    3300064: BN_Bugatti_windows_front 1
+    3300066: BN_Bugatti_windows_front001
+    3300068: BN_Fast005
+    3300070: BN_Fast006
+    3300072: BN_Fast007
+    3300074: BN_Fast008
+    3300076: BN_Fast1
+    3300078: BN_Fast1 1
+    3300080: BN_Fast2
+    3300082: BN_Fast2 1
+    3300084: BN_Fast3
+    3300086: BN_Fast3 1
+    3300088: BN_Fast4
+    3300090: BN_Fast4 1
+    3300092: BN_Middle
+    3300094: BN_Middle_005
+    3300096: BN_Middle_006
+    3300098: BN_Middle_007
+    3300100: BN_Middle_008
+    3300102: BN_Middle_1
+    3300104: BN_Middle_1 1
+    3300106: BN_Middle_2
+    3300108: BN_Middle_2 1
+    3300110: BN_Middle_3
+    3300112: BN_Middle_3 1
+    3300114: BN_Middle_4
+    3300116: BN_Slow_005
+    3300118: BN_Slow_006
+    3300120: BN_Slow_007
+    3300122: BN_Slow_008
+    3300124: BN_Slow_1
+    3300126: BN_Slow_1 1
+    3300128: BN_Slow_2
+    3300130: BN_Slow_2 1
+    3300132: BN_Slow_3
+    3300134: BN_Slow_3 1
+    3300136: BN_Slow_4
+    3300138: BN_Slow_4 1
+    3300140: Box001
+    3300142: Box002
+    3300144: Box019
+    3300146: Box020
+    3300148: Box021
+    3300150: Box022
+    3300152: build1-ground-windowCorner
+    3300154: buildA-1st-corner
+    3300156: buildA-1st-general
+    3300158: buildA-1st-roofCorner
+    3300160: buildA-1st-roofGeneral
+    3300162: buildA-1st-windowGeneral
+    3300164: buildA-2nd-corner
+    3300166: buildA-2nd-general
+    3300168: buildA-2nd-Roof
+    3300170: buildA-2nd-roofGeneral
+    3300172: buildA-2nd-window-general
+    3300174: buildA-2nd-windowCorner
+    3300176: buildA-2nd-windowCorner001
+    3300178: buildA-ground-general
+    3300180: buildA-ground-windowGeneral
+    3300182: building_cilinder
+    3300184: building_square
+    3300186: building_square001
+    3300188: building_triangle
+    3300190: BuildingA-gound-corner
+    3300192: Chair001
+    3300194: Chair002
+    3300196: Chair003
+    3300198: Chair005
+    3300200: Chair006
+    3300202: ChamferCyl001
+    3300204: cup
+    3300206: cup001
+    3300208: cup002
+    3300210: cup003
+    3300212: Cylinder003
+    3300214: Cylinder004
+    3300216: leaves
+    3300218: Line001
+    3300220: Object001
+    3300222: Object002
+    3300224: Object003
+    3300226: Object006
+    3300228: Object007
+    3300230: Object008
+    3300232: Object032
+    3300234: Object033
+    3300236: pillar
+    3300238: plate_b
+    3300240: plate_b001
+    3300242: plate_s
+    3300244: plate_s001
+    3300246: plate_s002
+    3300248: plate_s003
+    3300250: plate_s004
+    3300252: plate_s005
+    3300254: sign_base
+    3300256: sign_lights
+    3300258: stairs
+    3300260: table
+    3300262: table001
+    3300264: tree
+    4300000: Cylinder005
+    4300002: Cylinder008
+    4300004: pillar
+    4300006: tree
+    4300008: leaves
+    4300010: Box002
+    4300012: Cylinder004
+    4300014: BN_Fast005
+    4300016: BN_Bugatti_hoods001
+    4300018: BN_Middle_005
+    4300020: BN_Fast006
+    4300022: BN_Slow_005
+    4300024: BN_Bugatti_bumper_back001
+    4300026: BN_Slow_006
+    4300028: BN_Slow_007
+    4300030: BN_Slow_008
+    4300032: BN_Middle_006
+    4300034: BN_Bugatti_window_left001
+    4300036: BN_Bugatti_door_left001
+    4300038: BN_Fast007
+    4300040: BN_Middle_007
+    4300042: BN_Bugatti_door_right001
+    4300044: BN_Middle_008
+    4300046: BN_Fast008
+    4300048: BN_Bugatti_window_right001
+    4300050: BN_Bugatti_windows_front001
+    4300052: BN_Bugatti_bumper001
+    4300054: BN_body001
+    4300056: B2_staors
+    4300058: Object003
+    4300060: Object006
+    4300062: Object007
+    4300064: Object008
+    4300066: Object032
+    4300068: BN_Middle_3
+    4300070: BN_Slow_1
+    4300072: BN_Middle
+    4300074: BN_Fast2
+    4300076: BN_Bugatti_windows_front
+    4300078: BN_Fast4
+    4300080: BN_Bugatti_hoods
+    4300082: BN_Bugatti_bumper
+    4300084: BN_Fast1
+    4300086: BN_Middle_1
+    4300088: BN_Bugatti_window_right
+    4300090: BN_Bugatti_window_left
+    4300092: BN_Bugatti_door_right
+    4300094: BN_Slow_2
+    4300096: BN_Bugatti_bumper_back
+    4300098: BN_Slow_3
+    4300100: BN_body
+    4300102: BN_Fast3
+    4300104: BN_Slow_4
+    4300106: BN_Bugatti_door_left
+    4300108: BN_Middle_2
+    4300110: b1_windows001
+    4300112: Box020
+    4300114: B1_ground001
+    4300116: Box019
+    4300118: b1_entrane001
+    4300120: Object002
+    4300122: Object001
+    4300124: Box021
+    4300126: Box022
+    4300128: Object033
+    4300130: Box001
+    4300132: Cylinder003
+    4300134: BN_Fast4
+    4300136: BN_Bugatti_hoods
+    4300138: BN_Middle_3
+    4300140: BN_Fast2
+    4300142: BN_Slow_1
+    4300144: BN_Bugatti_bumper_back
+    4300146: BN_Slow_2
+    4300148: BN_Slow_3
+    4300150: BN_Slow_4
+    4300152: BN_Middle_1
+    4300154: BN_Bugatti_window_left
+    4300156: BN_Bugatti_door_left
+    4300158: BN_Fast1
+    4300160: BN_Middle_2
+    4300162: BN_Bugatti_door_right
+    4300164: BN_Middle_4
+    4300166: BN_Fast3
+    4300168: BN_Bugatti_window_right
+    4300170: BN_Bugatti_windows_front
+    4300172: BN_Bugatti_bumper
+    4300174: BN_body
+    4300176: table001
+    4300178: plate_s004
+    4300180: plate_s005
+    4300182: plate_b001
+    4300184: plate_s003
+    4300186: cup002
+    4300188: cup003
+    4300190: Chair006
+    4300192: Chair005
+    4300194: plate_s002
+    4300196: plate_s
+    4300198: Chair002
+    4300200: Chair001
+    4300202: plate_b
+    4300204: cup001
+    4300206: cup
+    4300208: plate_s001
+    4300210: table
+    4300212: Chair003
+    4300214: buildA-1st-windowGeneral
+    4300216: buildA-1st-corner
+    4300218: BuildingA-gound-corner
+    4300220: stairs
+    4300222: buildA-2nd-Roof
+    4300224: buildA-2nd-corner
+    4300226: build1-ground-windowCorner
+    4300228: buildA-2nd-windowCorner
+    4300230: buildA-1st-roofCorner
+    4300232: buildA-2nd-windowCorner001
+    4300234: buildA-ground-general
+    4300236: buildA-1st-general
+    4300238: buildA-2nd-roofGeneral
+    4300240: buildA-ground-windowGeneral
+    4300242: buildA-1st-roofGeneral
+    4300244: buildA-2nd-general
+    4300246: buildA-2nd-window-general
+    4300248: sign_base
+    4300250: sign_lights
+    4300252: building_cilinder
+    4300254: building_square
+    4300256: building_triangle
+    4300258: ChamferCyl001
+    4300260: building_square001
+    4300262: Line001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
