@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RenderModeCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <modes>
-    <RenderModes name="Bugatti_DIRT1">
-      <mode>Opaque</mode>
-    </RenderModes>
-  </modes>
-</RenderModeCollection>
