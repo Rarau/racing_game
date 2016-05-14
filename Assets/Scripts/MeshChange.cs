@@ -25,6 +25,8 @@ public class MeshChange : MonoBehaviour {
 
     float healthDiscount = 0.1f;
 
+    public bool usesPhysics = true;
+
     void Awake()
     {
         carController = transform.root.GetComponent<CarController>();
@@ -45,15 +47,22 @@ public class MeshChange : MonoBehaviour {
         {
             gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
             gameObject.transform.GetChild(1).GetComponent<Renderer>().enabled = false;
+            if (alreadyDetached && usesPhysics)
+            {
+                Destroy(gameObject.transform.GetChild(1).GetComponent<Rigidbody>());
+                gameObject.transform.GetChild(1).rotation = gameObject.transform.GetChild(0).rotation;
+                gameObject.transform.GetChild(1).position = gameObject.transform.GetChild(0).position;
+                alreadyDetached = false;
+            }
         }
         else if (meshHealth > 0 && meshHealth < 80)
         {
             gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<Renderer>().enabled = true;
         }
-        else if (meshHealth <= 0 && looseParts && !alreadyDetached)
+        else if (meshHealth <= 0 && looseParts && !alreadyDetached && usesPhysics)
         {
-            addRigidBody(this.gameObject);
+            addRigidBody(this.transform.GetChild(1).gameObject);
             alreadyDetached = true;
         }
     }
