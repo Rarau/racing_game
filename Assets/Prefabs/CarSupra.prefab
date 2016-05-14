@@ -826,7 +826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &187450
 GameObject:
   m_ObjectHideFlags: 1
@@ -3441,6 +3441,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11401308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3659,6 +3662,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11402470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3671,6 +3677,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11404492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3697,7 +3706,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116462}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e63e836aa11b14fb651c59728e2b72, type: 3}
   m_Name: 
@@ -3737,6 +3746,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11407242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3749,6 +3761,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11411440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3761,6 +3776,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11415558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3867,6 +3885,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11424954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3882,7 +3903,7 @@ MonoBehaviour:
   looseParts: 1
   alreadyDetached: 0
   forward: 0
-  left: 1
+  left: 0
   right: 0
   hitDistance: 2.4
   usesPhysics: 1
@@ -3917,6 +3938,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11431396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3929,6 +3953,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11431442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3941,6 +3968,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11432380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3972,6 +4002,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11433070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3984,6 +4017,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11433498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4100,6 +4136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11447226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4131,6 +4170,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11451278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4301,6 +4343,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11460476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4329,6 +4374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11464122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4352,6 +4400,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11472770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4368,7 +4419,7 @@ MonoBehaviour:
   alreadyDetached: 0
   forward: 0
   left: 0
-  right: 1
+  right: 0
   hitDistance: 2.4
   usesPhysics: 1
 --- !u!114 &11474630
@@ -4383,6 +4434,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11474764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4395,6 +4449,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11477388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4407,6 +4464,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11478950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4419,6 +4479,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 0
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11481472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4828,6 +4891,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!114 &11498238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4867,6 +4933,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParent: 1
+  swapTexture:
+  - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
+  - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
 --- !u!124 &12484582
 Behaviour:
   m_ObjectHideFlags: 1

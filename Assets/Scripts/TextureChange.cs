@@ -9,7 +9,11 @@ public class TextureChange : MonoBehaviour {
 
     MeshChange meshChange;
 
+    //private MeshFilter meshFilter;
+
     public bool isParent = false;
+
+    public Texture[] swapTexture;
 
     void Awake()
     {
@@ -21,6 +25,7 @@ public class TextureChange : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        //meshFilter = this.GetComponent<MeshFilter>();
         renderer = this.GetComponent<Renderer>();
         maxHealth = 100;
     }
@@ -31,12 +36,14 @@ public class TextureChange : MonoBehaviour {
         {
             if (meshChange.meshHealth >= maxHealth)
             {
-                renderer.material.mainTexture = Resources.Load("Bugatti_Alb") as Texture;
+                //renderer.material.mainTexture = Resources.Load("Bugatti_Alb") as Texture;
                 //this.SetTexture("Texture", Resources.Load("Bugatti_Alb") as Texture); // how to load normal maps??
+                renderer.material.mainTexture = swapTexture[0];
             }
             else
             {
-                renderer.material.mainTexture = Resources.Load("Bugatti_D1_Alb") as Texture;
+                //renderer.material.mainTexture = Resources.Load("Bugatti_D1_Alb") as Texture;
+                renderer.material.mainTexture = swapTexture[1];
             }
         }
     }
