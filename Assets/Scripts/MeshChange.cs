@@ -43,6 +43,13 @@ public class MeshChange : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        //MeshRenderer[] childrenRenderes = GetComponentsInChildren<MeshRenderer>();
+        //foreach(MeshRenderer renderer in childrenRenderes)
+
+        //{
+        //    renderer.material.mainTexture = 
+        //    }
+
         if (meshHealth >= 100)
         {
             gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
