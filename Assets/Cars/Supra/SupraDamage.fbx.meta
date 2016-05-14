@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 4a5e9b067eba2fc469e0b291427092c7
+timeCreated: 1463239815
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BackBumper
+    100002: BackLeftWheel_High
+    100004: BackRightWheel_High
+    100006: Bonnet
+    100008: Boot
+    100010: engineBar:polySurface70
+    100012: FrontBumper
+    100014: FrontLeftWheel_High
+    100016: FrontRightWheel_High
+    100018: FrontWindow
+    100020: LeftDoor
+    100022: LeftRearPanel
+    100024: LeftTrim
+    100026: MainChassis
+    100028: RightBackPanel
+    100030: RightDoor
+    100032: RightTrim
+    100034: //RootNode
+    100036: SupraRacecar
+    400000: BackBumper
+    400002: BackLeftWheel_High
+    400004: BackRightWheel_High
+    400006: Bonnet
+    400008: Boot
+    400010: engineBar:polySurface70
+    400012: FrontBumper
+    400014: FrontLeftWheel_High
+    400016: FrontRightWheel_High
+    400018: FrontWindow
+    400020: LeftDoor
+    400022: LeftRearPanel
+    400024: LeftTrim
+    400026: MainChassis
+    400028: RightBackPanel
+    400030: RightDoor
+    400032: RightTrim
+    400034: //RootNode
+    400036: SupraRacecar
+    2300000: BackBumper
+    2300002: BackLeftWheel_High
+    2300004: BackRightWheel_High
+    2300006: Bonnet
+    2300008: Boot
+    2300010: engineBar:polySurface70
+    2300012: FrontBumper
+    2300014: FrontLeftWheel_High
+    2300016: FrontRightWheel_High
+    2300018: FrontWindow
+    2300020: LeftDoor
+    2300022: LeftRearPanel
+    2300024: LeftTrim
+    2300026: MainChassis
+    2300028: RightBackPanel
+    2300030: RightDoor
+    2300032: RightTrim
+    3300000: BackBumper
+    3300002: BackLeftWheel_High
+    3300004: BackRightWheel_High
+    3300006: Bonnet
+    3300008: Boot
+    3300010: engineBar:polySurface70
+    3300012: FrontBumper
+    3300014: FrontLeftWheel_High
+    3300016: FrontRightWheel_High
+    3300018: FrontWindow
+    3300020: LeftDoor
+    3300022: LeftRearPanel
+    3300024: LeftTrim
+    3300026: MainChassis
+    3300028: RightBackPanel
+    3300030: RightDoor
+    3300032: RightTrim
+    4300000: RightBackPanel
+    4300002: LeftRearPanel
+    4300004: FrontBumper
+    4300006: FrontWindow
+    4300008: Bonnet
+    4300010: BackBumper
+    4300012: BackRightWheel_High
+    4300014: LeftTrim
+    4300016: RightTrim
+    4300018: BackLeftWheel_High
+    4300020: FrontLeftWheel_High
+    4300022: FrontRightWheel_High
+    4300024: MainChassis
+    4300026: RightDoor
+    4300028: LeftDoor
+    4300030: Boot
+    4300032: engineBar:polySurface70
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 15
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
