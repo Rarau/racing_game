@@ -3,20 +3,18 @@ using System.Collections;
 
 public class RaceState : State<GameManager>
 {
-    GameManager gm;
-
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
-
+        Debug.Log("Executing Race State");
     }
 
     public void enter(GameManager gm)
     {
-        this.gm = gm;
-
+        Debug.Log("Entered Race State");
     }
 
     public void exit(GameManager gm)
     {
+        Debug.Log("Left Race State");
     }
 }

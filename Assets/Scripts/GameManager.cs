@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour {
 
     public StateMachine<GameManager> fsm;
 
-    public int numberOfHumanPlayers;
-    public string[] nameOfPlayers;
-    public int trackSelected;
-    public bool[] carSelected;
+    //public int numberOfHumanPlayers;
+    //public string[] nameOfPlayers;
+    //public int trackSelected;
+    //public bool[] carSelected;
 
-    const int numPlayers = 4;
+    //const int numPlayers = 4;
 
     // To hold player data when paused.
     struct PlayerData
@@ -50,16 +50,16 @@ public class GameManager : MonoBehaviour {
         fsm = new StateMachine<GameManager>(this);
         fsm.setState(new SplashState());
 
-        numberOfHumanPlayers = 0;
-        nameOfPlayers = new string[numPlayers];
-        carSelected = new bool[numPlayers];
-        for (int i = 0; i < numPlayers; i++)
-        {
-            nameOfPlayers[i] = string.Concat("Player 0", i.ToString());
-            carSelected[i] = false;
-        }
+        //numberOfHumanPlayers = 0;
+        //nameOfPlayers = new string[numPlayers];
+        //carSelected = new bool[numPlayers];
+        //for (int i = 0; i < numPlayers; i++)
+        //{
+        //    nameOfPlayers[i] = string.Concat("Player 0", i.ToString());
+        //    carSelected[i] = false;
+        //}
 
-        trackSelected = 0;
+        //trackSelected = 0;
     }
 
     public void Update()

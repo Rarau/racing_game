@@ -50,7 +50,7 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 3
@@ -173,11 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab1a61d50f25514e8bc1041988ba624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
-  numberOfHumanPlayers: 0
-  nameOfPlayers: []
-  trackSelected: 0
-  carSelected: 
 --- !u!4 &815490951
 Transform:
   m_ObjectHideFlags: 0
