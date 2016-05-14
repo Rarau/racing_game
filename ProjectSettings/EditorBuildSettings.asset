@@ -6,4 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/track editor.unity
+    path: Assets/_Scenes/GameScenes/SPLASH_SCREEN.unity
+  - enabled: 1
+    path: Assets/_Scenes/GameScenes/MAIN_MENU.unity
+  - enabled: 1
+    path: Assets/_Scenes/GameScenes/RACE.unity

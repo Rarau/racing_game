@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     private static GameManager _instance;
 
     //public enum LevelState { SPLASH_SCREEN, MAIN_MENU, CONFIG, RACE, FINISH_GRID };
-    // public enum GameState { START, COUNTDOWN, RACE, PAUSE, END };
+    //public enum GameState { START, COUNTDOWN, RACE, PAUSE, END };
     //public GameState currentState;
 
     public StateMachine<GameManager> fsm;
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 
     const int numPlayers = 4;
 
-    // to hold player data when pauses
+    // To hold player data when paused.
     struct PlayerData
     {
         float speed;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
     {
         get
         {
-            //create logic to create the instance
+            // Create logic to create the instance.
             if (_instance == null)
             {
                 GameObject go = new GameObject("GameManager");
@@ -46,10 +46,10 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        // Setup state machine.
         fsm = new StateMachine<GameManager>(this);
-        fsm.setState(new StartState());
+        fsm.setState(new SplashState());
 
-        //SceneManager.LoadScene(LevelState.SPLASH_SCREEN.ToString());
         numberOfHumanPlayers = 0;
         nameOfPlayers = new string[numPlayers];
         carSelected = new bool[numPlayers];
@@ -72,14 +72,15 @@ public class GameManager : MonoBehaviour {
         return SceneManager.GetActiveScene().name;
     }
 
-    void setLevel(string levelName)
+    public void setLevel(string levelName)
     {
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene("_Scenes/GameScenes/" + levelName);
     }
 
     void Awake ()
     {
         _instance = this;
+        DontDestroyOnLoad(_instance);
 	}
 
     // Sets the instance to null when the application quits
