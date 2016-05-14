@@ -110,7 +110,8 @@ public class MeshChange : MonoBehaviour {
         if (Physics.Raycast(childInfo.GetPosition(), direction, hitDistance))
         {
             //Debug.Log("position : " + childInfo.GetPosition() + " "+ childInfo.name);
-            meshHealth -= carController.currentSpeed * healthDiscount;
+            meshHealth -= Mathf.Clamp(carController.currentSpeed * healthDiscount, 0, 150);
+            
         }
     }
 

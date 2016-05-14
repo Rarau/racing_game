@@ -3434,7 +3434,7 @@ MonoBehaviour:
   forward: 0
   left: 0
   right: 0
-  hitDistance: 2.4
+  hitDistance: 0.2
   usesPhysics: 1
 --- !u!114 &11419106
 MonoBehaviour:
@@ -3610,7 +3610,7 @@ MonoBehaviour:
   forward: 1
   left: 0
   right: 0
-  hitDistance: 2.4
+  hitDistance: 0.4
   usesPhysics: 1
 --- !u!114 &11429488
 MonoBehaviour:
@@ -3706,7 +3706,7 @@ MonoBehaviour:
   forward: 0
   left: 0
   right: 1
-  hitDistance: 2.4
+  hitDistance: 0.4
   usesPhysics: 1
 --- !u!114 &11441634
 MonoBehaviour:
@@ -4169,7 +4169,7 @@ MonoBehaviour:
   forward: 0
   left: 1
   right: 0
-  hitDistance: 2.4
+  hitDistance: 0.4
   usesPhysics: 1
 --- !u!114 &11470520
 MonoBehaviour:
@@ -4188,7 +4188,7 @@ MonoBehaviour:
   forward: 1
   left: 0
   right: 0
-  hitDistance: 2.4
+  hitDistance: 1.6
   usesPhysics: 1
 --- !u!114 &11472824
 MonoBehaviour:
@@ -4233,7 +4233,7 @@ MonoBehaviour:
   forward: 1
   left: 0
   right: 0
-  hitDistance: 2.4
+  hitDistance: 4.2
   usesPhysics: 0
 --- !u!114 &11475208
 MonoBehaviour:

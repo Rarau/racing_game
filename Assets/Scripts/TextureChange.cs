@@ -32,7 +32,7 @@ public class TextureChange : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if (meshChange.meshHealth > 0.0f)
+        if (meshChange.meshHealth > 0.0f)
         {
             if (meshChange.meshHealth >= maxHealth)
             {
