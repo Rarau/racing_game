@@ -2438,6 +2438,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
   fwdForce: 0
@@ -2670,6 +2671,8 @@ MonoBehaviour:
   wheel: {fileID: 0}
   particles: {fileID: 19894212}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+  skidMarkWidth: 0.2
+  heightOffset: 0.05
 --- !u!114 &11429280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2777,6 +2780,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
   fwdForce: 0
@@ -2798,6 +2802,8 @@ MonoBehaviour:
   wheel: {fileID: 0}
   particles: {fileID: 19863134}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+  skidMarkWidth: 0.2
+  heightOffset: 0.05
 --- !u!114 &11468534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2831,6 +2837,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  cameraRig: {fileID: 0}
 --- !u!114 &11472554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2863,6 +2870,8 @@ MonoBehaviour:
   wheel: {fileID: 0}
   particles: {fileID: 19803716}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+  skidMarkWidth: 0.2
+  heightOffset: 0.05
 --- !u!114 &11473910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2970,6 +2979,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 11498950}
+  suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
   fwdForce: 0
@@ -3025,6 +3035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ec58d282147464880c1b07bd636085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotOffset: {x: 0, y: 0, z: 0}
   smoothness: 1
 --- !u!114 &11496968
 MonoBehaviour:
@@ -3040,6 +3051,8 @@ MonoBehaviour:
   wheel: {fileID: 0}
   particles: {fileID: 19852614}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
+  skidMarkWidth: 0.2
+  heightOffset: 0.05
 --- !u!114 &11498950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3147,6 +3160,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
   fwdForce: 0
