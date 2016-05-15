@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SelfDisable : MonoBehaviour
 {
-    public float lifetime = 1.0f;
+    public float lifetime = 2.0f;
     private float startTime;
 
     void OnEnable () 

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class SelfDestroy : MonoBehaviour {
-    public float lifetime = 2.0f;
+    public float lifetime = 3.0f;
     private float startTime;
 
     void OnEnable() {
