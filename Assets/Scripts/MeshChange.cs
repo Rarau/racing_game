@@ -27,6 +27,13 @@ public class MeshChange : MonoBehaviour {
 
     public bool usesPhysics = true;
 
+    public GameObject damageParticles;
+    GameObject cloneDamageParticles;
+
+    public bool isEngine;
+
+    bool isSmoke = false;
+
     void Awake()
     {
         carController = transform.root.GetComponent<CarController>();
@@ -75,6 +82,22 @@ public class MeshChange : MonoBehaviour {
             gameObject.transform.GetChild(1).GetComponent<Collider>().enabled = true;
             addRigidBody(this.transform.GetChild(1).gameObject);
             alreadyDetached = true;
+        }
+
+        if (isEngine)
+        {
+            if (alreadyDetached && !isSmoke)
+            {
+                cloneDamageParticles = (GameObject)Instantiate(damageParticles, transform.position, transform.rotation);
+                cloneDamageParticles.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
+                cloneDamageParticles.transform.parent = transform;
+                isSmoke = true;
+            }
+            else if (!alreadyDetached && isSmoke)
+            {
+                Destroy(cloneDamageParticles, 1.0f);
+                isSmoke = false;
+            }
         }
     }
 

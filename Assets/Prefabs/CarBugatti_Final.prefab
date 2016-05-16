@@ -3645,6 +3645,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.2
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11417196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3845,6 +3847,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.4
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11429488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3941,6 +3945,8 @@ MonoBehaviour:
   right: 1
   hitDistance: 0.4
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11441634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4404,6 +4410,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.4
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11470520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4423,6 +4431,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 1.6
   usesPhysics: 1
+  damageParticles: {fileID: 130978, guid: 863d971d906391a4eaefa9bcae7bb209, type: 2}
+  isEngine: 1
 --- !u!114 &11472824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4468,6 +4478,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 4.2
   usesPhysics: 0
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11475208
 MonoBehaviour:
   m_ObjectHideFlags: 1

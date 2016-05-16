@@ -4479,6 +4479,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 5.7
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11425238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4498,6 +4500,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 2.7
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11427894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4547,6 +4551,8 @@ MonoBehaviour:
   right: 1
   hitDistance: 0.2
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11432686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4593,6 +4599,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 2.4
   usesPhysics: 0
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11433568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4624,6 +4632,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 4
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11435658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4654,6 +4664,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.2
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11441850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4702,6 +4714,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 4
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11443408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4761,6 +4775,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.5
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11449214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4910,6 +4926,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 3.1
   usesPhysics: 1
+  damageParticles: {fileID: 130978, guid: 863d971d906391a4eaefa9bcae7bb209, type: 2}
+  isEngine: 1
 --- !u!114 &11456186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5040,6 +5058,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 5.7
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11474630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5143,6 +5163,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.2
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11482544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -19483,7 +19505,7 @@ ParticleSystemRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73e46fec6be617f4bb099c8f61d38127, type: 2}
+  - {fileID: 2100000, guid: f45cea2d0e56e0446b23d014331d4a54, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
