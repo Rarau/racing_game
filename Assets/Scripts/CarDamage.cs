@@ -25,7 +25,7 @@ public class CarDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Car Health" + carHealth);
+        //Debug.Log("Car Health" + carHealth);
 
         if (carHealth < 100)
         {
