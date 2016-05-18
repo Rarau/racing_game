@@ -50,35 +50,28 @@ public class UIController : MonoBehaviour{
         Menu menuScript = menu.GetComponent<Menu>();
         MenuViewBasic viewScript = view.AddComponent<MenuViewBasic>();
         MenuControllerBasic controllerScript = controller.AddComponent<MenuControllerBasic>();
-        menuScript.controller = controllerScript;
-        menuScript.view = viewScript;
         viewScript.textFont = GenericFont;
         viewScript.drawCamera = drawCamera;
 
         //setting up options
         //option 1
-        GameObject curOption = new GameObject();
+        GameObject curOption = new GameObject("option 1");
         curOption.transform.SetParent(curOption.transform);
         MenuOption curOptionScript = curOption.AddComponent<MenuOption>();
         curOptionScript.OnSelect = new UnityEvent();
         curOptionScript.OnSelect.AddListener(PrintMe);
         menuScript.AddOption(curOption);
 
-        GameObject curViewOption = new GameObject();
+        GameObject curViewOption = new GameObject("view option 1");
         MenuViewOptionBasic viewOptionScript = curViewOption.AddComponent<MenuViewOptionBasic>();
         viewOptionScript.optionText = "option 1";
         viewScript.AddOption(curViewOption);
 
         //option 2
 
-        curOption = new GameObject();
-        curOption.transform.SetParent(curOption.transform);
-        curOptionScript = curOption.AddComponent<MenuOption>();
-        curOptionScript.OnSelect = new UnityEvent();
-        curOptionScript.OnSelect.AddListener(PrintMe);
-        menuScript.AddOption(curOption);
+        menuScript.AddOption("option 2");
 
-        curViewOption = new GameObject();
+        curViewOption = new GameObject("view option 2");
         viewOptionScript = curViewOption.AddComponent<MenuViewOptionBasic>();
         viewOptionScript.optionText = "option 2";
         viewScript.AddOption(curViewOption);

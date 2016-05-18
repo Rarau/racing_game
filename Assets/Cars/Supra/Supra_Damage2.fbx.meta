@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 5aad347014a67564fb7e26c5901a0c28
+timeCreated: 1463250286
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BackBumper_D
+    100002: BackLeftWheel_High_D
+    100004: BackLeftWheel_LOW_D
+    100006: BackRightWheel_High_D
+    100008: BackRightWheel_LOW_D
+    100010: Bonnet_D
+    100012: Boot_D
+    100014: FrontBumper_D
+    100016: FrontLeftWheel_High_D
+    100018: FrontLeftWheel_LOW_D
+    100020: FrontRightWheel_High_D
+    100022: FrontRightWheel_LOW_D
+    100024: FrontWindow_D
+    100026: LeftDoor_D
+    100028: LeftRearPanel_D
+    100030: LeftTrim_D
+    100032: MainChassis_D
+    100034: RightBackPanel_D
+    100036: RightDoor_D
+    100038: RightTrim_D
+    100040: //RootNode
+    400000: BackBumper_D
+    400002: BackLeftWheel_High_D
+    400004: BackLeftWheel_LOW_D
+    400006: BackRightWheel_High_D
+    400008: BackRightWheel_LOW_D
+    400010: Bonnet_D
+    400012: Boot_D
+    400014: FrontBumper_D
+    400016: FrontLeftWheel_High_D
+    400018: FrontLeftWheel_LOW_D
+    400020: FrontRightWheel_High_D
+    400022: FrontRightWheel_LOW_D
+    400024: FrontWindow_D
+    400026: LeftDoor_D
+    400028: LeftRearPanel_D
+    400030: LeftTrim_D
+    400032: MainChassis_D
+    400034: RightBackPanel_D
+    400036: RightDoor_D
+    400038: RightTrim_D
+    400040: //RootNode
+    2300000: BackBumper_D
+    2300002: BackLeftWheel_High_D
+    2300004: BackLeftWheel_LOW_D
+    2300006: BackRightWheel_High_D
+    2300008: BackRightWheel_LOW_D
+    2300010: Bonnet_D
+    2300012: Boot_D
+    2300014: FrontBumper_D
+    2300016: FrontLeftWheel_High_D
+    2300018: FrontLeftWheel_LOW_D
+    2300020: FrontRightWheel_High_D
+    2300022: FrontRightWheel_LOW_D
+    2300024: FrontWindow_D
+    2300026: LeftDoor_D
+    2300028: LeftRearPanel_D
+    2300030: LeftTrim_D
+    2300032: MainChassis_D
+    2300034: RightBackPanel_D
+    2300036: RightDoor_D
+    2300038: RightTrim_D
+    3300000: BackBumper_D
+    3300002: BackLeftWheel_High_D
+    3300004: BackLeftWheel_LOW_D
+    3300006: BackRightWheel_High_D
+    3300008: BackRightWheel_LOW_D
+    3300010: Bonnet_D
+    3300012: Boot_D
+    3300014: FrontBumper_D
+    3300016: FrontLeftWheel_High_D
+    3300018: FrontLeftWheel_LOW_D
+    3300020: FrontRightWheel_High_D
+    3300022: FrontRightWheel_LOW_D
+    3300024: FrontWindow_D
+    3300026: LeftDoor_D
+    3300028: LeftRearPanel_D
+    3300030: LeftTrim_D
+    3300032: MainChassis_D
+    3300034: RightBackPanel_D
+    3300036: RightDoor_D
+    3300038: RightTrim_D
+    4300000: RightBackPanel_D
+    4300002: LeftRearPanel_D
+    4300004: FrontBumper_D
+    4300006: FrontWindow_D
+    4300008: Bonnet_D
+    4300010: BackBumper_D
+    4300012: LeftTrim_D
+    4300014: RightTrim_D
+    4300016: FrontLeftWheel_High_D
+    4300018: FrontRightWheel_High_D
+    4300020: FrontRightWheel_LOW_D
+    4300022: FrontLeftWheel_LOW_D
+    4300024: RightDoor_D
+    4300026: LeftDoor_D
+    4300028: Boot_D
+    4300030: BackLeftWheel_High_D
+    4300032: BackLeftWheel_LOW_D
+    4300034: BackRightWheel_High_D
+    4300036: BackRightWheel_LOW_D
+    4300038: MainChassis_D
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
