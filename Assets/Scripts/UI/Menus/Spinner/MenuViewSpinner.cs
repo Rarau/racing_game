@@ -12,7 +12,7 @@ public class MenuViewSpinner : MenuView {
     public float optionSpinSpeed = 90.0f;//in degrees per second
     public float timeToTurn = 1.0f;//in seconds
     // ^ MAKE SURE THIS IS <= CONTROLLER INPUT PAUSE ; OTHERWISE CAUSES UNDEFINED BEHAVIOUR
-    public List<MenuViewOptionSpinner> options;
+    private List<MenuViewOptionSpinner> options;
 
     private GameObject spinner;
     private float curAngle = 0.0f;
@@ -22,8 +22,12 @@ public class MenuViewSpinner : MenuView {
     // Use this for initialization
     void Start () {
         menu = GetComponentInParent<Menu>();
+
+        options = new List<MenuViewOptionSpinner>();
+        GetComponentsInChildren<MenuViewOptionSpinner>(options);
         //set up meshes / spinner
         spinner = new GameObject("MenuViewSpinner");
+        spinner.transform.SetParent(transform);
         spinner.transform.position = center;
         //make spinner face camera
         spinner.transform.LookAt(viewCamera.transform);
@@ -141,6 +145,8 @@ public class MenuViewSpinner : MenuView {
 
     public override void AddOption(GameObject newOption)
     {
-
+        if (options == null) options = new List<MenuViewOptionSpinner>();
+        newOption.transform.SetParent(transform, false);
+        options.Add(newOption.GetComponent<MenuViewOptionSpinner>());
     }
 }
