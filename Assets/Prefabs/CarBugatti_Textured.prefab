@@ -564,6 +564,7 @@ GameObject:
   - 114: {fileID: 11470534}
   - 114: {fileID: 11401162}
   - 82: {fileID: 8281968}
+  - 114: {fileID: 11419668}
   m_Layer: 0
   m_Name: CarBugatti_Textured
   m_TagString: Untagged
@@ -3761,6 +3762,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd59eec852e0c74089ce4a30a25bd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11419668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593d030143925f04897c0f12412e5542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  racePosition: 0
+  lap: 0
+  lastCheckpoint: 0
 --- !u!114 &11420810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3780,6 +3796,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.2
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11421206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3791,6 +3809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11421996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3802,6 +3822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11422410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3813,6 +3835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11427296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3836,6 +3860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11430746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3855,6 +3881,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 1.5
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11435200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3901,6 +3929,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.2
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11443750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3924,6 +3954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11450572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3935,6 +3967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11451230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3959,6 +3993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11456006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3970,6 +4006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11456410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3981,6 +4019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11460964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3992,6 +4032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11461488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4003,6 +4045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11462470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4033,6 +4077,8 @@ MonoBehaviour:
   right: 1
   hitDistance: 0.2
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11463286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4096,6 +4142,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 0.2
   usesPhysics: 1
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11470534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4159,6 +4207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11473540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4170,6 +4220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11475654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4312,6 +4364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!114 &11482356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4331,6 +4385,8 @@ MonoBehaviour:
   right: 0
   hitDistance: 4
   usesPhysics: 0
+  damageParticles: {fileID: 0}
+  isEngine: 0
 --- !u!114 &11482362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4479,6 +4535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
+  swapTexture: []
 --- !u!124 &12432634
 Behaviour:
   m_ObjectHideFlags: 1
