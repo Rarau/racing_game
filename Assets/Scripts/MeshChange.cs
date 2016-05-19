@@ -27,6 +27,13 @@ public class MeshChange : MonoBehaviour {
 
     public bool usesPhysics = true;
 
+    public GameObject damageParticles;
+    GameObject cloneDamageParticles;
+
+    public bool isEngine;
+
+    bool isSmoke = false;
+
     void Awake()
     {
         carController = transform.root.GetComponent<CarController>();
@@ -37,6 +44,8 @@ public class MeshChange : MonoBehaviour {
     {
         gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         gameObject.transform.GetChild(1).GetComponent<Renderer>().enabled = false;
+        if (usesPhysics)
+            gameObject.transform.GetChild(1).GetComponent<Collider>().enabled = false;
         meshHealth = 100;
     }
 
@@ -59,6 +68,7 @@ public class MeshChange : MonoBehaviour {
                 Destroy(gameObject.transform.GetChild(1).GetComponent<Rigidbody>());
                 gameObject.transform.GetChild(1).rotation = gameObject.transform.GetChild(0).rotation;
                 gameObject.transform.GetChild(1).position = gameObject.transform.GetChild(0).position;
+                gameObject.transform.GetChild(1).GetComponent<Collider>().enabled = false;
                 alreadyDetached = false;
             }
         }
@@ -69,8 +79,25 @@ public class MeshChange : MonoBehaviour {
         }
         else if (meshHealth <= 0 && looseParts && !alreadyDetached && usesPhysics)
         {
+            gameObject.transform.GetChild(1).GetComponent<Collider>().enabled = true;
             addRigidBody(this.transform.GetChild(1).gameObject);
             alreadyDetached = true;
+        }
+
+        if (isEngine)
+        {
+            if (alreadyDetached && !isSmoke)
+            {
+                cloneDamageParticles = (GameObject)Instantiate(damageParticles, transform.position, transform.rotation);
+                cloneDamageParticles.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
+                cloneDamageParticles.transform.parent = transform;
+                isSmoke = true;
+            }
+            else if (!alreadyDetached && isSmoke)
+            {
+                Destroy(cloneDamageParticles, 1.0f);
+                isSmoke = false;
+            }
         }
     }
 
@@ -106,7 +133,8 @@ public class MeshChange : MonoBehaviour {
         if (Physics.Raycast(childInfo.GetPosition(), direction, hitDistance))
         {
             //Debug.Log("position : " + childInfo.GetPosition() + " "+ childInfo.name);
-            meshHealth -= carController.currentSpeed * healthDiscount;
+            meshHealth -= Mathf.Clamp(carController.currentSpeed * healthDiscount, 0, 150);
+            
         }
     }
 
