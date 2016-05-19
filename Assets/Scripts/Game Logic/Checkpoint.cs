@@ -23,7 +23,7 @@ public class Checkpoint : MonoBehaviour
                 car.GetComponent<RaceInfo>().lastCheckpoint = thisCheckpoint;
 
                 // Quick and dirty way to update the UI counter - NEEDS REFACTORING.
-                GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
+                //GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
             } else if (car.GetComponent<RaceInfo>().lastCheckpoint == 7 && thisCheckpoint == 0)
             {
                 // The car has completed a lap.
@@ -31,8 +31,8 @@ public class Checkpoint : MonoBehaviour
                 car.GetComponent<RaceInfo>().lastCheckpoint = thisCheckpoint;
 
                 // Quick and dirty way to update the UI counters - NEEDS REFACTORING.
-                GameObject.Find("LapCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lap;
-                GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
+                //GameObject.Find("LapCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lap;
+                //GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
             } else
             {
                 Debug.Log("Turn around you are travelling in the wrong direction.");
