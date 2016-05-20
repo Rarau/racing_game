@@ -8,7 +8,7 @@ public class Checkpoint : MonoBehaviour
 
     void Start()
     {
-        thisCheckpoint = int.Parse(name);
+        thisCheckpoint = int.Parse(name.Substring(10));
     }
 
     private void OnTriggerEnter(Collider carCollider)
@@ -24,7 +24,8 @@ public class Checkpoint : MonoBehaviour
 
                 // Quick and dirty way to update the UI counter - NEEDS REFACTORING.
                 //GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
-            } else if (car.GetComponent<RaceInfo>().lastCheckpoint == 7 && thisCheckpoint == 0)
+            } 
+            else if (car.GetComponent<RaceInfo>().lastCheckpoint == GameObject.Find("Checkpoints").transform.childCount - 1 && thisCheckpoint == 0)
             {
                 // The car has completed a lap.
                 car.GetComponent<RaceInfo>().lap++;
@@ -33,7 +34,8 @@ public class Checkpoint : MonoBehaviour
                 // Quick and dirty way to update the UI counters - NEEDS REFACTORING.
                 //GameObject.Find("LapCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lap;
                 //GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
-            } else
+            } 
+            else
             {
                 Debug.Log("Turn around you are travelling in the wrong direction.");
             }

@@ -10,7 +10,7 @@ public class RaceInfo : MonoBehaviour
 
     void Start()
     {
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         //racePosition = gm.getPosition();
     }
 }
