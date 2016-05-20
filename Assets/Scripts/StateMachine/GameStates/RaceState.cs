@@ -9,7 +9,7 @@ public class RaceState : State<GameManager>
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         //Debug.Log("Executing Race State");
-        CalculateRacePositions(gm);
+        UpdateRacePositions();
     }
 
     public void enter(GameManager gm)
@@ -30,7 +30,17 @@ public class RaceState : State<GameManager>
         Debug.Log("Left Race State");
     }
 
-    private void CalculateRacePositions(GameManager gm)
+    private void UpdateRacePositions()
+    {
+        List<GameObject> cars = CalculateRacePositions();
+        for (int i = 0; i < cars.Count; i++)
+        {
+            cars[i].GetComponent<RaceInfo>().racePosition = i + 1;
+        }
+    }
+
+    // Determine the position of each car in the race.
+    private List<GameObject> CalculateRacePositions()
     {
         // Order car list based on lap number - zero index = last place.
         cars.Sort(CompareByLap);
@@ -87,7 +97,7 @@ public class RaceState : State<GameManager>
             }
         }
 
-        // Index 0 is now first position.
+        // Index 0 is now the first position.
         cars.Reverse();
 
         //// For debugging.
@@ -98,6 +108,8 @@ public class RaceState : State<GameManager>
         //Debug.Log("BREAK");
         //Debug.Log("BREAK");
         //Debug.Log("BREAK");
+
+        return cars;
     }
 
     // Comparitor for the cars current lap.

@@ -16,16 +16,17 @@ public class Checkpoint : MonoBehaviour
         if (carCollider.tag == "CheckpointCollider")
         {
             Transform car = carCollider.gameObject.transform.root;
+            int lastCheckpoint = car.GetComponent<RaceInfo>().lastCheckpoint;
 
             // Enforce that the car travels in the correct direction.
-            if (car.GetComponent<RaceInfo>().lastCheckpoint == thisCheckpoint - 1)
+            if (lastCheckpoint == thisCheckpoint - 1)
             {
                 car.GetComponent<RaceInfo>().lastCheckpoint = thisCheckpoint;
 
                 // Quick and dirty way to update the UI counter - NEEDS REFACTORING.
                 //GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
             } 
-            else if (car.GetComponent<RaceInfo>().lastCheckpoint == GameObject.Find("Checkpoints").transform.childCount - 1 && thisCheckpoint == 0)
+            else if (lastCheckpoint == GameObject.Find("Checkpoints").transform.childCount - 1 && thisCheckpoint == 0)
             {
                 // The car has completed a lap.
                 car.GetComponent<RaceInfo>().lap++;
