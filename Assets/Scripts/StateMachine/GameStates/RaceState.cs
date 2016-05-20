@@ -4,12 +4,12 @@ using System.Collections.Generic;
 public class RaceState : State<GameManager>
 {
     // Temporary until we figure out where this is coming from.
-    public List<GameObject> tempCarArray;
+    public List<GameObject> cars;
 
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         //Debug.Log("Executing Race State");
-        CalculateRacePositions();
+        CalculateRacePositions(gm);
     }
 
     public void enter(GameManager gm)
@@ -17,16 +17,12 @@ public class RaceState : State<GameManager>
         Debug.Log("Entered Race State");
         // Get car starting position array.
         // Temp stuff until we figure out where the list of cars is coming from.
-        tempCarArray = new List<GameObject>();
-        tempCarArray.Add(GameObject.Find("CarSupra"));
-        tempCarArray.Add(GameObject.Find("CarSupra1"));
-        tempCarArray.Add(GameObject.Find("CarSupra2"));
-        tempCarArray.Add(GameObject.Find("CarSupra3"));
-        tempCarArray.Add(GameObject.Find("CarSupra4"));
-        for (int i = 0; i < tempCarArray.Count; i++)
-        {
-            Debug.Log(tempCarArray[i].name);
-        }
+        cars = new List<GameObject>();
+        cars.Add(GameObject.Find("CarSupra"));
+        cars.Add(GameObject.Find("CarSupra1"));
+        cars.Add(GameObject.Find("CarSupra2"));
+        cars.Add(GameObject.Find("CarSupra3"));
+        cars.Add(GameObject.Find("CarSupra4"));
     }
 
     public void exit(GameManager gm)
@@ -34,21 +30,99 @@ public class RaceState : State<GameManager>
         Debug.Log("Left Race State");
     }
 
-    private void CalculateRacePositions()
+    private void CalculateRacePositions(GameManager gm)
     {
-        tempCarArray.Sort(CompareByLap);
-        for (int i = 0; i < tempCarArray.Count; i++)
+        // Order car list based on lap number - zero index = last place.
+        cars.Sort(CompareByLap);
+
+        // For each car on a lap find all other cars on the same lap.
+        List<int> sortedLaps = new List<int>();
+        for (int i = 0; i < cars.Count; i++)
         {
-            Debug.Log(tempCarArray[i].name + ": " + tempCarArray[i].GetComponent<RaceInfo>().lap);
+            int lap = cars[i].GetComponent<RaceInfo>().lap;
+            List<GameObject> sameLapCars;
+
+            if (!sortedLaps.Contains(lap))
+            {
+                sameLapCars = cars.FindAll(delegate (GameObject car) { return car.GetComponent<RaceInfo>().lap == lap; });
+
+                if (sameLapCars.Count > 1)
+                {
+                    // Sort via last checkpoint.
+                    sameLapCars.Sort(CompareByCheckpoint);
+
+                    // Find any cars who have the same last checkpoint on the same lap.
+                    List<int> sortedCheckpoints = new List<int>();
+                    for (int j = 0; j < sameLapCars.Count; j++)
+                    {
+                        int lastCheckpoint = sameLapCars[j].GetComponent<RaceInfo>().lastCheckpoint;
+                        List<GameObject> sameLastCheckpointCars;
+
+                        if (!sortedCheckpoints.Contains(lastCheckpoint))
+                        {
+                            sameLastCheckpointCars = sameLapCars.FindAll(delegate (GameObject car) { return car.GetComponent<RaceInfo>().lastCheckpoint == lastCheckpoint; });
+                            if (sameLastCheckpointCars.Count > 1)
+                            {
+                                sameLastCheckpointCars.Sort(CompareByDistanceToNextCheckpoint);
+
+                                // Replace the unordered cars by their distance to next checkpoint ordering.
+                                for (int k = 0; k < sameLastCheckpointCars.Count; k++)
+                                {
+                                    sameLapCars[j + k] = sameLastCheckpointCars[k];
+                                }
+                            }
+                        }
+
+                        sortedCheckpoints.Add(lastCheckpoint);
+                    }
+                }
+
+                // Replace the unordered cars by their last checkpoint ordering.
+                for (int j = 0; j < sameLapCars.Count; j++)
+                {
+                    cars[i + j] = sameLapCars[j];
+                }
+
+                sortedLaps.Add(lap);
+            }
         }
-        // Order car list based on lap number - the highest being index 0.
-        // If multiple cars on the same lap take that subset and order based on last checkpoint.
-        // If multiple last checkpoints take that subset and order based on distance to next checkpoint.
+
+        // Index 0 is now first position.
+        cars.Reverse();
+
+        //// For debugging.
+        //for (int j = 0; j < cars.Count; j++)
+        //{
+        //    Debug.Log(cars[j].name);
+        //}
+        //Debug.Log("BREAK");
+        //Debug.Log("BREAK");
+        //Debug.Log("BREAK");
     }
 
-    // Comparitor for the car's current lap.
+    // Comparitor for the cars current lap.
     private int CompareByLap(GameObject car1, GameObject car2)
     {
         return car1.GetComponent<RaceInfo>().lap.CompareTo(car2.GetComponent<RaceInfo>().lap);
+    }
+
+    // Comparitor for the cars last checkpoint.
+    private int CompareByCheckpoint(GameObject car1, GameObject car2)
+    {
+        return car1.GetComponent<RaceInfo>().lastCheckpoint.CompareTo(car2.GetComponent<RaceInfo>().lastCheckpoint);
+    }
+
+    // Comparitor for the cars distance to their next checkpoints.
+    private int CompareByDistanceToNextCheckpoint(GameObject car1, GameObject car2)
+    {
+        float car1Distance = CalculateDistance(car1, GameObject.Find("Checkpoint" + (car1.GetComponent<RaceInfo>().lastCheckpoint + 1).ToString()));
+        float car2Distance = CalculateDistance(car2, GameObject.Find("Checkpoint" + (car2.GetComponent<RaceInfo>().lastCheckpoint + 1).ToString()));
+        return car2Distance.CompareTo(car1Distance);
+    }
+
+    // Calculates the distance between two game objects.
+    private float CalculateDistance(GameObject car, GameObject checkpoint)
+    {
+        return Vector3.Distance(car.transform.position, checkpoint.transform.position);
     }
 }

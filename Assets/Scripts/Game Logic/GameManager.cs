@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 
     public StateMachine<GameManager> fsm;
 
+    public int numberOfLaps = 3;
     //public int numberOfHumanPlayers;
     //public string[] nameOfPlayers;
     //public int trackSelected;
