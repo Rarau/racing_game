@@ -6,6 +6,7 @@ public class RaceState : State<GameManager>
     // Temporary until we figure out where this is coming from.
     public List<GameObject> cars;
 
+
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         //Debug.Log("Executing Race State");
@@ -25,7 +26,14 @@ public class RaceState : State<GameManager>
         //cars.Add(GameObject.Find("CarSupra3"));
         //cars.Add(GameObject.Find("CarSupra4"));
 
-        gm.startTime = Time.time;
+        // Remove startup time from the race timer.
+        float raceStartTime = Time.time;
+        
+        // Adjust the cars lap timers to account the the start time.
+        for (int i = 0; i < cars.Count; i++)
+        {
+            cars[i].GetComponent<RaceInfo>().SetLapTimer(Time.time - raceStartTime);
+        }   
     }
 
     public void exit(GameManager gm)

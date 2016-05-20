@@ -32,7 +32,7 @@ public class Checkpoint : MonoBehaviour
                 car.GetComponent<RaceInfo>().lap++;
                 car.GetComponent<RaceInfo>().lastCheckpoint = thisCheckpoint;
 
-                //car.GetComponent<RaceInfo>().SaveLapTime();
+                car.GetComponent<RaceInfo>().SaveLapTime();
 
                 // Update UI.
             } 
