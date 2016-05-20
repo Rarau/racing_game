@@ -21,10 +21,10 @@ public class Checkpoint : MonoBehaviour
             // Enforce that the car travels in the correct direction.
             if (lastCheckpoint == thisCheckpoint - 1)
             {
+                // Update the checkpoint.
                 car.GetComponent<RaceInfo>().lastCheckpoint = thisCheckpoint;
-
-                // Quick and dirty way to update the UI counter - NEEDS REFACTORING.
-                //GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
+                
+                // Update UI.
             } 
             else if (lastCheckpoint == GameObject.Find("Checkpoints").transform.childCount - 1 && thisCheckpoint == 0)
             {
@@ -32,15 +32,20 @@ public class Checkpoint : MonoBehaviour
                 car.GetComponent<RaceInfo>().lap++;
                 car.GetComponent<RaceInfo>().lastCheckpoint = thisCheckpoint;
 
-                // Quick and dirty way to update the UI counters - NEEDS REFACTORING.
-                //GameObject.Find("LapCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lap;
-                //GameObject.Find("CheckpointCount").GetComponent<Text>().text = "" + car.GetComponent<RaceInfo>().lastCheckpoint;
+                //car.GetComponent<RaceInfo>().SaveLapTime();
+
+                // Update UI.
             } 
             else
             {
+                // Travelling in the wrong direction.
                 Debug.Log("Turn around you are travelling in the wrong direction.");
             }
-            Debug.Log(car.GetComponent<RaceInfo>().lastCheckpoint);
+
+            // For debugging.
+            Debug.Log("Lap: " + car.GetComponent<RaceInfo>().lap + " " +
+                      "Checkpoint: " + car.GetComponent<RaceInfo>().lastCheckpoint + " " +
+                      "Time: " + car.GetComponent<RaceInfo>().lapTimer);
         }
     }
 }

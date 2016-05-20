@@ -17,12 +17,15 @@ public class RaceState : State<GameManager>
         Debug.Log("Entered Race State");
         // Get car starting position array.
         // Temp stuff until we figure out where the list of cars is coming from.
+        // Should probably be in RaceStartState.
         cars = new List<GameObject>();
         cars.Add(GameObject.Find("CarSupra"));
-        cars.Add(GameObject.Find("CarSupra1"));
-        cars.Add(GameObject.Find("CarSupra2"));
-        cars.Add(GameObject.Find("CarSupra3"));
-        cars.Add(GameObject.Find("CarSupra4"));
+        //cars.Add(GameObject.Find("CarSupra1"));
+        //cars.Add(GameObject.Find("CarSupra2"));
+        //cars.Add(GameObject.Find("CarSupra3"));
+        //cars.Add(GameObject.Find("CarSupra4"));
+
+        gm.startTime = Time.time;
     }
 
     public void exit(GameManager gm)

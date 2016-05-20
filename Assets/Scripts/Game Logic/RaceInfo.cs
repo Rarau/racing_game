@@ -9,37 +9,37 @@ public class RaceInfo : MonoBehaviour
     public int racePosition = 0;
     public int lastCheckpoint = 0;
 
-    public float lapTime = 0;
-    public float timeSinceLastCheckpoint = 0;
+    public float lapTimer = 0.0f;
     public List<float> lapTimes;
 
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         lapTimes = new List<float>();
     }
 
-    public void addLapTime()
+    void Update()
     {
-
+        lapTimer = Time.time;
     }
 
-    //public void SetLastCheckpoint(int checkpoint)
-    //{
-    //    lastCheckpoint = checkpoint;
-    //}
+    public void SetLastCheckpoint(int checkpoint)
+    {
+        lastCheckpoint = checkpoint;
+    }
 
-    //public int GetLastCheckpoint()
-    //{
-    //    return lastCheckpoint;
-    //}
+    public int GetLastCheckpoint()
+    {
+        return lastCheckpoint;
+    }
 
-    //public void SetLap(int currentLap)
-    //{
-    //    lap = currentLap;
-    //}
+    public void SetLap(int currentLap)
+    {
+        lap = currentLap;
+    }
 
-    //public int GetLap()
-    //{
-    //    return lap;
-    //}
+    public int GetLap()
+    {
+        return lap;
+    }
 }
