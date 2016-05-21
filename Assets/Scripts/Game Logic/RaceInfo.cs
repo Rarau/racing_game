@@ -32,10 +32,9 @@ public class RaceInfo : MonoBehaviour
         }
     }
 
-    //
+    // Stores the latest lap time and refreshes the lap timer.
     public void SaveLapTime()
     {
-        // This may be slightly inaccurate...
         lapTimes.Add(lapTimer);
         cumulativeLapTimes += lapTimer;
         lapTimer = 0.0f;

@@ -8,6 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/GameScenes/SPLASH_SCREEN.unity
   - enabled: 1
-    path: Assets/_Scenes/GameScenes/MAIN_MENU.unity
+    path: Assets/_Scenes/GameScenes/PLAYER_MENU.unity
   - enabled: 1
     path: Assets/_Scenes/GameScenes/RACE.unity

@@ -31,7 +31,6 @@ public class Checkpoint : MonoBehaviour
                 // The car has completed a lap.
                 car.GetComponent<RaceInfo>().lap++;
                 car.GetComponent<RaceInfo>().lastCheckpoint = thisCheckpoint;
-
                 car.GetComponent<RaceInfo>().SaveLapTime();
 
                 // Update UI.

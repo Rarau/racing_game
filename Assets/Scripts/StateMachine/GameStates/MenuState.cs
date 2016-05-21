@@ -6,13 +6,17 @@ public class MenuState : State<GameManager>
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         Debug.Log("Executing Menu State");
-
-        // Load the race with default settings when any key is pressed.
-        if (Input.anyKey)
+        if (gm.numberOfHumanPlayers != 0 && gm.GetLevel() == "_Scenes/GameScenes/PLAYER_MENU")
         {
-            gm.setLevel("RACE");
-            fsm.setState(new RaceStartState());
+            gm.SetLevel("CAR_MENU");
         }
+
+        //// Load the race with default settings when any key is pressed.
+        //if (Input.anyKey)
+        //{
+        //    gm.SetLevel("RACE");
+        //    fsm.setState(new RaceStartState());
+        //}
     }
 
     public void enter(GameManager gm)
