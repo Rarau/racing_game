@@ -37,11 +37,8 @@ public class OnText : MonoBehaviour {
                 countdownText.fontSize = fontSize*2;
             else
                 countdownText.fontSize = fontSize;
-
         }
 
         countdownText.fontSize += (int)((((100 + countdown.timeLeft)) / 100) );
-
-        Debug.Log(Mathf.Abs(countdown.timeLeft));
     }
 }
