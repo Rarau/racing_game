@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour {
     public StateMachine<GameManager> fsm;
 
     public int numberOfHumanPlayers;
-    public int numberOfLaps;
+    public List<string> nameOfPlayers;
+    public List<string> playerCars;
+    public List<bool> carSelected;
 
     //public string[] nameOfPlayers;
     //public int trackSelected;
@@ -53,16 +55,9 @@ public class GameManager : MonoBehaviour {
         fsm.setState(new SplashState());
 
         numberOfHumanPlayers = 0;
-        numberOfLaps = 0;
-
-        //numberOfHumanPlayers = 0;
-        //nameOfPlayers = new string[numPlayers];
-        //carSelected = new bool[numPlayers];
-        //for (int i = 0; i < numPlayers; i++)
-        //{
-        //    nameOfPlayers[i] = string.Concat("Player 0", i.ToString());
-        //    carSelected[i] = false;
-        //}
+        nameOfPlayers = new List<string>();
+        playerCars = new List<string>();
+        carSelected = new List<bool>();
 
         //trackSelected = 0;
     }
@@ -71,6 +66,17 @@ public class GameManager : MonoBehaviour {
     {
         fsm.update();
     }
+
+    public void InitialisePlayerInformation()
+    {
+        for (int i = 0; i < numberOfHumanPlayers; i++)
+        {
+            nameOfPlayers.Add(string.Concat("Player" + i.ToString()));
+            playerCars.Add("");
+            carSelected.Add(false);
+        }
+    }
+
 
     public string GetLevel()
     {
