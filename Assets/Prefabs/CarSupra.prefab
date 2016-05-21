@@ -2039,8 +2039,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116462}
-  m_LocalRotation: {x: 0, y: 0.747913, z: 0, w: 0.66379684}
-  m_LocalPosition: {x: -67.3, y: 69.49, z: 121.6}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -34.259, y: -15.775, z: -42.053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469876}
@@ -4507,7 +4507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
-  looseParts: 1
+  looseParts: 0
   alreadyDetached: 0
   forward: 0
   left: 0
@@ -4808,7 +4808,7 @@ MonoBehaviour:
   forward: 1
   left: 0
   right: 0
-  hitDistance: 0.5
+  hitDistance: 1
   usesPhysics: 1
   damageParticles: {fileID: 0}
   isEngine: 0
@@ -5086,7 +5086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshHealth: 0
-  looseParts: 1
+  looseParts: 0
   alreadyDetached: 0
   forward: 0
   left: 0
@@ -5856,7 +5856,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.7509994, y: -0.57644653, z: -1.1103799}
+  m_ConnectedAnchor: {x: -0.75099945, y: -0.5764446, z: -1.1103783}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5948,7 +5948,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.67900133, y: -0.5714493, z: 1.19462}
+  m_ConnectedAnchor: {x: 0.67900085, y: -0.57144547, z: 1.194622}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -6040,7 +6040,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.67900234, y: -0.57644653, z: -1.1103779}
+  m_ConnectedAnchor: {x: 0.67900085, y: -0.5764446, z: -1.1103783}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -6132,7 +6132,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.7510004, y: -0.5714493, z: 1.194618}
+  m_ConnectedAnchor: {x: -0.75099945, y: -0.57144547, z: 1.194622}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1

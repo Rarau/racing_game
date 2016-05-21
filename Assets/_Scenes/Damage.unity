@@ -629,6 +629,26 @@ Prefab:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 11432556, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22448248, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 22448248, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432556, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_Text
+      value: '[ countdown ]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432556, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
   m_IsPrefabParent: 0
