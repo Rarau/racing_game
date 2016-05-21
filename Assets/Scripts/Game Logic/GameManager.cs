@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     private static GameManager _instance;
 
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour {
     public List<string> nameOfPlayers;
     public List<string> playerCars;
     public List<bool> carSelected;
-    //public List<Vector3> starting positions;
+    public List<GameObject> spawnLocations;
 
     //public string[] nameOfPlayers;
     //public int trackSelected;
@@ -61,9 +62,10 @@ public class GameManager : MonoBehaviour {
         nameOfPlayers = new List<string>();
         playerCars = new List<string>();
         carSelected = new List<bool>();
+        spawnLocations = new List<GameObject>();
 
-        //trackSelected = 0;
-    }
+    //trackSelected = 0;
+}
 
     public void Update()
     {
@@ -91,11 +93,11 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("_Scenes/GameScenes/" + levelName);
     }
 
-    void Awake ()
+    void Awake()
     {
         _instance = this;
         DontDestroyOnLoad(_instance);
-	}
+    }
 
     // Sets the instance to null when the application quits
     public void OnApplicationQuit()
