@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: 53cd02f213ffe9041bbd6b2b5d75015e
+timeCreated: 1463482085
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: branch1_1
+    100002: branch1_2
+    100004: branch1_3
+    100006: Branch_001
+    100008: Branch_002
+    100010: Branch_003
+    100012: Branch_004
+    100014: Branch_005
+    100016: BranchBunchCard_0010
+    100018: BranchBunchCard_0010 1
+    100020: BranchBunchCard_0011
+    100022: BranchBunchCard_0012
+    100024: BranchBunchCard_0013
+    100026: BranchBunchCard_0014
+    100028: BranchBunchCard_002
+    100030: BranchBunchCard_002 1
+    100032: BranchBunchCard_003
+    100034: BranchBunchCard_003 1
+    100036: BranchBunchCard_004
+    100038: BranchBunchCard_004 1
+    100040: BranchBunchCard_005
+    100042: BranchBunchCard_005 1
+    100044: BranchBunchCard_006
+    100046: BranchBunchCard_006 1
+    100048: BranchBunchCard_007
+    100050: BranchBunchCard_007 1
+    100052: BranchBunchCard_008
+    100054: BranchBunchCard_008 1
+    100056: BranchBunchCard_009
+    100058: BranchBunchCard_009 1
+    100060: LowRes_FloralBunch_0010
+    100062: LowRes_FloralBunch_0011
+    100064: LowRes_FloralBunch_002
+    100066: LowRes_FloralBunch_003
+    100068: LowRes_FloralBunch_004
+    100070: LowRes_FloralBunch_005
+    100072: LowRes_FloralBunch_006
+    100074: LowRes_FloralBunch_007
+    100076: LowRes_FloralBunch_008
+    100078: LowRes_FloralBunch_009
+    100080: MountainLaurel_Branches
+    100082: //RootNode
+    100084: MountainLaurelTree_group
+    100086: MountainLaurelTree_helper
+    400000: branch1_1
+    400002: branch1_2
+    400004: branch1_3
+    400006: Branch_001
+    400008: Branch_002
+    400010: Branch_003
+    400012: Branch_004
+    400014: Branch_005
+    400016: BranchBunchCard_0010
+    400018: BranchBunchCard_0010 1
+    400020: BranchBunchCard_0011
+    400022: BranchBunchCard_0012
+    400024: BranchBunchCard_0013
+    400026: BranchBunchCard_0014
+    400028: BranchBunchCard_002
+    400030: BranchBunchCard_002 1
+    400032: BranchBunchCard_003
+    400034: BranchBunchCard_003 1
+    400036: BranchBunchCard_004
+    400038: BranchBunchCard_004 1
+    400040: BranchBunchCard_005
+    400042: BranchBunchCard_005 1
+    400044: BranchBunchCard_006
+    400046: BranchBunchCard_006 1
+    400048: BranchBunchCard_007
+    400050: BranchBunchCard_007 1
+    400052: BranchBunchCard_008
+    400054: BranchBunchCard_008 1
+    400056: BranchBunchCard_009
+    400058: BranchBunchCard_009 1
+    400060: LowRes_FloralBunch_0010
+    400062: LowRes_FloralBunch_0011
+    400064: LowRes_FloralBunch_002
+    400066: LowRes_FloralBunch_003
+    400068: LowRes_FloralBunch_004
+    400070: LowRes_FloralBunch_005
+    400072: LowRes_FloralBunch_006
+    400074: LowRes_FloralBunch_007
+    400076: LowRes_FloralBunch_008
+    400078: LowRes_FloralBunch_009
+    400080: MountainLaurel_Branches
+    400082: //RootNode
+    400084: MountainLaurelTree_group
+    400086: MountainLaurelTree_helper
+    2300000: BranchBunchCard_0010
+    2300002: BranchBunchCard_0010 1
+    2300004: BranchBunchCard_0011
+    2300006: BranchBunchCard_0012
+    2300008: BranchBunchCard_0013
+    2300010: BranchBunchCard_0014
+    2300012: BranchBunchCard_002
+    2300014: BranchBunchCard_002 1
+    2300016: BranchBunchCard_003
+    2300018: BranchBunchCard_003 1
+    2300020: BranchBunchCard_004
+    2300022: BranchBunchCard_004 1
+    2300024: BranchBunchCard_005
+    2300026: BranchBunchCard_005 1
+    2300028: BranchBunchCard_006
+    2300030: BranchBunchCard_006 1
+    2300032: BranchBunchCard_007
+    2300034: BranchBunchCard_007 1
+    2300036: BranchBunchCard_008
+    2300038: BranchBunchCard_008 1
+    2300040: BranchBunchCard_009
+    2300042: BranchBunchCard_009 1
+    2300044: LowRes_FloralBunch_0010
+    2300046: LowRes_FloralBunch_0011
+    2300048: LowRes_FloralBunch_002
+    2300050: LowRes_FloralBunch_003
+    2300052: LowRes_FloralBunch_004
+    2300054: LowRes_FloralBunch_005
+    2300056: LowRes_FloralBunch_006
+    2300058: LowRes_FloralBunch_007
+    2300060: LowRes_FloralBunch_008
+    2300062: LowRes_FloralBunch_009
+    2300064: MountainLaurel_Branches
+    3300000: BranchBunchCard_0010
+    3300002: BranchBunchCard_0010 1
+    3300004: BranchBunchCard_0011
+    3300006: BranchBunchCard_0012
+    3300008: BranchBunchCard_0013
+    3300010: BranchBunchCard_0014
+    3300012: BranchBunchCard_002
+    3300014: BranchBunchCard_002 1
+    3300016: BranchBunchCard_003
+    3300018: BranchBunchCard_003 1
+    3300020: BranchBunchCard_004
+    3300022: BranchBunchCard_004 1
+    3300024: BranchBunchCard_005
+    3300026: BranchBunchCard_005 1
+    3300028: BranchBunchCard_006
+    3300030: BranchBunchCard_006 1
+    3300032: BranchBunchCard_007
+    3300034: BranchBunchCard_007 1
+    3300036: BranchBunchCard_008
+    3300038: BranchBunchCard_008 1
+    3300040: BranchBunchCard_009
+    3300042: BranchBunchCard_009 1
+    3300044: LowRes_FloralBunch_0010
+    3300046: LowRes_FloralBunch_0011
+    3300048: LowRes_FloralBunch_002
+    3300050: LowRes_FloralBunch_003
+    3300052: LowRes_FloralBunch_004
+    3300054: LowRes_FloralBunch_005
+    3300056: LowRes_FloralBunch_006
+    3300058: LowRes_FloralBunch_007
+    3300060: LowRes_FloralBunch_008
+    3300062: LowRes_FloralBunch_009
+    3300064: MountainLaurel_Branches
+    4300000: BranchBunchCard_003
+    4300002: BranchBunchCard_004
+    4300004: BranchBunchCard_005
+    4300006: BranchBunchCard_006
+    4300008: BranchBunchCard_002
+    4300010: BranchBunchCard_007
+    4300012: BranchBunchCard_008
+    4300014: BranchBunchCard_009
+    4300016: BranchBunchCard_0010
+    4300018: BranchBunchCard_0011
+    4300020: BranchBunchCard_0012
+    4300022: BranchBunchCard_0013
+    4300024: BranchBunchCard_0014
+    4300026: BranchBunchCard_003
+    4300028: BranchBunchCard_004
+    4300030: BranchBunchCard_005
+    4300032: BranchBunchCard_006
+    4300034: BranchBunchCard_002
+    4300036: BranchBunchCard_007
+    4300038: BranchBunchCard_008
+    4300040: BranchBunchCard_009
+    4300042: BranchBunchCard_0010
+    4300044: LowRes_FloralBunch_002
+    4300046: LowRes_FloralBunch_003
+    4300048: LowRes_FloralBunch_004
+    4300050: LowRes_FloralBunch_005
+    4300052: LowRes_FloralBunch_006
+    4300054: LowRes_FloralBunch_007
+    4300056: LowRes_FloralBunch_008
+    4300058: LowRes_FloralBunch_009
+    4300060: LowRes_FloralBunch_0010
+    4300062: LowRes_FloralBunch_0011
+    4300064: MountainLaurel_Branches
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

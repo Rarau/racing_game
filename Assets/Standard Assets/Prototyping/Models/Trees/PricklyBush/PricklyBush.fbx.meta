@@ -1,0 +1,321 @@
+fileFormatVersion: 2
+guid: 4b91fbef1b4a0c146a2a7d4380b05574
+timeCreated: 1463488221
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: branch1_1
+    100002: branch1_2
+    100004: branch1_3
+    100006: branch2_1
+    100008: branch2_2
+    100010: branch2_3
+    100012: Branch_001
+    100014: Branch_002
+    100016: Branch_003
+    100018: Branch_004
+    100020: Branch_005
+    100022: Branch_006
+    100024: Branch_007
+    100026: LeafPattern_A_001
+    100028: LeafPattern_A_001 1
+    100030: LeafPattern_A_001 2
+    100032: LeafPattern_A_001 3
+    100034: LeafPattern_A_001 4
+    100036: LeafPattern_A_001 5
+    100038: LeafPattern_A_001 6
+    100040: LeafPattern_B_001
+    100042: LeafPattern_B_001 1
+    100044: LeafPattern_B_001 2
+    100046: LeafPattern_B_001 3
+    100048: LeafPattern_B_001 4
+    100050: LeafPattern_B_001 5
+    100052: LeafPattern_B_001 6
+    100054: LeafPattern_C_001
+    100056: LeafPattern_C_001 1
+    100058: LeafPattern_C_001 2
+    100060: LeafPattern_C_001 3
+    100062: LeafPattern_C_001 4
+    100064: LeafPattern_C_001 5
+    100066: LeafPattern_C_001 6
+    100068: LeafPattern_C_002
+    100070: LeafPattern_C_002 1
+    100072: LeafPattern_C_002 2
+    100074: LeafPattern_C_002 3
+    100076: LeafPattern_C_002 4
+    100078: LeafPattern_C_002 5
+    100080: LeafPattern_C_002 6
+    100082: LeafPattern_D_001
+    100084: LeafPattern_D_001 1
+    100086: LeafPattern_D_001 2
+    100088: LeafPattern_D_001 3
+    100090: LeafPattern_D_001 4
+    100092: LeafPattern_D_001 5
+    100094: LeafPattern_D_001 6
+    100096: Main_TrunkStem
+    100098: //RootNode
+    100100: PricklyGooseberry_group
+    100102: PricklyGooseberryBush_helper
+    100104: stem_001
+    100106: stem_001 1
+    100108: stem_001 2
+    100110: stem_001 3
+    100112: stem_001 4
+    100114: stem_001 5
+    100116: stem_001 6
+    100118: stem_001 7
+    400000: branch1_1
+    400002: branch1_2
+    400004: branch1_3
+    400006: branch2_1
+    400008: branch2_2
+    400010: branch2_3
+    400012: Branch_001
+    400014: Branch_002
+    400016: Branch_003
+    400018: Branch_004
+    400020: Branch_005
+    400022: Branch_006
+    400024: Branch_007
+    400026: LeafPattern_A_001
+    400028: LeafPattern_A_001 1
+    400030: LeafPattern_A_001 2
+    400032: LeafPattern_A_001 3
+    400034: LeafPattern_A_001 4
+    400036: LeafPattern_A_001 5
+    400038: LeafPattern_A_001 6
+    400040: LeafPattern_B_001
+    400042: LeafPattern_B_001 1
+    400044: LeafPattern_B_001 2
+    400046: LeafPattern_B_001 3
+    400048: LeafPattern_B_001 4
+    400050: LeafPattern_B_001 5
+    400052: LeafPattern_B_001 6
+    400054: LeafPattern_C_001
+    400056: LeafPattern_C_001 1
+    400058: LeafPattern_C_001 2
+    400060: LeafPattern_C_001 3
+    400062: LeafPattern_C_001 4
+    400064: LeafPattern_C_001 5
+    400066: LeafPattern_C_001 6
+    400068: LeafPattern_C_002
+    400070: LeafPattern_C_002 1
+    400072: LeafPattern_C_002 2
+    400074: LeafPattern_C_002 3
+    400076: LeafPattern_C_002 4
+    400078: LeafPattern_C_002 5
+    400080: LeafPattern_C_002 6
+    400082: LeafPattern_D_001
+    400084: LeafPattern_D_001 1
+    400086: LeafPattern_D_001 2
+    400088: LeafPattern_D_001 3
+    400090: LeafPattern_D_001 4
+    400092: LeafPattern_D_001 5
+    400094: LeafPattern_D_001 6
+    400096: Main_TrunkStem
+    400098: //RootNode
+    400100: PricklyGooseberry_group
+    400102: PricklyGooseberryBush_helper
+    400104: stem_001
+    400106: stem_001 1
+    400108: stem_001 2
+    400110: stem_001 3
+    400112: stem_001 4
+    400114: stem_001 5
+    400116: stem_001 6
+    400118: stem_001 7
+    2300000: LeafPattern_A_001
+    2300002: LeafPattern_A_001 1
+    2300004: LeafPattern_A_001 2
+    2300006: LeafPattern_A_001 3
+    2300008: LeafPattern_A_001 4
+    2300010: LeafPattern_A_001 5
+    2300012: LeafPattern_A_001 6
+    2300014: LeafPattern_B_001
+    2300016: LeafPattern_B_001 1
+    2300018: LeafPattern_B_001 2
+    2300020: LeafPattern_B_001 3
+    2300022: LeafPattern_B_001 4
+    2300024: LeafPattern_B_001 5
+    2300026: LeafPattern_B_001 6
+    2300028: LeafPattern_C_001
+    2300030: LeafPattern_C_001 1
+    2300032: LeafPattern_C_001 2
+    2300034: LeafPattern_C_001 3
+    2300036: LeafPattern_C_001 4
+    2300038: LeafPattern_C_001 5
+    2300040: LeafPattern_C_001 6
+    2300042: LeafPattern_C_002
+    2300044: LeafPattern_C_002 1
+    2300046: LeafPattern_C_002 2
+    2300048: LeafPattern_C_002 3
+    2300050: LeafPattern_C_002 4
+    2300052: LeafPattern_C_002 5
+    2300054: LeafPattern_C_002 6
+    2300056: LeafPattern_D_001
+    2300058: LeafPattern_D_001 1
+    2300060: LeafPattern_D_001 2
+    2300062: LeafPattern_D_001 3
+    2300064: LeafPattern_D_001 4
+    2300066: LeafPattern_D_001 5
+    2300068: LeafPattern_D_001 6
+    2300070: stem_001
+    2300072: stem_001 1
+    2300074: stem_001 2
+    2300076: stem_001 3
+    2300078: stem_001 4
+    2300080: stem_001 5
+    2300082: stem_001 6
+    2300084: stem_001 7
+    3300000: LeafPattern_A_001
+    3300002: LeafPattern_A_001 1
+    3300004: LeafPattern_A_001 2
+    3300006: LeafPattern_A_001 3
+    3300008: LeafPattern_A_001 4
+    3300010: LeafPattern_A_001 5
+    3300012: LeafPattern_A_001 6
+    3300014: LeafPattern_B_001
+    3300016: LeafPattern_B_001 1
+    3300018: LeafPattern_B_001 2
+    3300020: LeafPattern_B_001 3
+    3300022: LeafPattern_B_001 4
+    3300024: LeafPattern_B_001 5
+    3300026: LeafPattern_B_001 6
+    3300028: LeafPattern_C_001
+    3300030: LeafPattern_C_001 1
+    3300032: LeafPattern_C_001 2
+    3300034: LeafPattern_C_001 3
+    3300036: LeafPattern_C_001 4
+    3300038: LeafPattern_C_001 5
+    3300040: LeafPattern_C_001 6
+    3300042: LeafPattern_C_002
+    3300044: LeafPattern_C_002 1
+    3300046: LeafPattern_C_002 2
+    3300048: LeafPattern_C_002 3
+    3300050: LeafPattern_C_002 4
+    3300052: LeafPattern_C_002 5
+    3300054: LeafPattern_C_002 6
+    3300056: LeafPattern_D_001
+    3300058: LeafPattern_D_001 1
+    3300060: LeafPattern_D_001 2
+    3300062: LeafPattern_D_001 3
+    3300064: LeafPattern_D_001 4
+    3300066: LeafPattern_D_001 5
+    3300068: LeafPattern_D_001 6
+    3300070: stem_001
+    3300072: stem_001 1
+    3300074: stem_001 2
+    3300076: stem_001 3
+    3300078: stem_001 4
+    3300080: stem_001 5
+    3300082: stem_001 6
+    3300084: stem_001 7
+    4300000: stem_001
+    4300002: LeafPattern_D_001
+    4300004: LeafPattern_C_001
+    4300006: LeafPattern_C_002
+    4300008: LeafPattern_B_001
+    4300010: LeafPattern_A_001
+    4300012: stem_001
+    4300014: LeafPattern_D_001
+    4300016: LeafPattern_C_001
+    4300018: LeafPattern_C_002
+    4300020: LeafPattern_B_001
+    4300022: LeafPattern_A_001
+    4300024: stem_001
+    4300026: LeafPattern_D_001
+    4300028: LeafPattern_C_001
+    4300030: LeafPattern_C_002
+    4300032: LeafPattern_B_001
+    4300034: LeafPattern_A_001
+    4300036: stem_001
+    4300038: LeafPattern_D_001
+    4300040: LeafPattern_C_001
+    4300042: LeafPattern_C_002
+    4300044: LeafPattern_B_001
+    4300046: LeafPattern_A_001
+    4300048: stem_001
+    4300050: LeafPattern_D_001
+    4300052: LeafPattern_C_001
+    4300054: LeafPattern_C_002
+    4300056: LeafPattern_B_001
+    4300058: LeafPattern_A_001
+    4300060: stem_001
+    4300062: LeafPattern_D_001
+    4300064: LeafPattern_C_001
+    4300066: LeafPattern_C_002
+    4300068: LeafPattern_B_001
+    4300070: LeafPattern_A_001
+    4300072: stem_001
+    4300074: LeafPattern_D_001
+    4300076: LeafPattern_C_001
+    4300078: LeafPattern_C_002
+    4300080: LeafPattern_B_001
+    4300082: LeafPattern_A_001
+    4300084: stem_001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

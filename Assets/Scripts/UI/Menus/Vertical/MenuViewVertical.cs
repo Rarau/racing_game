@@ -12,14 +12,22 @@ public class MenuViewVertical : MenuView
     private List<GameObject> textboxes;
     private GameObject pointer;
     private Text text;
-    public List<MenuViewOptionBasic> options;
+    private List<MenuViewOptionBasic> options;
     public int curOption = 0;
     public Color unhighlightedColor = new Color(1, 1, 1);
     public Color highlightedColor = new Color(1, 0, 0);
-    public TextAnchor viewAnchor = TextAnchor.UpperCenter;
+    public TextAnchor viewAnchor = TextAnchor.MiddleCenter;
     public bool fillScreen = true;
-    public float viewHeight = 0;
-    private GridLayoutGroup layout;
+    public Sprite backgroundImage;
+    public Color backgroundColor = new Color(1, 1, 1, 1);
+
+    public Vector2 size;
+    public Vector2 offset;
+
+    public GameObject verticalViewPrefab;
+    public GameObject menuTextPrefab;
+    private GridLayoutGroup layoutText;
+    private GridLayoutGroup layoutBack;
 
     // Use this for initialization
     void Start()
@@ -28,43 +36,53 @@ public class MenuViewVertical : MenuView
         menu = GetComponentInParent<Menu>();
         toDraw = true;
         if (options == null) options = new List<MenuViewOptionBasic>();
+        GetComponentsInChildren<MenuViewOptionBasic>(options);
         textboxes = new List<GameObject>();
         //Setup view
-        viewObject = new GameObject("MenuViewHorizontal");
+        viewObject = Instantiate(verticalViewPrefab);
         viewObject.transform.SetParent(transform);
-        canvas = viewObject.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas = viewObject.GetComponent<Canvas>();
         canvas.worldCamera = drawCamera;
-        viewObject.AddComponent<CanvasScaler>();
-        viewObject.AddComponent<GraphicRaycaster>();
-        layout = viewObject.AddComponent<GridLayoutGroup>();
-        layout.cellSize = new Vector2(100, 50);
-        layout.childAlignment = viewAnchor;
-        layout.startAxis = GridLayoutGroup.Axis.Vertical;
-        if (fillScreen) { viewHeight = canvas.GetComponent<RectTransform>().sizeDelta.y; }
-        //Setup textboxes
+        canvas.planeDistance = 1;
+        if (fillScreen) { size.y = drawCamera.pixelHeight; }
+        layoutText = viewObject.transform.Find("TextGroup").GetComponentInChildren<GridLayoutGroup>();
+        layoutText.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset.x, offset.y);
+        layoutText.GetComponent<RectTransform>().sizeDelta = new Vector2(drawCamera.pixelWidth, drawCamera.pixelHeight);
+        layoutText.childAlignment = viewAnchor;
+        layoutText.cellSize = new Vector2(size.x, size.y / options.Count);
 
+        //Setup textboxes
         if (options.Count > 0)
         {
             GameObject curTextbox;
-            RectTransform curTransform;
             Text curText;
             for (int i = 0; i < options.Count; i++)
             {
-                curTextbox = new GameObject();
-                curTransform = curTextbox.AddComponent<RectTransform>();
-                curTextbox.AddComponent<CanvasRenderer>();
-                curText = curTextbox.AddComponent<Text>();
+                curTextbox = Instantiate<GameObject>(menuTextPrefab);
+                curTextbox.transform.SetParent(layoutText.transform, false);
+                curText = curTextbox.GetComponent<Text>();
                 curText.text = options[i].optionText;
                 curText.font = textFont;
-                curText.alignment = TextAnchor.MiddleCenter;
                 if (i == menu.CurOption) { curOption = i; curText.color = highlightedColor; }
                 else { curText.color = unhighlightedColor; }
-                curTextbox.transform.SetParent(canvas.transform);
                 textboxes.Add(curTextbox);
-                layout.cellSize = new Vector2(100, viewHeight / options.Count);
             }
         }
+
+        //Setup background
+
+        Image background = viewObject.GetComponentInChildren<Image>();
+        GameObject backObj = background.gameObject;
+        background.sprite = backgroundImage;
+        background.color = backgroundColor;
+        backObj.GetComponent<RectTransform>().sizeDelta = new Vector2(size.x, size.y);
+        backObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset.x, offset.y);
+        layoutBack = backObj.transform.parent.GetComponent<GridLayoutGroup>();
+        layoutBack.cellSize = new Vector2(size.x, size.y);
+        layoutBack.GetComponent<RectTransform>().sizeDelta = new Vector2(drawCamera.pixelWidth, drawCamera.pixelHeight);
+        layoutBack.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset.x, offset.y);
+        layoutBack.childAlignment = viewAnchor;
+        //background.set
     }
 
     // Update is called once per frame
@@ -86,6 +104,6 @@ public class MenuViewVertical : MenuView
         if (options == null) options = new List<MenuViewOptionBasic>();
         newOption.transform.SetParent(transform);
         options.Add(newOption.GetComponent<MenuViewOptionBasic>());
-        layout.cellSize = new Vector2(100, viewHeight / options.Count);
+        //layout.cellSize = new Vector2(viewWidth / options.Count, 50);
     }
 }

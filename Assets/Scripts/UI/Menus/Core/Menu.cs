@@ -5,10 +5,19 @@ using System.Collections.Generic;
 //this is the logic model of the menu; the M in MVC
 public class Menu : MonoBehaviour
 {
-    public List<MenuOption> options;
+    private List<MenuOption> options;
     private int curOption = 0;//index
-    public MenuView view = null;
-    public MenuController controller = null;
+    private List<MenuView> views;
+    private MenuController controller = null;
+
+    void Start()
+    {
+        options = new List<MenuOption>();
+        GetComponentsInChildren<MenuOption>(options);//auto-adds any option children to options
+        views = new List<MenuView>();
+        GetComponentsInChildren<MenuView>(views);//auto-adds any view children to views
+        controller = GetComponentInChildren<MenuController>();//auto-sets controller
+    }
 
     public void GoToOption(int newOption)
     {
@@ -19,7 +28,14 @@ public class Menu : MonoBehaviour
             if(options[curOption].OnUnhighlight != null) options[curOption].OnUnhighlight.Invoke();
             curOption = newOption;
             if (options[curOption].OnHighlight != null) options[curOption].OnHighlight.Invoke();
-            if (view != null) { view.GoToOption(curOption); }
+            if (views.Count > 0)
+            {
+                for(int i = 0; i < views.Count; ++i)
+                {
+                    views[i].GoToOption(newOption);
+                }
+
+            }
         }
         else print("No options in menu");
     }
@@ -55,11 +71,22 @@ public class Menu : MonoBehaviour
         print(toPrint);
     }
 
+    public MenuOption AddOption(string name)
+    {
+        GameObject optionObj = new GameObject(name);
+        MenuOption returnOption = optionObj.AddComponent<MenuOption>();
+        optionObj.transform.SetParent(transform.Find("Options"));
+        return returnOption;
+    }
+
     public void AddOption(GameObject newOption)
     {
-        if (options == null) options = new List<MenuOption>();
         GameObject optionsGroup = transform.Find("Options").gameObject;
         newOption.transform.SetParent(optionsGroup.transform);
-        options.Add(newOption.GetComponent<MenuOption>());
+    }
+
+    public void AddView(MenuView view)
+    {
+        views.Add(view);
     }
 }
