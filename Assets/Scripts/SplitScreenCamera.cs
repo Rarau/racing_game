@@ -9,7 +9,7 @@ public class SplitScreenCamera : MonoBehaviour
     public static int numRows = 2;
     public static int numCols = 2;
 
-    public int playerNum = 1;
+    private int playerNum = 1;
 
     private Camera cam;
 
@@ -18,15 +18,23 @@ public class SplitScreenCamera : MonoBehaviour
     {
         cam = GetComponent<Camera>();
 
+	}
+	
+    public void SetPlayerNumber(int num)
+    {
+        cam = GetComponent<Camera>();
+
+        playerNum = num;
         float x = ((playerNum - 1) % numCols) / (float)numCols;
         float y = ((int)((playerNum - 1) / (float)numRows)) / (float)numRows;
         y = -y + (1.0f / numRows);
         cam.rect = new Rect(new Vector2(x, y), new Vector2(1.0f / numCols, 1.0f / numRows));
-	}
-	
+
+    }
+
 	// Update is called once per frame
 	void Update () 
     {
-	    
+
 	}
 }

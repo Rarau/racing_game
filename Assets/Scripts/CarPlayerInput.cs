@@ -10,12 +10,20 @@ public class CarPlayerInput : MonoBehaviour
     public AnimationCurve joystickSensitivity;
     public LookAtVelocity cameraRig;
 
-    public int playerNum;
-    public int totalPlayers;
 
-	void Start () 
+    //public SplitScreenCamera cam;
+
+	void Awake () 
     {
         carController = GetComponent<CarController>();
+
+        playerPrefix = "P" + carController.playerNumber + "_";
+
+        SplitScreenCamera splitScreenCam = cameraRig.GetComponentInChildren<SplitScreenCamera>();
+        if(splitScreenCam != null)
+        {
+            splitScreenCam.SetPlayerNumber(carController.playerNumber);
+        }
 	}
 	
     
