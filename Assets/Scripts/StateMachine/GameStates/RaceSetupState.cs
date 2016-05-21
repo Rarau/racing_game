@@ -29,7 +29,8 @@ public class RaceSetupState : State<GameManager>
 
     public void enter(GameManager gm)
     {
-        // Spawn locations not detected here for some reason...
+        // Spawn locations not detected in the scene at this point... for some reason.
+        // Placed spawn location setup and car initiation in execute insetad.
     }
 
     public void exit(GameManager gm)
