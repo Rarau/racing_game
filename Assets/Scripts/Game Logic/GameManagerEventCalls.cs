@@ -18,6 +18,12 @@ public class GameManagerEventCalls : MonoBehaviour {
         gm.InitialisePlayerInformation();
     }
 
+    //
+    public void SetNumberOfLaps(int laps)
+    {
+        gm.numberOfLaps = laps;
+    }
+
     // Sets the players car in the GameManager.
     public void SetPlayerCar(string car) 
     {

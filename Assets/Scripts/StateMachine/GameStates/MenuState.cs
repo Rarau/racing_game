@@ -18,9 +18,16 @@ public class MenuState : State<GameManager>
         {
             if (AllCarsSelected(gm.carSelected))
             {
+                gm.SetLevel("MENU_LAPS");
+            }           
+        }
+        else if (level == "_Scenes/GameScenes/MENU_LAPS")
+        {
+            if (gm.numberOfLaps != 0)
+            {
                 gm.SetLevel("RACE");
                 fsm.SetState(new RaceStartState());
-            }           
+            }
         }
     }
 

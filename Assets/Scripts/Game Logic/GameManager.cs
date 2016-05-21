@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public StateMachine<GameManager> fsm;
 
     public int numberOfHumanPlayers;
+    public int numberOfLaps;
     public List<string> nameOfPlayers;
     public List<string> playerCars;
     public List<bool> carSelected;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour {
         fsm.SetState(new SplashState());
 
         numberOfHumanPlayers = 0;
+        numberOfLaps = 0;
         nameOfPlayers = new List<string>();
         playerCars = new List<string>();
         carSelected = new List<bool>();
