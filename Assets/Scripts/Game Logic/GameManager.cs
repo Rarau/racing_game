@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
     {
         // Setup state machine.
         fsm = new StateMachine<GameManager>(this);
-        fsm.setState(new SplashState());
+        fsm.SetState(new SplashState());
 
         numberOfHumanPlayers = 0;
         nameOfPlayers = new List<string>();

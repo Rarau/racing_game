@@ -23,6 +23,6 @@ public class CountDownState : State<GameManager>
 
     public void OnCountdownFinished()
     {
-        gm.fsm.setState(new RaceState());
+        gm.fsm.SetState(new RaceState());
     }
 }

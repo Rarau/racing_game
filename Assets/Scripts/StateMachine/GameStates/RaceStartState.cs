@@ -7,7 +7,7 @@ public class RaceStartState : State<GameManager>
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         Debug.Log("Executing Race Start State");
-        fsm.setState(new RaceState());
+        fsm.SetState(new RaceState());
     }
 
     public void enter(GameManager gm)

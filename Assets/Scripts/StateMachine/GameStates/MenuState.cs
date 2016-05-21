@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections.Generic;
 
 public class MenuState : State<GameManager>
 {
@@ -16,18 +16,11 @@ public class MenuState : State<GameManager>
         }
         else if (level == "_Scenes/GameScenes/MENU_CAR")
         {
-            // This causes infinite loops!
-            for (int i = 0; i < gm.numberOfHumanPlayers; i++)
+            if (AllCarsSelected(gm.carSelected))
             {
-                if (gm.carSelected[i] && i < gm.numberOfHumanPlayers - 1)
-                {
-                    GameObject.Find("PlayerText").GetComponent<Text>().text = gm.nameOfPlayers[i + 1];
-                }
-                else
-                {
-                    i--;
-                }
-            }
+                gm.SetLevel("RACE");
+                fsm.SetState(new RaceStartState());
+            }           
         }
     }
 
@@ -39,5 +32,17 @@ public class MenuState : State<GameManager>
     public void exit(GameManager gm)
     {
         Debug.Log("Left Menu State");
+    }
+
+    public bool AllCarsSelected(List<bool> carsSelected) 
+    {
+        for (int i = 0; i < carsSelected.Count; i++)
+        {
+            if (!carsSelected[i])
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
