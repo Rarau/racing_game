@@ -26,7 +26,7 @@ public class MenuState : State<GameManager>
             if (gm.numberOfLaps != 0)
             {
                 gm.SetLevel("RACE");
-                fsm.SetState(new RaceStartState());
+                fsm.SetState(new RaceSetupState());
             }
         }
     }

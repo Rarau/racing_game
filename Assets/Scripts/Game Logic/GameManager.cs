@@ -26,14 +26,14 @@ public class GameManager : MonoBehaviour {
     //const int numPlayers = 4;
 
     // To hold player data when paused.
-    struct PlayerData
-    {
-        float speed;
-        Vector3 position;
-        int gear;
-    }
+    //struct PlayerData
+    //{
+    //    float speed;
+    //    Vector3 position;
+    //    int gear;
+    //}
 
-    List<PlayerData> playerData = new List<PlayerData>();
+    //List<PlayerData> playerData = new List<PlayerData>();
 
     public static GameManager Instance
     {
