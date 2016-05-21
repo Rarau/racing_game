@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public List<string> nameOfPlayers;
     public List<string> playerCars;
     public List<bool> carSelected;
+    //public List<Vector3> starting positions;
 
     //public string[] nameOfPlayers;
     //public int trackSelected;
