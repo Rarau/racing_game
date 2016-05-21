@@ -15,6 +15,8 @@ public class TextureChange : MonoBehaviour {
 
     public Texture[] swapTexture;
 
+    public bool isSupraBody = false;
+
     void Awake()
     {
         if (isParent)
@@ -38,12 +40,19 @@ public class TextureChange : MonoBehaviour {
             {
                 //renderer.material.mainTexture = Resources.Load("Bugatti_Alb") as Texture;
                 //this.SetTexture("Texture", Resources.Load("Bugatti_Alb") as Texture); // how to load normal maps??
-                renderer.material.mainTexture = swapTexture[0];
+                if (isSupraBody)
+                    renderer.materials[1].mainTexture = swapTexture[0];
+                else
+                    renderer.materials[0].mainTexture = swapTexture[0];
+                //renderer.materials[index]
             }
             else
             {
                 //renderer.material.mainTexture = Resources.Load("Bugatti_D1_Alb") as Texture;
-                renderer.material.mainTexture = swapTexture[1];
+                if (isSupraBody)
+                    renderer.materials[1].mainTexture = swapTexture[1];
+                else
+                    renderer.materials[0].mainTexture = swapTexture[1];
             }
         }
     }

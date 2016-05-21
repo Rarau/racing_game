@@ -3799,6 +3799,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11401308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4020,6 +4021,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11402470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4035,6 +4037,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11404492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4104,6 +4107,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 1
 --- !u!114 &11407242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4119,6 +4123,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 1
 --- !u!114 &11411440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4134,6 +4139,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11414424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4188,6 +4194,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11420914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4270,6 +4277,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11424954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4327,6 +4335,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11431396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4342,6 +4351,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11432380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4378,6 +4388,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11433000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4554,6 +4565,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11443986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4602,6 +4614,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11451278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4777,6 +4790,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11459416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4792,6 +4806,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11460476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4823,6 +4838,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11464122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4849,6 +4865,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11472770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4885,6 +4902,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11474764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4900,6 +4918,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11477388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4915,6 +4934,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11477720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4942,6 +4962,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11480940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5404,6 +5425,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!114 &11498238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5446,6 +5468,7 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 5cbca1ef0863fea47aba95db13c24b3e, type: 3}
   - {fileID: 2800000, guid: 6f720ba7ec4395a43b8b6944d045fdad, type: 3}
+  isSupraBody: 0
 --- !u!124 &12484582
 Behaviour:
   m_ObjectHideFlags: 1
