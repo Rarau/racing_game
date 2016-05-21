@@ -9,7 +9,7 @@ public class SplashState : State<GameManager>
 
         if (Input.anyKeyDown)
         {
-            gm.SetLevel("PLAYER_MENU");
+            gm.SetLevel("MENU_PLAYER");
             fsm.setState(new MenuState());
         }
 
