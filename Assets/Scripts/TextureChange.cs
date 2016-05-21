@@ -3,64 +3,49 @@ using System.Collections;
 
 public class TextureChange : MonoBehaviour {
 
-    public float meshHealth;
-
-    CarController carController;
+    float maxHealth;
 
     Renderer renderer;
 
-    float maxHealth = 100;
+    MeshChange meshChange;
 
-    // backward is not defined because is by defaults
-    public bool forward = false;
-    public bool left = false;
-    public bool right = false;
+    //private MeshFilter meshFilter;
 
-    public float hitDistance = 2.4f;
+    public bool isParent = false;
 
-    float healthDiscount = 0.5f;
+    public Texture[] swapTexture;
 
     void Awake()
     {
-        carController = transform.root.GetComponent<CarController>();
+        if (isParent)
+            meshChange = transform.parent.GetComponent<MeshChange>();
+        else
+            meshChange = transform.parent.parent.GetComponent<MeshChange>();
     }
 
     // Use this for initialization
     void Start () {
-        meshHealth = maxHealth;
+        //meshFilter = this.GetComponent<MeshFilter>();
         renderer = this.GetComponent<Renderer>();
+        maxHealth = 100;
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (meshHealth >= maxHealth)
+        if (meshChange.meshHealth > 0.0f)
         {
-            renderer.material.mainTexture = Resources.Load("Bugatti_Alb") as Texture;
-            //this.SetTexture("Texture", Resources.Load("Bugatti_Alb") as Texture); // how to load normal maps??
-        }
-        else
-        {
-            renderer.material.mainTexture = Resources.Load("Bugatti_D1_Alb") as Texture;
-        }
-    }
-
-    void FixedUpdate()
-    {
-        Vector3 direction;
-
-        if (forward)
-            direction = this.transform.forward;
-        else if (left)
-            direction = -this.transform.right;
-        else if (right)
-            direction = this.transform.right;
-        else // backward is by default
-            direction = -this.transform.forward;
-
-        if (Physics.Raycast(transform.position, direction, hitDistance))
-        {
-            meshHealth -= carController.currentSpeed * healthDiscount;
+            if (meshChange.meshHealth >= maxHealth)
+            {
+                //renderer.material.mainTexture = Resources.Load("Bugatti_Alb") as Texture;
+                //this.SetTexture("Texture", Resources.Load("Bugatti_Alb") as Texture); // how to load normal maps??
+                renderer.material.mainTexture = swapTexture[0];
+            }
+            else
+            {
+                //renderer.material.mainTexture = Resources.Load("Bugatti_D1_Alb") as Texture;
+                renderer.material.mainTexture = swapTexture[1];
+            }
         }
     }
+
 }

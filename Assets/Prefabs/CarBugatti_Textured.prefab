@@ -150,6 +150,7 @@ GameObject:
   - 33: {fileID: 3312356}
   - 23: {fileID: 2300536}
   - 114: {fileID: 11460964}
+  - 65: {fileID: 6514694}
   m_Layer: 0
   m_Name: BN_Bugatti_bumper_back_damaged
   m_TagString: Untagged
@@ -217,7 +218,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 456820}
   - 114: {fileID: 11437434}
-  - 65: {fileID: 6543592}
   m_Layer: 0
   m_Name: DoorLeft
   m_TagString: Untagged
@@ -251,6 +251,8 @@ GameObject:
   - 33: {fileID: 3341520}
   - 23: {fileID: 2349926}
   - 114: {fileID: 11473540}
+  - 65: {fileID: 6568992}
+  - 65: {fileID: 6553862}
   m_Layer: 0
   m_Name: BN_Bugatti_bumper_damaged
   m_TagString: Untagged
@@ -352,7 +354,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 486074}
   - 114: {fileID: 11462956}
-  - 65: {fileID: 6508502}
   m_Layer: 0
   m_Name: DoorRight
   m_TagString: Untagged
@@ -695,6 +696,7 @@ GameObject:
   - 33: {fileID: 3393622}
   - 23: {fileID: 2372958}
   - 114: {fileID: 11472876}
+  - 65: {fileID: 6579758}
   m_Layer: 0
   m_Name: BN_Bugatti_door_left_damaged
   m_TagString: Untagged
@@ -853,6 +855,7 @@ GameObject:
   - 33: {fileID: 3347832}
   - 23: {fileID: 2304978}
   - 114: {fileID: 11456410}
+  - 65: {fileID: 6559874}
   m_Layer: 2
   m_Name: BN_Bugatti_hoods_damaged
   m_TagString: Untagged
@@ -885,7 +888,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 437688}
   - 114: {fileID: 11430746}
-  - 65: {fileID: 6593664}
   m_Layer: 2
   m_Name: Hood
   m_TagString: Untagged
@@ -935,7 +937,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 430244}
   - 114: {fileID: 11469092}
-  - 65: {fileID: 6541678}
   m_Layer: 0
   m_Name: BumperBack
   m_TagString: Untagged
@@ -952,7 +953,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 461894}
   - 114: {fileID: 11420810}
-  - 65: {fileID: 6544852}
   m_Layer: 0
   m_Name: FrontBumper
   m_TagString: Untagged
@@ -1022,6 +1022,7 @@ GameObject:
   - 33: {fileID: 3396270}
   - 23: {fileID: 2391190}
   - 114: {fileID: 11422410}
+  - 65: {fileID: 6574740}
   m_Layer: 0
   m_Name: BN_Bugatti_door_right_damaged
   m_TagString: Untagged
@@ -1047,8 +1048,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153890}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.59056, y: -16.861444, z: -36.76738}
+  m_LocalRotation: {x: 0, y: 0.9735259, z: 0, w: -0.22857715}
+  m_LocalPosition: {x: 162.44, y: 28.19, z: 102.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484220}
@@ -1214,7 +1215,7 @@ Transform:
   m_GameObject: {fileID: 109816}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.36589813, z: -1.9908447}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.1, y: 7.1, z: 7.1}
   m_Children: []
   m_Father: {fileID: 430244}
   m_RootOrder: 1
@@ -1997,7 +1998,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1187b01f093c7e458e9fafbe6741997, type: 2}
+  - {fileID: 2100000, guid: 8d78fe76d692f8a4da24f19ac6138a07, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2075,7 +2076,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1187b01f093c7e458e9fafbe6741997, type: 2}
+  - {fileID: 2100000, guid: 8d78fe76d692f8a4da24f19ac6138a07, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2127,7 +2128,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1187b01f093c7e458e9fafbe6741997, type: 2}
+  - {fileID: 2100000, guid: 8d78fe76d692f8a4da24f19ac6138a07, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2179,7 +2180,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1187b01f093c7e458e9fafbe6741997, type: 2}
+  - {fileID: 2100000, guid: 8d78fe76d692f8a4da24f19ac6138a07, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2257,7 +2258,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1187b01f093c7e458e9fafbe6741997, type: 2}
+  - {fileID: 2100000, guid: 8d78fe76d692f8a4da24f19ac6138a07, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2309,7 +2310,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1187b01f093c7e458e9fafbe6741997, type: 2}
+  - {fileID: 2100000, guid: 8d78fe76d692f8a4da24f19ac6138a07, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2387,7 +2388,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1187b01f093c7e458e9fafbe6741997, type: 2}
+  - {fileID: 2100000, guid: 8d78fe76d692f8a4da24f19ac6138a07, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2465,7 +2466,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1187b01f093c7e458e9fafbe6741997, type: 2}
+  - {fileID: 2100000, guid: 8d78fe76d692f8a4da24f19ac6138a07, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2797,66 +2798,78 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6508502
+--- !u!65 &6514694
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128920}
+  m_GameObject: {fileID: 109816}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.39918864, y: 0.5414696, z: 1.1848209}
-  m_Center: {x: 0.6674938, y: 0.5876312, z: 0.15724564}
---- !u!65 &6541678
+  m_Size: {x: 0.26498526, y: 0.039899576, z: 0.041833974}
+  m_Center: {x: 0.0017440151, y: -0.02246266, z: 0.003988506}
+--- !u!65 &6553862
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 185874}
+  m_GameObject: {fileID: 123202}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7246282, y: 0.34064198, z: 0.3231969}
-  m_Center: {x: 0, y: 0.37899208, z: -1.7840805}
---- !u!65 &6543592
+  m_Size: {x: 0.24426433, y: 0.061298013, z: 0.022593984}
+  m_Center: {x: -0.00000020288387, y: 0.034571987, z: 0.0046587717}
+--- !u!65 &6559874
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120172}
+  m_GameObject: {fileID: 182182}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29061472, y: 0.5414696, z: 1.1848209}
-  m_Center: {x: -0.771801, y: 0.5876312, z: 0.15724564}
---- !u!65 &6544852
+  m_Size: {x: 0.16662021, y: 0.12015863, z: 0.04641272}
+  m_Center: {x: 0.0014238888, y: -0.046588585, z: -0.016630001}
+--- !u!65 &6568992
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186762}
+  m_GameObject: {fileID: 123202}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7246282, y: 0.15206772, z: 0.29612207}
-  m_Center: {x: 0, y: 0.19589615, z: 1.8124847}
---- !u!65 &6593664
+  m_Size: {x: 0.24426433, y: 0.061298013, z: 0.022593984}
+  m_Center: {x: -0.00000020288387, y: 0.034571987, z: 0.0046587717}
+--- !u!65 &6574740
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184570}
+  m_GameObject: {fileID: 198164}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2185539, y: 0.21925914, z: 0.80407524}
-  m_Center: {x: 0, y: 0.690855, z: 1.4862404}
+  m_Size: {x: 0.024398956, y: 0.16222434, z: 0.0798398}
+  m_Center: {x: -0.02161424, y: 0.07145551, z: -0.001487841}
+--- !u!65 &6579758
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170236}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023022603, y: 0.1551141, z: 0.08022506}
+  m_Center: {x: -0.00055253896, y: 0.07880271, z: -0.002984974}
 --- !u!81 &8150644
 AudioListener:
   m_ObjectHideFlags: 1
@@ -3759,13 +3772,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2bb346a64993b44a2c722a30cc3124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
+  meshHealth: 100
   looseParts: 1
   alreadyDetached: 0
   forward: 1
   left: 0
   right: 0
   hitDistance: 0.2
+  usesPhysics: 1
 --- !u!114 &11421206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3777,11 +3791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 1
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11421996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3793,11 +3802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 0
-  right: 1
-  hitDistance: 2.4
 --- !u!114 &11422410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3809,11 +3813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 0
-  right: 1
-  hitDistance: 2.4
 --- !u!114 &11427296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3837,11 +3836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11430746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3860,6 +3854,7 @@ MonoBehaviour:
   left: 0
   right: 0
   hitDistance: 1.5
+  usesPhysics: 1
 --- !u!114 &11435200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3875,7 +3870,7 @@ MonoBehaviour:
   particles: {fileID: 19823958}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
-  heightOffset: 0.05
+  heightOffset: 0.0975
 --- !u!114 &11435274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3905,6 +3900,7 @@ MonoBehaviour:
   left: 1
   right: 0
   hitDistance: 0.2
+  usesPhysics: 1
 --- !u!114 &11443750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3928,11 +3924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 1
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11450572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3944,11 +3935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 1
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11451230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3973,11 +3959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 1
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11456006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3989,11 +3970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11456410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4005,11 +3981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 1
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11460964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4021,11 +3992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11461488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4037,11 +4003,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 1
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11462470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4071,6 +4032,7 @@ MonoBehaviour:
   left: 0
   right: 1
   hitDistance: 0.2
+  usesPhysics: 1
 --- !u!114 &11463286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4098,7 +4060,7 @@ MonoBehaviour:
   particles: {fileID: 19887596}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
-  heightOffset: 0.05
+  heightOffset: 0.0975
 --- !u!114 &11465274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4114,7 +4076,7 @@ MonoBehaviour:
   particles: {fileID: 19863844}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
-  heightOffset: 0.05
+  heightOffset: 0.0975
 --- !u!114 &11469092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4133,6 +4095,7 @@ MonoBehaviour:
   left: 0
   right: 0
   hitDistance: 0.2
+  usesPhysics: 1
 --- !u!114 &11470534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4196,11 +4159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 1
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11473540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4212,11 +4170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 1
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11475654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4232,7 +4185,7 @@ MonoBehaviour:
   particles: {fileID: 19848998}
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
-  heightOffset: 0.05
+  heightOffset: 0.0975
 --- !u!114 &11476938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4359,11 +4312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!114 &11482356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4382,6 +4330,7 @@ MonoBehaviour:
   left: 0
   right: 0
   hitDistance: 4
+  usesPhysics: 0
 --- !u!114 &11482362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4530,11 +4479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fa2ab7963166428fe9a7b950057b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshHealth: 0
-  forward: 0
-  left: 0
-  right: 0
-  hitDistance: 2.4
 --- !u!124 &12432634
 Behaviour:
   m_ObjectHideFlags: 1
@@ -4720,7 +4664,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.75099945, y: 0.27700043, z: -1.2639999}
+  m_ConnectedAnchor: {x: 0.75100744, y: 0.27700043, z: -1.2640014}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -4812,7 +4756,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.75099945, y: 0.27700043, z: 1.1730003}
+  m_ConnectedAnchor: {x: 0.75099576, y: 0.27700043, z: 1.1729987}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -4904,7 +4848,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.75099945, y: 0.27700043, z: 1.1730003}
+  m_ConnectedAnchor: {x: -0.75100213, y: 0.27700043, z: 1.172997}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -4996,7 +4940,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.75099945, y: 0.27700043, z: -1.2639999}
+  m_ConnectedAnchor: {x: -0.75100756, y: 0.27700043, z: -1.2640029}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1

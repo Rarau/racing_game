@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: 3010e3ca86be2e6408c772c71e1f0ff9
+timeCreated: 1463236734
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BB_back
+    100002: BB_body
+    100004: BB_bumper
+    100006: BB_door_left
+    100008: BB_door_right
+    100010: BB_Fast1
+    100012: BB_Fast2
+    100014: BB_Fast3
+    100016: BB_Fast4
+    100018: BB_hoods
+    100020: BB_Middle005
+    100022: BB_Middle1
+    100024: BB_Middle2
+    100026: BB_Middle3
+    100028: BB_Slow1
+    100030: BB_Slow2
+    100032: BB_Slow3
+    100034: BB_Slow4
+    100036: BB_windowL
+    100038: BB_windowR
+    100040: BB_windows
+    100042: //RootNode
+    100044: Group004
+    400000: BB_back
+    400002: BB_body
+    400004: BB_bumper
+    400006: BB_door_left
+    400008: BB_door_right
+    400010: BB_Fast1
+    400012: BB_Fast2
+    400014: BB_Fast3
+    400016: BB_Fast4
+    400018: BB_hoods
+    400020: BB_Middle005
+    400022: BB_Middle1
+    400024: BB_Middle2
+    400026: BB_Middle3
+    400028: BB_Slow1
+    400030: BB_Slow2
+    400032: BB_Slow3
+    400034: BB_Slow4
+    400036: BB_windowL
+    400038: BB_windowR
+    400040: BB_windows
+    400042: //RootNode
+    400044: Group004
+    2300000: BB_back
+    2300002: BB_body
+    2300004: BB_bumper
+    2300006: BB_door_left
+    2300008: BB_door_right
+    2300010: BB_Fast1
+    2300012: BB_Fast2
+    2300014: BB_Fast3
+    2300016: BB_Fast4
+    2300018: BB_hoods
+    2300020: BB_Middle005
+    2300022: BB_Middle1
+    2300024: BB_Middle2
+    2300026: BB_Middle3
+    2300028: BB_Slow1
+    2300030: BB_Slow2
+    2300032: BB_Slow3
+    2300034: BB_Slow4
+    2300036: BB_windowL
+    2300038: BB_windowR
+    2300040: BB_windows
+    3300000: BB_back
+    3300002: BB_body
+    3300004: BB_bumper
+    3300006: BB_door_left
+    3300008: BB_door_right
+    3300010: BB_Fast1
+    3300012: BB_Fast2
+    3300014: BB_Fast3
+    3300016: BB_Fast4
+    3300018: BB_hoods
+    3300020: BB_Middle005
+    3300022: BB_Middle1
+    3300024: BB_Middle2
+    3300026: BB_Middle3
+    3300028: BB_Slow1
+    3300030: BB_Slow2
+    3300032: BB_Slow3
+    3300034: BB_Slow4
+    3300036: BB_windowL
+    3300038: BB_windowR
+    3300040: BB_windows
+    4300000: BB_Middle2
+    4300002: BB_windowL
+    4300004: BB_Slow4
+    4300006: BB_Fast4
+    4300008: BB_Slow3
+    4300010: BB_Middle005
+    4300012: BB_Middle3
+    4300014: BB_Middle1
+    4300016: BB_bumper
+    4300018: BB_windowR
+    4300020: BB_back
+    4300022: BB_Fast2
+    4300024: BB_Slow1
+    4300026: BB_door_left
+    4300028: BB_Fast3
+    4300030: BB_windows
+    4300032: BB_door_right
+    4300034: BB_Fast1
+    4300036: BB_hoods
+    4300038: BB_Slow2
+    4300040: BB_body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
