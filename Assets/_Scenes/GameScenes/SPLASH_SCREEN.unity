@@ -175,6 +175,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfHumanPlayers: 0
   numberOfLaps: 0
+  nameOfPlayers: []
+  playerCars: 
+  carSelected: 
+  spawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  carsPrefab:
+  - {fileID: 187566, guid: fbe954c6ee6bd8a43847e2a09c35c650, type: 2}
+  - {fileID: 187566, guid: fbe954c6ee6bd8a43847e2a09c35c650, type: 2}
+  - {fileID: 116462, guid: 7a5ead458d387f0469425d81b3100c99, type: 2}
+  - {fileID: 116462, guid: 7a5ead458d387f0469425d81b3100c99, type: 2}
 --- !u!4 &875404634
 Transform:
   m_ObjectHideFlags: 0

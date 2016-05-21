@@ -25,7 +25,7 @@ public class GameManagerEventCalls : MonoBehaviour {
     }
 
     // Sets the players car in the GameManager.
-    public void SetPlayerCar(string car) 
+    public void SetPlayerCar(int car) 
     {
         int player = 0;
         string playerText = GameObject.Find("PlayerText").GetComponent<Text>().text;

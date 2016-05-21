@@ -15,11 +15,15 @@ public class GameManager : MonoBehaviour
     public StateMachine<GameManager> fsm;
 
     public int numberOfHumanPlayers;
+    public int numberOfAIPlayers = 8;
     public int numberOfLaps;
+    public bool spawnsSet;
+    public bool carsInstantiated;
+    public GameObject[] carsPrefab;
+    public GameObject[] spawnLocations;
     public List<string> nameOfPlayers;
-    public List<string> playerCars;
+    public List<int> playerCars;
     public List<bool> carSelected;
-    public List<GameObject> spawnLocations;
 
     //public string[] nameOfPlayers;
     //public int trackSelected;
@@ -59,13 +63,12 @@ public class GameManager : MonoBehaviour
 
         numberOfHumanPlayers = 0;
         numberOfLaps = 0;
+        spawnsSet = false;
+        carsInstantiated = false;
         nameOfPlayers = new List<string>();
-        playerCars = new List<string>();
+        playerCars = new List<int>();
         carSelected = new List<bool>();
-        spawnLocations = new List<GameObject>();
-
-    //trackSelected = 0;
-}
+    }
 
     public void Update()
     {
@@ -77,7 +80,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numberOfHumanPlayers; i++)
         {
             nameOfPlayers.Add(string.Concat("Player" + i.ToString()));
-            playerCars.Add("");
+            playerCars.Add(0);
             carSelected.Add(false);
         }
     }

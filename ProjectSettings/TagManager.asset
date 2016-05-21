@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CheckpointCollider
-  - New Tag
+  - StartingPosition
   layers:
   - Default
   - TransparentFX
