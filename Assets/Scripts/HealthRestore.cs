@@ -8,19 +8,24 @@ public class HealthRestore : MonoBehaviour {
 
     public Component[] carPieces;
 
+    GameObject spannerKey;
+
     // Use this for initialization
     void Start () {
-        gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+        //gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+        spannerKey = GameObject.Find("SpannerKey");
+        spannerKey.SetActive(true);
         this.GetComponent<Renderer>().enabled = false;
         startTime = Time.timeSinceLevelLoad;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (!gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled &&
+        if (!spannerKey.activeSelf &&
              (startTime + lifetime) < Time.timeSinceLevelLoad)
         {
-            gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+            //gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+            spannerKey.SetActive(true);
         }
     }
 
@@ -31,9 +36,12 @@ public class HealthRestore : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        if (gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled && collider.gameObject.tag == "WrenchTag")
+        //gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled
+        if (spannerKey.activeSelf && 
+            collider.gameObject.tag == "WrenchTag")
         {
-            gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+            //gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+            spannerKey.SetActive(false);
             startTime = Time.timeSinceLevelLoad;
 
             carPieces = collider.gameObject.transform.root.GetComponentsInChildren<MeshChange>();
