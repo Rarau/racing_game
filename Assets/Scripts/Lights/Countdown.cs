@@ -18,7 +18,7 @@ public class Countdown : MonoBehaviour {
 	void Update () {
         timeLeft -= Time.deltaTime*4;
         if (timeLeft >= 20)
-        {
+        {           
             mySignal = signal.RED;
         }
         else if (timeLeft >= 10 && timeLeft < 20)
@@ -29,9 +29,6 @@ public class Countdown : MonoBehaviour {
         {
             mySignal = signal.GREEN;
         }
-        else if (timeLeft < -10)
-        {
-            gameObject.SetActive(false);
-        }
+ 
     }
 }

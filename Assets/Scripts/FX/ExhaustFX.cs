@@ -22,8 +22,6 @@ public class ExhaustFX : MonoBehaviour
             if (carController.currentSpeed > 40.0f)
             {
                 exhaust.SetActive(true);
-                exhaust.GetComponent<AudioSource>().Stop();
-                exhaust.GetComponent<AudioSource>().Play();
             }
         }
         previousGear = gearNumber;
