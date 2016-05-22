@@ -13,17 +13,17 @@ public class CarPlayerInput : MonoBehaviour
 
     //public SplitScreenCamera cam;
 
-	void Awake () 
+	void OnEnable () 
     {
         carController = GetComponent<CarController>();
 
         playerPrefix = "P" + carController.playerNumber + "_";
 
-        SplitScreenCamera splitScreenCam = cameraRig.GetComponentInChildren<SplitScreenCamera>();
-        if(splitScreenCam != null)
-        {
-            splitScreenCam.SetPlayerNumber(carController.playerNumber);
-        }
+        //SplitScreenCamera splitScreenCam = cameraRig.GetComponentInChildren<SplitScreenCamera>();
+        //if(splitScreenCam != null)
+        //{
+        //    splitScreenCam.SetPlayerNumber(carController.playerNumber);
+        //}
 	}
 	
     
