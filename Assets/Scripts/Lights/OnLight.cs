@@ -18,7 +18,7 @@ public class OnLight : MonoBehaviour {
     void Start () {
         //countdown = transform.parent.parent.GetComponent<Countdown>();
 
-        countdown = GameObject.Find("Countdown").GetComponent<Countdown>();
+        countdown = transform.parent.GetComponent<Countdown>();
 
         renderer = GetComponent<Renderer>();
         material = renderer.material;

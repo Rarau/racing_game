@@ -21,6 +21,8 @@ public class MilesCounter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (car == null)
+            return;
         float speedFactor = (car.currentSpeed / car.maxSpeed) * 1.3f;
         //float rpmFactor = car.virtualRPM / car.rpmMax;
         float rotationAngle;

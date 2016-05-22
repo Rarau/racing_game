@@ -21,6 +21,8 @@ public class RevCounter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (car == null)
+            return;
         float speedFactor = car.currentSpeed / car.maxSpeed;
         float rpmFactor = car.virtualRPM;
         float rotationAngle;

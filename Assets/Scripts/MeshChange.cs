@@ -23,7 +23,7 @@ public class MeshChange : MonoBehaviour {
 
     public float hitDistance = 2.4f;
 
-    float healthDiscount = 0.1f;
+    float healthDiscount = 0.01f;
 
     public bool usesPhysics = true;
 
@@ -72,7 +72,7 @@ public class MeshChange : MonoBehaviour {
                 alreadyDetached = false;
             }
         }
-        else if (meshHealth > 0 && meshHealth < 80)
+        else if (meshHealth > 0 && meshHealth < 60)
         {
             gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<Renderer>().enabled = true;
