@@ -265,7 +265,7 @@ GameObject:
   - 135: {fileID: 13520528}
   m_Layer: 8
   m_Name: GameObject (3)
-  m_TagString: Untagged
+  m_TagString: WrenchTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -735,7 +735,7 @@ GameObject:
   - 135: {fileID: 13554788}
   m_Layer: 8
   m_Name: GameObject (4)
-  m_TagString: Untagged
+  m_TagString: WrenchTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1458,7 +1458,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6053157, y: 0.76300716, z: -2.307211}
+  m_LocalPosition: {x: -37.154, y: -16.861444, z: -36.76738}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470828}
@@ -4941,7 +4941,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.7509999, y: 0.27699995, z: -1.2639999}
+  m_ConnectedAnchor: {x: -0.75099945, y: 0.27700043, z: -1.2639999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5033,7 +5033,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.7509999, y: 0.27699995, z: 1.173}
+  m_ConnectedAnchor: {x: -0.75099945, y: 0.27700043, z: 1.1730003}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5125,7 +5125,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7509999, y: 0.27699995, z: -1.2639999}
+  m_ConnectedAnchor: {x: 0.75099945, y: 0.27700043, z: -1.2639999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5217,7 +5217,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7509999, y: 0.27699995, z: 1.173}
+  m_ConnectedAnchor: {x: 0.75099945, y: 0.27700043, z: 1.1730003}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1

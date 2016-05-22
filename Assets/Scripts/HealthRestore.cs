@@ -6,6 +6,8 @@ public class HealthRestore : MonoBehaviour {
     public float lifetime = 20.0f;
     private float startTime;
 
+    public Component[] carPieces;
+
     // Use this for initialization
     void Start () {
         gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
@@ -29,11 +31,16 @@ public class HealthRestore : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        if (gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled)
+        if (gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled && collider.gameObject.tag == "WrenchTag")
         {
             gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
             startTime = Time.timeSinceLevelLoad;
-            collider.gameObject.GetComponent<MeshChange>().meshHealth = 100; //this is not right yet
+
+            carPieces = collider.gameObject.transform.root.GetComponentsInChildren<MeshChange>();
+            foreach (MeshChange pieces in carPieces)
+            {
+                pieces.meshHealth = 101;
+            }
         }
     }
 }
