@@ -44,6 +44,7 @@ public class CarController : MonoBehaviour
     private Vector3 totalAcceleration;
     private Vector3 localVelocity;
 
+    private bool motionEnabled = true;
 
     public float ForwardVelocity
     {
@@ -69,6 +70,7 @@ public class CarController : MonoBehaviour
     private bool isGearShiftedDown = false;
     private float timeShift;
 
+    public int playerNumber = 1;
 
     void Start () 
     {
@@ -211,14 +213,16 @@ public class CarController : MonoBehaviour
         //}
         previousVelocity = rigidbody.velocity;
 
-        
-        if (Mathf.Abs(rigidbody.angularVelocity.y) > 5.0f)
+        if (motionEnabled)
         {
-            rigidbody.angularDrag = 3.0f;
-        }
-        else
-        {
-            rigidbody.angularDrag = 0.1f;
+            if (Mathf.Abs(rigidbody.angularVelocity.y) > 5.0f)
+            {
+                rigidbody.angularDrag = 3.0f;
+            }
+            else
+            {
+                rigidbody.angularDrag = 0.1f;
+            }
         }
 
         foreach (WheelController wc in wheels)
@@ -349,5 +353,33 @@ public class CarController : MonoBehaviour
         Gizmos.color = Color.green;
 
         Gizmos.DrawSphere(GetComponent<Rigidbody>().worldCenterOfMass, 0.1f);
+    }
+
+    public void SetEnableMotion(bool enable)
+    {
+        if(rigidbody == null)
+        {
+            rigidbody = GetComponent<Rigidbody>();
+        }
+
+        if (enable)
+        {
+            rigidbody.drag = 0.0f;
+            rigidbody.angularDrag = 0.1f;
+            foreach (WheelController wc in wheels)
+            {
+                wc.GetComponent<Rigidbody>().drag = 0.0f;
+            }
+        }
+        else
+        {
+            rigidbody.drag = 10000000.0f;
+            rigidbody.angularDrag = 10000000.0f;
+            foreach (WheelController wc in wheels)
+            {
+                wc.GetComponent<Rigidbody>().drag = 10000000.0f;
+            }
+        }
+        motionEnabled = enable;
     }
 }

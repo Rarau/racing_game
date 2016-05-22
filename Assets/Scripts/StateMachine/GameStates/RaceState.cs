@@ -3,28 +3,31 @@ using System.Collections.Generic;
 
 public class RaceState : State<GameManager>
 {
-    // Temporary until we figure out where this is coming from.
     public List<GameObject> cars;
 
+    private GameManager gm;
 
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         //Debug.Log("Executing Race State");
         UpdateRacePositions();
+
+        // Check if all cars have crossed the finish line and end race.
+        if (AllCarsFinished())
+        {
+            // Load scoreboard.
+            gm.SetLevel("MENU_SCOREBOARD");
+            fsm.SetState(new ScoreboardState());
+        };
     }
 
     public void enter(GameManager gm)
     {
         Debug.Log("Entered Race State");
-        // Get car starting position array.
-        // Temp stuff until we figure out where the list of cars is coming from.
-        // Should probably be in RaceStartState.
-        cars = new List<GameObject>();
-        cars.Add(GameObject.Find("CarSupra"));
-        //cars.Add(GameObject.Find("CarSupra1"));
-        //cars.Add(GameObject.Find("CarSupra2"));
-        //cars.Add(GameObject.Find("CarSupra3"));
-        //cars.Add(GameObject.Find("CarSupra4"));
+        this.gm = gm;
+
+        // Get the list of cars from the game manager to manipulate.
+        cars = gm.cars;
 
         // Remove startup time from the race timer.
         float raceStartTime = Time.time;
@@ -33,7 +36,8 @@ public class RaceState : State<GameManager>
         for (int i = 0; i < cars.Count; i++)
         {
             cars[i].GetComponent<RaceInfo>().SetLapTimer(Time.time - raceStartTime);
-        }   
+            gm.cars[i].GetComponent<CarController>().SetEnableMotion(true);
+        }
     }
 
     public void exit(GameManager gm)
@@ -121,6 +125,17 @@ public class RaceState : State<GameManager>
         //Debug.Log("BREAK");
 
         return cars;
+    }
+
+    // Returns true when all cars have finished the race.
+    private bool AllCarsFinished()
+    {
+        if (gm.finalPositions.Count == cars.Count)
+        {
+            // All cars have finished.
+            return true;
+        }
+        return false;
     }
 
     // Comparitor for the cars current lap.

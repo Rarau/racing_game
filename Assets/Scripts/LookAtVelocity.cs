@@ -16,7 +16,10 @@ public class LookAtVelocity : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate () 
     {
-        transform.forward = Vector3.Lerp(transform.forward, rigidbody.velocity, Time.deltaTime * smoothness) + (rotOffset).normalized * rigidbody.velocity.magnitude;
+        transform.forward = Vector3.Lerp(transform.forward, rigidbody.velocity, Time.deltaTime * smoothness);
+
+        if (rotOffset.magnitude > 0.01f)
+            transform.forward = Vector3.Lerp(transform.forward, rigidbody.transform.TransformDirection((rotOffset)).normalized * rigidbody.velocity.magnitude, Time.deltaTime * smoothness);
         
 	}
 }

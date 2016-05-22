@@ -19,27 +19,17 @@ public class GameManager : MonoBehaviour
     public int numberOfLaps;
     public bool spawnsSet;
     public bool carsInstantiated;
+
     public GameObject[] carsPrefab;
+    public GameObject playerHUDPrefab;
+
     public GameObject[] spawnLocations;
+
     public List<string> nameOfPlayers;
     public List<int> playerCars;
     public List<bool> carSelected;
-
-    //public string[] nameOfPlayers;
-    //public int trackSelected;
-    //public bool[] carSelected;
-
-    //const int numPlayers = 4;
-
-    // To hold player data when paused.
-    //struct PlayerData
-    //{
-    //    float speed;
-    //    Vector3 position;
-    //    int gear;
-    //}
-
-    //List<PlayerData> playerData = new List<PlayerData>();
+    public List<GameObject> cars;
+    public List<GameObject> finalPositions;
 
     public static GameManager Instance
     {
@@ -68,6 +58,8 @@ public class GameManager : MonoBehaviour
         nameOfPlayers = new List<string>();
         playerCars = new List<int>();
         carSelected = new List<bool>();
+        cars = new List<GameObject>();
+        finalPositions = new List<GameObject>(0);
     }
 
     public void Update()
@@ -84,7 +76,6 @@ public class GameManager : MonoBehaviour
             carSelected.Add(false);
         }
     }
-
 
     public string GetLevel()
     {
