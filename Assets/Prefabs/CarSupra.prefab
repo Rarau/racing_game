@@ -4285,9 +4285,9 @@ MonoBehaviour:
   looseParts: 0
   alreadyDetached: 0
   forward: 0
-  left: 0
+  left: 1
   right: 0
-  hitDistance: 5.7
+  hitDistance: 2
   usesPhysics: 1
   damageParticles: {fileID: 0}
   isEngine: 0
@@ -4874,8 +4874,8 @@ MonoBehaviour:
   alreadyDetached: 0
   forward: 0
   left: 0
-  right: 0
-  hitDistance: 5.7
+  right: 1
+  hitDistance: 2
   usesPhysics: 1
   damageParticles: {fileID: 0}
   isEngine: 0
