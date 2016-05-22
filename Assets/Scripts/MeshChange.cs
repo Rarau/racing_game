@@ -23,7 +23,7 @@ public class MeshChange : MonoBehaviour {
 
     public float hitDistance = 2.4f;
 
-    float healthDiscount = 0.1f;
+    float healthDiscount = 0.01f;
 
     public bool usesPhysics = true;
 

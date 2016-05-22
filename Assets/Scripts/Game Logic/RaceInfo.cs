@@ -130,4 +130,14 @@ public class RaceInfo : MonoBehaviour
             }
         }
     }
+
+    public float GetOverallRaceTime()
+    {
+        float overallTime = 0.0f;
+        for(int i = 0; i < lapTimes.Count; i++)
+        {
+            overallTime += lapTimes[i];
+        }
+        return overallTime;
+    }
 }

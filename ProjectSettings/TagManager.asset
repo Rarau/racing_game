@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CheckpointCollider
   - StartingPosition
+  - Scoreboard
   layers:
   - Default
   - TransparentFX
