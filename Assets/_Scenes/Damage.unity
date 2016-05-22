@@ -1952,6 +1952,7 @@ GameObject:
   - 146: {fileID: 1046486538}
   - 222: {fileID: 1046486539}
   - 114: {fileID: 1046486537}
+  - 81: {fileID: 1046486541}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2071,6 +2072,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!81 &1046486541
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1046486535}
+  m_Enabled: 1
 --- !u!1001 &1057358971
 Prefab:
   m_ObjectHideFlags: 0
