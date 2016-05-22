@@ -206,7 +206,6 @@ GameObject:
   - 23: {fileID: 2317656}
   - 33: {fileID: 3375250}
   - 114: {fileID: 11460606}
-  - 114: {fileID: 11401356}
   m_Layer: 0
   m_Name: CarSupra
   m_TagString: Untagged
@@ -4234,29 +4233,6 @@ MonoBehaviour:
   currentSpeed: 6.7977195
   maximumSpeed: 407
   playerNumber: 1
---- !u!114 &11401356
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593d030143925f04897c0f12412e5542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gm: {fileID: 0}
-  carController: {fileID: 0}
-  lap: 1
-  racePosition: 0
-  lastCheckpoint: 0
-  lapTimer: 0
-  cumulativeLapTimes: 0
-  lapTimes: []
-  gear: 0
-  speed: 0
-  position: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &11401586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4313,7 +4289,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e63e836aa11b14fb651c59728e2b72, type: 3}
   m_Name: 
