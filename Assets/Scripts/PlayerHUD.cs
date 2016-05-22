@@ -8,8 +8,11 @@ public class PlayerHUD : MonoBehaviour
     public CarController carController;
 
     public Text lapCounter;
+    public Text posCounter;
+
     public RaceInfo raceInfo;
     public int lastLap;
+    public int lastPos;
     void Start()
     {
         Initialize();
@@ -20,6 +23,7 @@ public class PlayerHUD : MonoBehaviour
 	public void Initialize () 
     {
         lastLap = 0;
+        lastPos = 0;
         if (carController != null)
         {
             GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
@@ -28,6 +32,8 @@ public class PlayerHUD : MonoBehaviour
             GetComponentInChildren<RevCounter>().car = carController;
             GetComponentInChildren<MilesCounter>().car = carController;
             lapCounter = transform.FindChild("LapCounter/LapCount").GetComponent<Text>();
+            posCounter = transform.FindChild("PosCounter/PosCount").GetComponent<Text>();
+
             raceInfo = carController.GetComponent<RaceInfo>();
             lapCounter.text = (raceInfo.lap - 1) + "/" + FindObjectOfType<GameManager>().numberOfLaps;
         }
@@ -35,7 +41,12 @@ public class PlayerHUD : MonoBehaviour
 
     public void Update()
     {
-        if(raceInfo.lap != lastLap)
+        if (raceInfo.racePosition != lastPos)
+        {
+            lastPos = raceInfo.racePosition;
+            posCounter.text = (raceInfo.racePosition) + "/" + FindObjectOfType<GameManager>().numberOfHumanPlayers;
+        }
+        if (raceInfo.lap != lastLap)
         {
             lastLap = raceInfo.lap;
             lapCounter.text = (raceInfo.lap - 1) + "/" + FindObjectOfType<GameManager>().numberOfLaps;

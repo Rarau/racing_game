@@ -29,11 +29,6 @@ public class HealthRestore : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-
-    }
-
     void OnTriggerEnter(Collider collider)
     {
         //gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled
