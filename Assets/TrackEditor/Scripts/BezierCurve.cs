@@ -148,7 +148,7 @@ public class BezierCurve : MonoBehaviour
         
         mesh.RecalculateNormals();
 
-        Debug.Log("Mesh regenerated " + mesh.vertexCount);
+        //Debug.Log("Mesh regenerated " + mesh.vertexCount);
         GetComponent<MeshFilter>().sharedMesh = mesh;
 
         MeshCollider mc = GetComponent<MeshCollider>();
