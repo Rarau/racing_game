@@ -16,8 +16,8 @@ public class RaceState : State<GameManager>
         if (AllCarsFinished())
         {
             // Load scoreboard.
-            gm.SetLevel("MENU_SCOREBOARD");
-            fsm.SetState(new ScoreboardState());
+            GameObject scoreboard = GameObject.FindGameObjectWithTag("Scoreboard");
+            scoreboard.GetComponent<Canvas>().enabled = true;
         };
     }
 

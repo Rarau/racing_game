@@ -148,7 +148,7 @@ GameObject:
   - 135: {fileID: 13539048}
   m_Layer: 8
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: CheckpointCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1459,7 +1459,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6053157, y: 0.76300716, z: -2.307211}
+  m_LocalPosition: {x: -190.42194, y: 57.421047, z: 87.292496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470828}
@@ -4949,7 +4949,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.7509999, y: 0.27699995, z: -1.2639999}
+  m_ConnectedAnchor: {x: -0.7510071, y: 0.27700043, z: -1.2639999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5041,7 +5041,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.7509999, y: 0.27699995, z: 1.173}
+  m_ConnectedAnchor: {x: -0.7510071, y: 0.27700043, z: 1.1729965}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5133,7 +5133,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7509999, y: 0.27699995, z: -1.2639999}
+  m_ConnectedAnchor: {x: 0.7510071, y: 0.27700043, z: -1.2639999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5225,7 +5225,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7509999, y: 0.27699995, z: 1.173}
+  m_ConnectedAnchor: {x: 0.7510071, y: 0.27700043, z: 1.1729965}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
