@@ -6,10 +6,12 @@ public class Checkpoint : MonoBehaviour
 {
     private int thisCheckpoint;
     private GameManager gm;
+    //private GameObject scoreboard;
 
     void Start()
     {
         thisCheckpoint = int.Parse(name.Substring(10));
+        //scoreboard = GameObject.Find("Scoreboard");
         GameObject gmObject = GameObject.Find("GameManager");
 
         // Disable this script if no GameManager in scene.
@@ -42,6 +44,7 @@ public class Checkpoint : MonoBehaviour
                 car.GetComponent<RaceInfo>().SaveLapTime();
 
                 // Update UI.
+                
             } else
             {
                 // Travelling in the wrong direction.
@@ -58,6 +61,14 @@ public class Checkpoint : MonoBehaviour
             {
                 // Car has finished the race, add it to the finishing order.
                 gm.finalPositions.Add(car.gameObject);
+
+                // Update scoreboard.
+                int carIndex = gm.finalPositions.Count - 1;
+                GameObject position = GameObject.Find("Score" + carIndex);
+                Text[] textElements = position.GetComponentsInChildren<Text>();
+                textElements[0].text = (carIndex + 1).ToString();
+                textElements[1].text = "Player " + gm.finalPositions[carIndex].GetComponent<CarController>().playerNumber;
+                textElements[2].text = gm.finalPositions[carIndex].GetComponent<RaceInfo>().GetOverallRaceTime().ToString();
             }
         }
     }

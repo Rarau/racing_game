@@ -3,9 +3,11 @@ using System.Collections;
 
 public class RaceSetupState : State<GameManager>
 {
+    StateMachine<GameManager> fsm;
+
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
-        Debug.Log("Executing RaceSetupState");
+        //Debug.Log("Executing RaceSetupState");
         // Setup spawn locations.
         if (!gm.spawnsSet)
         {
@@ -40,20 +42,28 @@ public class RaceSetupState : State<GameManager>
 
         // Begin count down...
         // Switch to RaceState.
-        fsm.SetState(new RaceState());
+        GameObject.FindObjectOfType<Countdown>().countdownFinishedEvent += OnCountdownFinished;
     }
 
     public void enter(GameManager gm)
     {
-        Debug.Log("Entering RaceSetupState");
+        //Debug.Log("Entering RaceSetupState");
         SplitScreenCamera.totalPlayers = gm.numberOfHumanPlayers;
-
+        fsm = gm.fsm;
         // Spawn locations not detected in the scene at this point... for some reason.
         // Placed spawn location setup and car initiation in execute insetad.
     }
 
     public void exit(GameManager gm)
     {
-        Debug.Log("Exiting RaceSetupState");
+        //Debug.Log("Exiting RaceSetupState");
+        GameObject.FindObjectOfType<Countdown>().countdownFinishedEvent -= OnCountdownFinished;
+
+    }
+
+    public void OnCountdownFinished()
+    {
+        if(fsm.getState().GetType() != typeof(RaceState))
+            fsm.SetState(new RaceState());
     }
 }

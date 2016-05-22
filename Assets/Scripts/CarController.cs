@@ -313,6 +313,7 @@ public class CarController : MonoBehaviour
     bool showDebug;
     void OnGUI()
     {
+        /*
         GUI.contentColor = Color.black;
 
         if (GUILayout.Button("Toggle Debug"))
@@ -348,6 +349,7 @@ public class CarController : MonoBehaviour
         }
         GUILayout.EndHorizontal();
         GUILayout.EndArea();
+         * */
     }
     void OnDrawGizmos()
     {
