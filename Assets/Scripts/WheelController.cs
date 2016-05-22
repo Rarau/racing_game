@@ -63,6 +63,17 @@ public class WheelController : MonoBehaviour {
     public bool eBrakeEnabled = false;
     public WheelController connectedWheel;
 
+    public float maxGeometryDisplacement = 0.4f;
+    private float initialY;
+
+    void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+
+        rigidbody.centerOfMass = (Vector3.zero);
+        initialY = transform.localPosition.y;
+    }
+
 	// Update is called once per frame
 	void Update () 
     {
@@ -72,13 +83,14 @@ public class WheelController : MonoBehaviour {
         wheelGeometry.transform.Rotate(Vector3.right, angularVelocityDegSec * Time.deltaTime, Space.Self);
         wheelGeometry.transform.localPosition = transform.localPosition;
         prevSteringAngle = steeringAngle;
-	}
-    void Awake()
-    {
-        rigidbody = GetComponent<Rigidbody>();
 
-        rigidbody.centerOfMass = (Vector3.zero);
-    }
+        if((wheelGeometry.transform.localPosition.y - initialY) > maxGeometryDisplacement) 
+        {
+            Vector3 p = wheelGeometry.transform.localPosition;
+            p.y = maxGeometryDisplacement + initialY;
+            wheelGeometry.transform.localPosition = p;
+        }
+	}
 
     private Vector3 prevNormal;
     public RaycastHit groundInfo;

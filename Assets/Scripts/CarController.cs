@@ -69,6 +69,7 @@ public class CarController : MonoBehaviour
     private bool isGearShiftedDown = false;
     private float timeShift;
 
+    public int playerNumber = 1;
 
     void Start () 
     {
