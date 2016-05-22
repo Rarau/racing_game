@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class RaceInfo : MonoBehaviour
@@ -39,22 +40,18 @@ public class RaceInfo : MonoBehaviour
         }
 
         // Record car data for flips and pauses.
-        //if (!IsFlipped())
-        //{
-        //    gear = carController.currentGear;
-        //    speed = carController.currentSpeed;
-        //    position = transform.position;
-        //    rotation = transform.rotation;
-        //}
-        //else
-        //{
-        //    // Reposition car.
-        //    carController.currentGear = 0;
-        //    carController.currentSpeed = 0.0f;
-        //    transform.position = position;
-        //    transform.rotation = rotation;
-        //    Debug.Log("Repositioned Car");
-        //}
+        if (!carController.IsFlying())
+        {
+            gear = carController.currentGear;
+            speed = carController.currentSpeed;
+            position = transform.position;
+            rotation = transform.rotation;
+        } 
+        else
+        {
+            // Reposition car if still flipped after two seconds.
+            StartCoroutine(CarStuck());
+        }
     }
 
     // Stores the latest lap time and refreshes the lap timer.
@@ -98,10 +95,30 @@ public class RaceInfo : MonoBehaviour
     // Check to see if the car is stuck.
     private bool IsFlipped()
     {
-        if (carController.IsFlying() && carController.currentSpeed > 1.0f)
+        if (carController.IsFlying() && carController.currentSpeed < 1.0f)
         {
             return true;
         }
         return false;
+    }
+
+    private IEnumerator CarStuck()
+    {
+        if (IsFlipped())
+        {
+            yield return new WaitForSeconds(3.0f);
+
+            if (IsFlipped())
+            {
+                // Reposition car.
+                carController.currentGear = 1;
+                carController.currentSpeed = 0.0f;
+                Quaternion newRotation = new Quaternion(rotation.x, rotation.y, 0.03f, rotation.w);
+                transform.rotation = newRotation;
+
+                transform.position = position;
+                Debug.Log("Repositioned Car");
+            }
+        }
     }
 }

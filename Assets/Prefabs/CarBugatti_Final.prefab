@@ -148,7 +148,7 @@ GameObject:
   - 135: {fileID: 13539048}
   m_Layer: 8
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: CheckpointCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -480,7 +480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &144622
 GameObject:
   m_ObjectHideFlags: 1
@@ -956,6 +956,7 @@ GameObject:
   - 114: {fileID: 11455874}
   - 114: {fileID: 11468188}
   - 82: {fileID: 8252996}
+  - 114: {fileID: 11438520}
   m_Layer: 0
   m_Name: CarBugatti_Final
   m_TagString: Untagged
@@ -1458,7 +1459,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.154, y: -16.861444, z: -36.76738}
+  m_LocalPosition: {x: -169.52924, y: 37.564945, z: 85.81365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470828}
@@ -3926,6 +3927,29 @@ MonoBehaviour:
   swapTexture:
   - {fileID: 2800000, guid: 910ea16e71d8a6a42a951a9bdc9a595f, type: 3}
   - {fileID: 2800000, guid: 2825e8c1c04650245b01a3b4a1b874ec, type: 3}
+--- !u!114 &11438520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593d030143925f04897c0f12412e5542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  carController: {fileID: 0}
+  lap: 1
+  racePosition: 0
+  lastCheckpoint: 0
+  lapTimer: 0
+  cumulativeLapTimes: 0
+  lapTimes: []
+  gear: 0
+  speed: 0
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &11439458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4201,7 +4225,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187566}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e63e836aa11b14fb651c59728e2b72, type: 3}
   m_Name: 
@@ -4968,7 +4992,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.75099945, y: 0.27700043, z: -1.2639999}
+  m_ConnectedAnchor: {x: -0.7510071, y: 0.27700043, z: -1.2639999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5060,7 +5084,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.75099945, y: 0.27700043, z: 1.1730003}
+  m_ConnectedAnchor: {x: -0.7510071, y: 0.27700043, z: 1.1729965}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5152,7 +5176,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.75099945, y: 0.27700043, z: -1.2639999}
+  m_ConnectedAnchor: {x: 0.7510071, y: 0.27700043, z: -1.2639999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5244,7 +5268,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.75099945, y: 0.27700043, z: 1.1730003}
+  m_ConnectedAnchor: {x: 0.7510071, y: 0.27700043, z: 1.1729965}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
