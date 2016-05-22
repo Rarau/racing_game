@@ -12,6 +12,7 @@ public class SplashState : State<GameManager>
             gm.SetLevel("MENU_PLAYER");
             fsm.SetState(new MenuState());
         }
+
     }
 
     public void enter(GameManager gm)
