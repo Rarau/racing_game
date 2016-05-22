@@ -11,7 +11,14 @@ public class RaceState : State<GameManager>
     {
         //Debug.Log("Executing Race State");
         UpdateRacePositions();
-        CheckAllCarsFinished();
+
+        // Check if all cars have crossed the finish line and end race.
+        if (AllCarsFinished())
+        {
+            // Load scoreboard.
+            gm.SetLevel("MENU_SCOREBOARD");
+            fsm.SetState(new ScoreboardState());
+        };
     }
 
     public void enter(GameManager gm)
@@ -119,14 +126,15 @@ public class RaceState : State<GameManager>
         return cars;
     }
 
-    // 
-    private void CheckAllCarsFinished()
+    // Returns true when all cars have finished the race.
+    private bool AllCarsFinished()
     {
         if (gm.finalPositions.Count == cars.Count)
         {
-            // All cars have finished, end race.
-            Debug.Log("End Race");
+            // All cars have finished.
+            return true;
         }
+        return false;
     }
 
     // Comparitor for the cars current lap.
