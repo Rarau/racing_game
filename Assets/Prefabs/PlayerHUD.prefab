@@ -47,8 +47,9 @@ GameObject:
   - 114: {fileID: 11413398}
   - 114: {fileID: 11493652}
   - 222: {fileID: 22202728}
+  - 114: {fileID: 11473348}
   m_Layer: 5
-  m_Name: SpeedMeter
+  m_Name: PlayerHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,6 +628,18 @@ MonoBehaviour:
   car: {fileID: 0}
   minAnglePointer: 0
   maxAnglePointer: 280
+--- !u!114 &11473348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25781d8141740243891ac098122e0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carController: {fileID: 0}
 --- !u!114 &11473588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -807,7 +820,7 @@ Canvas:
   m_GameObject: {fileID: 117930}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1074,7 +1087,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117930}

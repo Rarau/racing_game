@@ -20,6 +20,8 @@ public class OnText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (countdown == null)
+            return;
         if ((int)countdown.timeLeft == 20) 
         {
             countdownText.text = "2";

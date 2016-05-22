@@ -472,6 +472,7 @@ GameObject:
   - 124: {fileID: 12439800}
   - 114: {fileID: 11429488}
   - 114: {fileID: 11475220}
+  - 114: {fileID: 11472484}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -954,6 +955,7 @@ GameObject:
   - 114: {fileID: 11455874}
   - 114: {fileID: 11468188}
   - 82: {fileID: 8252996}
+  - 114: {fileID: 11405136}
   m_Layer: 0
   m_Name: CarBugatti_Final
   m_TagString: Untagged
@@ -1456,7 +1458,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.154, y: -16.861444, z: -36.76738}
+  m_LocalPosition: {x: 2.6053157, y: 0.76300716, z: -2.307211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470828}
@@ -3473,6 +3475,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  maxGeometryDisplacement: 0.4
   suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
@@ -3521,6 +3524,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelController: {fileID: 11493074}
+--- !u!114 &11405136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593d030143925f04897c0f12412e5542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  carController: {fileID: 0}
+  lap: 1
+  racePosition: 0
+  lastCheckpoint: 0
+  lapTimer: 0
+  cumulativeLapTimes: 0
+  lapTimes: []
+  gear: 0
+  speed: 0
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &11407120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3711,6 +3737,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 11493074}
+  maxGeometryDisplacement: 0.4
   suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
@@ -4091,6 +4118,7 @@ MonoBehaviour:
   virtualRPM: 0.033403892
   currentSpeed: 6.7977195
   maximumSpeed: 407
+  playerNumber: 1
 --- !u!114 &11446836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4125,7 +4153,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187566}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e63e836aa11b14fb651c59728e2b72, type: 3}
   m_Name: 
@@ -4288,6 +4316,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  maxGeometryDisplacement: 0.4
   suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
@@ -4358,6 +4387,17 @@ MonoBehaviour:
   usesPhysics: 1
   damageParticles: {fileID: 130978, guid: 863d971d906391a4eaefa9bcae7bb209, type: 2}
   isEngine: 1
+--- !u!114 &11472484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211fabfb6f4d9804e8e1f0b7eda9d564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11472824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4647,6 +4687,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  maxGeometryDisplacement: 0.4
   suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
@@ -4900,7 +4941,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.75099945, y: 0.27700043, z: -1.2639999}
+  m_ConnectedAnchor: {x: -0.7509999, y: 0.27699995, z: -1.2639999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -4992,7 +5033,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.75099945, y: 0.27700043, z: 1.1730003}
+  m_ConnectedAnchor: {x: -0.7509999, y: 0.27699995, z: 1.173}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5084,7 +5125,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.75099945, y: 0.27700043, z: -1.2639999}
+  m_ConnectedAnchor: {x: 0.7509999, y: 0.27699995, z: -1.2639999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -5176,7 +5217,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.75099945, y: 0.27700043, z: 1.1730003}
+  m_ConnectedAnchor: {x: 0.7509999, y: 0.27699995, z: 1.173}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -15819,7 +15860,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187566}
