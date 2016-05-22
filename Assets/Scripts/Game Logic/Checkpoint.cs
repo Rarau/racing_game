@@ -44,6 +44,7 @@ public class Checkpoint : MonoBehaviour
                 car.GetComponent<RaceInfo>().SaveLapTime();
 
                 // Update UI.
+                
             } else
             {
                 // Travelling in the wrong direction.
