@@ -10,7 +10,14 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         thisCheckpoint = int.Parse(name.Substring(10));
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameObject gmObject = GameObject.Find("GameManager");
+
+        // Disable this script if no GameManager in scene.
+        if (gmObject == null)
+        {
+            return;
+        }
+        gm = gmObject.GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter(Collider carCollider)

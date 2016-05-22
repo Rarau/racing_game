@@ -22,7 +22,16 @@ public class RaceInfo : MonoBehaviour
 
     void Start()
     {
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameObject gmObject = GameObject.Find("GameManager");
+
+        // Disable this script if no GameManager in scene.
+        if (gmObject == null)
+        {
+            this.enabled = false;
+            return;
+        }
+
+        gm = gmObject.GetComponent<GameManager>();
         carController = GetComponent<CarController>();
         lapTimes = new List<float>();
     }
