@@ -29,6 +29,11 @@ public class RaceSetupState : State<GameManager>
                 gm.cars[i].GetComponent<CarPlayerInput>().enabled = true;
                 gm.cars[i].GetComponent<CarController>().SetEnableMotion(false);
 
+                GameObject playerHUD = (GameObject)GameObject.Instantiate(gm.playerHUDPrefab);
+                playerHUD.GetComponent<PlayerHUD>().carController = gm.cars[i].GetComponent<CarController>();
+                playerHUD.GetComponent<PlayerHUD>().Initialize();
+                playerHUD.SetActive(true);
+
             }
             gm.carsInstantiated = true;
         }

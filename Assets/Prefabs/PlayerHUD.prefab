@@ -47,13 +47,14 @@ GameObject:
   - 114: {fileID: 11413398}
   - 114: {fileID: 11493652}
   - 222: {fileID: 22202728}
+  - 114: {fileID: 11448006}
   m_Layer: 5
   m_Name: PlayerHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &122698
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +588,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Lap:'
+--- !u!114 &11448006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25781d8141740243891ac098122e0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carController: {fileID: 0}
 --- !u!114 &11459860
 MonoBehaviour:
   m_ObjectHideFlags: 1

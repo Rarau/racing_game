@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public bool carsInstantiated;
 
     public GameObject[] carsPrefab;
+    public GameObject playerHUDPrefab;
+
     public GameObject[] spawnLocations;
 
     public List<string> nameOfPlayers;
