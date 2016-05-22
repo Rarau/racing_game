@@ -14,7 +14,7 @@
 		return current;
 	}
 
-	public void setState(State<A> next) {
+	public void SetState(State<A> next) {
 		if (current != null) {
 			current.exit (agent);
 		}
