@@ -32,6 +32,6 @@ public class Countdown : MonoBehaviour {
         else if (timeLeft < -10)
         {
             gameObject.SetActive(false);
-        }
+        }   
     }
 }
