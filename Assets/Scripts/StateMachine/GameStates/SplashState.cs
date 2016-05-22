@@ -7,7 +7,7 @@ public class SplashState : State<GameManager>
     {
         Debug.Log("Executing Splash State");
 
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Joystick1Button7) || Input.GetKeyDown(KeyCode.Space))
         {
             gm.SetLevel("MENU_PLAYER");
             fsm.SetState(new MenuState());
