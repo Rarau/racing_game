@@ -25,11 +25,42 @@ public class SplitScreenCamera : MonoBehaviour
         cam = GetComponent<Camera>();
 
         playerNum = num;
-        float x = ((playerNum - 1) % numCols) / (float)numCols;
-        float y = ((int)((playerNum - 1) / (float)numRows)) / (float)numRows;
-        y = -y + (1.0f / numRows);
-        cam.rect = new Rect(new Vector2(x, y), new Vector2(1.0f / numCols, 1.0f / numRows));
 
+        if (totalPlayers == 1)
+        {
+            return;
+        }
+        else if(totalPlayers == 2)
+        {
+            float y = ((playerNum - 1) % numCols) / (float)numCols;
+            //float y = ((int)((playerNum - 1) / (float)numRows)) / (float)numRows;
+            y = -y + (1.0f / numRows);
+            cam.rect = new Rect(new Vector2(0.0f, y), new Vector2(1.0f, 0.5f));
+        }
+        else if (totalPlayers == 3)
+        {
+            if(playerNum == 1 || playerNum == 2)
+            {
+                float x = ((playerNum - 1) % numCols) / (float)numCols;
+                float y = ((int)((playerNum - 1) / (float)numRows)) / (float)numRows;
+                y = -y + (1.0f / numRows);
+                cam.rect = new Rect(new Vector2(x, y), new Vector2(1.0f / numCols, 1.0f / numRows));
+            }
+            else if(playerNum == 3)
+            {
+                float x = ((playerNum - 1) % numCols) / (float)numCols;
+                float y = ((int)((playerNum - 1) / (float)numRows)) / (float)numRows;
+                y = -y + (1.0f / numRows);
+                cam.rect = new Rect(new Vector2(x, y), new Vector2(1.0f, 1.0f / numRows));
+            }
+        }
+        else if (totalPlayers == 4)
+        {
+            float x = ((playerNum - 1) % numCols) / (float)numCols;
+            float y = ((int)((playerNum - 1) / (float)numRows)) / (float)numRows;
+            y = -y + (1.0f / numRows);
+            cam.rect = new Rect(new Vector2(x, y), new Vector2(1.0f / numCols, 1.0f / numRows));
+        }
     }
 
 	// Update is called once per frame

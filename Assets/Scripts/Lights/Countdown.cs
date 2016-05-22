@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Countdown : MonoBehaviour {
 
@@ -7,16 +8,26 @@ public class Countdown : MonoBehaviour {
 
     public enum signal { RED, YELLOW, GREEN};
     public signal mySignal;
-    
+    public event Action countdownFinishedEvent;
+
+    bool expired = false;
+
     // Use this for initialization
     void Start () {
+
+        expired = false;
         mySignal = signal.RED;
         gameObject.SetActive(true);
     }
 	
 	// Update is called once per frame
 	void Update () {
+
         timeLeft -= Time.deltaTime*4;
+
+        if (expired)
+            return;
+
         if (timeLeft >= 20)
         {           
             mySignal = signal.RED;
@@ -29,9 +40,14 @@ public class Countdown : MonoBehaviour {
         {
             mySignal = signal.GREEN;
         }
-        else if (timeLeft < -10)
+
+        if (timeLeft < 0)
         {
-            gameObject.SetActive(false);
+            expired = true;
+            if (countdownFinishedEvent != null)
+            {
+                countdownFinishedEvent();
+            }
         }
     }
 }

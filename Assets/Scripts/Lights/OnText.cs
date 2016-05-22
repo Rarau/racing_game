@@ -12,7 +12,7 @@ public class OnText : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        countdown = transform.parent.GetComponent<Countdown>();
+        countdown = GameObject.Find("TrafficLight").GetComponent<Countdown>();
         countdownText = GetComponent<Text>();
         countdownText.text = "3";
         countdownText.fontSize = fontSize;
@@ -20,6 +20,8 @@ public class OnText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (countdown == null)
+            return;
         if ((int)countdown.timeLeft == 20) 
         {
             countdownText.text = "2";
@@ -30,11 +32,16 @@ public class OnText : MonoBehaviour {
             countdownText.text = "1";
             countdownText.fontSize = fontSize;
         }
-         if ((int)countdown.timeLeft <= 0)
+
+        if (countdown.timeLeft < -10.0f)
+        {
+            gameObject.SetActive(false);
+        }
+        else if ((int)countdown.timeLeft <= 0)
         {
             countdownText.text = "GO!";
             if (Mathf.Abs((int)countdown.timeLeft) % 2 == 0)
-                countdownText.fontSize = fontSize*2;
+                countdownText.fontSize = fontSize * 2;
             else
                 countdownText.fontSize = fontSize;
         }

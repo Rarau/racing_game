@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22465194}
   m_Layer: 5
-  m_Name: Position7
+  m_Name: Score7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22485206}
   m_Layer: 5
-  m_Name: Position4
+  m_Name: Score4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22473716}
   m_Layer: 5
-  m_Name: Position1
+  m_Name: Score1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22418330}
   m_Layer: 5
-  m_Name: Position8
+  m_Name: Score8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22449036}
   m_Layer: 5
-  m_Name: Position9
+  m_Name: Score9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,7 +286,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22461026}
   m_Layer: 5
-  m_Name: Position6
+  m_Name: Score6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,11 +339,11 @@ GameObject:
   - 114: {fileID: 11403010}
   m_Layer: 5
   m_Name: Scoreboard
-  m_TagString: Untagged
+  m_TagString: Scoreboard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &141498
 GameObject:
   m_ObjectHideFlags: 1
@@ -387,7 +387,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22453128}
   m_Layer: 5
-  m_Name: Position10
+  m_Name: Score10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22424912}
   m_Layer: 5
-  m_Name: Position2
+  m_Name: Score2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -757,7 +757,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22430164}
   m_Layer: 5
-  m_Name: Position3
+  m_Name: Score3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,7 +772,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22451394}
   m_Layer: 5
-  m_Name: Position0
+  m_Name: Score0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -870,7 +870,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22429552}
   m_Layer: 5
-  m_Name: Position11
+  m_Name: Score11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,7 +919,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22456938}
   m_Layer: 5
-  m_Name: Position5
+  m_Name: Score5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2561,7 +2561,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140084}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_RenderMode: 0
   m_Camera: {fileID: 0}

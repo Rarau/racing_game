@@ -46,7 +46,7 @@ public class TextureChange : MonoBehaviour {
                     renderer.materials[0].mainTexture = swapTexture[0];
                 //renderer.materials[index]
             }
-            else
+            else if(meshChange.meshHealth <= 80)
             {
                 //renderer.material.mainTexture = Resources.Load("Bugatti_D1_Alb") as Texture;
                 if (isSupraBody)

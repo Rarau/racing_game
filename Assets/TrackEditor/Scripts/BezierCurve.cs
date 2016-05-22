@@ -61,6 +61,10 @@ public class BezierCurve : MonoBehaviour
 
     void Update()
     {
+        if (Application.isPlaying)
+        {
+            return;
+        }
         // Keep the next curve segment linked to this one
         if (nextCurve != null)
         {
