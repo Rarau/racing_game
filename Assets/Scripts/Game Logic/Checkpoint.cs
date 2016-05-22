@@ -35,8 +35,8 @@ public class Checkpoint : MonoBehaviour
                 // Update the checkpoint.
                 car.GetComponent<RaceInfo>().lastCheckpoint = thisCheckpoint;
 
-                // Update UI.
-            } else if (lastCheckpoint == GameObject.Find("Checkpoints").transform.childCount - 1 && thisCheckpoint == 0)
+            } 
+            else if (lastCheckpoint == GameObject.Find("Checkpoints").transform.childCount - 1 && thisCheckpoint == 0)
             {
                 // The car has completed a lap.
                 car.GetComponent<RaceInfo>().lap++;
@@ -48,7 +48,7 @@ public class Checkpoint : MonoBehaviour
             } else
             {
                 // Travelling in the wrong direction.
-                Debug.Log("Turn around you are travelling in the wrong direction.");
+                //Debug.Log("Turn around you are travelling in the wrong direction.");
             }
 
             // For debugging.
