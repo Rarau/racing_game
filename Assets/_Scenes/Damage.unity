@@ -713,9 +713,21 @@ Prefab:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 22468814, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 83
+    - target: {fileID: 11447122, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447122, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22464458, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 91.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22448406, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}

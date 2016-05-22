@@ -306,6 +306,7 @@ public class CarController : MonoBehaviour
         {
             crashEvent(other);
         }
+
     }
 
     Rect areagui = new Rect(0f, 20f, 500f, 300f);
