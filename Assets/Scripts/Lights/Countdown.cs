@@ -29,9 +29,9 @@ public class Countdown : MonoBehaviour {
         {
             mySignal = signal.GREEN;
         }
-        //else if (timeLeft < -10)
-        //{
-        //    gameObject.SetActive(false);
-        //}
+        else if (timeLeft < -10)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

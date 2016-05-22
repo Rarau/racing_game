@@ -623,7 +623,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 453904}
-  - 114: {fileID: 11469476}
   m_Layer: 0
   m_Name: TrafficLight
   m_TagString: Untagged
@@ -3595,19 +3594,6 @@ MonoBehaviour:
   red: 1
   yellow: 0
   green: 0
---- !u!114 &11469476
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b111549554dfccb448e69ed93ee4d01c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeLeft: 30
-  mySignal: 0
 --- !u!114 &11481632
 MonoBehaviour:
   m_ObjectHideFlags: 1
