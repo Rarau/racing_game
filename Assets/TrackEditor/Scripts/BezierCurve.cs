@@ -21,6 +21,8 @@ public class BezierCurve : MonoBehaviour
 
     public BezierCurve nextCurve;
 
+    public bool isCollider;
+
 	public void Start() 
     {
         // Initialize the handles for the Bezier curve
@@ -75,7 +77,7 @@ public class BezierCurve : MonoBehaviour
 
     public void RegenerateProfileShape()
     {
-        GenerateProfileShape(profile, numDivsProfile, width, verticalScale, profileShape);
+        GenerateProfileShape(profile, numDivsProfile, width, verticalScale, profileShape, isCollider);
     }
 
     /// <summary>
@@ -86,7 +88,7 @@ public class BezierCurve : MonoBehaviour
     /// <param name="width"></param>
     /// <param name="verticalScale"></param>
     /// <param name="profileShape"></param>
-    public static void GenerateProfileShape(AnimationCurve profile, int numDivsProfile, float width, float verticalScale, Shape profileShape)
+    public static void GenerateProfileShape(AnimationCurve profile, int numDivsProfile, float width, float verticalScale, Shape profileShape, bool collider = false)
     {
         Vector2[] points = new Vector2[numDivsProfile + 1];
         float[] uCoords = new float[numDivsProfile + 1];
@@ -151,7 +153,10 @@ public class BezierCurve : MonoBehaviour
         Shape.Extrude(mesh, profileShape, path);
         
         mesh.RecalculateNormals();
-
+        if(isCollider)
+        {
+            ReverseNormals(mesh);
+        }
         //Debug.Log("Mesh regenerated " + mesh.vertexCount);
         GetComponent<MeshFilter>().sharedMesh = mesh;
 
@@ -162,7 +167,27 @@ public class BezierCurve : MonoBehaviour
         }
         mc.sharedMesh = mesh;
     }
-    
+
+    static void ReverseNormals(Mesh mesh)
+    {
+        Vector3[] normals = mesh.normals;
+        for (int i = 0; i < normals.Length; i++)
+            normals[i] = -normals[i];
+        mesh.normals = normals;
+
+        for (int m = 0; m < mesh.subMeshCount; m++)
+        {
+            int[] triangles = mesh.GetTriangles(m);
+            for (int i = 0; i < triangles.Length; i += 3)
+            {
+                int temp = triangles[i + 0];
+                triangles[i + 0] = triangles[i + 1];
+                triangles[i + 1] = temp;
+            }
+            mesh.SetTriangles(triangles, m);
+        }
+    }
+
     static void CreateLineMaterial()
     {
         if (!mat)
