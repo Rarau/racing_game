@@ -50,7 +50,7 @@ public class RaceInfo : MonoBehaviour
         else
         {
             // Reposition car if still flipped after two seconds.
-            StartCoroutine(StillFlipped());
+            StartCoroutine(CarStuck());
         }
     }
 
@@ -102,7 +102,7 @@ public class RaceInfo : MonoBehaviour
         return false;
     }
 
-    private IEnumerator StillFlipped()
+    private IEnumerator CarStuck()
     {
         if (IsFlipped())
         {
