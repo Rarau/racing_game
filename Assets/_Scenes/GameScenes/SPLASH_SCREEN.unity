@@ -183,6 +183,7 @@ MonoBehaviour:
   - {fileID: 187566, guid: fbe954c6ee6bd8a43847e2a09c35c650, type: 2}
   - {fileID: 116462, guid: 7a5ead458d387f0469425d81b3100c99, type: 2}
   - {fileID: 116462, guid: 7a5ead458d387f0469425d81b3100c99, type: 2}
+  playerHUDPrefab: {fileID: 117930, guid: e466863d96f6b6c4f819b69457c10bf1, type: 2}
   spawnLocations:
   - {fileID: 0}
   - {fileID: 0}
@@ -669,7 +670,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
