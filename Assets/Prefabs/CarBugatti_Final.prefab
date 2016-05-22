@@ -956,6 +956,7 @@ GameObject:
   - 114: {fileID: 11468188}
   - 82: {fileID: 8252996}
   - 114: {fileID: 11405136}
+  - 81: {fileID: 8102586}
   m_Layer: 0
   m_Name: CarBugatti_Final
   m_TagString: Untagged
@@ -2980,6 +2981,13 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.026736885, y: 0.16222434, z: 0.078818195}
   m_Center: {x: -0.02233867, y: 0.07146612, z: -0.0019989994}
+--- !u!81 &8102586
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187566}
+  m_Enabled: 1
 --- !u!82 &8200508
 AudioSource:
   m_ObjectHideFlags: 1
