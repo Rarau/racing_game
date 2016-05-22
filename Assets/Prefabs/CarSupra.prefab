@@ -950,6 +950,7 @@ GameObject:
   - 81: {fileID: 8148942}
   - 114: {fileID: 11442962}
   - 114: {fileID: 11422572}
+  - 114: {fileID: 11467888}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4232,6 +4233,7 @@ MonoBehaviour:
   virtualRPM: 0.033403892
   currentSpeed: 6.7977195
   maximumSpeed: 407
+  playerNumber: 1
 --- !u!114 &11401356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4959,6 +4961,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 11489478}
+  maxGeometryDisplacement: 0.4
   suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
@@ -5105,6 +5108,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfd59eec852e0c74089ce4a30a25bd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11467888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211fabfb6f4d9804e8e1f0b7eda9d564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11470868
@@ -5389,6 +5403,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  maxGeometryDisplacement: 0.4
   suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
@@ -5516,6 +5531,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  maxGeometryDisplacement: 0.4
   suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0
@@ -5642,6 +5658,7 @@ MonoBehaviour:
   overridenSlipRatio: 0
   eBrakeEnabled: 0
   connectedWheel: {fileID: 0}
+  maxGeometryDisplacement: 0.4
   suspensionDistance: 0
   prevPos: {x: 0, y: 0, z: 0}
   w: 0

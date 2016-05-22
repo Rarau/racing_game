@@ -36,7 +36,8 @@ public class RaceState : State<GameManager>
         for (int i = 0; i < cars.Count; i++)
         {
             cars[i].GetComponent<RaceInfo>().SetLapTimer(Time.time - raceStartTime);
-        }   
+            gm.cars[i].GetComponent<CarController>().SetEnableMotion(true);
+        }
     }
 
     public void exit(GameManager gm)

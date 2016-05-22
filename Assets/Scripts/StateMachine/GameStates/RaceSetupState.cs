@@ -25,6 +25,11 @@ public class RaceSetupState : State<GameManager>
             {
                 // Must make sure input / car movement is disabled.
                 gm.cars.Add((GameObject)GameObject.Instantiate(gm.carsPrefab[gm.playerCars[i]], gm.spawnLocations[i].transform.position, gm.spawnLocations[i].transform.rotation));
+                gm.cars[i].GetComponent<CarController>().playerNumber = i + 1;
+                gm.cars[i].GetComponentInChildren<SplitScreenCamera>().SetPlayerNumber(i + 1);
+                gm.cars[i].GetComponent<CarPlayerInput>().enabled = true;
+                gm.cars[i].GetComponent<CarController>().SetEnableMotion(false);
+
             }
             gm.carsInstantiated = true;
         }
