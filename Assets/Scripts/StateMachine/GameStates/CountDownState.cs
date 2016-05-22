@@ -3,8 +3,6 @@ using System.Collections;
 
 public class CountDownState : State<GameManager>
 {
-    GameManager gm;
-
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         Debug.Log("Executing Start State");
@@ -13,7 +11,6 @@ public class CountDownState : State<GameManager>
 
     public void enter(GameManager gm)
     {
-        this.gm = gm;
         Debug.Log("Entered Start State");
     }
 
@@ -21,8 +18,8 @@ public class CountDownState : State<GameManager>
     {
     }
 
-    public void OnCountdownFinished()
-    {
-        gm.fsm.SetState(new RaceState());
-    }
+    //public void OnCountdownFinished()
+    //{
+    //    fsm.SetState(new RaceState());
+    //}
 }

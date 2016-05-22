@@ -3,28 +3,24 @@ using System.Collections.Generic;
 
 public class RaceState : State<GameManager>
 {
-    // Temporary until we figure out where this is coming from.
     public List<GameObject> cars;
 
+    private GameManager gm;
 
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
         //Debug.Log("Executing Race State");
         UpdateRacePositions();
+        CheckAllCarsFinished();
     }
 
     public void enter(GameManager gm)
     {
         Debug.Log("Entered Race State");
-        // Get car starting position array.
-        // Temp stuff until we figure out where the list of cars is coming from.
-        // Should probably be in RaceStartState.
-        cars = new List<GameObject>();
-        cars.Add(GameObject.Find("CarSupra"));
-        //cars.Add(GameObject.Find("CarSupra1"));
-        //cars.Add(GameObject.Find("CarSupra2"));
-        //cars.Add(GameObject.Find("CarSupra3"));
-        //cars.Add(GameObject.Find("CarSupra4"));
+        this.gm = gm;
+
+        // Get the list of cars from the game manager to manipulate.
+        cars = gm.cars;
 
         // Remove startup time from the race timer.
         float raceStartTime = Time.time;
@@ -121,6 +117,16 @@ public class RaceState : State<GameManager>
         //Debug.Log("BREAK");
 
         return cars;
+    }
+
+    // 
+    private void CheckAllCarsFinished()
+    {
+        if (gm.finalPositions.Count == cars.Count)
+        {
+            // All cars have finished, end race.
+            Debug.Log("End Race");
+        }
     }
 
     // Comparitor for the cars current lap.

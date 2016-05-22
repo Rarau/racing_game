@@ -5,6 +5,8 @@ public class RaceSetupState : State<GameManager>
 {
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
+        Debug.Log("Executing RaceSetupState");
+
         // Setup spawn locations.
         if (!gm.spawnsSet)
         {
@@ -21,20 +23,26 @@ public class RaceSetupState : State<GameManager>
         {
             for (int i = 0; i < gm.numberOfHumanPlayers; i++)
             {
-                GameObject.Instantiate(gm.carsPrefab[gm.playerCars[i]], gm.spawnLocations[i].transform.position, gm.spawnLocations[i].transform.rotation);
+                // Must make sure input / car movement is disabled.
+                gm.cars.Add((GameObject)GameObject.Instantiate(gm.carsPrefab[gm.playerCars[i]], gm.spawnLocations[i].transform.position, gm.spawnLocations[i].transform.rotation));
             }
             gm.carsInstantiated = true;
         }
+
+        // Begin count down...
+        // Switch to RaceState.
+        fsm.SetState(new RaceState());
     }
 
     public void enter(GameManager gm)
     {
+        Debug.Log("Entering RaceSetupState");
         // Spawn locations not detected in the scene at this point... for some reason.
         // Placed spawn location setup and car initiation in execute insetad.
     }
 
     public void exit(GameManager gm)
     {
-
+        Debug.Log("Exiting RaceSetupState");
     }
 }
