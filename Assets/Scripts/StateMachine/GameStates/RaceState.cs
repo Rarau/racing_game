@@ -23,7 +23,7 @@ public class RaceState : State<GameManager>
 
     public void enter(GameManager gm)
     {
-        Debug.Log("Entered Race State");
+        //Debug.Log("Entered Race State");
         this.gm = gm;
 
         // Get the list of cars from the game manager to manipulate.
@@ -42,7 +42,7 @@ public class RaceState : State<GameManager>
 
     public void exit(GameManager gm)
     {
-        Debug.Log("Left Race State");
+        //Debug.Log("Left Race State");
     }
 
     private void UpdateRacePositions()
