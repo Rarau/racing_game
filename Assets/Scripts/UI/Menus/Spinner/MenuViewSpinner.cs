@@ -41,7 +41,7 @@ public class MenuViewSpinner : MenuView {
 
             for(int i = 0; i < options.Count; i++)
             {
-                curObject = new GameObject("Spinner Option "+i);
+                curObject = Instantiate(options[i].carPrefab);//new GameObject("Spinner Option "+i);
                 curObject.transform.SetParent(spinner.transform);
                 curObject.transform.localPosition = Vector3.zero;
                 curObject.transform.Translate(radius * (float)Math.Sin(((Math.PI * 2) / options.Count) * i), 0, radius * (float)Math.Cos(((Math.PI * 2) / options.Count) * i), spinner.transform);
@@ -50,11 +50,12 @@ public class MenuViewSpinner : MenuView {
                 curRotater = curObject.AddComponent<MenuViewObjectRotate>();
                 curRotater.rotateSpeed = optionSpinSpeed;
                 print(curRotater.rotateSpeed);
+               
                 //set position
-                curFilter = curObject.AddComponent<MeshFilter>();
-                curFilter.mesh = options[i].mesh;
-                curRenderer = curObject.AddComponent<MeshRenderer>();
-                curRenderer.material = options[i].material;
+                //curFilter = curObject.AddComponent<MeshFilter>();
+                //curFilter.mesh = options[i].mesh;
+                //curRenderer = curObject.AddComponent<MeshRenderer>();
+                //curRenderer.material = options[i].material;
             }
         }
 	}

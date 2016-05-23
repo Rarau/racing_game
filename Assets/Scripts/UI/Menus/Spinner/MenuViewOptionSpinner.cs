@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MenuViewOptionSpinner : MenuViewOption {
 
-    public Mesh mesh;
+    public GameObject carPrefab;
     public Material material;
 	// Use this for initialization
 	void Start () {
