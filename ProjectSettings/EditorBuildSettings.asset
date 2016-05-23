@@ -12,8 +12,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/GameScenes/MENU_CAR.unity
   - enabled: 1
-    path: Assets/_Scenes/GameScenes/MENU_LAPS.unity
-  - enabled: 1
     path: Assets/_Scenes/GameScenes/RACE.unity
+  - enabled: 1
+    path: Assets/_Scenes/GameScenes/MENU_LAPS.unity
   - enabled: 1
     path: Assets/_Scenes/GameScenes/MENU_SCOREBOARD.unity

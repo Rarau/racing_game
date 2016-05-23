@@ -3520,6 +3520,8 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+  sectionLenght: 0.125325
+  skidmarkPool: {fileID: 0}
 --- !u!114 &11404982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3626,6 +3628,8 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+  sectionLenght: 0.125325
+  skidmarkPool: {fileID: 0}
 --- !u!114 &11419264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3948,13 +3952,13 @@ MonoBehaviour:
       inSlope: 2
       outSlope: 2
       tangentMode: 0
-    - time: 0.14479584
-      value: 0.13307853
+    - time: 0.1416217
+      value: 0.2706427
       inSlope: -5.98222
       outSlope: -5.98222
       tangentMode: 0
-    - time: 0.15812956
-      value: 0.117301255
+    - time: 0.15495542
+      value: 0.2548654
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4566,6 +4570,8 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+  sectionLenght: 0.125325
+  skidmarkPool: {fileID: 0}
 --- !u!114 &11485244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4753,6 +4759,8 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+  sectionLenght: 0.125325
+  skidmarkPool: {fileID: 0}
 --- !u!114 &11497048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15888,11 +15896,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].value
-      value: 0.17164221
+      value: 0.2706427
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].time
-      value: 0.14537296
+      value: 0.1416217
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].inSlope
@@ -15904,11 +15912,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[2].value
-      value: 0.117301255
+      value: 0.2548654
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[2].time
-      value: 0.15870668
+      value: 0.15495542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
