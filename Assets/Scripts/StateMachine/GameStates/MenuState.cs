@@ -6,7 +6,6 @@ public class MenuState : State<GameManager>
 {
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
-        Debug.Log("Executing Menu State");
         string level = gm.GetLevel();
 
         // Loads car selection after number of human players is selected.
