@@ -17,6 +17,8 @@ public class ExhaustFX : MonoBehaviour
 	void OnEnable () 
     {
         previousGear = 1;
+        if(carController == null)
+            carController = transform.root.GetComponent<CarController>();
         carController.gearShiftEvent += OnGearShift;
 	}
 
