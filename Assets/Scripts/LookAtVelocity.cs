@@ -21,5 +21,11 @@ public class LookAtVelocity : MonoBehaviour
         if (rotOffset.magnitude > 0.01f)
             transform.forward = Vector3.Lerp(transform.forward, rigidbody.transform.TransformDirection((rotOffset)).normalized * rigidbody.velocity.magnitude, Time.deltaTime * smoothness);
         
+        if(transform.position.y < rigidbody.transform.position.y)
+        {
+            Vector3 newPos = transform.position;
+            newPos.y = rigidbody.transform.position.y;
+            transform.position = newPos;
+        }
 	}
 }

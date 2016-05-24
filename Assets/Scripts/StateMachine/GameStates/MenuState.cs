@@ -6,7 +6,6 @@ public class MenuState : State<GameManager>
 {
     public void execute(GameManager gm, StateMachine<GameManager> fsm)
     {
-        //Debug.Log("Executing Menu State");
         string level = gm.GetLevel();
 
         // Loads car selection after number of human players is selected.
@@ -33,12 +32,12 @@ public class MenuState : State<GameManager>
 
     public void enter(GameManager gm)
     {
-        //Debug.Log("Entered Menu State");
+        Debug.Log("Entered Menu State");
     }
 
     public void exit(GameManager gm)
     {
-        //Debug.Log("Left Menu State");
+        Debug.Log("Left Menu State");
     }
 
     public bool AllCarsSelected(List<bool> carsSelected) 

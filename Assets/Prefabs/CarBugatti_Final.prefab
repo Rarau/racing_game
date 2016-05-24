@@ -473,6 +473,7 @@ GameObject:
   - 114: {fileID: 11429488}
   - 114: {fileID: 11475220}
   - 114: {fileID: 11472484}
+  - 81: {fileID: 8174440}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2980,6 +2981,13 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.026736885, y: 0.16222434, z: 0.078818195}
   m_Center: {x: -0.02233867, y: 0.07146612, z: -0.0019989994}
+--- !u!81 &8174440
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139096}
+  m_Enabled: 1
 --- !u!82 &8200508
 AudioSource:
   m_ObjectHideFlags: 1
@@ -3512,6 +3520,8 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+  sectionLenght: 0.125325
+  skidmarkPool: {fileID: 0}
 --- !u!114 &11404982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3618,6 +3628,8 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+  sectionLenght: 0.125325
+  skidmarkPool: {fileID: 0}
 --- !u!114 &11419264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3940,13 +3952,13 @@ MonoBehaviour:
       inSlope: 2
       outSlope: 2
       tangentMode: 0
-    - time: 0.14479584
-      value: 0.13307853
+    - time: 0.1416217
+      value: 0.2706427
       inSlope: -5.98222
       outSlope: -5.98222
       tangentMode: 0
-    - time: 0.15812956
-      value: 0.028437134
+    - time: 0.15495542
+      value: 0.2548654
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4558,6 +4570,8 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+  sectionLenght: 0.125325
+  skidmarkPool: {fileID: 0}
 --- !u!114 &11485244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4745,6 +4759,8 @@ MonoBehaviour:
   rubberOnRoad: {fileID: 2100000, guid: 4b0b7791da932c341bdfa59fd6fccadb, type: 2}
   skidMarkWidth: 0.2
   heightOffset: 0.05
+  sectionLenght: 0.125325
+  skidmarkPool: {fileID: 0}
 --- !u!114 &11497048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15880,11 +15896,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].value
-      value: 0.13307853
+      value: 0.2706427
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].time
-      value: 0.14479584
+      value: 0.1416217
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[1].inSlope
@@ -15896,11 +15912,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[2].value
-      value: 0.028437134
+      value: 0.2548654
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: steeringSensitityCurve.m_Curve.Array.data[2].time
-      value: 0.15812956
+      value: 0.15495542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -1193,6 +1193,10 @@ Prefab:
       propertyPath: m_Name
       value: CarSupra_AlmostFinal
       objectReference: {fileID: 0}
+    - target: {fileID: 11405940, guid: 7a5ead458d387f0469425d81b3100c99, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a5ead458d387f0469425d81b3100c99, type: 2}
   m_IsPrefabParent: 0

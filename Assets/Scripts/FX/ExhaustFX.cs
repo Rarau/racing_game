@@ -7,11 +7,18 @@ public class ExhaustFX : MonoBehaviour
     int previousGear;
     public GameObject exhaust;
 
+
+    void Start()
+    {
+        carController = transform.root.GetComponent<CarController>();
+    }
+
 	// Use this for initialization
 	void OnEnable () 
     {
         previousGear = 1;
-        carController = transform.root.GetComponent<CarController>();
+        if(carController == null)
+            carController = transform.root.GetComponent<CarController>();
         carController.gearShiftEvent += OnGearShift;
 	}
 

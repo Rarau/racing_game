@@ -646,7 +646,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 454170}
-  - 95: {fileID: 9581132}
   m_Layer: 0
   m_Name: Prefab_AmericanMountainAsh
   m_TagString: Untagged
@@ -1857,7 +1856,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179954}
-  m_LocalRotation: {x: 0.80360264, y: 0.29090548, z: -0.49010125, w: -0.17145756}
+  m_LocalRotation: {x: 0.8036025, y: 0.29090545, z: -0.4901012, w: -0.17145754}
   m_LocalPosition: {x: 0.028290061, y: -1.7555652, z: 6.9023447}
   m_LocalScale: {x: 1.2399576, y: 1.2399576, z: 1.2399576}
   m_Children: []
@@ -2285,7 +2284,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141936}
-  m_LocalRotation: {x: -0.38020003, y: -0.29604405, z: 0.858068, w: -0.17755373}
+  m_LocalRotation: {x: -0.38019997, y: -0.29604402, z: 0.85806787, w: -0.17755371}
   m_LocalPosition: {x: 0.3487811, y: 0.03359044, z: 7.394058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2345,7 +2344,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152476}
-  m_LocalRotation: {x: -0.50315, y: 0.60364217, z: 0.580872, w: -0.21223602}
+  m_LocalRotation: {x: -0.5031499, y: 0.6036421, z: 0.58087194, w: -0.21223599}
   m_LocalPosition: {x: 3.1728978, y: -1.4921505, z: 5.1910048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4949,23 +4948,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170650}
   m_Mesh: {fileID: 4300014, guid: 04a8ef8709c583c4d9cfbfc037814463, type: 3}
---- !u!95 &9581132
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 144382}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 04a8ef8709c583c4d9cfbfc037814463, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
