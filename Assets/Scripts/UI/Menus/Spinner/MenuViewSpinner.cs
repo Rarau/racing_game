@@ -49,7 +49,7 @@ public class MenuViewSpinner : MenuView {
                 curObject.transform.RotateAround(curObject.transform.position, curObject.transform.up, (float)(360 / options.Count) * i);
                 curRotater = curObject.AddComponent<MenuViewObjectRotate>();
                 curRotater.rotateSpeed = optionSpinSpeed;
-                print(curRotater.rotateSpeed);
+                //print(curRotater.rotateSpeed);
                
                 //set position
                 //curFilter = curObject.AddComponent<MeshFilter>();

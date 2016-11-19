@@ -47,7 +47,7 @@ public class RaceSetupState : State<GameManager>
 
     public void enter(GameManager gm)
     {
-        //Debug.Log("Entering RaceSetupState");
+        Debug.Log("Entering RaceSetupState");
         SplitScreenCamera.totalPlayers = gm.numberOfHumanPlayers;
         fsm = gm.fsm;
         // Spawn locations not detected in the scene at this point... for some reason.
@@ -56,7 +56,7 @@ public class RaceSetupState : State<GameManager>
 
     public void exit(GameManager gm)
     {
-        //Debug.Log("Exiting RaceSetupState");
+        Debug.Log("Exiting RaceSetupState");
         GameObject.FindObjectOfType<Countdown>().countdownFinishedEvent -= OnCountdownFinished;
 
     }
