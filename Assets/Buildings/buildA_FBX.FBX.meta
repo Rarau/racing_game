@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: 5f5481c7463d71f409b7d40703178c19
+timeCreated: 1462971442
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: build1-ground-windowCorner
+    100002: buildA-1st-corner
+    100004: buildA-1st-general
+    100006: buildA-1st-roofCorner
+    100008: buildA-1st-roofGeneral
+    100010: buildA-1st-windowGeneral
+    100012: buildA-2nd-corner
+    100014: buildA-2nd-general
+    100016: buildA-2nd-Roof
+    100018: buildA-2nd-roofGeneral
+    100020: buildA-2nd-window-general
+    100022: buildA-2nd-windowCorner
+    100024: buildA-2nd-windowCorner001
+    100026: buildA-ground-general
+    100028: buildA-ground-windowGeneral
+    100030: //RootNode
+    100032: BuildingA-gound-corner
+    100034: stairs
+    400000: build1-ground-windowCorner
+    400002: buildA-1st-corner
+    400004: buildA-1st-general
+    400006: buildA-1st-roofCorner
+    400008: buildA-1st-roofGeneral
+    400010: buildA-1st-windowGeneral
+    400012: buildA-2nd-corner
+    400014: buildA-2nd-general
+    400016: buildA-2nd-Roof
+    400018: buildA-2nd-roofGeneral
+    400020: buildA-2nd-window-general
+    400022: buildA-2nd-windowCorner
+    400024: buildA-2nd-windowCorner001
+    400026: buildA-ground-general
+    400028: buildA-ground-windowGeneral
+    400030: //RootNode
+    400032: BuildingA-gound-corner
+    400034: stairs
+    2300000: build1-ground-windowCorner
+    2300002: buildA-1st-corner
+    2300004: buildA-1st-general
+    2300006: buildA-1st-roofCorner
+    2300008: buildA-1st-roofGeneral
+    2300010: buildA-1st-windowGeneral
+    2300012: buildA-2nd-corner
+    2300014: buildA-2nd-general
+    2300016: buildA-2nd-Roof
+    2300018: buildA-2nd-roofGeneral
+    2300020: buildA-2nd-window-general
+    2300022: buildA-2nd-windowCorner
+    2300024: buildA-2nd-windowCorner001
+    2300026: buildA-ground-general
+    2300028: buildA-ground-windowGeneral
+    2300030: BuildingA-gound-corner
+    2300032: stairs
+    3300000: build1-ground-windowCorner
+    3300002: buildA-1st-corner
+    3300004: buildA-1st-general
+    3300006: buildA-1st-roofCorner
+    3300008: buildA-1st-roofGeneral
+    3300010: buildA-1st-windowGeneral
+    3300012: buildA-2nd-corner
+    3300014: buildA-2nd-general
+    3300016: buildA-2nd-Roof
+    3300018: buildA-2nd-roofGeneral
+    3300020: buildA-2nd-window-general
+    3300022: buildA-2nd-windowCorner
+    3300024: buildA-2nd-windowCorner001
+    3300026: buildA-ground-general
+    3300028: buildA-ground-windowGeneral
+    3300030: BuildingA-gound-corner
+    3300032: stairs
+    4300000: buildA-1st-windowGeneral
+    4300002: buildA-1st-corner
+    4300004: BuildingA-gound-corner
+    4300006: stairs
+    4300008: buildA-2nd-Roof
+    4300010: buildA-2nd-corner
+    4300012: build1-ground-windowCorner
+    4300014: buildA-2nd-windowCorner
+    4300016: buildA-1st-roofCorner
+    4300018: buildA-2nd-windowCorner001
+    4300020: buildA-ground-general
+    4300022: buildA-1st-general
+    4300024: buildA-2nd-roofGeneral
+    4300026: buildA-ground-windowGeneral
+    4300028: buildA-1st-roofGeneral
+    4300030: buildA-2nd-general
+    4300032: buildA-2nd-window-general
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
